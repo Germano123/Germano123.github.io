@@ -1,0 +1,53 @@
+/* ========================================================
+   Cozy Developer Laboratory — Design Tokens
+   Conforme Seção 7 do documento de requisitos
+   ======================================================== */
+
+:root {
+  /* Cores de Superfície */
+  --bg-dark: #111114;
+  --bg-card: #1a1a21;
+  --bg-card-hover: #22222b;
+  --bg-card-inner: #15151a;
+  --bg-input: #141418;
+
+  /* Paleta Neutra e Acolhedora */
+  --color-cream: #f6eedb;
+  --color-cream-muted: #d8ceba;
+  --color-text-muted: #9ba3af;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(200, 129, 59, 0.35);
+
+  /* Acentos de Tecnologia & Natureza (Verdes) */
+  --color-green: #10b981;
+  --color-green-light: #34d399;
+  --color-green-bg: rgba(16, 185, 129, 0.12);
+
+  /* Acentos de Ação & Calor (Laranjas) */
+  --color-orange: #f97316;
+  --color-orange-light: #fb923c;
+  --color-orange-bg: rgba(249, 115, 22, 0.12);
+
+  /* Tons de Madeira (Craftsmanship) */
+  --wood-dark: #4a2f1b;
+  --wood-medium: #8b5a2b;
+  --wood-light: #c8813b;
+  --wood-badge-bg: rgba(200, 129, 59, 0.14);
+
+  /* Tipografia */
+  --font-cozy: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Formas e Elevação */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 9999px;
+  
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.5);
+
+  /* Transições */
+  --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
