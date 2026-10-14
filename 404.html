@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Não Encontrada | Germano Cozy Dev Lab</title>
+    <!-- Google Fonts for Cozy Rounded Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header id="site-header-mount"></header>
+
+    <main class="page-shell">
+        <section style="margin: 40px auto; max-width: 600px; text-align: center;">
+            <div class="empty-state">
+                <span class="empty-state-icon" aria-hidden="true">🧭</span>
+                <h1 class="empty-state-title">404 — Página Não Encontrada</h1>
+                <p class="empty-state-desc">
+                    Parece que você explorou um cantinho do laboratório que ainda não existe ou mudou de lugar.
+                </p>
+                <div style="display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap; justify-content: center;">
+                    <a href="index.html" class="btn btn-primary">Voltar para o Início</a>
+                    <a href="software-shelf.html" class="btn btn-secondary">Explorar Projetos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="site-footer-mount"></footer>
+
+    <script src="js/data/projects.js"></script>
+    <script src="js/data/areas.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/components.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        initI18n();
+        Components.renderHeader('home');
+        Components.renderFooter();
+      });
+    </script>
+</body>
+</html>
