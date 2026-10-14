@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Devlog — Notas técnicas, processos de criação e aprendizados em game development no Cozy Dev Lab.">
+    <title>Devlog | Germano Cozy Dev Lab</title>
+    <!-- Google Fonts for Cozy Rounded Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header id="site-header-mount"></header>
+
+    <main class="page-shell">
+        <section class="section-header">
+            <h1 class="section-title">
+                <span>📝</span>
+                <span>Devlog & Caderno Técnico</span>
+            </h1>
+            <p class="section-desc">
+                Publicações sobre decisões de arquitetura, pipelines de arte técnica, pós-mortems e notas de experimentação.
+            </p>
+        </section>
+
+        <section>
+            <div id="devlog-mount">
+                <!-- Empty state acolhedor conforme requisitos da spec -->
+            </div>
+        </section>
+    </main>
+
+    <footer id="site-footer-mount"></footer>
+
+    <!-- Scripts da Aplicação -->
+    <script src="js/data/projects.js"></script>
+    <script src="js/data/areas.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/projects-service.js"></script>
+    <script src="js/components.js"></script>
+
+    <script>
+      function renderDevlog() {
+        Components.renderHeader('devlog');
+        Components.renderFooter();
+
+        const mount = document.getElementById('devlog-mount');
+        if (mount) {
+          mount.innerHTML = Components.renderEmptyState(
+            'Artigos e Notas Técnicas em Redação',
+            'Os primeiros artigos detalhando pipelines de shaders na Unity e ferramentas modulares na Godot estão sendo organizados e serão publicados em breve.',
+            '📝'
+          );
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initI18n();
+        renderDevlog();
+
+        window.addEventListener('languageChanged', () => {
+          renderDevlog();
+        });
+      });
+    </script>
+</body>
+</html>

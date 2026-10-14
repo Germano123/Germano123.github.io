@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estudo de caso e detalhe técnico do projeto — Cozy Developer Laboratory.">
+    <title>Estudo de Caso | Germano Cozy Dev Lab</title>
+    <!-- Google Fonts for Cozy Rounded Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header id="site-header-mount"></header>
+
+    <main class="page-shell">
+        <div id="case-study-mount">
+            <!-- Conteúdo montado dinamicamente -->
+        </div>
+    </main>
+
+    <footer id="site-footer-mount"></footer>
+
+    <!-- Scripts da Aplicação -->
+    <script src="js/data/projects.js"></script>
+    <script src="js/data/areas.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/projects-service.js"></script>
+    <script src="js/components.js"></script>
+
+    <script>
+      function getSlugFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('slug') || params.get('id');
+      }
+
+      function renderCaseStudy() {
+        Components.renderHeader('shelf');
+        Components.renderFooter();
+
+        const mount = document.getElementById('case-study-mount');
+        if (!mount || typeof ProjectsService === 'undefined') return;
+
+        const slug = getSlugFromUrl();
+        const project = ProjectsService.getBySlug(slug);
+        const lang = getLanguage();
+
+        if (!project) {
+          mount.innerHTML = `
+            ${Components.renderEmptyState(
+              'Projeto não encontrado / Project not found',
+              'O estudo de caso solicitado não existe ou ainda não possui autorização de visibilidade pública.',
+              '🔍'
+            )}
+          `;
+          return;
+        }
+
+        // Título dinâmico da página
+        document.title = `${project.title} | Germano Cozy Dev Lab`;
+
+        const summary = project.summary[lang] || project.summary.pt;
+        const problem = project.problem ? (project.problem[lang] || project.problem.pt) : null;
+        const solution = project.solution ? (project.solution[lang] || project.solution.pt) : null;
+        const contributions = project.contributions ? (project.contributions[lang] || project.contributions.pt) : null;
+        const technicalDetails = project.technicalDetails ? (project.technicalDetails[lang] || project.technicalDetails.pt) : null;
+        const results = project.results ? (project.results[lang] || project.results.pt) : null;
+
+        const techTagsHtml = (project.technologies || [])
+          .map(t => `<span class="tech-tag">${t}</span>`)
+          .join('');
+
+        const statusLabel = t(`status${project.status.charAt(0).toUpperCase() + project.status.slice(1).replace('-', '')}`) || project.status;
+
+        mount.innerHTML = `
+          <article class="case-study">
+            <!-- Header do Estudo de Caso -->
+            <header class="case-study-header">
+              <a href="software-shelf.html" class="btn btn-ghost" style="align-self: flex-start; padding: 4px 14px; font-size: 0.85rem;">
+                ${t('btnBackToArea')}
+              </a>
+              <h1 class="case-study-title">${project.title}</h1>
+              <div class="case-study-meta">
+                <span class="project-status-badge status-${project.status}">${statusLabel}</span>
+                <div class="project-tech-tags">${techTagsHtml}</div>
+              </div>
+              <p style="font-size: 1.15rem; color: var(--color-green-light); line-height: 1.6;">${summary}</p>
+            </header>
+
+            <!-- Capa ou Mídia Principal -->
+            <div class="case-study-cover">
+              <img src="${project.cover || 'assets/background.jpg'}" alt="${project.title}">
+            </div>
+
+            <!-- Breakdown Conforme Seção 6 da Spec -->
+            ${problem ? `
+              <section class="case-study-section">
+                <h2 class="case-study-section-title">${t('caseStudyProblem')}</h2>
+                <div class="case-study-section-content"><p>${problem}</p></div>
+              </section>
+            ` : ''}
+
+            ${solution ? `
+              <section class="case-study-section">
+                <h2 class="case-study-section-title">${t('caseStudySolution')}</h2>
+                <div class="case-study-section-content"><p>${solution}</p></div>
+              </section>
+            ` : ''}
+
+            ${contributions ? `
+              <section class="case-study-section">
+                <h2 class="case-study-section-title">${t('caseStudyContributions')}</h2>
+                <div class="case-study-section-content"><p>${contributions}</p></div>
+              </section>
+            ` : ''}
+
+            ${technicalDetails ? `
+              <section class="case-study-section">
+                <h2 class="case-study-section-title">${t('caseStudyTechnical')}</h2>
+                <div class="case-study-section-content"><p>${technicalDetails}</p></div>
+              </section>
+            ` : ''}
+
+            ${results ? `
+              <section class="case-study-section">
+                <h2 class="case-study-section-title">${t('caseStudyResults')}</h2>
+                <div class="case-study-section-content"><p>${results}</p></div>
+              </section>
+            ` : ''}
+
+            <!-- Ações e Links Externos Verificáveis -->
+            <footer class="case-study-actions">
+              ${project.repositoryUrl ? `
+                <a href="${project.repositoryUrl}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                  <span>GitHub</span>
+                  <span>↗</span>
+                </a>
+              ` : ''}
+              ${project.buildUrl ? `
+                <a href="${project.buildUrl}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                  <span>${t('btnBuild')}</span>
+                  <span>↗</span>
+                </a>
+              ` : ''}
+              <a href="software-shelf.html" class="btn btn-ghost">
+                ${t('btnBackToShelf')}
+              </a>
+            </footer>
+          </article>
+        `;
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initI18n();
+        renderCaseStudy();
+
+        window.addEventListener('languageChanged', () => {
+          renderCaseStudy();
+        });
+      });
+    </script>
+</body>
+</html>

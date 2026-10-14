@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Software Shelf — Catálogo central de softwares, ferramentas e assets do Cozy Developer Laboratory.">
+    <title>Software Shelf | Germano Cozy Dev Lab</title>
+    <!-- Google Fonts for Cozy Rounded Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header id="site-header-mount"></header>
+
+    <main class="page-shell">
+        <!-- Cabeçalho da Área -->
+        <section class="section-header">
+            <h1 class="section-title">
+                <span>📚</span>
+                <span data-i18n="navShelf">Software Shelf</span>
+            </h1>
+            <p class="section-desc">
+                Catálogo unificado de ferramentas, shaders, sistemas de jogos e protótipos experimentais.
+            </p>
+        </section>
+
+        <!-- Controles de Busca e Filtros -->
+        <section class="catalog-controls">
+            <div class="search-input-wrapper">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <input type="text" id="catalog-search" class="search-input" placeholder="Pesquisar por nome, tecnologia ou palavra-chave..." data-i18n-placeholder="searchPlaceholder" aria-label="Pesquisar projetos">
+            </div>
+
+            <div class="filter-pills" id="area-filter-pills">
+                <button type="button" class="filter-pill active" data-area="all">Todas as Áreas</button>
+                <button type="button" class="filter-pill" data-area="tools-lab">Tools Lab</button>
+                <button type="button" class="filter-pill" data-area="art-workshop">Art Workshop</button>
+                <button type="button" class="filter-pill" data-area="game-systems">Game Systems</button>
+            </div>
+        </section>
+
+        <!-- Grid de Projetos Filtrados -->
+        <section>
+            <div class="projects-grid" id="catalog-projects-mount"></div>
+        </section>
+    </main>
+
+    <footer id="site-footer-mount"></footer>
+
+    <!-- Scripts da Aplicação -->
+    <script src="js/data/projects.js"></script>
+    <script src="js/data/areas.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/projects-service.js"></script>
+    <script src="js/components.js"></script>
+
+    <script>
+      let currentArea = 'all';
+      let searchQuery = '';
+
+      function renderCatalog() {
+        Components.renderHeader('shelf');
+        Components.renderFooter();
+
+        const mount = document.getElementById('catalog-projects-mount');
+        if (!mount || typeof ProjectsService === 'undefined') return;
+
+        const allProjects = ProjectsService.getAllPublished();
+        const filtered = ProjectsService.filterProjects(allProjects, {
+          query: searchQuery,
+          area: currentArea
+        });
+
+        if (filtered.length === 0) {
+          mount.innerHTML = `
+            <div style="grid-column: 1 / -1;">
+              ${Components.renderEmptyState(t('noProjectsFoundTitle'), t('noProjectsFoundDesc'), '🔍')}
+            </div>
+          `;
+        } else {
+          mount.innerHTML = filtered.map(p => Components.renderProjectCard(p)).join('');
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initI18n();
+        renderCatalog();
+
+        // Evento de busca por texto
+        const searchInput = document.getElementById('catalog-search');
+        if (searchInput) {
+          searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderCatalog();
+          });
+        }
+
+        // Filtro por botões de área
+        document.querySelectorAll('#area-filter-pills .filter-pill').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('#area-filter-pills .filter-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentArea = btn.getAttribute('data-area');
+            renderCatalog();
+          });
+        });
+
+        window.addEventListener('languageChanged', () => {
+          renderCatalog();
+        });
+      });
+    </script>
+</body>
+</html>

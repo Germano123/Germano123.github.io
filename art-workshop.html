@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Art Workshop — Technical art, modelagem 3D, texturas e shaders estilizados no Cozy Dev Lab.">
+    <title>Art Workshop | Germano Cozy Dev Lab</title>
+    <!-- Google Fonts for Cozy Rounded Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header id="site-header-mount"></header>
+
+    <main class="page-shell">
+        <section class="section-header">
+            <h1 class="section-title">
+                <span>🎨</span>
+                <span>Art Workshop</span>
+            </h1>
+            <p class="section-desc">
+                Produção de arte técnica, modelagem low-poly otimizada, mapeamento UV eficiente e autoria de shaders para jogos acolhedores.
+            </p>
+        </section>
+
+        <section>
+            <div class="projects-grid" id="art-projects-mount"></div>
+        </section>
+    </main>
+
+    <footer id="site-footer-mount"></footer>
+
+    <!-- Scripts da Aplicação -->
+    <script src="js/data/projects.js"></script>
+    <script src="js/data/areas.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/projects-service.js"></script>
+    <script src="js/components.js"></script>
+
+    <script>
+      function renderArtWorkshop() {
+        Components.renderHeader('art');
+        Components.renderFooter();
+
+        const mount = document.getElementById('art-projects-mount');
+        if (!mount || typeof ProjectsService === 'undefined') return;
+
+        const projects = ProjectsService.getByArea('art-workshop');
+        if (projects.length === 0) {
+          mount.innerHTML = `
+            <div style="grid-column: 1 / -1;">
+              ${Components.renderEmptyState(t('emptyAreaTitle'), t('emptyAreaDesc'), '🎨')}
+            </div>
+          `;
+        } else {
+          mount.innerHTML = projects.map(p => Components.renderProjectCard(p)).join('');
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initI18n();
+        renderArtWorkshop();
+
+        window.addEventListener('languageChanged', () => {
+          renderArtWorkshop();
+        });
+      });
+    </script>
+</body>
+</html>
