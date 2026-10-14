@@ -3,125 +3,154 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Germano | Software, Jogos & Modelagem 3D</title>
+    <meta name="description" content="Germano — Cozy Developer Laboratory. Onde código, arte e ferramentas se encontram para criar experiências de jogos acolhedoras e eficientes.">
+    <title>Germano | Cozy Dev Lab</title>
     <!-- Google Fonts for Cozy Rounded Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <!-- Cabeçalho Compartilhado -->
+    <header id="site-header-mount"></header>
 
-    <!-- Modern Cozy Hero Header -->
-    <header class="hero-section">
-        <div class="hero-container">
-            <div class="hero-badge">🌿 Cozy Tech Developer</div>
-            <h1 class="hero-title">Germano</h1>
-            <p class="hero-subtitle">Engenharia de Software • Criação de Jogos • Modelagem 3D</p>
-            <p class="hero-description">
-                Unindo tecnologia robusta, design lúdico e ambientes digitais acolhedores para construir experiências memoráveis.
+    <!-- Shell da Página -->
+    <main class="page-shell">
+        <!-- Hero Card com Foto do Perfil -->
+        <section class="hero-section hero-card">
+            <div class="hero-content">
+                <div class="hero-title">
+                    <div class="hero-avatar-wrapper">
+                        <img src="https://github.com/Germano123.png" alt="Germano Gomes" class="hero-avatar" width="130" height="130" loading="eager">
+                        <div class="hero-avatar-badge" title="Cozy Tech & Tools" aria-hidden="true">🌿</div>
+                    </div>
+
+                    <div class="hero-title-text">
+                        <span class="hero-badge" data-i18n="heroBadge">🌿 Cozy Developer • Tools & Technical Art</span>
+                        <h1 class="hero-title-heading" data-i18n="heroTitle">Onde código, arte e ferramentas se encontram.</h1>
+                    </div>
+                </div>
+                
+                <div class="hero-description">
+                    <p class="hero-tagline" data-i18n="heroTagline">Laboratório de engenharia para desenvolvimento de jogos, automação e arte técnica.</p>
+                    <p class="hero-bio" data-i18n="heroBio">
+                        Construo ferramentas que aceleram o trabalho de equipes criativas, shaders e assets otimizados para jogos acolhedores, e sistemas de software desenvolvidos com calma e robustez técnica.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#explore-lab" class="btn btn-primary" data-i18n="btnExploreLab">Explorar o Laboratório</a>
+                        <a href="software-shelf.html" class="btn btn-secondary" data-i18n="btnViewProjects">Ver Todos os Projetos</a>
+                        <a href="about.html#contact" class="btn btn-ghost" data-i18n="btnContact">Entrar em Contato</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manifesto -->
+        <section class="manifesto-card" style="background-color: var(--bg-card); border-radius: var(--radius-md); border: 1px solid var(--color-border); padding: 32px; border-left: 4px solid var(--color-green);">
+            <h2 class="section-title" style="font-size: 1.4rem; color: var(--color-green-light); margin-bottom: 10px;" data-i18n="manifestoTitle">
+                Manifesto do Laboratório
+            </h2>
+            <p style="font-size: 1.05rem; color: var(--color-cream-muted); line-height: 1.7;" data-i18n="manifestoText">
+                Acreditamos que a melhor tecnologia é aquela que serve à criatividade sem atritos. Não construímos código para inflar métricas vazias; criamos ferramentas táteis, interfaces compreensíveis e artefatos digitais que proporcionam alegria tanto a quem desenvolve quanto a quem joga.
             </p>
-            
-            <div class="hero-actions">
-                <a href="#" class="btn btn-secondary">Veja meus trabalhos como professor</a>
-                <a href="#" class="btn btn-primary">Entre em contato agora</a>
-            </div>
-        </div>
-    </header>
+        </section>
 
-    <main class="main-content">
-        <!-- Project Section 1: Software Development -->
-        <section class="project-section card-panel">
-            <div class="section-header">
-                <span class="section-icon">💻</span>
-                <h2 class="section-title">Desenvolvimento de Software</h2>
+        <!-- Banner: Laboratório em Construção -->
+        <aside class="construction-banner" role="status">
+            <span class="construction-banner-icon" aria-hidden="true">🚧</span>
+            <div class="construction-banner-body">
+                <strong class="construction-banner-title" data-i18n="bannerConstructionTitle">Laboratório em construção</strong>
+                <p class="construction-banner-text" data-i18n="bannerConstructionText">
+                    Estamos organizando as bancadas de trabalho, finalizando os primeiros pipelines e preparando estudos de caso para publicação.
+                </p>
             </div>
-            
-            <div class="project-card">
-                <div class="project-info">
-                    <h3 class="project-name">Título do Seu Projeto de Software</h3>
-                    <div class="tech-tags">
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">React</span>
-                        <span class="tag">PostgreSQL</span>
-                    </div>
-                    <p class="project-description">
-                        Espaço reservado para descrever seu projeto de software. Detalhe o problema solucionado, as escolhas de arquitetura de backend, integrações eficientes de dados e as tecnologias que potencializaram o sistema.
-                    </p>
-                </div>
-                <div class="project-action-row">
-                    <a href="#" class="btn btn-more">Ver mais</a>
-                </div>
+        </aside>
+
+        <!-- Componente CTA: Entre em contato comigo -->
+        <section id="contact-cta" class="contact-cta-card">
+            <div class="contact-cta-header">
+                <span class="contact-cta-icon" aria-hidden="true">☕</span>
+                <h2 class="contact-cta-title" data-i18n="contactCtaTitle">Entre em contato comigo</h2>
+            </div>
+            <p class="contact-cta-text" data-i18n="contactCtaText">
+                Tem interesse em trocar ideias sobre desenvolvimento de jogos, ferramentas técnicas, arte procedural ou oportunidades de projetos? Sinta-se à vontade para me chamar:
+            </p>
+            <div class="contact-cta-actions">
+                <a href="https://wa.me/558699976066" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                    <span aria-hidden="true">💬</span>
+                    <span data-i18n="btnWhatsApp">Conversar no WhatsApp</span>
+                </a>
+                <a href="https://www.linkedin.com/in/germano-gomes-293648121/" class="btn btn-linkedin" target="_blank" rel="noopener noreferrer">
+                    <span aria-hidden="true">💼</span>
+                    <span data-i18n="btnLinkedIn">Conectar no LinkedIn</span>
+                </a>
+                <a href="mailto:germano-software-dev@hotmail.com" class="btn btn-primary">
+                    <span aria-hidden="true">✉️</span>
+                    <span data-i18n="btnEmail">Enviar um E-mail</span>
+                </a>
             </div>
         </section>
 
-        <!-- Project Section 2: Game Development -->
-        <section class="project-section card-panel">
+        <!-- Explore the Lab (temporariamente comentado durante construção)
+        <section id="explore-lab">
             <div class="section-header">
-                <span class="section-icon">🎮</span>
-                <h2 class="section-title">Desenvolvimento de Jogos</h2>
+                <h2 class="section-title" data-i18n="exploreLabTitle">Explore o Laboratório</h2>
+                <p class="section-desc" data-i18n="exploreLabDesc">Navegue pelas áreas especializadas de experimentação e produção.</p>
             </div>
-            
-            <div class="project-card">
-                <div class="project-info">
-                    <h3 class="project-name">Título do Seu Projeto de Game Dev</h3>
-                    <div class="tech-tags">
-                        <span class="tag">C#</span>
-                        <span class="tag">Unity</span>
-                        <span class="tag">Godot Engine</span>
-                        <span class="tag">Aseprite</span>
-                    </div>
-                    <p class="project-description">
-                        Espaço reservado para detalhar seu projeto de jogo. Fale sobre as principais mecânicas de gameplay implementadas, o design de fases, otimização de performance da engine e o desenvolvimento do game feel.
-                    </p>
-                </div>
-                <div class="project-action-row">
-                    <a href="#" class="btn btn-more">Ver mais</a>
-                </div>
-            </div>
+            <div class="areas-grid" id="areas-grid-mount"></div>
         </section>
+        -->
 
-        <!-- Project Section 3: 3D Modelling -->
-        <section class="project-section card-panel">
+        <!-- Featured Projects (temporariamente comentado durante construção)
+        <section>
             <div class="section-header">
-                <span class="section-icon">🧱</span>
-                <h2 class="section-title">Modelagem 3D</h2>
+                <h2 class="section-title" data-i18n="featuredProjectsTitle">Projetos em Destaque</h2>
+                <p class="section-desc" data-i18n="featuredProjectsDesc">Estudos de caso reais com breakdown técnico e evidências de desenvolvimento.</p>
             </div>
-            
-            <div class="project-card">
-                <div class="project-info">
-                    <h3 class="project-name">Título do Seu Projeto de Arte 3D</h3>
-                    <div class="tech-tags">
-                        <span class="tag">Blender</span>
-                        <span class="tag">Substance Painter</span>
-                        <span class="tag">Low-Poly Art</span>
-                        <span class="tag">Game Assets</span>
-                    </div>
-                    <p class="project-description">
-                        Espaço reservado para apresentar seus trabalhos de arte tridimensional. Descreva o processo de modelagem, mapeamento UV, texturização estilizada, e a contagem de polígonos otimizada para integração em motores de jogos.
-                    </p>
-                </div>
-                <div class="project-action-row">
-                    <a href="#" class="btn btn-more">Ver mais</a>
-                </div>
-            </div>
+            <div class="projects-grid" id="featured-projects-mount"></div>
         </section>
+        -->
     </main>
 
-    <!-- Modern Cozy Footer -->
-    <footer class="footer-cozy">
-        <div class="footer-container">
-            <div class="footer-social-links">
-                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Linktree</a>
-            </div>
-            <p class="footer-copyright">© 2026 Germano. Construído com café, código e design acolhedor.</p>
-        </div>
-    </footer>
+    <!-- Rodapé Compartilhado -->
+    <footer id="site-footer-mount"></footer>
 
-    <!-- JavaScript source -->
-    <script src="index.js"></script>
+    <!-- Scripts da Aplicação -->
+    <script src="js/data/projects.js"></script>
+    <script src="js/data/areas.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/projects-service.js"></script>
+    <script src="js/components.js"></script>
+
+    <script>
+      function renderHomePage() {
+        Components.renderHeader('home');
+        Components.renderFooter();
+
+        // Renderizar Áreas do Laboratório
+        const areasMount = document.getElementById('areas-grid-mount');
+        if (areasMount && typeof LAB_AREAS !== 'undefined') {
+          areasMount.innerHTML = LAB_AREAS.map(area => Components.renderAreaCard(area)).join('');
+        }
+
+        // Renderizar Projetos em Destaque
+        const featuredMount = document.getElementById('featured-projects-mount');
+        if (featuredMount && typeof ProjectsService !== 'undefined') {
+          const featured = ProjectsService.getFeatured();
+          featuredMount.innerHTML = featured.map(p => Components.renderProjectCard(p)).join('');
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initI18n();
+        renderHomePage();
+
+        // Re-renderizar componentes dinâmicos ao trocar de idioma
+        window.addEventListener('languageChanged', () => {
+          renderHomePage();
+        });
+      });
+    </script>
 </body>
 </html>
