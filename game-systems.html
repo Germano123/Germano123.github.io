@@ -2,71 +2,19 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0; url=games-prototypes.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Game Systems — Sistemas de jogos, arquitetura sustentável e protótipos de mecânicas táteis no Cozy Dev Lab.">
-    <title>Game Systems | Germano Cozy Dev Lab</title>
-    <!-- Google Fonts for Cozy Rounded Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Redirecionando... | Germano Cozy Dev Lab</title>
+    <link rel="canonical" href="games-prototypes.html">
     <link href="css/style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-    <header id="site-header-mount"></header>
-
-    <main class="page-shell">
-        <section class="section-header">
-            <h1 class="section-title">
-                <span>🎮</span>
-                <span>Game Systems</span>
-            </h1>
-            <p class="section-desc">
-                Engenharia de sistemas de jogabilidade: padrões modulares, sensação tátil (game feel), geração procedural e lógica de interação.
-            </p>
-        </section>
-
-        <section>
-            <div class="projects-grid" id="systems-projects-mount"></div>
-        </section>
-    </main>
-
-    <footer id="site-footer-mount"></footer>
-
-    <!-- Scripts da Aplicação -->
-    <script src="js/data/projects.js"></script>
-    <script src="js/data/areas.js"></script>
-    <script src="js/i18n.js"></script>
-    <script src="js/projects-service.js"></script>
-    <script src="js/components.js"></script>
-
     <script>
-      function renderGameSystems() {
-        Components.renderHeader('game-systems');
-        Components.renderFooter();
-
-        const mount = document.getElementById('systems-projects-mount');
-        if (!mount || typeof ProjectsService === 'undefined') return;
-
-        const projects = ProjectsService.getByArea('game-systems');
-        if (projects.length === 0) {
-          mount.innerHTML = `
-            <div style="grid-column: 1 / -1;">
-              ${Components.renderEmptyState(t('emptyAreaTitle'), t('emptyAreaDesc'), '🎮')}
-            </div>
-          `;
-        } else {
-          mount.innerHTML = projects.map(p => Components.renderProjectCard(p)).join('');
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', () => {
-        initI18n();
-        renderGameSystems();
-
-        window.addEventListener('languageChanged', () => {
-          renderGameSystems();
-        });
-      });
+      window.location.replace("games-prototypes.html");
     </script>
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center; font-family: sans-serif; background: #1a1715; color: #ede3d4;">
+    <div>
+        <p>A página <strong>Game Systems</strong> foi atualizada para <strong>Games & Prototypes</strong>.</p>
+        <p>Se você não for redirecionado automaticamente, <a href="games-prototypes.html" style="color: #f97316;">clique aqui para continuar</a>.</p>
+    </div>
 </body>
 </html>

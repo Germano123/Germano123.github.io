@@ -1,6 +1,6 @@
 /**
  * Cozy Developer Laboratory — Definição das Áreas do Laboratório
- * Conforme Seção 3.2 do documento de especificação de engenharia.
+ * Conforme Especificação 2 (artifacts/2_portfolio_pages.md - v1.1)
  */
 
 const LAB_AREAS = [
@@ -13,12 +13,12 @@ const LAB_AREAS = [
       en: "Tools Lab"
     },
     tagline: {
-      pt: "Engenharia de ferramentas, extensões de editor e pipelines de produção.",
-      en: "Tools engineering, editor extensions, and production pipelines."
+      pt: "Ferramentas e automações para tornar os fluxos de desenvolvimento mais claros, consistentes e eficientes.",
+      en: "Tools and automations to make development workflows clearer, consistent, and efficient."
     },
     description: {
-      pt: "Espaço dedicado à automação e desenvolvimento de ferramentas para otimizar fluxos de trabalho em game development, reduzindo tarefas repetitivas e acelerando o design.",
-      en: "A space dedicated to automation and custom tool development, optimizing game dev workflows, cutting repetitive tasks, and speeding up design."
+      pt: "Espaço dedicado a extensões de editor, scripts de automação, geradores procedurais e ferramentas de produtividade para pipelines de desenvolvimento de jogos.",
+      en: "A space dedicated to editor extensions, automation scripts, procedural generators, and productivity tools for game development pipelines."
     }
   },
   {
@@ -30,63 +30,29 @@ const LAB_AREAS = [
       en: "Art Workshop"
     },
     tagline: {
-      pt: "Technical art, shaders, modelagem 3D low-poly e otimização de assets.",
-      en: "Technical art, shaders, low-poly 3D modeling, and asset optimization."
+      pt: "Personagens, assets e animações construídos com atenção à linguagem visual, à estrutura e ao uso em tempo real.",
+      en: "Characters, assets, and animations crafted with attention to visual language, structure, and real-time performance."
     },
     description: {
-      pt: "Oficina onde a estética encontra a performance. Criação de modelos tridimensionais, mapeamento UV eficiente e autoria de shaders para visuais estilizados.",
-      en: "Where aesthetics meet performance. Crafting 3D models, efficient UV mapping, and shader authoring for charming stylized worlds."
+      pt: "Produção de arte técnica e 3D para jogos: modelagem low-poly, texturas e shaders estilizados, além de rigging, skinning e testes de animação.",
+      en: "Technical art and 3D production for games: stylized low-poly modeling, textures, custom shaders, rigging, skinning, and animation tests."
     }
   },
   {
-    id: "animation-lab",
-    slug: "animation-lab.html",
-    icon: "🎬",
-    name: {
-      pt: "Animation Lab",
-      en: "Animation Lab"
-    },
-    tagline: {
-      pt: "Pipelines de personagens, rigging, skinning e integração em engines.",
-      en: "Character pipelines, rigging, skinning, and game engine integration."
-    },
-    description: {
-      pt: "Estudos dedicados a dar vida a personagens através de esqueletos otimizados, deformação limpa de malhas e blend trees fluidas.",
-      en: "Studies dedicated to bringing characters to life through optimized rigs, clean mesh deformation, and fluid blend trees."
-    }
-  },
-  {
-    id: "game-systems",
-    slug: "game-systems.html",
+    id: "games-prototypes",
+    slug: "games-prototypes.html",
     icon: "🎮",
     name: {
-      pt: "Game Systems",
-      en: "Game Systems"
+      pt: "Games & Prototypes",
+      en: "Games & Prototypes"
     },
     tagline: {
-      pt: "Arquitetura de jogabilidade, mecânicas táteis e geração procedural.",
-      en: "Gameplay architecture, tactile mechanics, and procedural generation."
+      pt: "Jogos, protótipos e experiências interativas em diferentes estágios de desenvolvimento.",
+      en: "Games, prototypes, and interactive experiences across various stages of development."
     },
     description: {
-      pt: "Engenharia de software aplicada a jogos: padrões arquiteturais sustentáveis, 'game feel' satisfatório e sistemas de regras dinâmicos.",
-      en: "Software engineering applied to games: sustainable architectural patterns, juicy game feel, and dynamic gameplay systems."
-    }
-  },
-  {
-    id: "experiments",
-    slug: "experiments.html",
-    icon: "🧪",
-    name: {
-      pt: "Experiments",
-      en: "Experiments"
-    },
-    tagline: {
-      pt: "Provas de conceito, benchmarks e protótipos exploratórios.",
-      en: "Proofs of concept, benchmarks, and exploratory prototypes."
-    },
-    description: {
-      pt: "Espaço para prototipagem rápida, testes de limites de desempenho e exploração de novas tecnologias sem compromisso com produtos acabados.",
-      en: "A playground for rapid prototyping, performance limit tests, and exploring new technologies without the constraints of finished products."
+      pt: "Jogos concluídos, projetos autorais em andamento, mecânicas táteis e protótipos jogáveis com foco em game feel e atmosfera acolhedora.",
+      en: "Completed games, ongoing indie projects, tactile mechanics, and playable prototypes focused on juicy game feel and cozy atmosphere."
     }
   },
   {
@@ -98,12 +64,12 @@ const LAB_AREAS = [
       en: "Software Shelf"
     },
     tagline: {
-      pt: "Catálogo unificado e pesquisável de todos os projetos e softwares.",
-      en: "Unified, searchable catalog of all projects, tools, and software."
+      pt: "Uma coleção de softwares, aplicações e ferramentas construídas para resolver problemas concretos.",
+      en: "A collection of software, applications, and tools built to solve concrete problems."
     },
     description: {
-      pt: "A prateleira central de projetos: filtre por tecnologias, áreas de atuação e status de desenvolvimento.",
-      en: "The central project shelf: filter by technologies, laboratory areas, and development status."
+      pt: "Catálogo unificado e pesquisável de softwares, utilitários, bibliotecas e projetos de maior escopo.",
+      en: "Unified, searchable catalog of software, utilities, libraries, and broader-scoped applications."
     }
   }
 ];

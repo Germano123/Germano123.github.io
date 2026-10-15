@@ -6,6 +6,22 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.9.0] - 2026-10-14
+### Adicionado
+- **Games & Prototypes (`games-prototypes.html`):** Nova página dedicada a jogos autorais, protótipos de mecânicas e experimentos interativos acolhedores (substituindo Game Systems).
+- **Filtros por Categoria no Art Workshop (`art-workshop.html`):** Barra de filtros integrada com 4 categorias: Todos (`all`), Personagens (`personagens`), Assets (`assets`) e Animações (`animacoes`), com suporte a query params (`?category=...`).
+- **Diretriz Transversal "Visual First" em `project.html`:** Mídia principal (renders/gameplay/covers) exibida no topo, logo após o título e tags, antes dos resumos e breakdowns técnicos.
+- **Redirecionamentos Transparentes:**
+  - `animation-lab.html` redireciona para `art-workshop.html?category=animacoes`.
+  - `game-systems.html` redireciona para `games-prototypes.html`.
+
+### Modificado
+- **Navegação Principal (Navbar):** Reativação de todos os links principais (`tools-lab.html`, `art-workshop.html`, `games-prototypes.html`, `software-shelf.html`, `about.html`).
+- **Aberturas & Taglines das Áreas:** Atualizadas taglines das 4 áreas principais conforme especificação v1.1 com suporte total bilíngue (PT/EN).
+- **Catálogo Software Shelf:** Atualização dos filtros de área e mapeamento automático da taxonomia revisada.
+
+---
+
 ## [0.8.0] - 2026-10-14
 ### Adicionado
 - **Página "Sobre" (`about.html`):** Estruturação completa com cabeçalho contendo avatar oficial do GitHub, moldura de madeira e badge Cozy Dev.

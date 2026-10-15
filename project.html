@@ -36,15 +36,16 @@
       }
 
       function renderCaseStudy() {
-        Components.renderHeader('shelf');
+        const slug = getSlugFromUrl();
+        const project = ProjectsService.getBySlug(slug);
+        const lang = getLanguage();
+
+        const primaryArea = (project && project.areas && project.areas[0]) || 'shelf';
+        Components.renderHeader(primaryArea);
         Components.renderFooter();
 
         const mount = document.getElementById('case-study-mount');
         if (!mount || typeof ProjectsService === 'undefined') return;
-
-        const slug = getSlugFromUrl();
-        const project = ProjectsService.getBySlug(slug);
-        const lang = getLanguage();
 
         if (!project) {
           mount.innerHTML = `
@@ -73,11 +74,17 @@
 
         const statusLabel = t(`status${project.status.charAt(0).toUpperCase() + project.status.slice(1).replace('-', '')}`) || project.status;
 
+        // Determinar destino de retorno contextual
+        let backUrl = 'software-shelf.html';
+        if (primaryArea === 'art-workshop') backUrl = 'art-workshop.html';
+        else if (primaryArea === 'tools-lab') backUrl = 'tools-lab.html';
+        else if (primaryArea === 'games-prototypes') backUrl = 'games-prototypes.html';
+
         mount.innerHTML = `
           <article class="case-study">
-            <!-- Header do Estudo de Caso -->
+            <!-- 1. Header do Estudo de Caso (Título e Metadados) -->
             <header class="case-study-header">
-              <a href="software-shelf.html" class="btn btn-ghost" style="align-self: flex-start; padding: 4px 14px; font-size: 0.85rem;">
+              <a href="${backUrl}" class="btn btn-ghost" style="align-self: flex-start; padding: 4px 14px; font-size: 0.85rem;">
                 ${t('btnBackToArea')}
               </a>
               <h1 class="case-study-title">${project.title}</h1>
@@ -85,15 +92,19 @@
                 <span class="project-status-badge status-${project.status}">${statusLabel}</span>
                 <div class="project-tech-tags">${techTagsHtml}</div>
               </div>
-              <p style="font-size: 1.15rem; color: var(--color-green-light); line-height: 1.6;">${summary}</p>
             </header>
 
-            <!-- Capa ou Mídia Principal -->
-            <div class="case-study-cover">
-              <img src="${project.cover || 'assets/background.jpg'}" alt="${project.title}">
+            <!-- 2. Visual First: Mídia Principal / Capa com evidência visual direta -->
+            <div class="case-study-cover" style="margin-top: 8px;">
+              <img src="${project.cover || 'assets/background.jpg'}" alt="${project.title}" loading="eager">
             </div>
 
-            <!-- Breakdown Conforme Seção 6 da Spec -->
+            <!-- 3. Resumo Executivo / Declaração de Propósito -->
+            <div class="case-study-summary" style="background-color: var(--bg-card); border-left: 4px solid var(--wood-light); border-radius: var(--radius-md); padding: 20px 24px; border: 1px solid var(--color-border); border-left-width: 4px;">
+              <p style="font-size: 1.12rem; color: var(--color-cream); line-height: 1.65; margin: 0;">${summary}</p>
+            </div>
+
+            <!-- 4. Contexto & Desafio -->
             ${problem ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudyProblem')}</h2>
@@ -101,6 +112,7 @@
               </section>
             ` : ''}
 
+            <!-- 5. Solução Técnica & Arquitetura -->
             ${solution ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudySolution')}</h2>
@@ -108,6 +120,7 @@
               </section>
             ` : ''}
 
+            <!-- 6. Contribuição Individual -->
             ${contributions ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudyContributions')}</h2>
@@ -115,6 +128,7 @@
               </section>
             ` : ''}
 
+            <!-- 7. Breakdown Técnico & Métricas -->
             ${technicalDetails ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudyTechnical')}</h2>
@@ -122,6 +136,7 @@
               </section>
             ` : ''}
 
+            <!-- 8. Resultados & Limitações Observadas -->
             ${results ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudyResults')}</h2>
@@ -129,7 +144,7 @@
               </section>
             ` : ''}
 
-            <!-- Ações e Links Externos Verificáveis -->
+            <!-- 9. Ações e Links Externos Verificáveis -->
             <footer class="case-study-actions">
               ${project.repositoryUrl ? `
                 <a href="${project.repositoryUrl}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
@@ -143,7 +158,7 @@
                   <span>↗</span>
                 </a>
               ` : ''}
-              <a href="software-shelf.html" class="btn btn-ghost">
+              <a href="${backUrl}" class="btn btn-ghost">
                 ${t('btnBackToShelf')}
               </a>
             </footer>

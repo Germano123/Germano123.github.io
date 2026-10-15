@@ -23,10 +23,10 @@ const Components = {
 
         <nav class="primary-nav" aria-label="Navegação Principal">
           <a href="index.html" class="nav-link ${activeNavId === 'home' ? 'active' : ''}" data-i18n="navHome">${t('navHome')}</a>
-          <a href="javascript:void(0)" class="nav-link disabled" data-i18n="navTools" aria-disabled="true" tabindex="-1" onclick="return false;">${t('navTools')}</a>
-          <a href="javascript:void(0)" class="nav-link disabled" data-i18n="navArt" aria-disabled="true" tabindex="-1" onclick="return false;">${t('navArt')}</a>
-          <a href="javascript:void(0)" class="nav-link disabled" data-i18n="navGameSystems" aria-disabled="true" tabindex="-1" onclick="return false;">${t('navGameSystems')}</a>
-          <a href="javascript:void(0)" class="nav-link disabled" data-i18n="navShelf" aria-disabled="true" tabindex="-1" onclick="return false;">${t('navShelf')}</a>
+          <a href="tools-lab.html" class="nav-link ${activeNavId === 'tools' || activeNavId === 'tools-lab' ? 'active' : ''}" data-i18n="navTools">${t('navTools')}</a>
+          <a href="art-workshop.html" class="nav-link ${activeNavId === 'art' || activeNavId === 'art-workshop' ? 'active' : ''}" data-i18n="navArt">${t('navArt')}</a>
+          <a href="games-prototypes.html" class="nav-link ${activeNavId === 'games' || activeNavId === 'games-prototypes' ? 'active' : ''}" data-i18n="navGamesPrototypes">${t('navGamesPrototypes')}</a>
+          <a href="software-shelf.html" class="nav-link ${activeNavId === 'shelf' || activeNavId === 'software-shelf' ? 'active' : ''}" data-i18n="navShelf">${t('navShelf')}</a>
           <a href="about.html" class="nav-link ${activeNavId === 'about' ? 'active' : ''}" data-i18n="navAbout">${t('navAbout')}</a>
         </nav>
 

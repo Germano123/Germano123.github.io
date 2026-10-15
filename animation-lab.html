@@ -2,75 +2,19 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0; url=art-workshop.html?category=animacoes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Animation Lab — Pipelines de rigging, skinning e animações para jogos no Cozy Dev Lab.">
-    <title>Animation Lab | Germano Cozy Dev Lab</title>
-    <!-- Google Fonts for Cozy Rounded Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Redirecionando... | Germano Cozy Dev Lab</title>
+    <link rel="canonical" href="art-workshop.html?category=animacoes">
     <link href="css/style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-    <header id="site-header-mount"></header>
-
-    <main class="page-shell">
-        <section class="section-header">
-            <h1 class="section-title">
-                <span>🎬</span>
-                <span>Animation Lab</span>
-            </h1>
-            <p class="section-desc">
-                Pipelines de animação de personagens: estruturas de esqueleto (rigging), deformação de malha (skinning) e integração com árvores de transição em engines.
-            </p>
-        </section>
-
-        <section>
-            <div class="projects-grid" id="animation-projects-mount"></div>
-        </section>
-    </main>
-
-    <footer id="site-footer-mount"></footer>
-
-    <!-- Scripts da Aplicação -->
-    <script src="js/data/projects.js"></script>
-    <script src="js/data/areas.js"></script>
-    <script src="js/i18n.js"></script>
-    <script src="js/projects-service.js"></script>
-    <script src="js/components.js"></script>
-
     <script>
-      function renderAnimationLab() {
-        Components.renderHeader('tools');
-        Components.renderFooter();
-
-        const mount = document.getElementById('animation-projects-mount');
-        if (!mount || typeof ProjectsService === 'undefined') return;
-
-        const projects = ProjectsService.getByArea('animation-lab');
-        if (projects.length === 0) {
-          mount.innerHTML = `
-            <div style="grid-column: 1 / -1;">
-              ${Components.renderEmptyState(
-                'Pesquisa em Rigging & Animação em Andamento',
-                'Esta seção está em fase ativa de estruturação. Em breve publicaremos estudos sobre retargeting, blend trees fluidas e rigs modulares para personagens estilizados.',
-                '🎬'
-              )}
-            </div>
-          `;
-        } else {
-          mount.innerHTML = projects.map(p => Components.renderProjectCard(p)).join('');
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', () => {
-        initI18n();
-        renderAnimationLab();
-
-        window.addEventListener('languageChanged', () => {
-          renderAnimationLab();
-        });
-      });
+      window.location.replace("art-workshop.html?category=animacoes");
     </script>
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center; font-family: sans-serif; background: #1a1715; color: #ede3d4;">
+    <div>
+        <p>A seção <strong>Animation Lab</strong> foi integrada ao <strong>Art Workshop</strong> como categoria especializada.</p>
+        <p>Se você não for redirecionado automaticamente, <a href="art-workshop.html?category=animacoes" style="color: #f97316;">clique aqui para acessar a categoria de Animações no Art Workshop</a>.</p>
+    </div>
 </body>
 </html>

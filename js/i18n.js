@@ -11,6 +11,7 @@ const I18N = {
     navTools: "Tools Lab",
     navArt: "Art Workshop",
     navGameSystems: "Game Systems",
+    navGamesPrototypes: "Games & Prototypes",
     navShelf: "Software Shelf",
     navAbout: "Sobre Mim",
     navDevlog: "Devlog",
@@ -47,6 +48,23 @@ const I18N = {
     allTechnologies: "Todas as Tecnologias",
     noProjectsFoundTitle: "Nenhum projeto encontrado",
     noProjectsFoundDesc: "Tente ajustar os filtros ou termo de busca para encontrar outros trabalhos.",
+
+    // Filtros de Categoria (Art Workshop & Catálogo)
+    filterAll: "Todos",
+    filterCharacters: "Personagens",
+    filterAssets: "Assets",
+    filterAnimations: "Animações",
+    filterAllAreas: "Todas as Áreas",
+
+    // Aberturas Sugeridas das Páginas do Portfólio (v1.1)
+    toolsLabTitle: "Tools Lab",
+    toolsLabTagline: "Ferramentas de editor, pipelines e scripts utilitários desenvolvidos para remover fricção criativa e acelerar o desenvolvimento.",
+    artWorkshopTitle: "Art Workshop",
+    artWorkshopTagline: "Modelagem 3D, texturização, shaders e pipelines de animação otimizados para jogos acolhedores.",
+    gamesPrototypesTitle: "Games & Prototypes",
+    gamesPrototypesTagline: "Jogos autorais, protótipos de mecânicas e experimentos interativos focados em game feel e atmosfera acolhedora.",
+    softwareShelfTitle: "Software Shelf",
+    softwareShelfTagline: "Catálogo completo de softwares, ferramentas e utilitários desenvolvidos com rigor técnico e foco em usabilidade.",
 
     // Empty States para Áreas em Desenvolvimento
     emptyAreaTitle: "Área em Fase de Pesquisa e Montagem",
@@ -101,6 +119,7 @@ const I18N = {
     navTools: "Tools Lab",
     navArt: "Art Workshop",
     navGameSystems: "Game Systems",
+    navGamesPrototypes: "Games & Prototypes",
     navShelf: "Software Shelf",
     navAbout: "About Me",
     navDevlog: "Devlog",
@@ -137,6 +156,23 @@ const I18N = {
     allTechnologies: "All Technologies",
     noProjectsFoundTitle: "No projects found",
     noProjectsFoundDesc: "Try adjusting filters or search query to find other works.",
+
+    // Category Filters (Art Workshop & Catalog)
+    filterAll: "All",
+    filterCharacters: "Characters",
+    filterAssets: "Assets",
+    filterAnimations: "Animations",
+    filterAllAreas: "All Areas",
+
+    // Suggested Page Openings (v1.1)
+    toolsLabTitle: "Tools Lab",
+    toolsLabTagline: "Editor tools, pipelines, and utility scripts designed to remove creative friction and speed up development.",
+    artWorkshopTitle: "Art Workshop",
+    artWorkshopTagline: "3D modeling, texturing, shaders, and animation pipelines optimized for cozy games.",
+    gamesPrototypesTitle: "Games & Prototypes",
+    gamesPrototypesTagline: "Original games, gameplay mechanics prototypes, and interactive experiments focused on game feel and cozy atmosphere.",
+    softwareShelfTitle: "Software Shelf",
+    softwareShelfTagline: "Complete catalog of software, tools, and utilities built with technical rigor and usability focus.",
 
     // Empty States for Developing Areas
     emptyAreaTitle: "Area Currently Under Active Research",

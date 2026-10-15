@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Art Workshop — Technical art, modelagem 3D, texturas e shaders estilizados no Cozy Dev Lab.">
+    <meta name="description" content="Art Workshop — Modelagem 3D, texturização, shaders e animação no Cozy Dev Lab.">
     <title>Art Workshop | Germano Cozy Dev Lab</title>
     <!-- Google Fonts for Cozy Rounded Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,11 +18,21 @@
         <section class="section-header">
             <h1 class="section-title">
                 <span>🎨</span>
-                <span>Art Workshop</span>
+                <span data-i18n="artWorkshopTitle">Art Workshop</span>
             </h1>
-            <p class="section-desc">
-                Produção de arte técnica, modelagem low-poly otimizada, mapeamento UV eficiente e autoria de shaders para jogos acolhedores.
+            <p class="section-desc" data-i18n="artWorkshopTagline">
+                Modelagem 3D, texturização, shaders e pipelines de animação otimizados para jogos acolhedores.
             </p>
+        </section>
+
+        <!-- Filtros de Categorias de Arte -->
+        <section class="catalog-controls" style="padding: 16px 20px;">
+            <div class="filter-pills" id="art-category-filters" role="tablist" aria-label="Categorias de Arte">
+                <button type="button" class="filter-pill active" data-category="all" data-i18n="filterAll">Todos</button>
+                <button type="button" class="filter-pill" data-category="personagens" data-i18n="filterCharacters">Personagens</button>
+                <button type="button" class="filter-pill" data-category="assets" data-i18n="filterAssets">Assets</button>
+                <button type="button" class="filter-pill" data-category="animacoes" data-i18n="filterAnimations">Animações</button>
+            </div>
         </section>
 
         <section>
@@ -40,14 +50,32 @@
     <script src="js/components.js"></script>
 
     <script>
+      let activeCategory = 'all';
+
+      function getInitialCategory() {
+        const params = new URLSearchParams(window.location.search);
+        const categoryParam = params.get('category') || params.get('filter');
+        const validCategories = ['all', 'personagens', 'assets', 'animacoes'];
+        return validCategories.includes(categoryParam) ? categoryParam : 'all';
+      }
+
+      function updateFilterUI() {
+        document.querySelectorAll('#art-category-filters .filter-pill').forEach(btn => {
+          const isSelected = btn.getAttribute('data-category') === activeCategory;
+          btn.classList.toggle('active', isSelected);
+          btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+        });
+      }
+
       function renderArtWorkshop() {
         Components.renderHeader('art');
         Components.renderFooter();
+        updateFilterUI();
 
         const mount = document.getElementById('art-projects-mount');
         if (!mount || typeof ProjectsService === 'undefined') return;
 
-        const projects = ProjectsService.getByArea('art-workshop');
+        const projects = ProjectsService.getByArtCategory(activeCategory);
         if (projects.length === 0) {
           mount.innerHTML = `
             <div style="grid-column: 1 / -1;">
@@ -61,7 +89,27 @@
 
       document.addEventListener('DOMContentLoaded', () => {
         initI18n();
+        activeCategory = getInitialCategory();
         renderArtWorkshop();
+
+        // Escutar cliques nos filtros
+        document.querySelectorAll('#art-category-filters .filter-pill').forEach(btn => {
+          btn.addEventListener('click', () => {
+            activeCategory = btn.getAttribute('data-category') || 'all';
+            
+            // Atualizar URL sem reload para permitir compartilhamento
+            const url = new URL(window.location);
+            if (activeCategory === 'all') {
+              url.searchParams.delete('category');
+              url.searchParams.delete('filter');
+            } else {
+              url.searchParams.set('category', activeCategory);
+            }
+            window.history.replaceState({}, '', url);
+
+            renderArtWorkshop();
+          });
+        });
 
         window.addEventListener('languageChanged', () => {
           renderArtWorkshop();

@@ -40,11 +40,12 @@ O projeto segue os princípios estabelecidos no documento canônico de requisito
 ├── index.html              # Página Inicial (Hero Card com avatar, Manifesto, Banner e CTA)
 ├── about.html              # Página Sobre (Detalhamento das 4 atuações e contatos)
 ├── software-shelf.html     # Catálogo central pesquisável e filtrável de todos os projetos
-├── project.html            # Estudo de caso detalhado dinâmico (?slug=meu-projeto)
-├── tools-lab.html          # Área dedicada a ferramentas, automação e pipelines
-├── art-workshop.html       # Área dedicada a Technical Art, shaders e modelos 3D
-├── game-systems.html       # Área dedicada a arquitetura e sistemas de gameplay
-├── animation-lab.html      # Área em pesquisa (rigging, skinning e integração em engines)
+├── project.html            # Estudo de caso detalhado dinâmico (?slug=meu-projeto, Visual First)
+├── tools-lab.html          # Tools Lab: Ferramentas de editor, pipelines e automação
+├── art-workshop.html       # Art Workshop: 3D, texturas, shaders e animações com filtros
+├── games-prototypes.html   # Games & Prototypes: Jogos autorais, protótipos e mecânicas
+├── game-systems.html       # Redirecionamento de compatibilidade para games-prototypes.html
+├── animation-lab.html      # Redirecionamento de compatibilidade para art-workshop.html?category=animacoes
 ├── experiments.html        # Bancada de experimentos, benchmarks e protótipos
 ├── devlog.html             # Artigos técnicos, pós-mortems e notas de produção
 └── 404.html                # Página de erro amigável para rotas inexistentes

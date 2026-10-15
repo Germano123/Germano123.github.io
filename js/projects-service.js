@@ -27,6 +27,23 @@ const ProjectsService = {
   },
 
   /**
+   * Retorna projetos do Art Workshop filtrados por categoria (todos, personagens, assets, animacoes)
+   * Conforme Seção 4.1 de artifacts/2_portfolio_pages.md
+   * @param {string} category 
+   */
+  getByArtCategory(category = 'all') {
+    const artProjects = this.getByArea('art-workshop');
+    if (!category || category === 'all') {
+      return artProjects;
+    }
+    return artProjects.filter(p => {
+      const isMain = p.mainCategory === category;
+      const hasTag = (p.tags || []).includes(category);
+      return isMain || hasTag;
+    });
+  },
+
+  /**
    * Retorna um projeto pelo seu slug
    * @param {string} slug 
    */

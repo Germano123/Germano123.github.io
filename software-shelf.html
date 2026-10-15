@@ -19,10 +19,10 @@
         <section class="section-header">
             <h1 class="section-title">
                 <span>📚</span>
-                <span data-i18n="navShelf">Software Shelf</span>
+                <span data-i18n="softwareShelfTitle">Software Shelf</span>
             </h1>
-            <p class="section-desc">
-                Catálogo unificado de ferramentas, shaders, sistemas de jogos e protótipos experimentais.
+            <p class="section-desc" data-i18n="softwareShelfTagline">
+                Catálogo completo de softwares, ferramentas e utilitários desenvolvidos com rigor técnico e foco em usabilidade.
             </p>
         </section>
 
@@ -33,11 +33,11 @@
                 <input type="text" id="catalog-search" class="search-input" placeholder="Pesquisar por nome, tecnologia ou palavra-chave..." data-i18n-placeholder="searchPlaceholder" aria-label="Pesquisar projetos">
             </div>
 
-            <div class="filter-pills" id="area-filter-pills">
-                <button type="button" class="filter-pill active" data-area="all">Todas as Áreas</button>
-                <button type="button" class="filter-pill" data-area="tools-lab">Tools Lab</button>
-                <button type="button" class="filter-pill" data-area="art-workshop">Art Workshop</button>
-                <button type="button" class="filter-pill" data-area="game-systems">Game Systems</button>
+            <div class="filter-pills" id="area-filter-pills" role="tablist" aria-label="Filtro por Área">
+                <button type="button" class="filter-pill active" data-area="all" data-i18n="filterAllAreas">Todas as Áreas</button>
+                <button type="button" class="filter-pill" data-area="tools-lab" data-i18n="navTools">Tools Lab</button>
+                <button type="button" class="filter-pill" data-area="art-workshop" data-i18n="navArt">Art Workshop</button>
+                <button type="button" class="filter-pill" data-area="games-prototypes" data-i18n="navGamesPrototypes">Games & Prototypes</button>
             </div>
         </section>
 
@@ -60,9 +60,26 @@
       let currentArea = 'all';
       let searchQuery = '';
 
+      function getInitialArea() {
+        const params = new URLSearchParams(window.location.search);
+        let areaParam = params.get('area');
+        if (areaParam === 'game-systems') areaParam = 'games-prototypes';
+        const validAreas = ['all', 'tools-lab', 'art-workshop', 'games-prototypes'];
+        return validAreas.includes(areaParam) ? areaParam : 'all';
+      }
+
+      function updateAreaPillsUI() {
+        document.querySelectorAll('#area-filter-pills .filter-pill').forEach(btn => {
+          const isSelected = btn.getAttribute('data-area') === currentArea;
+          btn.classList.toggle('active', isSelected);
+          btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+        });
+      }
+
       function renderCatalog() {
         Components.renderHeader('shelf');
         Components.renderFooter();
+        updateAreaPillsUI();
 
         const mount = document.getElementById('catalog-projects-mount');
         if (!mount || typeof ProjectsService === 'undefined') return;
@@ -86,6 +103,7 @@
 
       document.addEventListener('DOMContentLoaded', () => {
         initI18n();
+        currentArea = getInitialArea();
         renderCatalog();
 
         // Evento de busca por texto
@@ -100,9 +118,17 @@
         // Filtro por botões de área
         document.querySelectorAll('#area-filter-pills .filter-pill').forEach(btn => {
           btn.addEventListener('click', () => {
-            document.querySelectorAll('#area-filter-pills .filter-pill').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentArea = btn.getAttribute('data-area');
+            currentArea = btn.getAttribute('data-area') || 'all';
+
+            // Atualizar URL sem recarregar a página
+            const url = new URL(window.location);
+            if (currentArea === 'all') {
+              url.searchParams.delete('area');
+            } else {
+              url.searchParams.set('area', currentArea);
+            }
+            window.history.replaceState({}, '', url);
+
             renderCatalog();
           });
         });
