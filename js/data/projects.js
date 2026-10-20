@@ -31,6 +31,7 @@ const PROJECTS = [
     "status": "in-progress",
     "visibility": "public",
     "featured": true,
+    "cover_pic": "assets/projects/digital-delivery/cover.svg",
     "cover": "assets/projects/digital-delivery/cover.svg",
     "summary": {
       "pt": "Jogo educacional de conceitos computacionais desenvolvido em parceria com a marca Aquele Professor. O jogador utiliza um terminal de comando para estabelecer conexões cliente-servidor, descobrir chaves SSH e abrir túneis de transferência de arquivos em uma arena 3D com uma personagem robótica.",
@@ -178,6 +179,7 @@ const PROJECTS = [
     "status": "in-progress",
     "visibility": "public",
     "featured": true,
+    "cover_pic": "assets/projects/tribunal-logico/cover.svg",
     "cover": "assets/projects/tribunal-logico/cover.svg",
     "summary": {
       "pt": "Jogo educacional de matemática lógica desenvolvido em parceria com a marca Aquele Professor. Reinterpretação do estilo de jogos de tribunal (como Phoenix Wright Ace Attorney), onde o jogador utiliza point-and-click em um cenário de tribunal para solucionar casos, analisando termos lógicos da matemática lógica envolvendo argumentação e operadores lógicos como e, ou, se e então, explicando conceitos de tabela verdade e proposições como tautologias.",
@@ -326,6 +328,7 @@ const PROJECTS = [
     "status": "in-progress",
     "visibility": "public",
     "featured": true,
+    "cover_pic": "assets/projects/typing-defenders/cover.svg",
     "cover": "assets/projects/typing-defenders/cover.svg",
     "summary": {
       "pt": "Jogo educacional de digitação desenvolvido em parceria com a marca Aquele Professor. O jogador controla o combate contra inimigos que avançam em hordas por meio da digitação. Para parar os avanços dos dois lados, o jogador deve digitar as teclas simétricas do teclado. As hordas podem vir com inimigos exigindo uma tecla, duas teclas ou pequenas palavras inteiras. Os chefes são textos longos onde cada barra de vida do inimigo é uma prosa do texto, exigindo digitação rápida o suficiente para conclusão entre cada prosa.",
@@ -471,6 +474,7 @@ const PROJECTS = [
     "status": "in-progress",
     "visibility": "public",
     "featured": true,
+    "cover_pic": "assets/projects/little-knight/cover.svg",
     "cover": "assets/projects/little-knight/cover.svg",
     "summary": {
       "pt": "Jogo de RPG side-scroll com a agilidade e velocidade de Sonic e plataforma de Super Mario, no estilo de produção da LostBoys Studio Indie. O jogador assume o papel de um escudeiro em uma jornada para salvar seu pequeno vilarejo de um mago que transformou seus amigos em animais e os sequestrou.",
@@ -618,6 +622,7 @@ const PROJECTS = [
     "status": "in-progress",
     "visibility": "public",
     "featured": false,
+    "cover_pic": "assets/projects/metaghost-fantasy/cover.svg",
     "cover": "assets/projects/metaghost-fantasy/cover.svg",
     "summary": {
       "pt": "Projeto da LostBoys de exploração 3D e combate contra fantasmas em uma mansão abandonada. A proposta inclui seis personagens, modo solo ou cooperativo para até quatro jogadores, coleta de ectoplasma e fabricação de armas e armaduras.",
@@ -763,6 +768,7 @@ const PROJECTS = [
     "status": "in-progress",
     "visibility": "public",
     "featured": false,
+    "cover_pic": "assets/projects/cripto-flowers/cover.svg",
     "cover": "assets/projects/cripto-flowers/cover.svg",
     "summary": {
       "pt": "Jogo de gerenciamento de fazenda (farm management) de visão top-down, no estilo de produção da LostBoys Studio Indie. O jogador cuida de uma pequena fazenda de cultivo de plantas (inicialmente rosas-do-deserto), onde cada planta é única, com características definidas pelo genótipo × fenótipo.",

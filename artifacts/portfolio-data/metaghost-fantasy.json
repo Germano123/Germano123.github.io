@@ -31,8 +31,13 @@
     "pt": "Concepção e documentação do jogo, definição dos seis personagens com arquétipos e mecânicas exclusivas, estrutura de sete famílias de inimigos, sistema de coleta de ectoplasma e fabricação de armas/armaduras, modo solo e cooperativo, documentação de universo, personagens, inventário e links de assets.",
     "en": "Concept and documentation of the game, definition of six characters with archetypes and exclusive mechanics, structure of seven enemy families, ectoplasm collection and weapon/armor crafting system, solo and cooperative mode, documentation of universe, characters, inventory and asset links."
   },
-  "coverImage": null,
-  "gallery": [],
+  "coverImage": "assets/projects/metaghost-fantasy/cover.svg",
+  "gallery": [
+    "assets/projects/metaghost-fantasy/gallery-01.svg",
+    "assets/projects/metaghost-fantasy/gallery-02.svg",
+    "assets/projects/metaghost-fantasy/gallery-03.svg",
+    "assets/projects/metaghost-fantasy/gallery-04.svg"
+  ],
   "media": {
     "carousel": [],
     "carouselCaptions": {
@@ -95,5 +100,6 @@
     ],
     "estadoAtual": "Documentação reúne a proposta do jogo e os materiais disponíveis. Versão jogável, funcionalidades implementadas, motor e plataformas: a confirmar."
   },
-  "collaborationType": "pessoal"
+  "collaborationType": "pessoal",
+  "cover_pic": "assets/projects/metaghost-fantasy/cover.svg"
 }

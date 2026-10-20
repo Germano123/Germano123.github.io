@@ -30,8 +30,13 @@
     "pt": "Concepção e documentação do jogo, definição da mecânica de cultivo baseada em genética (genótipo × fenótipo), sistema de cuidado contínuo (luz, sombra, água, fertilizantes), estrutura de potes e raízes, documentação de universo, fazenda, NPCs, personagens e pendências.",
     "en": "Concept and documentation of the game, definition of genetics-based farming mechanic (genotype × phenotype), continuous care system (light, shade, water, fertilizers), pot and root structure, documentation of universe, farm, NPCs, characters and pending items."
   },
-  "coverImage": null,
-  "gallery": [],
+  "coverImage": "assets/projects/cripto-flowers/cover.svg",
+  "gallery": [
+    "assets/projects/cripto-flowers/gallery-01.svg",
+    "assets/projects/cripto-flowers/gallery-02.svg",
+    "assets/projects/cripto-flowers/gallery-03.svg",
+    "assets/projects/cripto-flowers/gallery-04.svg"
+  ],
   "media": {
     "carousel": [],
     "carouselCaptions": {
@@ -64,5 +69,6 @@
     ],
     "estadoAtual": "Fase de documentação - produção dos primeiros documentos (pipeline ativo)"
   },
-  "collaborationType": "estudo"
+  "collaborationType": "estudo",
+  "cover_pic": "assets/projects/cripto-flowers/cover.svg"
 }

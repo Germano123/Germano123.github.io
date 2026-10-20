@@ -32,8 +32,13 @@
     "pt": "Concepção e documentação do jogo educacional, definição da mecânica de tribunal point-and-click, estrutura dos casos, operadores lógicos, documentação de universo, personagens (advogado, juiz, testemunhas, réus), inimigos (argumentos contrários, falácias), assets de cenário e inventário.",
     "en": "Concept and documentation of the educational game, definition of courtroom point-and-click mechanic, case structure, logical operators, documentation of universe, characters (lawyer, judge, witnesses, defendants), enemies (counter-arguments, fallacies), scene assets, and inventory."
   },
-  "coverImage": null,
-  "gallery": [],
+  "coverImage": "assets/projects/tribunal-logico/cover.svg",
+  "gallery": [
+    "assets/projects/tribunal-logico/gallery-01.svg",
+    "assets/projects/tribunal-logico/gallery-02.svg",
+    "assets/projects/tribunal-logico/gallery-03.svg",
+    "assets/projects/tribunal-logico/gallery-04.svg"
+  ],
   "media": {
     "carousel": [],
     "carouselCaptions": {
@@ -71,5 +76,6 @@
     "estadoAtual": "Fase de documentação - produção dos primeiros documentos (pipeline ativo)"
   },
   "collaborationType": "parceria",
-  "partner": "Aquele Professor"
+  "partner": "Aquele Professor",
+  "cover_pic": "assets/projects/tribunal-logico/cover.svg"
 }

@@ -56,7 +56,7 @@
 
         if (!modal || !img) return;
 
-        img.src = item.url;
+        img.src = item.url || item.src || item;
         img.alt = item.alt || '';
         if (cap) cap.textContent = getLocText(item.caption, lang);
         if (counter) counter.textContent = `${currentGalleryIndex + 1} ${t('imageOf')} ${currentGallery.length}`;
@@ -97,7 +97,7 @@
         if (mainImg) {
           mainImg.style.opacity = '0.35';
           setTimeout(() => {
-            mainImg.src = item.url;
+            mainImg.src = item.url || item.src || item;
             mainImg.alt = item.alt || '';
             mainImg.style.opacity = '1';
           }, 120);
@@ -147,7 +147,7 @@
           const caption = getLocText(img.caption, lang);
           return `
             <button type="button" class="carousel-thumb-btn ${idx === 0 ? 'active' : ''}" data-carousel-index="${idx}" aria-label="${caption || `Slide ${idx + 1}`}" aria-current="${idx === 0 ? 'true' : 'false'}">
-              <img src="${img.url}" alt="${img.alt || `Preview ${idx + 1}`}" loading="lazy">
+              <img src="${img.url || img.src || img}" alt="${img.alt || `Preview ${idx + 1}`}" loading="lazy">
             </button>
           `;
         }).join('');
@@ -166,7 +166,7 @@
                 <span class="carousel-zoom-hint" aria-hidden="true">🔍 ${t('viewImageFull')}</span>
                 
                 <button type="button" class="carousel-nav-btn carousel-nav-btn--prev" id="carousel-prev-btn" aria-label="${t('lightboxPrev')}">‹</button>
-                <img src="${firstItem.url}" alt="${firstItem.alt || project.title}" class="carousel-slide-img" id="carousel-main-img">
+                <img src="${firstItem.url || firstItem.src || firstItem}" alt="${firstItem.alt || project.title}" class="carousel-slide-img" id="carousel-main-img">
                 <button type="button" class="carousel-nav-btn carousel-nav-btn--next" id="carousel-next-btn" aria-label="${t('lightboxNext')}">›</button>
               </div>
 
@@ -646,7 +646,7 @@
 
             <!-- 2. Visual First: Mídia Principal / Capa com evidência visual direta -->
             <div class="case-study-cover" style="margin-top: 8px;">
-              <img src="${project.cover || 'assets/background.jpg'}" alt="${project.title}" loading="eager">
+              <img src="${project.cover_pic || project.cover || 'assets/background.jpg'}" alt="${project.title}" loading="eager">
             </div>
 
             <!-- 3. Resumo Executivo / Declaração de Propósito -->

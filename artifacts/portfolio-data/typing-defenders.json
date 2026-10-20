@@ -32,8 +32,13 @@
     "pt": "Concepção e documentação do jogo educacional, definição da mecânica de digitação e teclas simétricas, estrutura das hordas e chefes, documentação de universo, personagem (jogador/digitador), inimigos (hordas de inimigos, chefes de texto longo), assets de cenário e inventário.",
     "en": "Concept and documentation of the educational game, definition of typing and symmetric keys mechanic, horde and boss structure, documentation of universe, character (player/typist), enemies (enemy hordes, long-text bosses), scene assets, and inventory."
   },
-  "coverImage": null,
-  "gallery": [],
+  "coverImage": "assets/projects/typing-defenders/cover.svg",
+  "gallery": [
+    "assets/projects/typing-defenders/gallery-01.svg",
+    "assets/projects/typing-defenders/gallery-02.svg",
+    "assets/projects/typing-defenders/gallery-03.svg",
+    "assets/projects/typing-defenders/gallery-04.svg"
+  ],
   "media": {
     "carousel": [],
     "carouselCaptions": {
@@ -72,5 +77,6 @@
     "estadoAtual": "Fase de documentação - produção dos primeiros documentos (pipeline ativo)"
   },
   "collaborationType": "parceria",
-  "partner": "Aquele Professor"
+  "partner": "Aquele Professor",
+  "cover_pic": "assets/projects/typing-defenders/cover.svg"
 }

@@ -6,6 +6,18 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.15.0] - 2026-10-20
+### Adicionado
+- **Padronização de Capas e Suporte a `cover_pic` e `gallery`:**
+  - Adicionado suporte formal ao campo canônico `cover_pic` (com fallback retrocompatível para `cover` e `coverImage`) em [`js/components.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/components.js) e [`project.html`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/project.html).
+  - Atualização dos metadados em [`artifacts/portfolio-data/`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/artifacts/portfolio-data/) e [`js/data/projects.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/data/projects.js) com as propriedades canônicas `cover_pic` e `gallery`.
+  - **Identificação Visual das Capas:**
+    - Capas personalizadas de destaque para *Typing Defenders* e *Little Knight* identificadas como `CAPA PERSONALIZADA • COVER_PIC`.
+    - Capas placeholders personalizadas para os demais jogos (*Digital Delivery*, *Tribunal Lógico*, *MetaGhost Fantasy*, *Cripto Flowers*) identificadas como `PLACEHOLDER DE CAPA • COVER_PIC PREVIEW` com borda tracejada e metadados contextuais.
+  - O carrossel e lightbox agora resolvem flexivelmente URLs de imagens tanto por `item.url` quanto por `item.src` ou strings diretas de caminho.
+
+---
+
 ## [0.14.1] - 2026-10-20
 ### Adicionado
 - **Listagem dos 6 Jogos em Games & Prototypes (`games-prototypes.html`):**

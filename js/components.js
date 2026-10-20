@@ -100,7 +100,7 @@ const Components = {
     return `
       <article class="project-card project-card--${collabType}" data-project-id="${project.id}">
         <div class="project-card-cover">
-          <img src="${project.cover || 'assets/background.jpg'}" alt="${project.title}" loading="lazy">
+          <img src="${project.cover_pic || project.cover || 'assets/background.jpg'}" alt="${project.title}" loading="lazy">
           <span class="card-collab-badge card-collab-badge--${collabType}">
             <span>${collabIcon}</span>
             <span>${collabLabel}</span>

@@ -30,8 +30,13 @@
     "pt": "Concepção e documentação do jogo, definição da mecânica de plataforma side-scroll e parkour, sistema de vida e combate, estrutura de chefes (mini boss a cada 3 fases, chefe de bioma), documentação de universo, vilarejo, mago, biomas, personagens (fichas de escudeiro, amigos e NPCs).",
     "en": "Concept and documentation of the game, definition of side-scroll platformer and parkour mechanics, life and combat system, boss structure (mini boss every 3 phases, biome boss), documentation of universe, village, mage, biomes, characters (squire sheets, friends and NPCs)."
   },
-  "coverImage": null,
-  "gallery": [],
+  "coverImage": "assets/projects/little-knight/cover.svg",
+  "gallery": [
+    "assets/projects/little-knight/gallery-01.svg",
+    "assets/projects/little-knight/gallery-02.svg",
+    "assets/projects/little-knight/gallery-03.svg",
+    "assets/projects/little-knight/gallery-04.svg"
+  ],
   "media": {
     "carousel": [],
     "carouselCaptions": {
@@ -64,5 +69,6 @@
     ],
     "estadoAtual": "Fase de documentação - produção dos primeiros documentos (pipeline ativo)"
   },
-  "collaborationType": "pessoal"
+  "collaborationType": "pessoal",
+  "cover_pic": "assets/projects/little-knight/cover.svg"
 }
