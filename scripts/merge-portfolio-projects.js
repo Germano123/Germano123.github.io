@@ -10,6 +10,8 @@ const gamesData = [
   {
     file: 'digital-delivery.json',
     featured: true,
+    collaborationType: 'parceria',
+    partner: 'Aquele Professor',
     technologies: ["Godot / Unity", "Redes & Sockets", "Terminal CLI", "Shader 3D"],
     gameplayProfile: {
       genre: { pt: "Educacional / Simulação Hacker", en: "Educational / Hacker Simulation" },
@@ -55,6 +57,8 @@ const gamesData = [
   {
     file: 'tribunal-logico.json',
     featured: true,
+    collaborationType: 'parceria',
+    partner: 'Aquele Professor',
     technologies: ["Godot Engine", "Point-and-Click", "Matemática Lógica", "UI/UX"],
     gameplayProfile: {
       genre: { pt: "Educacional / Point-and-Click / Tribunal", en: "Educational / Point-and-Click / Courtroom" },
@@ -99,7 +103,9 @@ const gamesData = [
   },
   {
     file: 'typing-defenders.json',
-    featured: false,
+    featured: true,
+    collaborationType: 'parceria',
+    partner: 'Aquele Professor',
     technologies: ["Godot / Unity", "Input Buffer", "Tower Defense", "Game Feel"],
     gameplayProfile: {
       genre: { pt: "Educacional / Defesa de Torre por Digitação", en: "Educational / Typing Tower Defense" },
@@ -190,6 +196,7 @@ const gamesData = [
   {
     file: 'metaghost-fantasy',
     featured: false,
+    collaborationType: 'pessoal',
     technologies: ["Unreal / Unity / Godot", "Co-op Multiplayer", "Shaders 3D", "Action Combat"],
     gameplayProfile: {
       genre: { pt: "Exploração 3D & Ação Cooperativa", en: "3D Exploration & Co-op Action" },
@@ -235,6 +242,7 @@ const gamesData = [
   {
     file: 'cripto-flowers',
     featured: false,
+    collaborationType: 'estudo',
     technologies: ["Godot / Unity", "Simulação Genética", "Ciclo Dia/Noite", "Pixel Art 2D"],
     gameplayProfile: {
       genre: { pt: "Simulação de Fazenda Top-Down", en: "Top-Down Farm Simulation" },
@@ -329,6 +337,8 @@ gamesData.forEach(g => {
       pt: `Projeto em estágio ativo (${raw.details ? raw.details.estadoAtual : 'Em andamento'}). Documentação e prototipagem contínua.`,
       en: `Project in active stage (${raw.details ? raw.details.estadoAtual : 'In progress'}). Ongoing documentation and prototyping.`
     },
+    collaborationType: g.collaborationType || "pessoal",
+    partner: g.partner || null,
     prototypeStage: "mechanic-prototype",
     gameplayProfile: g.gameplayProfile,
     gameFeelDetails: g.gameFeelDetails,

@@ -56,6 +56,8 @@ const PROJECTS = [
       "pt": "Projeto em estágio ativo (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Documentação e prototipagem contínua.",
       "en": "Project in active stage (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Ongoing documentation and prototyping."
     },
+    "collaborationType": "parceria",
+    "partner": "Aquele Professor",
     "prototypeStage": "mechanic-prototype",
     "gameplayProfile": {
       "genre": {
@@ -201,6 +203,8 @@ const PROJECTS = [
       "pt": "Projeto em estágio ativo (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Documentação e prototipagem contínua.",
       "en": "Project in active stage (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Ongoing documentation and prototyping."
     },
+    "collaborationType": "parceria",
+    "partner": "Aquele Professor",
     "prototypeStage": "mechanic-prototype",
     "gameplayProfile": {
       "genre": {
@@ -321,7 +325,7 @@ const PROJECTS = [
     ],
     "status": "in-progress",
     "visibility": "public",
-    "featured": false,
+    "featured": true,
     "cover": "assets/projects/typing-defenders/cover.svg",
     "summary": {
       "pt": "Jogo educacional de digitação desenvolvido em parceria com a marca Aquele Professor. O jogador controla o combate contra inimigos que avançam em hordas por meio da digitação. Para parar os avanços dos dois lados, o jogador deve digitar as teclas simétricas do teclado. As hordas podem vir com inimigos exigindo uma tecla, duas teclas ou pequenas palavras inteiras. Os chefes são textos longos onde cada barra de vida do inimigo é uma prosa do texto, exigindo digitação rápida o suficiente para conclusão entre cada prosa.",
@@ -347,6 +351,8 @@ const PROJECTS = [
       "pt": "Projeto em estágio ativo (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Documentação e prototipagem contínua.",
       "en": "Project in active stage (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Ongoing documentation and prototyping."
     },
+    "collaborationType": "parceria",
+    "partner": "Aquele Professor",
     "prototypeStage": "mechanic-prototype",
     "gameplayProfile": {
       "genre": {
@@ -490,6 +496,8 @@ const PROJECTS = [
       "pt": "Projeto em estágio ativo (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Documentação e prototipagem contínua.",
       "en": "Project in active stage (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Ongoing documentation and prototyping."
     },
+    "collaborationType": "pessoal",
+    "partner": null,
     "prototypeStage": "mechanic-prototype",
     "gameplayProfile": {
       "genre": {
@@ -635,6 +643,8 @@ const PROJECTS = [
       "pt": "Projeto em estágio ativo (Documentação reúne a proposta do jogo e os materiais disponíveis. Versão jogável, funcionalidades implementadas, motor e plataformas: a confirmar.). Documentação e prototipagem contínua.",
       "en": "Project in active stage (Documentação reúne a proposta do jogo e os materiais disponíveis. Versão jogável, funcionalidades implementadas, motor e plataformas: a confirmar.). Ongoing documentation and prototyping."
     },
+    "collaborationType": "pessoal",
+    "partner": null,
     "prototypeStage": "mechanic-prototype",
     "gameplayProfile": {
       "genre": {
@@ -778,6 +788,8 @@ const PROJECTS = [
       "pt": "Projeto em estágio ativo (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Documentação e prototipagem contínua.",
       "en": "Project in active stage (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Ongoing documentation and prototyping."
     },
+    "collaborationType": "estudo",
+    "partner": null,
     "prototypeStage": "mechanic-prototype",
     "gameplayProfile": {
       "genre": {

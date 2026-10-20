@@ -5,8 +5,16 @@
   "projectType": "game",
   "areas": [],
   "status": "in-progress",
-  "technologies": ["A confirmar"],
-  "tags": ["gamedev", "indie", "plataforma", "3d", "combate"],
+  "technologies": [
+    "A confirmar"
+  ],
+  "tags": [
+    "gamedev",
+    "indie",
+    "plataforma",
+    "3d",
+    "combate"
+  ],
   "summary": {
     "pt": "Projeto da LostBoys de exploração 3D e combate contra fantasmas em uma mansão abandonada. A proposta inclui seis personagens, modo solo ou cooperativo para até quatro jogadores, coleta de ectoplasma e fabricação de armas e armaduras.",
     "en": "LostBoys project of 3D exploration and combat against ghosts in an abandoned mansion. The proposal includes six characters, solo or cooperative mode for up to four players, ectoplasm collection and weapon and armor crafting."
@@ -27,7 +35,10 @@
   "gallery": [],
   "media": {
     "carousel": [],
-    "carouselCaptions": { "pt": [], "en": [] }
+    "carouselCaptions": {
+      "pt": [],
+      "en": []
+    }
   },
   "date": null,
   "role": "Desenvolvimento de jogo",
@@ -46,10 +57,43 @@
       "pt": "Projeto da LostBoys de exploração 3D e combate contra fantasmas em uma mansão abandonada. A proposta inclui seis personagens, modo solo ou cooperativo para até quatro jogadores, coleta de ectoplasma e fabricação de armas e armaduras.",
       "en": "LostBoys project of 3D exploration and combat against ghosts in an abandoned mansion. The proposal includes six characters, solo or cooperative mode for up to four players, ectoplasm collection and weapon and armor crafting."
     },
-    "personagens": ["Vitor", "Dra. Volt", "Atlas", "Vértex", "Neri", "Alec"],
-    "familiasInimigos": ["Common Ghosts", "Whimlings", "Wrong Toys", "Sewer Corrupteds", "Shadow Spectrals", "Elementals", "Hospital Abandonado"],
-    "materiais": ["Modelos dos seis personagens", "Animações da Dra. Volt", "Conceitos de sete famílias de inimigos", "Modelos e texturas de alguns inimigos", "Conceitos e modelos de cenários", "Pranchas de interface", "MTG Logo e artes de divulgação"],
-    "documentos": ["GDD", "Mecanicas", "Universo", "Personagens", "Assets-Cenario", "Inventario", "Pendencias", "LINKS"],
+    "personagens": [
+      "Vitor",
+      "Dra. Volt",
+      "Atlas",
+      "Vértex",
+      "Neri",
+      "Alec"
+    ],
+    "familiasInimigos": [
+      "Common Ghosts",
+      "Whimlings",
+      "Wrong Toys",
+      "Sewer Corrupteds",
+      "Shadow Spectrals",
+      "Elementals",
+      "Hospital Abandonado"
+    ],
+    "materiais": [
+      "Modelos dos seis personagens",
+      "Animações da Dra. Volt",
+      "Conceitos de sete famílias de inimigos",
+      "Modelos e texturas de alguns inimigos",
+      "Conceitos e modelos de cenários",
+      "Pranchas de interface",
+      "MTG Logo e artes de divulgação"
+    ],
+    "documentos": [
+      "GDD",
+      "Mecanicas",
+      "Universo",
+      "Personagens",
+      "Assets-Cenario",
+      "Inventario",
+      "Pendencias",
+      "LINKS"
+    ],
     "estadoAtual": "Documentação reúne a proposta do jogo e os materiais disponíveis. Versão jogável, funcionalidades implementadas, motor e plataformas: a confirmar."
-  }
+  },
+  "collaborationType": "pessoal"
 }

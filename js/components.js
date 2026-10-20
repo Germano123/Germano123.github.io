@@ -78,10 +78,25 @@ const Components = {
       .map(tech => `<span class="tech-tag">${tech}</span>`)
       .join('');
 
+    const collabType = project.collaborationType || 'pessoal';
+    let collabLabel = t('collabPersonal');
+    let collabIcon = '👤';
+    if (collabType === 'parceria') {
+      collabLabel = t('collabPartnership');
+      collabIcon = '🤝';
+    } else if (collabType === 'estudo') {
+      collabLabel = t('collabStudy');
+      collabIcon = '📖';
+    }
+
     return `
-      <article class="project-card" data-project-id="${project.id}">
+      <article class="project-card project-card--${collabType}" data-project-id="${project.id}">
         <div class="project-card-cover">
           <img src="${project.cover || 'assets/background.jpg'}" alt="${project.title}" loading="lazy">
+          <span class="card-collab-badge card-collab-badge--${collabType}">
+            <span>${collabIcon}</span>
+            <span>${collabLabel}</span>
+          </span>
           <span class="project-status-badge ${statusClass}">${statusLabel}</span>
         </div>
         <div class="project-card-body">

@@ -142,6 +142,12 @@ const I18N = {
     viewImageFull: "Clique para ampliar a imagem",
     imageOf: "de",
 
+    // 6. Natureza do Projeto & Parcerias
+    collabPersonal: "Pessoal",
+    collabPartnership: "Parceria",
+    collabStudy: "Estudo",
+    collabPartnerPrefix: "Em parceria com",
+
     // Banner de Construção
     bannerConstructionTitle: "Laboratório em construção",
     bannerConstructionText: "Estamos organizando as bancadas de trabalho, finalizando os primeiros pipelines e preparando estudos de caso para publicação.",
@@ -310,6 +316,12 @@ const I18N = {
     lightboxNext: "Next",
     viewImageFull: "Click to view full-size image",
     imageOf: "of",
+
+    // 6. Natureza do Projeto & Parcerias
+    collabPersonal: "Personal",
+    collabPartnership: "Partnership",
+    collabStudy: "Study",
+    collabPartnerPrefix: "In partnership with",
 
     // Construction Banner
     bannerConstructionTitle: "Laboratory under construction",

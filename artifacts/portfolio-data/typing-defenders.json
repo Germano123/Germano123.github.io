@@ -5,8 +5,17 @@
   "projectType": "game",
   "areas": [],
   "status": "in-progress",
-  "technologies": ["A confirmar"],
-  "tags": ["gamedev", "indie", "educacional", "digitação", "typing", "aquele-professor"],
+  "technologies": [
+    "A confirmar"
+  ],
+  "tags": [
+    "gamedev",
+    "indie",
+    "educacional",
+    "digitação",
+    "typing",
+    "aquele-professor"
+  ],
   "summary": {
     "pt": "Jogo educacional de digitação desenvolvido em parceria com a marca Aquele Professor. O jogador controla o combate contra inimigos que avançam em hordas por meio da digitação. Para parar os avanços dos dois lados, o jogador deve digitar as teclas simétricas do teclado. As hordas podem vir com inimigos exigindo uma tecla, duas teclas ou pequenas palavras inteiras. Os chefes são textos longos onde cada barra de vida do inimigo é uma prosa do texto, exigindo digitação rápida o suficiente para conclusão entre cada prosa.",
     "en": "Educational typing game developed in partnership with the Aquele Professor brand. The player controls combat against enemies advancing in hordes through typing. To stop advances on both sides, the player must type symmetric keys on the keyboard. Hordes can come with enemies requiring one key, two keys, or entire short words. Bosses are long texts where each enemy health bar is a prose of the text, requiring fast enough typing to complete between each prose."
@@ -27,7 +36,10 @@
   "gallery": [],
   "media": {
     "carousel": [],
-    "carouselCaptions": { "pt": [], "en": [] }
+    "carouselCaptions": {
+      "pt": [],
+      "en": []
+    }
   },
   "date": null,
   "role": "Desenvolvimento de jogo",
@@ -47,7 +59,18 @@
       "pt": "Jogo onde digitar é o gatilho de controle contra inimigos que avançam em hordas. O jogador digita teclas simétricas do teclado para parar os avanços dos dois lados. Inimigos exigem uma tecla, duas teclas ou pequenas palavras inteiras. Chefes são textos longos onde cada barra de vida é uma prosa do texto. O objetivo é avançar nas hordas enquanto aprende digitação corretamente.",
       "en": "Game where typing is the control trigger against enemies advancing in hordes. The player types symmetric keys on the keyboard to stop advances on both sides. Enemies require one key, two keys, or entire short words. Bosses are long texts where each health bar is a prose of the text. The objective is to advance through hordes while learning to type correctly."
     },
-    "documentos": ["GDD", "Mecanicas", "Universo", "Personagens", "Inimigos", "Assets-Cenario", "Inventario", "Pendencias"],
+    "documentos": [
+      "GDD",
+      "Mecanicas",
+      "Universo",
+      "Personagens",
+      "Inimigos",
+      "Assets-Cenario",
+      "Inventario",
+      "Pendencias"
+    ],
     "estadoAtual": "Fase de documentação - produção dos primeiros documentos (pipeline ativo)"
-  }
+  },
+  "collaborationType": "parceria",
+  "partner": "Aquele Professor"
 }

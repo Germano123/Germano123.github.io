@@ -6,6 +6,20 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.13.0] - 2026-10-20
+### Adicionado
+- **Marcação Visual de Parcerias e Natureza do Projeto:**
+  - Adicionado suporte à classificação de projetos por modelo de desenvolvimento: `pessoal`, `parceria` e `estudo`.
+  - **Banner Diagonal no Canto Superior Direito:** Componente de faixa diagonal posicionado no canto superior direito do container `<article class="case-study">` em `project.html`, estendendo-se entre as bordas superior e lateral direita a uma distância do canto.
+  - **Bordas Coloridas Especializadas:**
+    - **Laranja (`#e67e22` / `#f39c12`):** Projetos de autoria `pessoal` (`little-knight`, `metaghost-fantasy`).
+    - **Roxo (`#9333ea` / `#a855f7`):** Projetos em `parceria` com equipes, marcas ou empresas (`digital-delivery`, `tribunal-logico`, `typing-defenders` em parceria com *Aquele Professor*).
+    - **Branco (`#ffffff` / `#cbd5e1`):** Projetos experimentais ou de `estudo` técnico (`cripto-flowers`).
+  - **Badges nos Cards de Catálogo:** Indicadores de parceria e borda superior correspondente nos cards renderizados por [`js/components.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/components.js).
+  - **Internacionalização (PT/EN):** Dicionários atualizados em [`js/i18n.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/i18n.js) com suporte dinâmico aos rótulos e créditos de parceiros.
+
+---
+
 ## [0.12.0] - 2026-10-20
 ### Removido
 - **Remoção de Dados Placeholder / Mock:**

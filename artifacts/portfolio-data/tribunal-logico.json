@@ -5,8 +5,17 @@
   "projectType": "game",
   "areas": [],
   "status": "in-progress",
-  "technologies": ["A confirmar"],
-  "tags": ["gamedev", "indie", "educacional", "point-and-click", "logica", "aquele-professor"],
+  "technologies": [
+    "A confirmar"
+  ],
+  "tags": [
+    "gamedev",
+    "indie",
+    "educacional",
+    "point-and-click",
+    "logica",
+    "aquele-professor"
+  ],
   "summary": {
     "pt": "Jogo educacional de matemática lógica desenvolvido em parceria com a marca Aquele Professor. Reinterpretação do estilo de jogos de tribunal (como Phoenix Wright Ace Attorney), onde o jogador utiliza point-and-click em um cenário de tribunal para solucionar casos, analisando termos lógicos da matemática lógica envolvendo argumentação e operadores lógicos como e, ou, se e então, explicando conceitos de tabela verdade e proposições como tautologias.",
     "en": "Educational game about mathematical logic developed in partnership with the Aquele Professor brand. A reinterpretation of courtroom-style games (like Phoenix Wright Ace Attorney), where the player uses point-and-click in a tribunal scenario to solve cases, analyzing logical terms of mathematical logic involving argumentation and logical operators such as and, or, if, then, explaining concepts of truth tables and propositions such as tautologies."
@@ -27,7 +36,10 @@
   "gallery": [],
   "media": {
     "carousel": [],
-    "carouselCaptions": { "pt": [], "en": [] }
+    "carouselCaptions": {
+      "pt": [],
+      "en": []
+    }
   },
   "date": null,
   "role": "Desenvolvimento de jogo",
@@ -46,7 +58,18 @@
       "pt": "O jogador atua como advogado em um tribunal, solucionando casos analisando termos lógicos relacionados à matemática lógica. Utiliza operadores lógicos (e, ou, se, então) e conceitos como tabela verdade e proposições (tautologias, contradições, contingências) para construir argumentos, confrontar testemunhos e provar a inocência ou culpa dos réus.",
       "en": "The player acts as a lawyer in a tribunal, solving cases by analyzing logical terms related to mathematical logic. Uses logical operators (and, or, if, then) and concepts like truth tables and propositions (tautologies, contradictions, contingencies) to build arguments, confront testimonies, and prove the innocence or guilt of defendants."
     },
-    "documentos": ["GDD", "Mecanicas", "Universo", "Personagens", "Inimigos", "Assets-Cenario", "Inventario", "Pendencias"],
+    "documentos": [
+      "GDD",
+      "Mecanicas",
+      "Universo",
+      "Personagens",
+      "Inimigos",
+      "Assets-Cenario",
+      "Inventario",
+      "Pendencias"
+    ],
     "estadoAtual": "Fase de documentação - produção dos primeiros documentos (pipeline ativo)"
-  }
+  },
+  "collaborationType": "parceria",
+  "partner": "Aquele Professor"
 }

@@ -491,6 +491,42 @@
         // Armazenar galeria global para lightbox
         currentGallery = project.gallery || [];
 
+        // Configuração de Parceria / Natureza do Projeto
+        const collabType = project.collaborationType || 'pessoal';
+        let collabLabel = t('collabPersonal');
+        let collabIcon = '👤';
+        if (collabType === 'parceria') {
+          collabLabel = t('collabPartnership');
+          collabIcon = '🤝';
+        } else if (collabType === 'estudo') {
+          collabLabel = t('collabStudy');
+          collabIcon = '📖';
+        }
+
+        const ribbonHtml = `
+          <div class="case-study-ribbon-wrapper" aria-label="${collabLabel}">
+            <div class="case-study-ribbon case-study-ribbon--${collabType}">
+              <span>${collabIcon}</span>
+              <span>${collabLabel}</span>
+            </div>
+          </div>
+        `;
+
+        let partnerMetaHtml = '';
+        if (project.partner) {
+          partnerMetaHtml = `
+            <span class="collab-meta-badge collab-meta-badge--${collabType}">
+              🤝 ${t('collabPartnerPrefix')} <strong>${project.partner}</strong>
+            </span>
+          `;
+        } else {
+          partnerMetaHtml = `
+            <span class="collab-meta-badge collab-meta-badge--${collabType}">
+              ${collabIcon} ${collabLabel}
+            </span>
+          `;
+        }
+
         // Renderização dos blocos especializados
         const specializedToolsHtml = renderToolsLabSection(project, lang);
         const specializedArtHtml = renderArtWorkshopSection(project, lang);
@@ -499,7 +535,9 @@
         const galleryHtml = renderProjectGallery(project, lang);
 
         mount.innerHTML = `
-          <article class="case-study">
+          <article class="case-study case-study--${collabType}">
+            ${ribbonHtml}
+
             <!-- 1. Header do Estudo de Caso (Título e Metadados) -->
             <header class="case-study-header">
               <a href="${backUrl}" class="btn btn-ghost" style="align-self: flex-start; padding: 4px 14px; font-size: 0.85rem;">
@@ -508,6 +546,7 @@
               <h1 class="case-study-title">${project.title}</h1>
               <div class="case-study-meta">
                 <span class="project-status-badge status-${project.status}">${statusLabel}</span>
+                ${partnerMetaHtml}
                 <div class="project-tech-tags">${techTagsHtml}</div>
               </div>
             </header>

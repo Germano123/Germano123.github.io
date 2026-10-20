@@ -5,8 +5,15 @@
   "projectType": "game",
   "areas": [],
   "status": "in-progress",
-  "technologies": ["A confirmar"],
-  "tags": ["gamedev", "indie", "farm", "simulacao"],
+  "technologies": [
+    "A confirmar"
+  ],
+  "tags": [
+    "gamedev",
+    "indie",
+    "farm",
+    "simulacao"
+  ],
   "summary": {
     "pt": "Jogo de gerenciamento de fazenda (farm management) de visão top-down, no estilo de produção da LostBoys Studio Indie. O jogador cuida de uma pequena fazenda de cultivo de plantas (inicialmente rosas-do-deserto), onde cada planta é única, com características definidas pelo genótipo × fenótipo.",
     "en": "Farm management game with top-down view, in the LostBoys Studio Indie production style. The player takes care of a small plant cultivation farm (initially desert roses), where each plant is unique, with characteristics defined by genotype × phenotype."
@@ -27,7 +34,10 @@
   "gallery": [],
   "media": {
     "carousel": [],
-    "carouselCaptions": { "pt": [], "en": [] }
+    "carouselCaptions": {
+      "pt": [],
+      "en": []
+    }
   },
   "date": null,
   "role": "Desenvolvimento de jogo",
@@ -45,7 +55,14 @@
       "pt": "O jogador cuida de uma pequena fazenda de cultivo. Cada planta é única, com características definidas pelo genótipo × fenótipo. O tamanho é controlado pelo pote (podendo aumentar o tamanho geral da planta ou elevar raízes expostas/profundas); a quantidade de flores e caules é definida pelo DNA, impactando o poder de geração e as fertilizações futuras. Cuidados contínuos de luz, sombra, água e fertilizantes geram decisões diárias e contínuas (um dia inteiro de jogo = 24 min, a partir das 6h).",
       "en": "The player takes care of a small cultivation farm. Each plant is unique, with characteristics defined by genotype × phenotype. Size is controlled by the pot (being able to increase the overall plant size or elevate exposed/deep roots); the number of flowers and stems is defined by DNA, impacting generation power and future fertilizations. Continuous care of light, shade, water and fertilizers generates daily and continuous decisions (one full game day = 24 min, starting at 6 AM)."
     },
-    "documentos": ["GDD", "Mecanicas", "Universo", "Personagens", "Pendencias"],
+    "documentos": [
+      "GDD",
+      "Mecanicas",
+      "Universo",
+      "Personagens",
+      "Pendencias"
+    ],
     "estadoAtual": "Fase de documentação - produção dos primeiros documentos (pipeline ativo)"
-  }
+  },
+  "collaborationType": "estudo"
 }

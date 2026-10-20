@@ -834,14 +834,173 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
    Página de Detalhe / Estudo de Caso (project.html)
    ======================================================== */
 .case-study {
+  position: relative;
+  overflow: hidden;
   background-color: var(--bg-card);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-border);
   box-shadow: var(--shadow-lg);
   padding: 48px 40px;
   display: flex;
   flex-direction: column;
   gap: 36px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ========================================================
+   Marcação de Projetos: Pessoal, Parceria, Estudo
+   Bordas Coloridas e Banner Diagonal no Canto Superior Direito
+   ======================================================== */
+
+/* Bordas Coloridas do Container do Projeto */
+.case-study--pessoal {
+  border-color: #e67e22;
+  box-shadow: 0 0 28px rgba(230, 126, 34, 0.16), var(--shadow-lg);
+}
+
+.case-study--parceria {
+  border-color: #9333ea;
+  box-shadow: 0 0 28px rgba(147, 51, 234, 0.18), var(--shadow-lg);
+}
+
+.case-study--estudo {
+  border-color: #ffffff;
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.15), var(--shadow-lg);
+}
+
+/* Wrapper do Banner Diagonal no Canto Superior Direito */
+.case-study-ribbon-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 155px;
+  height: 155px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 20;
+  border-top-right-radius: var(--radius-lg);
+}
+
+/* Faixa Diagonal entre a Borda Superior e a Borda Lateral Direita */
+.case-study-ribbon {
+  position: absolute;
+  top: 34px;
+  right: -50px;
+  width: 215px;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 0;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  user-select: none;
+}
+
+/* Variação Laranja: Pessoal */
+.case-study-ribbon--pessoal {
+  background: linear-gradient(135deg, #d35400 0%, #e67e22 50%, #f39c12 100%);
+  color: #ffffff;
+  border-top: 2px solid #f39c12;
+  border-bottom: 2px solid #b94600;
+}
+
+/* Variação Roxa: Parceria */
+.case-study-ribbon--parceria {
+  background: linear-gradient(135deg, #6b21a8 0%, #7c3aed 50%, #9333ea 100%);
+  color: #ffffff;
+  border-top: 2px solid #c084fc;
+  border-bottom: 2px solid #581c87;
+}
+
+/* Variação Branca: Estudo */
+.case-study-ribbon--estudo {
+  background: linear-gradient(135deg, #334155 0%, #475569 50%, #64748b 100%);
+  color: #ffffff;
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #cbd5e1;
+}
+
+/* Badge de Metadados de Parceria no Cabeçalho */
+.collab-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.collab-meta-badge--pessoal {
+  color: #ffb74d;
+  background-color: rgba(230, 126, 34, 0.16);
+  border: 1px solid rgba(230, 126, 34, 0.45);
+}
+
+.collab-meta-badge--parceria {
+  color: #d8b4fe;
+  background-color: rgba(147, 51, 234, 0.18);
+  border: 1px solid rgba(168, 85, 247, 0.45);
+}
+
+.collab-meta-badge--estudo {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Destaque nos Cards de Projeto do Catálogo */
+.project-card--pessoal {
+  border-top: 3px solid #e67e22;
+}
+.project-card--parceria {
+  border-top: 3px solid #9333ea;
+}
+.project-card--estudo {
+  border-top: 3px solid #ffffff;
+}
+
+.card-collab-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+}
+
+.card-collab-badge--pessoal {
+  background: rgba(230, 126, 34, 0.92);
+  color: #ffffff;
+  border: 1.5px solid #f39c12;
+}
+
+.card-collab-badge--parceria {
+  background: rgba(147, 51, 234, 0.92);
+  color: #ffffff;
+  border: 1.5px solid #c084fc;
+}
+
+.card-collab-badge--estudo {
+  background: rgba(51, 65, 85, 0.92);
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
 }
 
 .case-study-header {
