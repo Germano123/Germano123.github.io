@@ -133,6 +133,15 @@ const I18N = {
     softwareCoverage: "Cobertura de Testes",
     softwareDistributionTitle: "Distribuição & Licença",
 
+    // 5. Galeria do Projeto & Lightbox
+    projectGalleryTitle: "Galeria do Projeto",
+    projectGalleryDesc: "Registros visuais, interfaces e capturas de desenvolvimento.",
+    lightboxClose: "Fechar",
+    lightboxPrev: "Anterior",
+    lightboxNext: "Próxima",
+    viewImageFull: "Clique para ampliar a imagem",
+    imageOf: "de",
+
     // Banner de Construção
     bannerConstructionTitle: "Laboratório em construção",
     bannerConstructionText: "Estamos organizando as bancadas de trabalho, finalizando os primeiros pipelines e preparando estudos de caso para publicação.",
@@ -292,6 +301,15 @@ const I18N = {
     softwareQualityTitle: "Code Quality, Tests & Benchmarks",
     softwareCoverage: "Test Coverage",
     softwareDistributionTitle: "Distribution & License",
+
+    // 5. Project Gallery & Lightbox
+    projectGalleryTitle: "Project Gallery",
+    projectGalleryDesc: "Visual records, interfaces, and development screenshots.",
+    lightboxClose: "Close",
+    lightboxPrev: "Previous",
+    lightboxNext: "Next",
+    viewImageFull: "Click to view full-size image",
+    imageOf: "of",
 
     // Construction Banner
     bannerConstructionTitle: "Laboratory under construction",

@@ -1,0 +1,108 @@
+{
+  "projetos": [
+    {
+      "id": "digital-delivery",
+      "slug": "digital-delivery",
+      "title": "Digital Delivery",
+      "projectType": "game",
+      "areas": [],
+      "status": "in-progress",
+      "tags": ["gamedev", "indie", "educacional", "hacker", "simulacao", "aquele-professor"],
+      "summary": {
+        "pt": "Jogo educacional de conceitos computacionais desenvolvido em parceria com a marca Aquele Professor.",
+        "en": "Educational game about computer concepts developed in partnership with the Aquele Professor brand."
+      },
+      "coverImage": null,
+      "role": "Desenvolvimento de jogo",
+      "repositoryUrl": null,
+      "buildUrl": null
+    },
+    {
+      "id": "tribunal-logico",
+      "slug": "tribunal-logico",
+      "title": "Tribunal Lógico",
+      "projectType": "game",
+      "areas": [],
+      "status": "in-progress",
+      "tags": ["gamedev", "indie", "educacional", "point-and-click", "logica", "aquele-professor"],
+      "summary": {
+        "pt": "Jogo educacional de matemática lógica desenvolvido em parceria com a marca Aquele Professor.",
+        "en": "Educational game about mathematical logic developed in partnership with the Aquele Professor brand."
+      },
+      "coverImage": null,
+      "role": "Desenvolvimento de jogo",
+      "repositoryUrl": null,
+      "buildUrl": null
+    },
+    {
+      "id": "typing-defenders",
+      "slug": "typing-defenders",
+      "title": "Typing Defenders",
+      "projectType": "game",
+      "areas": [],
+      "status": "in-progress",
+      "tags": ["gamedev", "indie", "educacional", "digitação", "typing", "aquele-professor"],
+      "summary": {
+        "pt": "Jogo educacional de digitação desenvolvido em parceria com a marca Aquele Professor.",
+        "en": "Educational typing game developed in partnership with the Aquele Professor brand."
+      },
+      "coverImage": null,
+      "role": "Desenvolvimento de jogo",
+      "repositoryUrl": null,
+      "buildUrl": null
+    },
+    {
+      "id": "little-knight",
+      "slug": "little-knight",
+      "title": "Little Knight",
+      "projectType": "game",
+      "areas": [],
+      "status": "in-progress",
+      "tags": ["gamedev", "indie", "platformer", "rpg"],
+      "summary": {
+        "pt": "Jogo de RPG side-scroll com a agilidade e velocidade de Sonic e plataforma de Super Mario.",
+        "en": "Side-scroll RPG game with the agility and speed of Sonic and platforming of Super Mario."
+      },
+      "coverImage": null,
+      "role": "Desenvolvimento de jogo",
+      "repositoryUrl": null,
+      "buildUrl": null
+    },
+    {
+      "id": "metaghost-fantasy",
+      "slug": "metaghost-fantasy",
+      "title": "MetaGhost Fantasy",
+      "projectType": "game",
+      "areas": [],
+      "status": "in-progress",
+      "tags": ["gamedev", "indie", "plataforma", "3d", "combate"],
+      "summary": {
+        "pt": "Projeto da LostBoys de exploração 3D e combate contra fantasmas em uma mansão abandonada.",
+        "en": "LostBoys project of 3D exploration and combat against ghosts in an abandoned mansion."
+      },
+      "coverImage": null,
+      "role": "Desenvolvimento de jogo",
+      "repositoryUrl": null,
+      "buildUrl": null
+    },
+    {
+      "id": "cripto-flowers",
+      "slug": "cripto-flowers",
+      "title": "Cripto Flowers",
+      "projectType": "game",
+      "areas": [],
+      "status": "in-progress",
+      "tags": ["gamedev", "indie", "farm", "simulacao"],
+      "summary": {
+        "pt": "Jogo de gerenciamento de fazenda (farm management) de visão top-down.",
+        "en": "Farm management game with top-down view."
+      },
+      "coverImage": null,
+      "role": "Desenvolvimento de jogo",
+      "repositoryUrl": null,
+      "buildUrl": null
+    }
+  ],
+  "areasAtuacao": ["tools-dev", "tech-artist", "modelador-3d"],
+  "totalProjetos": 6
+}

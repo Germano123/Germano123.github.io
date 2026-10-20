@@ -1,0 +1,52 @@
+{
+  "id": "digital-delivery",
+  "slug": "digital-delivery",
+  "title": "Digital Delivery",
+  "projectType": "game",
+  "areas": [],
+  "status": "in-progress",
+  "technologies": ["A confirmar"],
+  "tags": ["gamedev", "indie", "educacional", "hacker", "simulacao", "aquele-professor"],
+  "summary": {
+    "pt": "Jogo educacional de conceitos computacionais desenvolvido em parceria com a marca Aquele Professor. O jogador utiliza um terminal de comando para estabelecer conexões cliente-servidor, descobrir chaves SSH e abrir túneis de transferência de arquivos em uma arena 3D com uma personagem robótica.",
+    "en": "Educational game about computer concepts developed in partnership with the Aquele Professor brand. The player uses a command terminal to establish client-server connections, discover SSH keys, and open file transfer tunnels in a 3D arena with a robotic character."
+  },
+  "problem": {
+    "pt": "Ensinar conceitos computacionais (conexão cliente-servidor, SSH, túneis de transferência, gerenciamento de memória) de forma lúdica e interativa, tornando conteúdo técnico acessível para estudantes.",
+    "en": "Teach computer concepts (client-server connection, SSH, transfer tunnels, memory management) in a playful and interactive way, making technical content accessible for students."
+  },
+  "solution": {
+    "pt": "Um jogo onde o jogador opera um terminal de comando, estabelece conexões, descobre chaves SSH, abre túneis de transferência e entra em uma arena 3D com um personagem robótico para carregar arquivos nos aplicativos corretos antes que processos estourem a memória do computador.",
+    "en": "A game where the player operates a command terminal, establishes connections, discovers SSH keys, opens transfer tunnels, and enters a 3D arena with a robotic character to load files into the correct applications before processes overflow computer memory and cause data loss."
+  },
+  "contributions": {
+    "pt": "Concepção e documentação do jogo educacional, definição da mecânica de terminal e conexão, estrutura da arena 3D, documentação de universo, personagens, inimigos, assets de cenário e inventário.",
+    "en": "Concept and documentation of the educational game, definition of terminal and connection mechanics, 3D arena structure, documentation of universe, characters, enemies, scene assets, and inventory."
+  },
+  "coverImage": null,
+  "gallery": [],
+  "media": {
+    "carousel": [],
+    "carouselCaptions": { "pt": [], "en": [] }
+  },
+  "date": null,
+  "role": "Desenvolvimento de jogo",
+  "repositoryUrl": null,
+  "buildUrl": null,
+  "details": {
+    "genero": "Educacional / simulação / hacker",
+    "ambientacao": "Ambiente virtual 3D e terminal de comando",
+    "perspectiva": "Primeira pessoa / terminal",
+    "parceiro": "Aquele Professor",
+    "estudio": "LostBoys Studio Indie",
+    "plataformas": "A definir",
+    "motor": "A confirmar",
+    "versao": "A confirmar",
+    "conceitoResumido": {
+      "pt": "Jogo educacional que ensina conceitos computacionais por meio de um terminal de comando. O jogador conecta cliente-servidor, descobre uma chave SSH, abre um túnel de transferência de arquivos e entra em uma arena 3D com uma personagem robótica. Deve carregar arquivos nos aplicativos corretos antes que processos estourem a memória do computador e causem perda de dados.",
+      "en": "Educational game that teaches computer concepts through a command terminal. The player connects client-server, discovers an SSH key, opens a file transfer tunnel, and enters a 3D arena with a robotic character. Must load files into the correct applications before processes overflow computer memory and cause data loss."
+    },
+    "documentos": ["GDD", "Mecanicas", "Universo", "Personagens", "Inimigos", "Assets-Cenario", "Inventario", "Pendencias"],
+    "estadoAtual": "Fase de documentação - produção dos primeiros documentos (pipeline ativo)"
+  }
+}

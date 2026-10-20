@@ -1,0 +1,55 @@
+{
+  "id": "metaghost-fantasy",
+  "slug": "metaghost-fantasy",
+  "title": "MetaGhost Fantasy",
+  "projectType": "game",
+  "areas": [],
+  "status": "in-progress",
+  "technologies": ["A confirmar"],
+  "tags": ["gamedev", "indie", "plataforma", "3d", "combate"],
+  "summary": {
+    "pt": "Projeto da LostBoys de exploração 3D e combate contra fantasmas em uma mansão abandonada. A proposta inclui seis personagens, modo solo ou cooperativo para até quatro jogadores, coleta de ectoplasma e fabricação de armas e armaduras.",
+    "en": "LostBoys project of 3D exploration and combat against ghosts in an abandoned mansion. The proposal includes six characters, solo or cooperative mode for up to four players, ectoplasm collection and weapon and armor crafting."
+  },
+  "problem": {
+    "pt": "Criar um jogo de exploração 3D e combate contra fantasmas com múltiplos personagens jogáveis, modo cooperativo, sistema de progressão por coleta de ectoplasma e fabricação de equipamentos, em uma ambientação de mansão abandonada com sete famílias de inimigos.",
+    "en": "Create a 3D exploration and combat game against ghosts with multiple playable characters, cooperative mode, progression system through ectoplasm collection and equipment crafting, in an abandoned mansion setting with seven enemy families."
+  },
+  "solution": {
+    "pt": "Um jogo de exploração 3D e combate contra fantasmas em uma mansão abandonada, com seis personagens (Vitor, Dra. Volt, Atlas, Vértex, Neri, Alec), modo solo ou cooperativo para até quatro jogadores, coleta de ectoplasma, fabricação de armas e armaduras, e sete famílias de inimigos com mecânicas distintas.",
+    "en": "A 3D exploration and combat game against ghosts in an abandoned mansion, with six characters (Vitor, Dra. Volt, Atlas, Vertex, Neri, Alec), solo or cooperative mode for up to four players, ectoplasm collection, weapon and armor crafting, and seven enemy families with distinct mechanics."
+  },
+  "contributions": {
+    "pt": "Concepção e documentação do jogo, definição dos seis personagens com arquétipos e mecânicas exclusivas, estrutura de sete famílias de inimigos, sistema de coleta de ectoplasma e fabricação de armas/armaduras, modo solo e cooperativo, documentação de universo, personagens, inventário e links de assets.",
+    "en": "Concept and documentation of the game, definition of six characters with archetypes and exclusive mechanics, structure of seven enemy families, ectoplasm collection and weapon/armor crafting system, solo and cooperative mode, documentation of universe, characters, inventory and asset links."
+  },
+  "coverImage": null,
+  "gallery": [],
+  "media": {
+    "carousel": [],
+    "carouselCaptions": { "pt": [], "en": [] }
+  },
+  "date": null,
+  "role": "Desenvolvimento de jogo",
+  "repositoryUrl": null,
+  "buildUrl": null,
+  "details": {
+    "genero": "Exploração 3D / combate",
+    "ambientacao": "Mansão abandonada",
+    "perspectiva": "3D",
+    "jogadores": "Solo ou cooperativo (até 4 jogadores)",
+    "estudio": "LostBoys Studio Indie",
+    "plataformas": "A definir",
+    "motor": "A confirmar",
+    "versao": "A confirmar",
+    "conceitoResumido": {
+      "pt": "Projeto da LostBoys de exploração 3D e combate contra fantasmas em uma mansão abandonada. A proposta inclui seis personagens, modo solo ou cooperativo para até quatro jogadores, coleta de ectoplasma e fabricação de armas e armaduras.",
+      "en": "LostBoys project of 3D exploration and combat against ghosts in an abandoned mansion. The proposal includes six characters, solo or cooperative mode for up to four players, ectoplasm collection and weapon and armor crafting."
+    },
+    "personagens": ["Vitor", "Dra. Volt", "Atlas", "Vértex", "Neri", "Alec"],
+    "familiasInimigos": ["Common Ghosts", "Whimlings", "Wrong Toys", "Sewer Corrupteds", "Shadow Spectrals", "Elementals", "Hospital Abandonado"],
+    "materiais": ["Modelos dos seis personagens", "Animações da Dra. Volt", "Conceitos de sete famílias de inimigos", "Modelos e texturas de alguns inimigos", "Conceitos e modelos de cenários", "Pranchas de interface", "MTG Logo e artes de divulgação"],
+    "documentos": ["GDD", "Mecanicas", "Universo", "Personagens", "Assets-Cenario", "Inventario", "Pendencias", "LINKS"],
+    "estadoAtual": "Documentação reúne a proposta do jogo e os materiais disponíveis. Versão jogável, funcionalidades implementadas, motor e plataformas: a confirmar."
+  }
+}

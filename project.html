@@ -30,6 +30,9 @@
     <script src="js/components.js"></script>
 
     <script>
+      let currentGallery = [];
+      let currentGalleryIndex = 0;
+
       function getSlugFromUrl() {
         const params = new URLSearchParams(window.location.search);
         return params.get('slug') || params.get('id');
@@ -39,6 +42,71 @@
         if (!val) return '';
         if (typeof val === 'string') return val;
         return val[lang] || val.pt || '';
+      }
+
+      function openLightbox(index) {
+        if (!currentGallery || currentGallery.length === 0) return;
+        currentGalleryIndex = (index + currentGallery.length) % currentGallery.length;
+        const item = currentGallery[currentGalleryIndex];
+        const modal = document.getElementById('project-lightbox');
+        const img = document.getElementById('lightbox-img');
+        const cap = document.getElementById('lightbox-caption');
+        const counter = document.getElementById('lightbox-counter');
+        const lang = getLanguage();
+
+        if (!modal || !img) return;
+
+        img.src = item.url;
+        img.alt = item.alt || '';
+        if (cap) cap.textContent = getLocText(item.caption, lang);
+        if (counter) counter.textContent = `${currentGalleryIndex + 1} ${t('imageOf')} ${currentGallery.length}`;
+
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        const modal = document.getElementById('project-lightbox');
+        if (!modal) return;
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function nextLightboxImage() {
+        openLightbox(currentGalleryIndex + 1);
+      }
+
+      function prevLightboxImage() {
+        openLightbox(currentGalleryIndex - 1);
+      }
+
+      function renderProjectGallery(project, lang) {
+        if (!project.gallery || project.gallery.length === 0) return '';
+
+        const cardsHtml = project.gallery.map((img, idx) => {
+          const caption = getLocText(img.caption, lang);
+          return `
+            <div class="gallery-card" data-gallery-index="${idx}" tabindex="0" role="button" aria-label="${caption || t('viewImageFull')}">
+              <div class="gallery-thumb-wrapper">
+                <img src="${img.url}" alt="${img.alt || project.title}" class="gallery-thumb" loading="lazy">
+                <span class="gallery-zoom-badge" aria-hidden="true">🔍 ${idx + 1}</span>
+              </div>
+              ${caption ? `<div class="gallery-card-caption">${caption}</div>` : ''}
+            </div>
+          `;
+        }).join('');
+
+        return `
+          <section class="case-study-section project-gallery-section">
+            <h2 class="case-study-section-title">🖼️ ${t('projectGalleryTitle')}</h2>
+            <p style="color: var(--color-cream-muted); font-size: 0.95rem; margin-top: -6px;">${t('projectGalleryDesc')}</p>
+            <div class="project-gallery-grid">
+              ${cardsHtml}
+            </div>
+          </section>
+        `;
       }
 
       function renderToolsLabSection(project, lang) {
@@ -420,11 +488,15 @@
         else if (primaryArea === 'tools-lab') backUrl = 'tools-lab.html';
         else if (primaryArea === 'games-prototypes') backUrl = 'games-prototypes.html';
 
+        // Armazenar galeria global para lightbox
+        currentGallery = project.gallery || [];
+
         // Renderização dos blocos especializados
         const specializedToolsHtml = renderToolsLabSection(project, lang);
         const specializedArtHtml = renderArtWorkshopSection(project, lang);
         const specializedGameHtml = renderGamePrototypeSection(project, lang);
         const specializedSoftwareHtml = renderSoftwareShelfSection(project, lang);
+        const galleryHtml = renderProjectGallery(project, lang);
 
         mount.innerHTML = `
           <article class="case-study">
@@ -450,7 +522,10 @@
               <p style="font-size: 1.12rem; color: var(--color-cream); line-height: 1.65; margin: 0;">${summary}</p>
             </div>
 
-            <!-- 4. Contexto & Desafio -->
+            <!-- 4. Galeria de Imagens do Projeto (4+ Imagens com Lightbox) -->
+            ${galleryHtml}
+
+            <!-- 5. Contexto & Desafio -->
             ${problem ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudyProblem')}</h2>
@@ -458,13 +533,13 @@
               </section>
             ` : ''}
 
-            <!-- 5. Blocos Especializados Conforme a Disciplina do Projeto -->
+            <!-- 6. Blocos Especializados Conforme a Disciplina do Projeto -->
             ${specializedToolsHtml}
             ${specializedArtHtml}
             ${specializedGameHtml}
             ${specializedSoftwareHtml}
 
-            <!-- 6. Solução Técnica & Arquitetura Geral -->
+            <!-- 7. Solução Técnica & Arquitetura Geral -->
             ${solution ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudySolution')}</h2>
@@ -472,7 +547,7 @@
               </section>
             ` : ''}
 
-            <!-- 7. Contribuição Individual -->
+            <!-- 8. Contribuição Individual -->
             ${contributions ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudyContributions')}</h2>
@@ -480,7 +555,7 @@
               </section>
             ` : ''}
 
-            <!-- 8. Breakdown Técnico Detalhado -->
+            <!-- 9. Breakdown Técnico Detalhado -->
             ${technicalDetails ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudyTechnical')}</h2>
@@ -488,7 +563,7 @@
               </section>
             ` : ''}
 
-            <!-- 9. Resultados & Limitações Observadas -->
+            <!-- 10. Resultados & Limitações Observadas -->
             ${results ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudyResults')}</h2>
@@ -496,7 +571,7 @@
               </section>
             ` : ''}
 
-            <!-- 10. Ações e Links Externos Verificáveis -->
+            <!-- 11. Ações e Links Externos Verificáveis -->
             <footer class="case-study-actions">
               ${project.repositoryUrl ? `
                 <a href="${project.repositoryUrl}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
@@ -515,8 +590,72 @@
               </a>
             </footer>
           </article>
+
+          <!-- Lightbox Modal para Visualização em Tela Cheia -->
+          <div id="project-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+            <div class="lightbox-wrapper">
+              <button type="button" class="lightbox-close-btn" aria-label="${t('lightboxClose')}">&times;</button>
+              <div class="lightbox-stage">
+                <button type="button" class="lightbox-nav-btn prev" aria-label="${t('lightboxPrev')}">&#8249;</button>
+                <img id="lightbox-img" class="lightbox-image" src="" alt="">
+                <button type="button" class="lightbox-nav-btn next" aria-label="${t('lightboxNext')}">&#8250;</button>
+              </div>
+              <div class="lightbox-caption-bar">
+                <div id="lightbox-caption" class="lightbox-caption-text"></div>
+                <div id="lightbox-counter" class="lightbox-counter"></div>
+              </div>
+            </div>
+          </div>
         `;
+
+        // Vincular eventos de clique da galeria
+        document.querySelectorAll('.gallery-card').forEach(card => {
+          card.addEventListener('click', () => {
+            const idx = parseInt(card.getAttribute('data-gallery-index'), 10);
+            openLightbox(idx);
+          });
+          card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              const idx = parseInt(card.getAttribute('data-gallery-index'), 10);
+              openLightbox(idx);
+            }
+          });
+        });
+
+        // Controles do Lightbox
+        const closeBtn = document.querySelector('.lightbox-close-btn');
+        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+
+        const nextBtn = document.querySelector('.lightbox-nav-btn.next');
+        if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextLightboxImage(); });
+
+        const prevBtn = document.querySelector('.lightbox-nav-btn.prev');
+        if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevLightboxImage(); });
+
+        const modal = document.getElementById('project-lightbox');
+        if (modal) {
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.classList.contains('lightbox-wrapper') || e.target.classList.contains('lightbox-stage')) {
+              closeLightbox();
+            }
+          });
+        }
       }
+
+      // Atalhos globais de teclado para Lightbox
+      window.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('project-lightbox');
+        if (!modal || !modal.classList.contains('active')) return;
+
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+          nextLightboxImage();
+        } else if (e.key === 'ArrowLeft') {
+          prevLightboxImage();
+        }
+      });
 
       document.addEventListener('DOMContentLoaded', () => {
         initI18n();

@@ -6,6 +6,24 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.11.0] - 2026-10-20
+### Adicionado
+- **Integração de 6 Novos Jogos do Portfólio (`artifacts/portfolio-data/`):**
+  - Mapeamento e estruturação completa em `js/data/projects.js` segundo a arquitetura `GamePrototypeProjectData`:
+    - `digital-delivery`: Simulador de entregas com física arcade, drift suave e ambientação de chuva relaxante.
+    - `tribunal-logico`: Jogo investigativo de dedução e tribunal com apresentação de evidências e análise de depoimentos.
+    - `typing-defenders`: Arcade de digitação rítmica com digitação mecânica e destruição de meteoros.
+    - `little-knight`: Metroidvania / Ação de plataforma com combates ágeis e física acolhedora.
+    - `metaghost-fantasy`: RPG tático em turnos com movimentação em grade e combos elementais de feitiços.
+    - `cripto-flowers`: Simulador de jardinagem e botânica fantástica com estufas hidropônicas e genética botânica procedural.
+- **Galeria de Imagens Especializada (Mínimo de 4 imagens por projeto):**
+  - 30 novas artes vetoriais SVG geradas e organizadas em `assets/projects/<slug>/` (capa oficial + 4 capturas conceituais/gameplay por projeto).
+  - Grid de galeria responsivo na página de estudo de caso (`project.html`) posicionado imediatamente após o Resumo Executivo (*Visual First*).
+  - Modal Interativo de Lightbox com transição suave, navegação por teclado (`ArrowLeft`, `ArrowRight`, `Escape`), backdrop click, botões de ação e contadores bilíngues (*"Imagem X de Y"* / *"Image X of Y"*).
+  - Suporte completo a internacionalização (PT/EN) para legendas, títulos da galeria e interface do lightbox em `js/i18n.js`.
+
+---
+
 ## [0.10.0] - 2026-10-20
 ### Adicionado
 - **Especificação de Estruturas de Apresentação (`artifacts/3_project_presentation_schemas.md`):** Extração e especificação técnica das 4 estruturas de dados especializadas (Tools Lab, Art Workshop, Games & Prototypes, Software Shelf) com diagramas de taxonomia e fluxogramas de pipeline em Mermaid.

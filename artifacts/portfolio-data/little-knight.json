@@ -1,0 +1,51 @@
+{
+  "id": "little-knight",
+  "slug": "little-knight",
+  "title": "Little Knight",
+  "projectType": "game",
+  "areas": [],
+  "status": "in-progress",
+  "technologies": ["A confirmar"],
+  "tags": ["gamedev", "indie", "platformer", "rpg"],
+  "summary": {
+    "pt": "Jogo de RPG side-scroll com a agilidade e velocidade de Sonic e plataforma de Super Mario, no estilo de produção da LostBoys Studio Indie. O jogador assume o papel de um escudeiro em uma jornada para salvar seu pequeno vilarejo de um mago que transformou seus amigos em animais e os sequestrou.",
+    "en": "Side-scroll RPG game with the agility and speed of Sonic and platforming of Super Mario, in the LostBoys Studio Indie production style. The player takes the role of a squire on a journey to save his small village from a mage who transformed his friends into animals and kidnapped them."
+  },
+  "problem": {
+    "pt": "Criar um jogo de plataforma side-scroll que combine agilidade, velocidade e RPG, com desafios de parkour, sistema de vida e combate, chefes específicos por bioma e um loop de jogabilidade que incentive a conclusão rápida das fases.",
+    "en": "Create a side-scroll platformer game combining agility, speed and RPG, with parkour challenges, life and combat system, biome-specific bosses, and a gameplay loop that encourages fast phase completion."
+  },
+  "solution": {
+    "pt": "O jogador passa com agilidade por desafios de plataformas, escolhendo rotas diferentes e rápidas para passar pelos percursos da fase e chegar ao objetivo final. Há um sistema de vida e combate para enfrentar inimigos com armas, encorajando a conclusão com agilidade e sequência de parkour. Chefes enfrentam o jogador a cada 3 sequências de fases (mini boss) e depois mais 3 fases (chefe de bioma), cada um com mecânicas específicas.",
+    "en": "The player passes agilely through platform challenges, choosing different and fast routes to go through the phase paths and reach the final objective. There is a life and combat system to face enemies with weapons, encouraging completion with agility and parkour sequence. Bosses face the player every 3 phase sequences (mini boss) and then after 3 more phases (biome boss), each with specific mechanics."
+  },
+  "contributions": {
+    "pt": "Concepção e documentação do jogo, definição da mecânica de plataforma side-scroll e parkour, sistema de vida e combate, estrutura de chefes (mini boss a cada 3 fases, chefe de bioma), documentação de universo, vilarejo, mago, biomas, personagens (fichas de escudeiro, amigos e NPCs).",
+    "en": "Concept and documentation of the game, definition of side-scroll platformer and parkour mechanics, life and combat system, boss structure (mini boss every 3 phases, biome boss), documentation of universe, village, mage, biomes, characters (squire sheets, friends and NPCs)."
+  },
+  "coverImage": null,
+  "gallery": [],
+  "media": {
+    "carousel": [],
+    "carouselCaptions": { "pt": [], "en": [] }
+  },
+  "date": null,
+  "role": "Desenvolvimento de jogo",
+  "repositoryUrl": null,
+  "buildUrl": null,
+  "details": {
+    "genero": "RPG de plataforma side-scroll",
+    "ambientacao": "Vilarejo sequestrado pelo mago e biomas variados",
+    "perspectiva": "Side-scroll",
+    "estudio": "LostBoys Studio Indie",
+    "plataformas": "A definir",
+    "motor": "A confirmar",
+    "versao": "A confirmar",
+    "conceitoResumido": {
+      "pt": "O jogador assume o papel de um escudeiro em uma jornada para salvar seu pequeno vilarejo de um mago que transformou seus amigos em animais e os sequestrou. Enfrentando biomas diferentes, ele deve passar com agilidade por desafios de plataformas, escolhendo rotas diferentes e rápidas para passar pelos percursos da fase e chegar ao objetivo final. Teremos um sistema de vida e combate para enfrentar os inimigos com suas armas, mas que deve ser encorajado a passar pelas fases com agilidade e sequência de parkour. Chefes enfrentam o jogador em momentos específicos das fases: a cada 3 sequências de fases, um mini boss; depois mais 3 fases, um chefe de bioma. Os combates carregam mecânicas específicas de cada boss.",
+      "en": "The player takes the role of a squire on a journey to save his small village from a mage who transformed his friends into animals and kidnapped them. Facing different biomes, he must pass agilely through platform challenges, choosing different and fast routes to go through the phase paths and reach the final objective. We will have a life and combat system to face enemies with their weapons, but it should be encouraged to pass through phases with agility and parkour sequence. Bosses face the player at specific moments of phases: every 3 phase sequences, a mini boss; then after 3 more phases, a biome boss. The combats carry specific mechanics of each boss."
+    },
+    "documentos": ["GDD", "Mecanicas", "Universo", "Personagens", "Pendencias"],
+    "estadoAtual": "Fase de documentação - produção dos primeiros documentos (pipeline ativo)"
+  }
+}
