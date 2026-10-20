@@ -287,12 +287,8 @@ const vm = require('vm');
 const context = { module: { exports: {} }, exports: {} };
 vm.createContext(context);
 vm.runInContext(existingCode, context);
-const existingProjects = context.module.exports.PROJECTS || [];
-
-// Add existing projects
-existingProjects.forEach(p => {
-  mergedProjects.push(p);
-});
+// Existing placeholder projects excluded to map only real projects
+// (mergedProjects only contains real verified projects)
 
 // Process each of the 6 game projects
 gamesData.forEach(g => {

@@ -6,6 +6,15 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.12.0] - 2026-10-20
+### Removido
+- **Remoção de Dados Placeholder / Mock:**
+  - Removidos os 6 projetos de exemplo fictícios de [`js/data/projects.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/data/projects.js) (`cozy-tilemap-automator`, `lowpoly-nature-kit`, `cozy-forest-guardian`, `stylized-locomotion-cycles`, `cozy-interaction-framework`, `cozy-palette-packer`).
+  - Removidos os arquivos de teste `exemplo-*.json` em `public/projects/`.
+  - A base canônica de projetos agora reflete exclusivamente os dados reais em fase de mapeamento (iniciando pelos 6 jogos já integrados). As áreas ainda sem projetos reais mapeados exibem o estado vazio acolhedor (*empty state*) do laboratório.
+
+---
+
 ## [0.11.0] - 2026-10-20
 ### Adicionado
 - **Integração de 6 Novos Jogos do Portfólio (`artifacts/portfolio-data/`):**
