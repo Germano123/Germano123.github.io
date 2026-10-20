@@ -6,6 +6,22 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.14.0] - 2026-10-20
+### Adicionado
+- **Carrossel Interativo para a Galeria do Projeto (`project.html`):**
+  - Transformação da galeria do estudo de caso em um carrossel dinâmico, acessível e responsivo, focado em alta fidelidade visual (*Visual First*).
+  - **Palco Principal (`.carousel-stage`):** Exibição em destaque do slide ativo com proporção 16:9, suporte a transição suave de opacidade e contador dinâmico de lâminas (*X de Y* / *X of Y*).
+  - **Navegação Multimodal:**
+    - Botões direcionais sobrepostos ao palco (`‹` e `›`) com microinterações acolhedoras.
+    - Barra inferior de miniaturas táteis com rolagem automática e realce ativo com a paleta do laboratório.
+    - Indicadores circulares (*dots*) de paginação com animação de expansão.
+    - Navegação completa por teclado (`ArrowLeft` e `ArrowRight`).
+    - Suporte nativo a gestos de deslize tátil (*swipe touch*) em dispositivos móveis.
+  - **Legendas Dinâmicas Reativas:** Barra de legendas contextualizada atualizada de forma síncrona a cada slide.
+  - **Integração com Lightbox Modal:** Clique no palco principal mantém a ampliação em tela cheia na imagem exata em exibição.
+
+---
+
 ## [0.13.1] - 2026-10-20
 ### Modificado
 - **Reposicionamento da Tag de Status ("Work in Progress"):**
