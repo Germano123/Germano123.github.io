@@ -54,6 +54,9 @@ const I18N = {
     filterCharacters: "Personagens",
     filterAssets: "Assets",
     filterAnimations: "Animações",
+    filterPartnerships: "Parcerias",
+    filterPersonal: "Pessoal",
+    filterStudies: "Estudos",
     filterAllAreas: "Todas as Áreas",
 
     // Aberturas Sugeridas das Páginas do Portfólio (v1.1)
@@ -229,6 +232,9 @@ const I18N = {
     filterCharacters: "Characters",
     filterAssets: "Assets",
     filterAnimations: "Animations",
+    filterPartnerships: "Partnerships",
+    filterPersonal: "Personal",
+    filterStudies: "Studies",
     filterAllAreas: "All Areas",
 
     // Suggested Page Openings (v1.1)

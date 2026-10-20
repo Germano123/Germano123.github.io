@@ -6,6 +6,16 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.14.1] - 2026-10-20
+### Adicionado
+- **Listagem dos 6 Jogos em Games & Prototypes (`games-prototypes.html`):**
+  - Correção na inicialização da renderização dos cards com declaração de `statusIcon` em `renderProjectCard` ([`js/components.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/components.js)).
+  - Habilitada a listagem completa dos 6 jogos autorais e parcerias em `games-prototypes.html`: *Digital Delivery*, *Tribunal Lógico*, *Typing Defenders*, *Little Knight*, *MetaGhost Fantasy* e *Cripto Flowers*.
+  - **Filtros Rápidos com Contadores:** Adicionados filtros interativos de escopo no topo do catálogo (`Todos (6)`, `🤝 Parcerias (3)`, `👤 Pessoal (2)`, `📖 Estudos (1)`).
+  - Suporte a internacionalização (PT/EN) para os novos filtros em [`js/i18n.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/i18n.js).
+
+---
+
 ## [0.14.0] - 2026-10-20
 ### Adicionado
 - **Carrossel Interativo para a Galeria do Projeto (`project.html`):**

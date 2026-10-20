@@ -70,9 +70,17 @@ const Components = {
     const statusClass = `status-${project.status}`;
     
     let statusLabel = t('statusCompleted');
-    if (project.status === 'in-progress') statusLabel = t('statusInProgress');
-    if (project.status === 'prototype') statusLabel = t('statusPrototype');
-    if (project.status === 'archived') statusLabel = t('statusArchived');
+    let statusIcon = '✅';
+    if (project.status === 'in-progress') {
+      statusLabel = t('statusInProgress');
+      statusIcon = '⏳';
+    } else if (project.status === 'prototype') {
+      statusLabel = t('statusPrototype');
+      statusIcon = '🧪';
+    } else if (project.status === 'archived') {
+      statusLabel = t('statusArchived');
+      statusIcon = '📦';
+    }
 
     const techTagsHtml = (project.technologies || [])
       .map(tech => `<span class="tech-tag">${tech}</span>`)

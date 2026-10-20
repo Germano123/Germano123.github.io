@@ -25,6 +25,24 @@
             </p>
         </section>
 
+        <!-- Filtros Rápidos de Natureza / Parceria -->
+        <section class="catalog-controls" style="padding: 16px 20px;">
+            <div class="filter-pills" id="games-filter-pills" role="tablist" aria-label="Filtrar Jogos">
+                <button type="button" class="filter-pill active" data-filter="all">
+                    <span data-i18n="filterAll">Todos</span> <span class="filter-count" id="count-all">(6)</span>
+                </button>
+                <button type="button" class="filter-pill" data-filter="parceria">
+                    <span>🤝</span> <span data-i18n="filterPartnerships">Parcerias</span> <span class="filter-count" id="count-parceria">(3)</span>
+                </button>
+                <button type="button" class="filter-pill" data-filter="pessoal">
+                    <span>👤</span> <span data-i18n="filterPersonal">Pessoal</span> <span class="filter-count" id="count-pessoal">(2)</span>
+                </button>
+                <button type="button" class="filter-pill" data-filter="estudo">
+                    <span>📖</span> <span data-i18n="filterStudies">Estudos</span> <span class="filter-count" id="count-estudo">(1)</span>
+                </button>
+            </div>
+        </section>
+
         <section>
             <div class="projects-grid" id="games-projects-mount"></div>
         </section>
@@ -40,14 +58,45 @@
     <script src="js/components.js"></script>
 
     <script>
+      let activeFilter = 'all';
+
+      function updateFilterUI() {
+        document.querySelectorAll('#games-filter-pills .filter-pill').forEach(btn => {
+          const isSelected = btn.getAttribute('data-filter') === activeFilter;
+          btn.classList.toggle('active', isSelected);
+          btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+        });
+      }
+
       function renderGamesPrototypes() {
         Components.renderHeader('games-prototypes');
         Components.renderFooter();
+        updateFilterUI();
 
         const mount = document.getElementById('games-projects-mount');
         if (!mount || typeof ProjectsService === 'undefined') return;
 
-        const projects = ProjectsService.getByArea('games-prototypes');
+        let projects = ProjectsService.getByArea('games-prototypes');
+        
+        // Atualizar contadores
+        const allCount = projects.length;
+        const parceriaCount = projects.filter(p => p.collaborationType === 'parceria').length;
+        const pessoalCount = projects.filter(p => p.collaborationType === 'pessoal').length;
+        const estudoCount = projects.filter(p => p.collaborationType === 'estudo').length;
+
+        const countAllEl = document.getElementById('count-all');
+        if (countAllEl) countAllEl.textContent = `(${allCount})`;
+        const countParceriaEl = document.getElementById('count-parceria');
+        if (countParceriaEl) countParceriaEl.textContent = `(${parceriaCount})`;
+        const countPessoalEl = document.getElementById('count-pessoal');
+        if (countPessoalEl) countPessoalEl.textContent = `(${pessoalCount})`;
+        const countEstudoEl = document.getElementById('count-estudo');
+        if (countEstudoEl) countEstudoEl.textContent = `(${estudoCount})`;
+
+        if (activeFilter !== 'all') {
+          projects = projects.filter(p => p.collaborationType === activeFilter);
+        }
+
         if (projects.length === 0) {
           mount.innerHTML = `
             <div style="grid-column: 1 / -1;">
@@ -62,6 +111,14 @@
       document.addEventListener('DOMContentLoaded', () => {
         initI18n();
         renderGamesPrototypes();
+
+        // Escutar cliques nos filtros
+        document.querySelectorAll('#games-filter-pills .filter-pill').forEach(btn => {
+          btn.addEventListener('click', () => {
+            activeFilter = btn.getAttribute('data-filter') || 'all';
+            renderGamesPrototypes();
+          });
+        });
 
         window.addEventListener('languageChanged', () => {
           renderGamesPrototypes();
