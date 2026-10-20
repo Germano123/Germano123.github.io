@@ -35,6 +35,346 @@
         return params.get('slug') || params.get('id');
       }
 
+      function getLocText(val, lang) {
+        if (!val) return '';
+        if (typeof val === 'string') return val;
+        return val[lang] || val.pt || '';
+      }
+
+      function renderToolsLabSection(project, lang) {
+        if (project.projectType !== 'tool' && !project.pipelineFlow && !project.workflowContext) return '';
+
+        let html = '';
+
+        if (project.workflowContext) {
+          const audience = getLocText(project.workflowContext.targetAudience, lang);
+          const painPoint = getLocText(project.workflowContext.painPoint, lang);
+          const metric = project.workflowContext.timeSavedMetric;
+
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">⏱️ ${t('toolsWorkflowTitle')}</h2>
+              <div class="case-study-section-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 12px;">
+                  <div style="background: var(--bg-card-inner); padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                    <strong style="color: var(--color-orange-light); font-size: 0.9rem;">${t('toolsTargetAudience')}</strong>
+                    <p style="margin: 6px 0 0 0; color: var(--color-cream); font-size: 0.95rem;">${audience}</p>
+                  </div>
+                  ${metric ? `
+                    <div style="background: var(--bg-card-inner); padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                      <strong style="color: var(--color-orange-light); font-size: 0.9rem;">${t('toolsTimeSaved')}</strong>
+                      <p style="margin: 6px 0 0 0; color: var(--color-green-light); font-size: 1.05rem; font-weight: 600;">${metric}</p>
+                    </div>
+                  ` : ''}
+                </div>
+                <p><strong>${t('toolsPainPoint')}:</strong> ${painPoint}</p>
+              </div>
+            </section>
+          `;
+        }
+
+        if (project.pipelineFlow) {
+          const inputsList = (project.pipelineFlow.inputs || []).map(i => `<li>${getLocText(i, lang)}</li>`).join('');
+          const outputsList = (project.pipelineFlow.outputs || []).map(o => `<li>${getLocText(o, lang)}</li>`).join('');
+          const logic = getLocText(project.pipelineFlow.processingLogic, lang);
+
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">🔄 ${t('toolsPipelineTitle')}</h2>
+              <div class="case-study-section-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 14px;">
+                  <div style="background: var(--bg-card-inner); padding: 16px; border-radius: var(--radius-sm); border-left: 3px solid var(--color-orange);">
+                    <strong style="color: var(--color-orange-light); font-size: 0.9rem;">${t('toolsInputs')}</strong>
+                    <ul style="margin: 8px 0 0 18px; padding: 0; font-size: 0.92rem; color: var(--color-cream-muted);">${inputsList}</ul>
+                  </div>
+                  <div style="background: var(--bg-card-inner); padding: 16px; border-radius: var(--radius-sm); border-left: 3px solid var(--color-green);">
+                    <strong style="color: var(--color-green-light); font-size: 0.9rem;">${t('toolsOutputs')}</strong>
+                    <ul style="margin: 8px 0 0 18px; padding: 0; font-size: 0.92rem; color: var(--color-cream-muted);">${outputsList}</ul>
+                  </div>
+                </div>
+                <p><strong>${t('toolsProcessing')}:</strong> ${logic}</p>
+              </div>
+            </section>
+          `;
+        }
+
+        if (project.technicalArchitecture) {
+          const dataTags = (project.technicalArchitecture.dataStructures || []).map(d => `<span class="tech-tag">${d}</span>`).join(' ');
+          const editorTags = (project.technicalArchitecture.editorIntegrations || []).map(e => `<span class="tech-tag">${e}</span>`).join(' ');
+          const safety = getLocText(project.technicalArchitecture.safetyFeatures, lang);
+
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">🔧 ${t('toolsArchitectureTitle')}</h2>
+              <div class="case-study-section-content">
+                <div style="margin-bottom: 12px;">
+                  <strong>${t('toolsDataStructures')}:</strong>
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px;">${dataTags}</div>
+                </div>
+                <div style="margin-bottom: 12px;">
+                  <strong>${t('toolsIntegrations')}:</strong>
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px;">${editorTags}</div>
+                </div>
+                <p><strong>${t('toolsSafety')}:</strong> ${safety}</p>
+              </div>
+            </section>
+          `;
+        }
+
+        return html;
+      }
+
+      function renderArtWorkshopSection(project, lang) {
+        if (project.projectType !== 'art' && !project.technicalArtBudget) return '';
+
+        let html = '';
+
+        if (project.technicalArtBudget) {
+          const b = project.technicalArtBudget;
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">📐 ${t('artBudgetTitle')}</h2>
+              <div class="case-study-section-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 16px;">
+                  <div style="background: var(--bg-card-inner); padding: 12px; border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--color-border);">
+                    <div style="font-size: 0.8rem; color: var(--color-cream-muted);">${t('artTriangles')}</div>
+                    <div style="font-size: 1.3rem; font-weight: 600; color: var(--color-orange-light);">${b.triangleCount.toLocaleString()}</div>
+                  </div>
+                  ${b.vertexCount ? `
+                    <div style="background: var(--bg-card-inner); padding: 12px; border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--color-border);">
+                      <div style="font-size: 0.8rem; color: var(--color-cream-muted);">${t('artVertices')}</div>
+                      <div style="font-size: 1.3rem; font-weight: 600; color: var(--color-cream);">${b.vertexCount.toLocaleString()}</div>
+                    </div>
+                  ` : ''}
+                  <div style="background: var(--bg-card-inner); padding: 12px; border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--color-border);">
+                    <div style="font-size: 0.8rem; color: var(--color-cream-muted);">${t('artMaterials')}</div>
+                    <div style="font-size: 1.3rem; font-weight: 600; color: var(--color-green-light);">${b.materialCount}</div>
+                  </div>
+                  <div style="background: var(--bg-card-inner); padding: 12px; border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--color-border);">
+                    <div style="font-size: 0.8rem; color: var(--color-cream-muted);">${t('artDrawCalls')}</div>
+                    <div style="font-size: 1.3rem; font-weight: 600; color: var(--color-green-light);">${b.drawCallsEstimated}</div>
+                  </div>
+                  <div style="background: var(--bg-card-inner); padding: 12px; border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--color-border);">
+                    <div style="font-size: 0.8rem; color: var(--color-cream-muted);">${t('artTexture')}</div>
+                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--color-cream); margin-top: 4px;">${b.textureResolution}</div>
+                  </div>
+                  ${b.uvEfficiencyPercent ? `
+                    <div style="background: var(--bg-card-inner); padding: 12px; border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--color-border);">
+                      <div style="font-size: 0.8rem; color: var(--color-cream-muted);">${t('artUvEfficiency')}</div>
+                      <div style="font-size: 1.3rem; font-weight: 600; color: var(--color-orange-light);">${b.uvEfficiencyPercent}%</div>
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
+            </section>
+          `;
+        }
+
+        if (project.shadingSetup) {
+          const summary = getLocText(project.shadingSetup.techniqueSummary, lang);
+          const featuresTags = (project.shadingSetup.features || []).map(f => `<span class="tech-tag">${f}</span>`).join(' ');
+
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">✨ ${t('artShadingTitle')}</h2>
+              <div class="case-study-section-content">
+                <p>${summary}</p>
+                <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">${featuresTags}</div>
+              </div>
+            </section>
+          `;
+        }
+
+        if (project.riggingAnimationDetails) {
+          const r = project.riggingAnimationDetails;
+          const clipsRows = (r.clips || []).map(c => `
+            <tr>
+              <td style="padding: 8px 12px; border-bottom: 1px solid var(--color-border); font-weight: 500;">${c.name}</td>
+              <td style="padding: 8px 12px; border-bottom: 1px solid var(--color-border);">${c.frameCount} frames</td>
+              <td style="padding: 8px 12px; border-bottom: 1px solid var(--color-border);">${c.fps} FPS</td>
+              <td style="padding: 8px 12px; border-bottom: 1px solid var(--color-border); color: ${c.looping ? 'var(--color-green-light)' : 'var(--color-cream-muted)'};">${c.looping ? t('artLoop') : t('artOnce')}</td>
+            </tr>
+          `).join('');
+
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">🦴 ${t('artRiggingTitle')}</h2>
+              <div class="case-study-section-content">
+                <div style="display: flex; gap: 16px; margin-bottom: 12px;">
+                  ${r.boneCount ? `<span><strong>${t('artBones')}:</strong> ${r.boneCount}</span>` : ''}
+                  <span><strong>${t('artIK')}:</strong> ${r.hasIKControls ? 'Sim / Yes' : 'Não / No'}</span>
+                </div>
+                ${clipsRows ? `
+                  <div style="overflow-x: auto; margin-top: 12px;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left; background: var(--bg-card-inner); border-radius: var(--radius-sm);">
+                      <thead>
+                        <tr style="border-bottom: 2px solid var(--color-border); color: var(--color-orange-light);">
+                          <th style="padding: 8px 12px;">Clip Name</th>
+                          <th style="padding: 8px 12px;">Frames</th>
+                          <th style="padding: 8px 12px;">Rate</th>
+                          <th style="padding: 8px 12px;">Mode</th>
+                        </tr>
+                      </thead>
+                      <tbody>${clipsRows}</tbody>
+                    </table>
+                  </div>
+                ` : ''}
+              </div>
+            </section>
+          `;
+        }
+
+        return html;
+      }
+
+      function renderGamePrototypeSection(project, lang) {
+        if (project.projectType !== 'game' && !project.gameFeelDetails && !project.gameplayProfile) return '';
+
+        let html = '';
+
+        if (project.gameplayProfile) {
+          const genre = getLocText(project.gameplayProfile.genre, lang);
+          const controls = getLocText(project.gameplayProfile.controlsSummary, lang);
+          const platforms = (project.gameplayProfile.targetPlatform || []).join(', ');
+
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">🎮 ${t('gameProfileTitle')}</h2>
+              <div class="case-study-section-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 12px;">
+                  <div style="background: var(--bg-card-inner); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                    <strong style="color: var(--color-orange-light); font-size: 0.85rem;">${t('gameGenre')}</strong>
+                    <div style="margin-top: 4px; font-size: 0.95rem; color: var(--color-cream);">${genre}</div>
+                  </div>
+                  <div style="background: var(--bg-card-inner); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                    <strong style="color: var(--color-orange-light); font-size: 0.85rem;">${t('gamePerspective')}</strong>
+                    <div style="margin-top: 4px; font-size: 0.95rem; color: var(--color-cream); text-transform: capitalize;">${project.gameplayProfile.cameraPerspective}</div>
+                  </div>
+                  <div style="background: var(--bg-card-inner); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                    <strong style="color: var(--color-orange-light); font-size: 0.85rem;">${t('gamePlatform')}</strong>
+                    <div style="margin-top: 4px; font-size: 0.95rem; color: var(--color-cream);">${platforms}</div>
+                  </div>
+                </div>
+                <p><strong>${t('gameControls')}:</strong> ${controls}</p>
+              </div>
+            </section>
+          `;
+        }
+
+        if (project.gameFeelDetails) {
+          const moveList = (project.gameFeelDetails.movementMechanics || []).map(m => `<li>${getLocText(m, lang)}</li>`).join('');
+          const tactileList = (project.gameFeelDetails.tactileFeedback || []).map(tf => `<li>${getLocText(tf, lang)}</li>`).join('');
+          const avSync = getLocText(project.gameFeelDetails.soundVisualSync, lang);
+
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">✨ ${t('gameFeelTitle')}</h2>
+              <div class="case-study-section-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 12px;">
+                  <div style="background: var(--bg-card-inner); padding: 16px; border-radius: var(--radius-sm); border-left: 3px solid var(--color-orange);">
+                    <strong style="color: var(--color-orange-light); font-size: 0.9rem;">${t('gameMovement')}</strong>
+                    <ul style="margin: 8px 0 0 18px; padding: 0; font-size: 0.92rem; color: var(--color-cream-muted);">${moveList}</ul>
+                  </div>
+                  <div style="background: var(--bg-card-inner); padding: 16px; border-radius: var(--radius-sm); border-left: 3px solid var(--color-green);">
+                    <strong style="color: var(--color-green-light); font-size: 0.9rem;">${t('gameTactile')}</strong>
+                    <ul style="margin: 8px 0 0 18px; padding: 0; font-size: 0.92rem; color: var(--color-cream-muted);">${tactileList}</ul>
+                  </div>
+                </div>
+                ${avSync ? `<p><strong>${t('gameAudioVisual')}:</strong> ${avSync}</p>` : ''}
+              </div>
+            </section>
+          `;
+        }
+
+        if (project.systemsArchitecture) {
+          const engine = getLocText(project.systemsArchitecture.engineArchitecture, lang);
+          const data = getLocText(project.systemsArchitecture.dataDrivenDesign, lang);
+          const decoupling = getLocText(project.systemsArchitecture.decouplingStrategy, lang);
+
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">🕹️ ${t('gameSystemsTitle')}</h2>
+              <div class="case-study-section-content">
+                <p><strong>Arquitetura de Engine:</strong> ${engine}</p>
+                <p><strong>Design Orientado a Dados:</strong> ${data}</p>
+                <p><strong>Desacoplamento:</strong> ${decoupling}</p>
+              </div>
+            </section>
+          `;
+        }
+
+        return html;
+      }
+
+      function renderSoftwareShelfSection(project, lang) {
+        if (project.projectType !== 'software' && !project.architectureDetails) return '';
+
+        let html = '';
+
+        if (project.architectureDetails) {
+          const patternsTags = (project.architectureDetails.designPatterns || []).map(p => `<span class="tech-tag">${p}</span>`).join(' ');
+          const modularity = getLocText(project.architectureDetails.modularityOverview, lang);
+          const depPolicy = getLocText(project.architectureDetails.dependencyPolicy, lang);
+
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">🏛️ ${t('softwareArchTitle')}</h2>
+              <div class="case-study-section-content">
+                <div style="margin-bottom: 12px;">
+                  <strong>${t('softwarePatterns')}:</strong>
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px;">${patternsTags}</div>
+                </div>
+                <p><strong>${t('softwareModularity')}:</strong> ${modularity}</p>
+                <p><strong>Política de Dependências:</strong> ${depPolicy}</p>
+              </div>
+            </section>
+          `;
+        }
+
+        if (project.qualityAndReliability) {
+          const q = project.qualityAndReliability;
+          const benchList = (q.performanceBenchmarks || []).map(b => `
+            <li><strong>${b.metricName}:</strong> ${b.measuredValue} ${b.comparisonBaseline ? `(${b.comparisonBaseline})` : ''}</li>
+          `).join('');
+
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">🧪 ${t('softwareQualityTitle')}</h2>
+              <div class="case-study-section-content">
+                <div style="display: flex; gap: 20px; margin-bottom: 12px;">
+                  ${q.testCoveragePercentage ? `<span><strong>${t('softwareCoverage')}:</strong> <span style="color: var(--color-green-light); font-weight: 600;">${q.testCoveragePercentage}%</span></span>` : ''}
+                  ${q.testingFramework ? `<span><strong>Framework:</strong> ${q.testingFramework}</span>` : ''}
+                </div>
+                ${benchList ? `
+                  <div>
+                    <strong>Benchmarks:</strong>
+                    <ul style="margin: 6px 0 0 18px; padding: 0;">${benchList}</ul>
+                  </div>
+                ` : ''}
+              </div>
+            </section>
+          `;
+        }
+
+        if (project.distributionDetails) {
+          const d = project.distributionDetails;
+          html += `
+            <section class="case-study-section">
+              <h2 class="case-study-section-title">📦 ${t('softwareDistributionTitle')}</h2>
+              <div class="case-study-section-content">
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                  ${d.packageManager ? `<span><strong>Gerenciador:</strong> ${d.packageManager}</span>` : ''}
+                  <span><strong>Versão:</strong> ${d.semanticVersion}</span>
+                  <span><strong>Licença:</strong> ${d.license}</span>
+                </div>
+              </div>
+            </section>
+          `;
+        }
+
+        return html;
+      }
+
       function renderCaseStudy() {
         const slug = getSlugFromUrl();
         const project = ProjectsService.getBySlug(slug);
@@ -80,6 +420,12 @@
         else if (primaryArea === 'tools-lab') backUrl = 'tools-lab.html';
         else if (primaryArea === 'games-prototypes') backUrl = 'games-prototypes.html';
 
+        // Renderização dos blocos especializados
+        const specializedToolsHtml = renderToolsLabSection(project, lang);
+        const specializedArtHtml = renderArtWorkshopSection(project, lang);
+        const specializedGameHtml = renderGamePrototypeSection(project, lang);
+        const specializedSoftwareHtml = renderSoftwareShelfSection(project, lang);
+
         mount.innerHTML = `
           <article class="case-study">
             <!-- 1. Header do Estudo de Caso (Título e Metadados) -->
@@ -112,7 +458,13 @@
               </section>
             ` : ''}
 
-            <!-- 5. Solução Técnica & Arquitetura -->
+            <!-- 5. Blocos Especializados Conforme a Disciplina do Projeto -->
+            ${specializedToolsHtml}
+            ${specializedArtHtml}
+            ${specializedGameHtml}
+            ${specializedSoftwareHtml}
+
+            <!-- 6. Solução Técnica & Arquitetura Geral -->
             ${solution ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudySolution')}</h2>
@@ -120,7 +472,7 @@
               </section>
             ` : ''}
 
-            <!-- 6. Contribuição Individual -->
+            <!-- 7. Contribuição Individual -->
             ${contributions ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudyContributions')}</h2>
@@ -128,7 +480,7 @@
               </section>
             ` : ''}
 
-            <!-- 7. Breakdown Técnico & Métricas -->
+            <!-- 8. Breakdown Técnico Detalhado -->
             ${technicalDetails ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudyTechnical')}</h2>
@@ -136,7 +488,7 @@
               </section>
             ` : ''}
 
-            <!-- 8. Resultados & Limitações Observadas -->
+            <!-- 9. Resultados & Limitações Observadas -->
             ${results ? `
               <section class="case-study-section">
                 <h2 class="case-study-section-title">${t('caseStudyResults')}</h2>
@@ -144,7 +496,7 @@
               </section>
             ` : ''}
 
-            <!-- 9. Ações e Links Externos Verificáveis -->
+            <!-- 10. Ações e Links Externos Verificáveis -->
             <footer class="case-study-actions">
               ${project.repositoryUrl ? `
                 <a href="${project.repositoryUrl}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">

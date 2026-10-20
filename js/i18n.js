@@ -81,6 +81,58 @@ const I18N = {
     btnBuild: "Testar Demonstração / Build",
     btnBackToArea: "← Voltar",
 
+    // Seções Especializadas por Tipo de Projeto
+    // 1. Tools Lab
+    toolsWorkflowTitle: "Contexto de Workflow & Produtividade",
+    toolsTargetAudience: "Público-Alvo",
+    toolsPainPoint: "Gargalo Operacional",
+    toolsTimeSaved: "Impacto & Tempo Economizado",
+    toolsPipelineTitle: "Fluxo do Pipeline (I/O)",
+    toolsInputs: "Entradas (Inputs)",
+    toolsProcessing: "Lógica de Processamento",
+    toolsOutputs: "Saídas (Outputs)",
+    toolsArchitectureTitle: "Arquitetura Técnica & Ergonomia",
+    toolsDataStructures: "Estruturas de Dados",
+    toolsIntegrations: "Integrações com Engine / Editor",
+    toolsSafety: "Validação & Não-Destrutividade",
+
+    // 2. Art Workshop
+    artBudgetTitle: "Especificações Técnicas & 3D Budget",
+    artTriangles: "Triângulos",
+    artVertices: "Vértices",
+    artTexture: "Textura / Atlas",
+    artMaterials: "Materiais",
+    artDrawCalls: "Draw Calls Estimadas",
+    artUvEfficiency: "Aproveitamento UV",
+    artShadingTitle: "Shader & Real-Time Setup",
+    artRiggingTitle: "Estrutura de Rigging & Deformação",
+    artBones: "Ossos (Bones)",
+    artIK: "Controles IK",
+    artClipsTitle: "Clipes de Animação",
+    artLoop: "Ciclo Contínuo",
+    artOnce: "Disparo Único",
+
+    // 3. Games & Prototypes
+    gameProfileTitle: "Perfil de Jogabilidade & Premissa",
+    gameGenre: "Gênero & Estilo",
+    gamePerspective: "Perspectiva de Câmera",
+    gamePlatform: "Plataformas Alvo",
+    gameControls: "Esquema de Controles",
+    gameFeelTitle: "Engenharia de Sensação Tátil (Game Feel)",
+    gameMovement: "Mecânicas de Movimento",
+    gameTactile: "Respostas Táteis & 'Juice'",
+    gameAudioVisual: "Sincronização Audiovisual",
+    gameSystemsTitle: "Arquitetura de Sistemas de Jogo",
+    gameplayDemoTitle: "Demonstração Jogável / Gameplay",
+
+    // 4. Software Shelf
+    softwareArchTitle: "Arquitetura de Software & Design Patterns",
+    softwarePatterns: "Padrões Aplicados",
+    softwareModularity: "Modularidade & Desacoplamento",
+    softwareQualityTitle: "Qualidade de Código, Testes & Benchmarks",
+    softwareCoverage: "Cobertura de Testes",
+    softwareDistributionTitle: "Distribuição & Licença",
+
     // Banner de Construção
     bannerConstructionTitle: "Laboratório em construção",
     bannerConstructionText: "Estamos organizando as bancadas de trabalho, finalizando os primeiros pipelines e preparando estudos de caso para publicação.",
@@ -188,6 +240,58 @@ const I18N = {
     btnRepository: "GitHub Repository",
     btnBuild: "Play / Demo Build",
     btnBackToArea: "← Back",
+
+    // Specialized Sections by Project Type
+    // 1. Tools Lab
+    toolsWorkflowTitle: "Workflow Context & Productivity",
+    toolsTargetAudience: "Target Audience",
+    toolsPainPoint: "Operational Bottleneck",
+    toolsTimeSaved: "Impact & Time Saved",
+    toolsPipelineTitle: "Pipeline Flow (I/O)",
+    toolsInputs: "Inputs",
+    toolsProcessing: "Processing Logic",
+    toolsOutputs: "Outputs",
+    toolsArchitectureTitle: "Technical Architecture & Ergonomics",
+    toolsDataStructures: "Data Structures",
+    toolsIntegrations: "Engine / Editor Integrations",
+    toolsSafety: "Validation & Safety",
+
+    // 2. Art Workshop
+    artBudgetTitle: "Technical Art Specs & 3D Budget",
+    artTriangles: "Triangles",
+    artVertices: "Vertices",
+    artTexture: "Texture / Atlas",
+    artMaterials: "Materials",
+    artDrawCalls: "Estimated Draw Calls",
+    artUvEfficiency: "UV Efficiency",
+    artShadingTitle: "Shader & Real-Time Setup",
+    artRiggingTitle: "Rigging & Deformation Structure",
+    artBones: "Bones",
+    artIK: "IK Controls",
+    artClipsTitle: "Animation Clips",
+    artLoop: "Looping Cycle",
+    artOnce: "One-shot",
+
+    // 3. Games & Prototypes
+    gameProfileTitle: "Gameplay Profile & Premise",
+    gameGenre: "Genre & Style",
+    gamePerspective: "Camera Perspective",
+    gamePlatform: "Target Platforms",
+    gameControls: "Controls Scheme",
+    gameFeelTitle: "Tactile Feedback & Game Feel Engineering",
+    gameMovement: "Movement Mechanics",
+    gameTactile: "Tactile Responses & 'Juice'",
+    gameAudioVisual: "Audio-Visual Feedback",
+    gameSystemsTitle: "Gameplay Systems Architecture",
+    gameplayDemoTitle: "Playable Demo / Gameplay",
+
+    // 4. Software Shelf
+    softwareArchTitle: "Software Architecture & Design Patterns",
+    softwarePatterns: "Design Patterns",
+    softwareModularity: "Modularity & Decoupling",
+    softwareQualityTitle: "Code Quality, Tests & Benchmarks",
+    softwareCoverage: "Test Coverage",
+    softwareDistributionTitle: "Distribution & License",
 
     // Construction Banner
     bannerConstructionTitle: "Laboratory under construction",

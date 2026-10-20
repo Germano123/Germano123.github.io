@@ -88,6 +88,10 @@ const Components = {
         <div class="project-card-body">
           <h3 class="project-card-title">${project.title}</h3>
           <div class="project-tech-tags">${techTagsHtml}</div>
+          ${project.projectType === 'tool' && project.workflowContext && project.workflowContext.timeSavedMetric ? `<div class="card-specialized-metric" style="font-size: 0.8rem; color: var(--color-orange-light); font-weight: 500; margin-top: 4px;">⏱️ ${project.workflowContext.timeSavedMetric}</div>` : ''}
+          ${project.projectType === 'art' && project.technicalArtBudget ? `<div class="card-specialized-metric" style="font-size: 0.8rem; color: var(--color-green-light); font-weight: 500; margin-top: 4px;">📐 ${project.technicalArtBudget.triangleCount.toLocaleString()} tris • ${project.technicalArtBudget.drawCallsEstimated} draw calls</div>` : ''}
+          ${project.projectType === 'game' && project.gameplayProfile ? `<div class="card-specialized-metric" style="font-size: 0.8rem; color: var(--color-orange-light); font-weight: 500; margin-top: 4px;">🎮 ${project.gameplayProfile.genre[lang] || project.gameplayProfile.genre.pt}</div>` : ''}
+          ${project.projectType === 'software' && project.distributionDetails ? `<div class="card-specialized-metric" style="font-size: 0.8rem; color: var(--color-green-light); font-weight: 500; margin-top: 4px;">📦 ${project.distributionDetails.semanticVersion} • ${project.distributionDetails.license}</div>` : ''}
           <p class="project-card-summary">${summary}</p>
           <div class="project-card-footer">
             <a href="project.html?slug=${project.slug}" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.88rem;">

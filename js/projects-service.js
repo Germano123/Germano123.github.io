@@ -27,6 +27,16 @@ const ProjectsService = {
   },
 
   /**
+   * Retorna projetos filtrados por tipo de projeto (tool, art, game, software)
+   * Conforme Especificação 3
+   * @param {string} type 
+   */
+  getByProjectType(type) {
+    if (!type || type === 'all') return this.getAllPublished();
+    return this.getAllPublished().filter(p => p.projectType === type);
+  },
+
+  /**
    * Retorna projetos do Art Workshop filtrados por categoria (todos, personagens, assets, animacoes)
    * Conforme Seção 4.1 de artifacts/2_portfolio_pages.md
    * @param {string} category 

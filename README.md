@@ -68,6 +68,9 @@ O projeto segue os princípios estabelecidos no documento canônico de requisito
 │   ├── projects-service.js # Camada de consulta e filtragem de projetos
 │   └── components.js       # Renderizadores de Header, Footer, Cards e EmptyStates
 ├── artifacts/              # Especificações de engenharia e planos de arquitetura
+│   ├── 1_cozy_developer_laboratory_engineering_spec.md
+│   ├── 2_portfolio_pages.md
+│   └── 3_project_presentation_schemas.md
 ├── CHANGELOG.md            # Histórico detalhado de versões e entregas
 ├── LICENSE                 # Licença MIT
 └── README.md               # Esta documentação

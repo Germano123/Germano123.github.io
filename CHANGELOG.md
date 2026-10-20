@@ -6,6 +6,20 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.10.0] - 2026-10-20
+### Adicionado
+- **Especificação de Estruturas de Apresentação (`artifacts/3_project_presentation_schemas.md`):** Extração e especificação técnica das 4 estruturas de dados especializadas (Tools Lab, Art Workshop, Games & Prototypes, Software Shelf) com diagramas de taxonomia e fluxogramas de pipeline em Mermaid.
+- **Modelagem Especializada em `js/data/projects.js`:**
+  - `ToolsLabProjectData`: Contexto de workflow, gargalo operacional, tempo economizado, pipeline I/O (inputs, processamento, outputs) e integrações de editor não-destrutivas com Undo/Redo.
+  - `ArtWorkshopProjectData`: Métricas de Technical Art Budget (triângulos, vértices, atlas de textura, draw calls, aproveitamento UV), setup de shaders (deslocamento senoidal em vértices) e rigging/animação (contagem de ossos, controles IK e clipes NLA).
+  - `GamePrototypeProjectData`: Perfil de jogabilidade (gênero, perspectiva, plataformas, controles), engenharia de sensação tátil (*game feel*: input buffering de 100ms, squash & stretch, micro-trepidação, bips modulados) e arquitetura de FSM/Event Bus/Resources.
+  - `SoftwareShelfProjectData`: Padrões de arquitetura (Strategy, Pipeline, Inversão de Dependências), modularidade desacoplada, cobertura de testes unitários (92%), benchmarks de performance e distribuição SemVer.
+- **Renderização Contextual no Estudo de Caso (`project.html`):** Componentes dinâmicos dedicados renderizados conforme a disciplina do projeto, destacando a profundidade técnica de cada trabalho.
+- **Métricas Especializadas nos Cards (`js/components.js`):** Micro-badges dinâmicos exibindo métricas-chave diretamente no grid (tempo economizado para ferramentas, contagem de tris e draw calls para arte, gênero para jogos, versão e licença para software).
+- **Internacionalização das Novas Seções (`js/i18n.js`):** Dicionários reativos em PT e EN para todas as seções especializadas.
+
+---
+
 ## [0.9.0] - 2026-10-14
 ### Adicionado
 - **Games & Prototypes (`games-prototypes.html`):** Nova página dedicada a jogos autorais, protótipos de mecânicas e experimentos interativos acolhedores (substituindo Game Systems).
@@ -75,26 +89,8 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ## [0.3.0] - 2026-10-13
 ### Adicionado
-- **Fonte Única de Dados Canônica:**
-  - `js/data/projects.js`: Modelagem central de projetos com suporte bilíngue, tags, status e visibilidade.
-  - `js/data/areas.js`: Metadados das áreas do laboratório.
-  - `js/projects-service.js`: Camada de serviços para consultas e filtros.
-- **Sistema de Design Tokens:** Criação de `css/tokens.css` e `css/style.css` com paleta aconchegante (madeira, verde, laranja, creme e grafite escuro).
-- **Componentes Compartilhados:** `js/components.js` com renderizadores de Header, Footer, Cards e Empty States.
-
----
-
-## [0.2.0] - 2026-10-13
-### Adicionado
-- **Sistema de Internacionalização (i18n):**
-  - Implementação de seletor segmentado `PT | EN` no cabeçalho.
-  - Alternância instantânea via `data-i18n` e evento `languageChanged`.
-  - Persistência da preferência em `localStorage` e detecção automática via `navigator.language`.
-
----
-
-## [0.1.0] - 2026-10-13
-### Removido
-- Remoção de cards falsos de projetos com textos de placeholder.
-- Remoção de botões inoperantes que apontavam para `#`.
-- Remoção do script legado vazio `index.js`.
+- **Design System Cozy Completo (`css/`):**
+  - Paleta com tons aconchegantes: verde musgo, laranja caloroso, creme e tons amadeirados.
+  - Tipografia arredondada *Fredoka* combinada com *JetBrains Mono* para elementos técnicos.
+  - Variáveis semânticas em `tokens.css`.
+  - Sistema de internacionalização reativo PT/EN em `js/i18n.js` com persistência em `localStorage`.

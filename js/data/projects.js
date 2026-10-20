@@ -1,7 +1,7 @@
 /**
  * Cozy Developer Laboratory — Base Canônica de Projetos
- * Conforme Especificação 2 (artifacts/2_portfolio_pages.md - v1.1)
- * Suporte a categorias de Art Workshop (personagens, assets, animacoes).
+ * Conforme Especificação 3 (artifacts/3_project_presentation_schemas.md)
+ * Estruturas especializadas para: Tools Lab, Art Workshop, Games & Prototypes e Software Shelf.
  */
 
 const PROJECTS = [
@@ -12,6 +12,7 @@ const PROJECTS = [
     projectType: "tool",
     areas: ["tools-lab", "software-shelf"],
     technologies: ["C#", "Unity", "Editor Scripting", "Tools Dev"],
+    tags: ["editor-extension", "level-design", "automation", "unity-tool"],
     status: "completed",
     visibility: "public",
     featured: true,
@@ -44,6 +45,46 @@ const PROJECTS = [
       pt: "Redução expressiva no tempo de montagem de salas e ambientes, garantindo consistência visual e eliminação de sobreposições acidentais.",
       en: "Significant reduction in room and environment composition time, ensuring visual consistency and preventing accidental overlaps."
     },
+    // Schema Especializado: Tools Lab
+    toolClassification: "editor-extension",
+    targetEnvironment: {
+      host: "Unity",
+      versionMin: "2022.3 LTS",
+      language: "C#"
+    },
+    workflowContext: {
+      targetAudience: {
+        pt: "Level Designers e Artistas de Cenário",
+        en: "Level Designers & Environment Artists"
+      },
+      painPoint: {
+        pt: "Posicionamento repetitivo de variações de terreno e props secundários consumia mais de 60% do tempo de montagem de salas.",
+        en: "Repetitive manual placement of terrain variants and props consumed over 60% of environment dressing time."
+      },
+      timeSavedMetric: "Redução de ~60% no tempo de montagem"
+    },
+    pipelineFlow: {
+      inputs: [
+        { pt: "Paletas de prefabs de props e regras de adjacência em ScriptableObjects", en: "Prop prefab palettes and adjacency rules in ScriptableObjects" },
+        { pt: "Geometria e grid do tilemap ativo na Scene View", en: "Active tilemap geometry and grid in Scene View" }
+      ],
+      processingLogic: {
+        pt: "Algoritmo de Spatial Hash Grid para verificação em tempo real de raio de colisão, seguido de amostragem estocástica com peso ponderado.",
+        en: "Spatial Hash Grid algorithm for real-time collision radius checks, followed by weighted stochastic sampling."
+      },
+      outputs: [
+        { pt: "Objetos instanciados e alinhados automaticamente com hierarquia limpa na cena", en: "Automatically instantiated and aligned game objects in a clean scene hierarchy" },
+        { pt: "Histórico completo registrado no stack nativo de Undo/Redo da engine", en: "Full history registered in the engine's native Undo/Redo stack" }
+      ]
+    },
+    technicalArchitecture: {
+      dataStructures: ["ScriptableObjects", "Spatial Hash Grid", "Bitmask Adjacency Matrices"],
+      editorIntegrations: ["Custom Inspector", "SceneView Handles Overlays", "Undo.RecordObject"],
+      safetyFeatures: {
+        pt: "Fluxo 100% não-destrutivo: qualquer pincelada pode ser revertida com Ctrl+Z instantaneamente, sem quebrar referências da cena.",
+        en: "100% non-destructive flow: any stroke can be reverted via Ctrl+Z immediately without breaking scene references."
+      }
+    },
     repositoryUrl: "https://github.com/Germano123",
     buildUrl: null,
     documentationUrl: null
@@ -52,7 +93,7 @@ const PROJECTS = [
     id: "lowpoly-nature-kit",
     slug: "lowpoly-nature-kit",
     title: "Stylized Cozy Nature Asset Kit & Shaders",
-    projectType: "tech-art",
+    projectType: "art",
     areas: ["art-workshop", "software-shelf"],
     mainCategory: "assets",
     tags: ["assets", "shaders", "low-poly", "nature"],
@@ -85,6 +126,24 @@ const PROJECTS = [
       pt: "Cena completa rodando em menos de 10 draw calls em dispositivos móveis e desktops, com estética calorosa e dinâmica.",
       en: "Complete scene running in under 10 draw calls on mobile and desktop devices with a warm and dynamic aesthetic."
     },
+    // Schema Especializado: Art Workshop (Assets)
+    artStyle: "low-poly",
+    technicalArtBudget: {
+      triangleCount: 2450,
+      vertexCount: 1320,
+      textureResolution: "256x256 Color Atlas",
+      uvEfficiencyPercent: 94,
+      materialCount: 1,
+      drawCallsEstimated: 3
+    },
+    shadingSetup: {
+      shaderType: "vertex-displacement",
+      techniqueSummary: {
+        pt: "Deformação senoidal oscilatória no vertex shader modulada pela intensidade dos canais RGB de cor de vértice e gradiente de altura.",
+        en: "Oscillatory sine wave deformation in vertex shader modulated by RGB vertex color channels and height gradient."
+      },
+      features: ["Vento Procedural nos Vértices", "1 Material Compartilhado na Cena", "Cores por Vértice (Vertex Color)"]
+    },
     repositoryUrl: "https://github.com/Germano123",
     buildUrl: null,
     documentationUrl: null
@@ -93,7 +152,7 @@ const PROJECTS = [
     id: "cozy-forest-guardian",
     slug: "cozy-forest-guardian",
     title: "Forest Guardian — Low-Poly Character & Rig",
-    projectType: "character",
+    projectType: "art",
     areas: ["art-workshop"],
     mainCategory: "personagens",
     tags: ["personagens", "animacoes", "rigging", "character-art"],
@@ -126,6 +185,24 @@ const PROJECTS = [
       pt: "Modelo pronto para produção, importado na Unity e Godot com ciclos de caminhada fluidos e sem colapso de volume nas juntas.",
       en: "Production-ready model imported into Unity and Godot with fluid walk cycles and zero joint volume collapse."
     },
+    // Schema Especializado: Art Workshop (Personagens)
+    artStyle: "stylized",
+    technicalArtBudget: {
+      triangleCount: 1800,
+      vertexCount: 920,
+      textureResolution: "512x512 Texture Atlas",
+      uvEfficiencyPercent: 88,
+      materialCount: 1,
+      drawCallsEstimated: 1
+    },
+    riggingAnimationDetails: {
+      boneCount: 28,
+      hasIKControls: true,
+      clips: [
+        { name: "Idle", frameCount: 30, fps: 24, looping: true },
+        { name: "Walk", frameCount: 24, fps: 24, looping: true }
+      ]
+    },
     repositoryUrl: "https://github.com/Germano123",
     buildUrl: null,
     documentationUrl: null
@@ -134,7 +211,7 @@ const PROJECTS = [
     id: "stylized-locomotion-cycles",
     slug: "stylized-locomotion-cycles",
     title: "Stylized Locomotion & Idle Animation Set",
-    projectType: "animation",
+    projectType: "art",
     areas: ["art-workshop"],
     mainCategory: "animacoes",
     tags: ["animacoes", "rigging", "skinning", "game-feel"],
@@ -167,6 +244,23 @@ const PROJECTS = [
       pt: "Ciclos fluidos e expressivos com transições perfeitas em engine, elevando imediatamente o game feel.",
       en: "Fluid and expressive cycles with seamless in-engine transitions, elevating game feel."
     },
+    // Schema Especializado: Art Workshop (Animações)
+    artStyle: "stylized",
+    technicalArtBudget: {
+      triangleCount: 1800,
+      textureResolution: "512x512 Texture Atlas",
+      materialCount: 1,
+      drawCallsEstimated: 1
+    },
+    riggingAnimationDetails: {
+      boneCount: 28,
+      hasIKControls: true,
+      clips: [
+        { name: "Idle (Breathing)", frameCount: 48, fps: 24, looping: true },
+        { name: "Cozy Walk Cycle", frameCount: 24, fps: 24, looping: true },
+        { name: "Jump & Land Anticipation", frameCount: 36, fps: 24, looping: false }
+      ]
+    },
     repositoryUrl: "https://github.com/Germano123",
     buildUrl: null,
     documentationUrl: null
@@ -175,9 +269,10 @@ const PROJECTS = [
     id: "cozy-interaction-framework",
     slug: "cozy-interaction-framework",
     title: "Tactile Interaction & Dialogue Prototype",
-    projectType: "game-system",
+    projectType: "game",
     areas: ["games-prototypes", "software-shelf"],
     technologies: ["Godot", "GDScript", "Game Architecture", "UI/UX"],
+    tags: ["tactile-interaction", "game-feel", "dialogue-system", "godot-prototype"],
     status: "in-progress",
     visibility: "public",
     featured: true,
@@ -205,6 +300,117 @@ const PROJECTS = [
     results: {
       pt: "Framework reutilizável e desacoplado, facilmente integrado a novos protótipos de jogos de aventura ou exploração.",
       en: "Decoupled and reusable framework easily dropped into new adventure or exploration prototypes."
+    },
+    // Schema Especializado: Games & Prototypes
+    prototypeStage: "mechanic-prototype",
+    gameplayProfile: {
+      genre: {
+        pt: "Exploração Cozy & Aventura Narrativa",
+        en: "Cozy Exploration & Narrative Adventure"
+      },
+      cameraPerspective: "top-down",
+      targetPlatform: ["WebGL (HTML5)", "PC (Windows / Linux)"],
+      controlsSummary: {
+        pt: "Teclado (WASD / Espaço / E) e Gamepad (D-Pad / A / X)",
+        en: "Keyboard (WASD / Space / E) & Gamepad (D-Pad / A / X)"
+      }
+    },
+    gameFeelDetails: {
+      movementMechanics: [
+        { pt: "Input buffering de 100ms para comandos de interação rápidos sem perda de inputs", en: "100ms input buffering for interaction triggers without lost inputs" },
+        { pt: "Curvas de aceleração senoidal suave com parada amortecida", en: "Smooth sine acceleration curves with dampened stop" }
+      ],
+      tactileFeedback: [
+        { pt: "Tween de escala (squash & stretch de 1.08x) ao inspecionar ou coletar itens", en: "Scale tween (1.08x squash & stretch) on item inspection or pickup" },
+        { pt: "Micro-trepidação de câmera suave em confirmações táteis de ação", en: "Gentle subtle screen shake on tactile action confirmations" }
+      ],
+      soundVisualSync: {
+        pt: "Bips procedurais modulados por tom sincronizados com cada glifo de texto revelado na caixa de fala.",
+        en: "Pitch-modulated procedural audio blips synchronized with each revealed text glyph in dialogue boxes."
+      }
+    },
+    systemsArchitecture: {
+      engineArchitecture: {
+        pt: "Máquinas de Estados Finitos desacopladas em GDScript para gerenciar transições de interação.",
+        en: "Decoupled Finite State Machines in GDScript managing interaction state transitions."
+      },
+      dataDrivenDesign: {
+        pt: "Diálogos e propriedades de itens serializados em Godot Custom Resources para edição direta por designers sem código.",
+        en: "Dialogues and item properties serialized in Godot Custom Resources for direct designer tuning without code."
+      },
+      decouplingStrategy: {
+        pt: "Event Bus central baseado em Signals para comunicação sem acoplamento entre UI, áudio e atores da cena.",
+        en: "Central Signals-based Event Bus for zero-coupling communication between UI, audio, and scene actors."
+      }
+    },
+    repositoryUrl: "https://github.com/Germano123",
+    buildUrl: null,
+    documentationUrl: null
+  },
+  {
+    id: "cozy-palette-packer",
+    slug: "cozy-palette-packer",
+    title: "Cozy UV & Palette Atlas Packer",
+    projectType: "software",
+    areas: ["software-shelf", "tools-lab"],
+    technologies: ["TypeScript", "Node.js", "Clean Architecture", "CLI"],
+    tags: ["software-architecture", "cli-tool", "texture-atlas", "automation"],
+    status: "completed",
+    visibility: "public",
+    featured: false,
+    cover: "assets/background.jpg",
+    summary: {
+      pt: "Utilitário de linha de comando para empacotamento automatizado de texturas de baixa resolução em um atlas de paleta único.",
+      en: "CLI utility for automated low-resolution texture packing into a single unified color palette atlas."
+    },
+    problem: {
+      pt: "Projetos low-poly demandam consolidação frequente de paletas de cores para manter todas as malhas sob um único material sem desperdício de espaço UV.",
+      en: "Low-poly projects require frequent color palette consolidation to keep all meshes under a single material without wasting UV space."
+    },
+    solution: {
+      pt: "Desenvolvimento de uma CLI em TypeScript com algoritmo bin-packing 2D, otimizando o agrupamento de cores idênticas e gerando atlas compacto com métricas de remapeamento UV.",
+      en: "Developed a TypeScript CLI with 2D bin-packing algorithms, deduping identical colors and generating a compact atlas with UV remap coordinates."
+    },
+    contributions: {
+      pt: "Design arquitetural com Clean Architecture, implementação do algoritmo de bin-packing 2D e suite completa de testes automatizados.",
+      en: "Clean Architecture design, 2D bin-packing algorithm implementation, and full suite of automated unit tests."
+    },
+    technicalDetails: {
+      pt: "Estruturado com inversão de dependência e zero dependências de runtime. Tempo de processamento inferior a 50ms para 100 amostras de cor.",
+      en: "Structured with dependency inversion and zero runtime dependencies. Sub-50ms execution time for 100 color swatches."
+    },
+    results: {
+      pt: "Redução drástica no overhead de textura e facilidade de integração em pipelines de build automatizados.",
+      en: "Drastic texture overhead reduction and seamless integration into automated build pipelines."
+    },
+    // Schema Especializado: Software Shelf
+    softwareCategory: "cli-utility",
+    architectureDetails: {
+      designPatterns: ["Strategy Pattern", "Pipeline Pattern", "Repository"],
+      modularityOverview: {
+        pt: "Módulos estritamente desacoplados: analisador de paletas, motor de empacotamento e gerador de imagem PNG.",
+        en: "Strictly decoupled modules: palette parser, packing engine, and PNG image generator."
+      },
+      dependencyPolicy: {
+        pt: "Zero dependências externas de runtime, garantindo portabilidade absoluta e execução rápida.",
+        en: "Zero external runtime dependencies ensuring absolute portability and fast execution."
+      }
+    },
+    qualityAndReliability: {
+      testCoveragePercentage: 92,
+      testingFramework: "Node Test Runner",
+      performanceBenchmarks: [
+        {
+          metricName: "Processamento de 100 cores",
+          measuredValue: "42ms",
+          comparisonBaseline: "3.8x mais rápido que ferramentas rasterizadas"
+        }
+      ]
+    },
+    distributionDetails: {
+      packageManager: "npm",
+      license: "MIT",
+      semanticVersion: "v1.1.0"
     },
     repositoryUrl: "https://github.com/Germano123",
     buildUrl: null,
