@@ -1,33 +1,121 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
   <defs>
-    <radialGradient id="bg-little-knight" cx="50%" cy="40%" r="80%">
-      <stop offset="0%" stop-color="#26201b"/>
-      <stop offset="100%" stop-color="#141211"/>
+    <radialGradient id="bg-lk" cx="50%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#3b1d11"/>
+      <stop offset="60%" stop-color="#241008"/>
+      <stop offset="100%" stop-color="#120603"/>
     </radialGradient>
-    <linearGradient id="accent-little-knight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f97316"/>
-      <stop offset="100%" stop-color="#c8813b"/>
+    <linearGradient id="orange-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="grass-plat" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="15%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#78350f"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="675" fill="url(#bg-little-knight)"/>
-  <rect x="40" y="40" width="1120" height="595" rx="24" fill="none" stroke="#3d352e" stroke-width="2" />
-  
-  <!-- Círculo Central e Ícone -->
-  <circle cx="600" cy="240" r="105" fill="rgba(200, 129, 59, 0.08)" stroke="#f97316" stroke-width="3"/>
-  <text x="600" y="272" font-size="90" text-anchor="middle" font-family="sans-serif">🗡️</text>
-  
-  <!-- Título do Projeto -->
-  <text x="600" y="400" font-size="44" font-weight="bold" fill="#ede3d4" text-anchor="middle" font-family="Fredoka, sans-serif">Little Knight</text>
-  <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-little-knight)"/>
-  
-  <!-- Subtítulo / Detalhe -->
-  <text x="600" y="470" font-size="22" font-weight="500" fill="#f97316" text-anchor="middle" font-family="Fredoka, sans-serif">RPG de Plataforma Side-Scroll • Parkour & Ação</text>
-  
-  <!-- Badge do Tipo de Capa ou Slide -->
-  <g transform="translate(600, 520)">
-    <rect x="-180" y="-18" width="360" height="36" rx="18" fill="rgba(249, 115, 22, 0.15)" stroke="#f97316" stroke-width="1.5"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="#f97316" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">CAPA PERSONALIZADA • COVER_PIC</text>
+
+  <!-- Fundo acolhedor crepúsculo -->
+  <rect width="1200" height="675" fill="url(#bg-lk)"/>
+
+  <!-- Lua crescente e montanhas distantes -->
+  <g opacity="0.35">
+    <circle cx="950" cy="110" r="45" fill="#fef08a"/>
+    <circle cx="965" cy="105" r="40" fill="#241008"/>
+    <!-- Silhueta de montanhas -->
+    <polygon points="100,280 300,160 500,280" fill="#1e1017"/>
+    <polygon points="400,280 650,130 900,280" fill="#2a151f"/>
+    <polygon points="800,280 1000,170 1200,280" fill="#1e1017"/>
   </g>
-  
-  <text x="600" y="590" font-size="14" fill="#a89f91" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEV LAB • ATIVOS DE DESENVOLVIMENTO</text>
+
+  <!-- Moldura externa do cartão -->
+  <rect x="36" y="36" width="1128" height="603" rx="20" fill="none" stroke="#7c2d12" stroke-width="2"/>
+
+  <!-- Plataforma Flutuante Central -->
+  <g transform="translate(360, 230)">
+    <!-- Base da ilha flutuante -->
+    <path d="M20,0 L460,0 L440,30 L400,60 L240,75 L80,60 L40,30 Z" fill="url(#grass-plat)" stroke="#15803d" stroke-width="2"/>
+    <!-- Detalhes de grama pendente -->
+    <path d="M40,0 L45,12 L50,0 M120,0 L126,16 L132,0 M320,0 L325,14 L330,0 M420,0 L424,10 L428,0" stroke="#86efac" stroke-width="2.5"/>
+  </g>
+
+  <!-- O Pequeno Cavaleiro (Little Knight) no centro da plataforma -->
+  <g transform="translate(540, 100)">
+    <!-- Aura calorosa do herói -->
+    <circle cx="60" cy="70" r="65" fill="rgba(249, 115, 22, 0.15)"/>
+    
+    <!-- Capa esvoaçante laranja -->
+    <path d="M40,55 Q10,75 5,115 Q35,100 55,80 Z" fill="#ea580c"/>
+    <path d="M45,55 Q20,80 18,125 Q45,105 60,85 Z" fill="#f97316"/>
+
+    <!-- Corpo com Armadura de Escudeiro -->
+    <rect x="42" y="50" width="36" height="45" rx="8" fill="#475569" stroke="#94a3b8" stroke-width="1.5"/>
+    <!-- Cinto e fivela dourada -->
+    <rect x="40" y="75" width="40" height="8" rx="2" fill="#78350f"/>
+    <rect x="56" y="73" width="8" height="12" rx="2" fill="#fbbf24"/>
+
+    <!-- Botas -->
+    <rect x="44" y="95" width="14" height="18" rx="4" fill="#334155"/>
+    <rect x="62" y="95" width="14" height="18" rx="4" fill="#334155"/>
+
+    <!-- Elmo de Cavaleiro -->
+    <circle cx="60" cy="38" r="22" fill="#64748b" stroke="#cbd5e1" stroke-width="2"/>
+    <!-- Visor brilhante (olhos determinados) -->
+    <rect x="50" y="32" width="22" height="6" rx="3" fill="#0f172a"/>
+    <circle cx="56" cy="35" r="2" fill="#38bdf8"/>
+    <circle cx="66" cy="35" r="2" fill="#38bdf8"/>
+    <!-- Penacho do elmo -->
+    <path d="M60,16 Q65,0 80,-4 Q72,12 62,18 Z" fill="#f97316"/>
+
+    <!-- Escudo redondo de madeira com reforço de ferro -->
+    <g transform="translate(15, 50)">
+      <circle cx="16" cy="20" r="18" fill="#92400e" stroke="#cbd5e1" stroke-width="2"/>
+      <circle cx="16" cy="20" r="12" fill="#78350f"/>
+      <!-- Brasão no escudo -->
+      <polygon points="16,10 22,17 19,25 13,25 10,17" fill="#fbbf24"/>
+    </g>
+
+    <!-- Espada reluzente erguida -->
+    <g transform="translate(85, 30) rotate(25)">
+      <!-- Lâmina -->
+      <polygon points="4,0 8,-50 12,0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+      <!-- Guarda e empunhadura -->
+      <rect x="-4" y="0" width="24" height="5" rx="2" fill="#fbbf24"/>
+      <rect x="6" y="5" width="4" height="12" rx="1" fill="#78350f"/>
+      <circle cx="8" cy="19" r="4" fill="#fbbf24"/>
+      <!-- Brilho na ponta da lâmina -->
+      <polygon points="8,-55 10,-48 8,-42 6,-48" fill="#fff"/>
+    </g>
+  </g>
+
+  <!-- Orbes de luz / colecionáveis de parkour flutuando -->
+  <g transform="translate(260, 180)">
+    <circle cx="20" cy="20" r="12" fill="rgba(251, 191, 36, 0.25)"/>
+    <circle cx="20" cy="20" r="6" fill="#fef08a"/>
+    <text x="20" y="46" font-size="12" font-weight="bold" fill="#fbbf24" text-anchor="middle" font-family="JetBrains Mono, monospace">AGILITY</text>
+  </g>
+  <g transform="translate(900, 180)">
+    <circle cx="20" cy="20" r="12" fill="rgba(249, 115, 22, 0.25)"/>
+    <circle cx="20" cy="20" r="6" fill="#fdba74"/>
+    <text x="20" y="46" font-size="12" font-weight="bold" fill="#f97316" text-anchor="middle" font-family="JetBrains Mono, monospace">PARKOUR</text>
+  </g>
+
+  <!-- Título Oficial do Jogo -->
+  <text x="600" y="415" font-size="52" font-weight="700" fill="#f8fafc" text-anchor="middle" font-family="Fredoka, sans-serif" letter-spacing="1">Little Knight</text>
+
+  <!-- Linha divisória neon -->
+  <rect x="360" y="435" width="480" height="4" rx="2" fill="url(#orange-glow)"/>
+
+  <!-- Subtítulo Temático e Mecânicas -->
+  <text x="600" y="475" font-size="22" font-weight="500" fill="#fb923c" text-anchor="middle" font-family="Fredoka, sans-serif">RPG de Plataforma Side-Scroll • Combate Ágil &amp; Parkour Preciso</text>
+
+  <!-- Badge Oficial de Autoria Pessoal -->
+  <g transform="translate(600, 525)">
+    <rect x="-170" y="-18" width="340" height="36" rx="18" fill="rgba(249, 115, 22, 0.16)" stroke="#f97316" stroke-width="1.8"/>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#fb923c" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">👤 PROJETO AUTORAL INDIE</text>
+  </g>
+
+  <!-- Rodapé Cozy Lab -->
+  <text x="600" y="595" font-size="14" fill="#9a3412" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEVELOPER LABORATORY • GAME FEEL &amp; 2D PLATFORMING</text>
 </svg>

@@ -1,33 +1,130 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
   <defs>
-    <radialGradient id="bg-typing-defenders" cx="50%" cy="40%" r="80%">
-      <stop offset="0%" stop-color="#26201b"/>
-      <stop offset="100%" stop-color="#141211"/>
+    <radialGradient id="bg-td" cx="50%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#281145"/>
+      <stop offset="60%" stop-color="#18072e"/>
+      <stop offset="100%" stop-color="#0b0316"/>
     </radialGradient>
-    <linearGradient id="accent-typing-defenders" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#a855f7"/>
-      <stop offset="100%" stop-color="#c8813b"/>
+    <linearGradient id="purple-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="key-cap" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b1d64"/>
+      <stop offset="100%" stop-color="#1e0c35"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="675" fill="url(#bg-typing-defenders)"/>
-  <rect x="40" y="40" width="1120" height="595" rx="24" fill="none" stroke="#3d352e" stroke-width="2" />
-  
-  <!-- Círculo Central e Ícone -->
-  <circle cx="600" cy="240" r="105" fill="rgba(200, 129, 59, 0.08)" stroke="#a855f7" stroke-width="3"/>
-  <text x="600" y="272" font-size="90" text-anchor="middle" font-family="sans-serif">⌨️</text>
-  
-  <!-- Título do Projeto -->
-  <text x="600" y="400" font-size="44" font-weight="bold" fill="#ede3d4" text-anchor="middle" font-family="Fredoka, sans-serif">Typing Defenders</text>
-  <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-typing-defenders)"/>
-  
-  <!-- Subtítulo / Detalhe -->
-  <text x="600" y="470" font-size="22" font-weight="500" fill="#a855f7" text-anchor="middle" font-family="Fredoka, sans-serif">Defesa de Torre por Digitação • Ritmo & Teclado</text>
-  
-  <!-- Badge do Tipo de Capa ou Slide -->
-  <g transform="translate(600, 520)">
-    <rect x="-180" y="-18" width="360" height="36" rx="18" fill="rgba(249, 115, 22, 0.15)" stroke="#f97316" stroke-width="1.5"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="#f97316" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">CAPA PERSONALIZADA • COVER_PIC</text>
+
+  <!-- Fundo cósmico roxo -->
+  <rect width="1200" height="675" fill="url(#bg-td)"/>
+
+  <!-- Estrelas e partículas de digitação no céu -->
+  <g fill="#c084fc" opacity="0.4">
+    <circle cx="150" cy="120" r="2"/>
+    <circle cx="280" cy="80" r="1.5"/>
+    <circle cx="420" cy="140" r="2"/>
+    <circle cx="780" cy="110" r="2.5"/>
+    <circle cx="950" cy="90" r="1.5"/>
+    <circle cx="1060" cy="160" r="2"/>
+    <circle cx="200" cy="240" r="1.5"/>
+    <circle cx="1000" cy="230" r="2"/>
   </g>
-  
-  <text x="600" y="590" font-size="14" fill="#a89f91" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEV LAB • ATIVOS DE DESENVOLVIMENTO</text>
+
+  <!-- Moldura externa do cartão -->
+  <rect x="36" y="36" width="1128" height="603" rx="20" fill="none" stroke="#4c1d95" stroke-width="2"/>
+
+  <!-- Lasers de Digitação e Defesa disparando para cima -->
+  <g stroke-width="3" opacity="0.75">
+    <line x1="380" y1="260" x2="260" y2="80" stroke="#f43f5e" stroke-dasharray="8 6"/>
+    <line x1="500" y1="260" x2="480" y2="70" stroke="#c084fc" stroke-dasharray="10 5"/>
+    <line x1="700" y1="260" x2="720" y2="70" stroke="#c084fc" stroke-dasharray="10 5"/>
+    <line x1="820" y1="260" x2="940" y2="80" stroke="#f43f5e" stroke-dasharray="8 6"/>
+  </g>
+
+  <!-- Inimigos sendo destruídos no topo -->
+  <g transform="translate(240, 65)">
+    <polygon points="20,0 40,15 30,35 10,35 0,15" fill="#f43f5e" opacity="0.9"/>
+    <text x="20" y="24" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle" font-family="JetBrains Mono, monospace">A</text>
+  </g>
+  <g transform="translate(920, 65)">
+    <polygon points="20,0 40,15 30,35 10,35 0,15" fill="#f43f5e" opacity="0.9"/>
+    <text x="20" y="24" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle" font-family="JetBrains Mono, monospace">Ç</text>
+  </g>
+
+  <!-- Teclado Mecânico Estilizado Central (Teclas Simétricas) -->
+  <g transform="translate(320, 150)">
+    <!-- Base do teclado -->
+    <rect x="-10" y="70" width="580" height="110" rx="16" fill="#130724" stroke="#7c3aed" stroke-width="2"/>
+    <rect x="0" y="80" width="560" height="90" rx="12" fill="#1c0d33"/>
+
+    <!-- Linha de Teclas Simétricas da Esquerda (Mão Esquerda) -->
+    <g transform="translate(30, 95)">
+      <rect x="0" y="0" width="50" height="50" rx="8" fill="url(#key-cap)" stroke="#a855f7" stroke-width="2"/>
+      <text x="25" y="32" font-size="20" font-weight="bold" fill="#f8fafc" text-anchor="middle" font-family="Fredoka, sans-serif">A</text>
+    </g>
+    <g transform="translate(90, 95)">
+      <rect x="0" y="0" width="50" height="50" rx="8" fill="url(#key-cap)" stroke="#a855f7" stroke-width="2"/>
+      <text x="25" y="32" font-size="20" font-weight="bold" fill="#f8fafc" text-anchor="middle" font-family="Fredoka, sans-serif">S</text>
+    </g>
+    <g transform="translate(150, 95)">
+      <rect x="0" y="0" width="50" height="50" rx="8" fill="url(#key-cap)" stroke="#a855f7" stroke-width="2"/>
+      <text x="25" y="32" font-size="20" font-weight="bold" fill="#f8fafc" text-anchor="middle" font-family="Fredoka, sans-serif">D</text>
+    </g>
+    <g transform="translate(210, 95)">
+      <rect x="0" y="0" width="50" height="50" rx="8" fill="#7c3aed" stroke="#c084fc" stroke-width="2"/>
+      <text x="25" y="32" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Fredoka, sans-serif">F</text>
+    </g>
+
+    <!-- Divisor Central com Escudo de Defesa -->
+    <circle cx="280" cy="120" r="18" fill="#130724" stroke="#c084fc" stroke-width="2"/>
+    <text x="280" y="127" font-size="18" text-anchor="middle">🛡️</text>
+
+    <!-- Linha de Teclas Simétricas da Direita (Mão Direita) -->
+    <g transform="translate(300, 95)">
+      <rect x="0" y="0" width="50" height="50" rx="8" fill="#7c3aed" stroke="#c084fc" stroke-width="2"/>
+      <text x="25" y="32" font-size="20" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Fredoka, sans-serif">J</text>
+    </g>
+    <g transform="translate(360, 95)">
+      <rect x="0" y="0" width="50" height="50" rx="8" fill="url(#key-cap)" stroke="#a855f7" stroke-width="2"/>
+      <text x="25" y="32" font-size="20" font-weight="bold" fill="#f8fafc" text-anchor="middle" font-family="Fredoka, sans-serif">K</text>
+    </g>
+    <g transform="translate(420, 95)">
+      <rect x="0" y="0" width="50" height="50" rx="8" fill="url(#key-cap)" stroke="#a855f7" stroke-width="2"/>
+      <text x="25" y="32" font-size="20" font-weight="bold" fill="#f8fafc" text-anchor="middle" font-family="Fredoka, sans-serif">L</text>
+    </g>
+    <g transform="translate(480, 95)">
+      <rect x="0" y="0" width="50" height="50" rx="8" fill="url(#key-cap)" stroke="#a855f7" stroke-width="2"/>
+      <text x="25" y="32" font-size="20" font-weight="bold" fill="#f8fafc" text-anchor="middle" font-family="Fredoka, sans-serif">Ç</text>
+    </g>
+  </g>
+
+  <!-- Telemetria Flutuante WPM & Precisão -->
+  <g transform="translate(140, 160)">
+    <rect width="130" height="60" rx="10" fill="#130724" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="65" y="28" font-size="12" fill="#a855f7" font-weight="600" text-anchor="middle" font-family="JetBrains Mono, monospace">VELOCIDADE</text>
+    <text x="65" y="50" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Fredoka, sans-serif">115 WPM</text>
+  </g>
+  <g transform="translate(930, 160)">
+    <rect width="130" height="60" rx="10" fill="#130724" stroke="#10b981" stroke-width="1.5"/>
+    <text x="65" y="28" font-size="12" fill="#10b981" font-weight="600" text-anchor="middle" font-family="JetBrains Mono, monospace">PRECISÃO</text>
+    <text x="65" y="50" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Fredoka, sans-serif">99.4%</text>
+  </g>
+
+  <!-- Título Oficial do Jogo -->
+  <text x="600" y="415" font-size="52" font-weight="700" fill="#f8fafc" text-anchor="middle" font-family="Fredoka, sans-serif" letter-spacing="1">Typing Defenders</text>
+
+  <!-- Linha divisória neon -->
+  <rect x="360" y="435" width="480" height="4" rx="2" fill="url(#purple-glow)"/>
+
+  <!-- Subtítulo Temático e Mecânicas -->
+  <text x="600" y="475" font-size="22" font-weight="500" fill="#c084fc" text-anchor="middle" font-family="Fredoka, sans-serif">Defesa de Torre por Digitação • Teclas Simétricas &amp; Ritmo</text>
+
+  <!-- Badge Oficial de Parceria -->
+  <g transform="translate(600, 525)">
+    <rect x="-190" y="-18" width="380" height="36" rx="18" fill="rgba(168, 85, 247, 0.16)" stroke="#a855f7" stroke-width="1.8"/>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#c084fc" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">🤝 PARCERIA COM AQUELE PROFESSOR</text>
+  </g>
+
+  <!-- Rodapé Cozy Lab -->
+  <text x="600" y="595" font-size="14" fill="#7e22ce" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEVELOPER LABORATORY • GAMEPLAY &amp; SYSTEMS ARCHITECTURE</text>
 </svg>

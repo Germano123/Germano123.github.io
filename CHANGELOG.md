@@ -6,6 +6,18 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.15.1] - 2026-10-20
+### Adicionado
+- **Capas Ilustradas Vetoriais Completas para Todos os 6 Jogos:**
+  - Recriação das capas de *Typing Defenders* (teclado mecânico estilizado, defesa de lasers e telemetria de WPM) e *Little Knight* (pequeno cavaleiro em plataforma com espada, escudo e montanhas crepusculares).
+  - Criação de capas ilustradas temáticas para os demais projetos:
+    - *Digital Delivery*: Terminal hacker interativo com prompt, cubo 3D de dados e malha de sockets.
+    - *Tribunal Lógico*: Balança da justiça dourada com valores lógicos V/F, martelo de juiz em mogno e pergaminho de tabela verdade.
+    - *MetaGhost Fantasy*: Mansão assombrada vitoriana com janelas iluminadas, grade tática isométrica e frasco de ectoplasma.
+    - *Cripto Flowers*: Rosa-do-deserto em vaso de cerâmica com raízes expostas, dupla hélice de DNA/genótipo e ciclo de cuidados botânicos.
+
+---
+
 ## [0.15.0] - 2026-10-20
 ### Adicionado
 - **Padronização de Capas e Suporte a `cover_pic` e `gallery`:**

@@ -1,33 +1,85 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
   <defs>
-    <radialGradient id="bg-metaghost-fantasy" cx="50%" cy="40%" r="80%">
-      <stop offset="0%" stop-color="#26201b"/>
-      <stop offset="100%" stop-color="#141211"/>
+    <radialGradient id="bg-mg" cx="50%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#2d123b"/>
+      <stop offset="60%" stop-color="#190724"/>
+      <stop offset="100%" stop-color="#0a0210"/>
     </radialGradient>
-    <linearGradient id="accent-metaghost-fantasy" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ec4899"/>
-      <stop offset="100%" stop-color="#c8813b"/>
+    <linearGradient id="pink-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#db2777"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="675" fill="url(#bg-metaghost-fantasy)"/>
-  <rect x="40" y="40" width="1120" height="595" rx="24" fill="none" stroke="#3d352e" stroke-width="2" stroke-dasharray="10 10"/>
-  
-  <!-- Círculo Central e Ícone -->
-  <circle cx="600" cy="240" r="105" fill="rgba(200, 129, 59, 0.08)" stroke="#ec4899" stroke-width="3"/>
-  <text x="600" y="272" font-size="90" text-anchor="middle" font-family="sans-serif">👻</text>
-  
-  <!-- Título do Projeto -->
-  <text x="600" y="400" font-size="44" font-weight="bold" fill="#ede3d4" text-anchor="middle" font-family="Fredoka, sans-serif">MetaGhost Fantasy</text>
-  <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-metaghost-fantasy)"/>
-  
-  <!-- Subtítulo / Detalhe -->
-  <text x="600" y="470" font-size="22" font-weight="500" fill="#ec4899" text-anchor="middle" font-family="Fredoka, sans-serif">RPG Tático 3D • Mansão Assombrada & Fantasmas</text>
-  
-  <!-- Badge do Tipo de Capa ou Slide -->
-  <g transform="translate(600, 520)">
-    <rect x="-180" y="-18" width="360" height="36" rx="18" fill="rgba(148, 163, 184, 0.12)" stroke="#94a3b8" stroke-width="1.5"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">PLACEHOLDER DE CAPA • COVER_PIC PREVIEW</text>
+
+  <!-- Fundo mansão assombrada -->
+  <rect width="1200" height="675" fill="url(#bg-mg)"/>
+
+  <!-- Grade tática isométrica no chão -->
+  <g opacity="0.25" stroke="#f472b6" stroke-width="1.5">
+    <path d="M600,230 L780,290 L600,350 L420,290 Z" fill="rgba(244, 114, 182, 0.05)"/>
+    <path d="M420,290 L600,350 L420,410 L240,350 Z" fill="rgba(244, 114, 182, 0.03)"/>
+    <path d="M780,290 L960,350 L780,410 L600,350 Z" fill="rgba(244, 114, 182, 0.03)"/>
   </g>
-  
-  <text x="600" y="590" font-size="14" fill="#a89f91" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEV LAB • ATIVOS DE DESENVOLVIMENTO</text>
+
+  <!-- Moldura externa do cartão -->
+  <rect x="36" y="36" width="1128" height="603" rx="20" fill="none" stroke="#831843" stroke-width="2"/>
+
+  <!-- Mansão Assombrada Estilizada Central -->
+  <g transform="translate(480, 80)">
+    <!-- Silhueta da mansão -->
+    <path d="M40,190 L40,110 L80,70 L120,70 L120,30 L150,0 L180,30 L180,70 L200,70 L240,110 L240,190 Z" fill="#1e102a" stroke="#db2777" stroke-width="2"/>
+    <!-- Torre com telhado gótico -->
+    <polygon points="120,30 150,-10 180,30" fill="#3b1d4a" stroke="#f472b6" stroke-width="1.5"/>
+    
+    <!-- Janelas em arco iluminadas (luz fantasmagórica) -->
+    <path d="M70,120 A15,15 0 0,1 100,120 L100,145 L70,145 Z" fill="#fef08a" opacity="0.85"/>
+    <path d="M140,50 A10,10 0 0,1 160,50 L160,70 L140,70 Z" fill="#a7f3d0" opacity="0.9"/>
+    <path d="M180,120 A15,15 0 0,1 210,120 L210,145 L180,145 Z" fill="#fef08a" opacity="0.85"/>
+
+    <!-- Porta principal da mansão -->
+    <path d="M125,190 L125,160 A15,15 0 0,1 155,160 L155,190 Z" fill="#0f0717" stroke="#db2777" stroke-width="1.5"/>
+  </g>
+
+  <!-- Fantasminhas amigáveis flutuando (MetaGhosts) -->
+  <g transform="translate(260, 130)">
+    <!-- Fantasma 1 (Rosa Espectral) -->
+    <path d="M40,30 C40,10 70,10 70,30 C70,55 80,65 75,75 C70,70 65,75 60,70 C55,75 50,70 45,75 C40,65 40,55 40,30 Z" fill="rgba(244, 114, 182, 0.85)" stroke="#fff" stroke-width="1.5"/>
+    <!-- Olhos fofos -->
+    <circle cx="50" cy="35" r="3.5" fill="#1e102a"/>
+    <circle cx="62" cy="35" r="3.5" fill="#1e102a"/>
+    <ellipse cx="56" cy="44" rx="4" ry="3" fill="#1e102a"/>
+    <!-- Brilho ao redor -->
+    <circle cx="55" cy="40" r="35" fill="none" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+    <text x="55" y="100" font-size="12" font-weight="bold" fill="#f472b6" text-anchor="middle" font-family="JetBrains Mono, monospace">CO-OP GHOST</text>
+  </g>
+
+  <g transform="translate(860, 130)">
+    <!-- Frasco de Ectoplasma -->
+    <rect x="35" y="30" width="40" height="60" rx="8" fill="#134e4a" stroke="#2dd4bf" stroke-width="2"/>
+    <rect x="45" y="18" width="20" height="12" rx="3" fill="#78350f" stroke="#d97706" stroke-width="1.5"/>
+    <!-- Líquido de ectoplasma borbulhante -->
+    <path d="M37,55 Q55,48 73,55 L73,88 Q55,90 37,88 Z" fill="#2dd4bf" opacity="0.85"/>
+    <circle cx="48" cy="68" r="3" fill="#fff" opacity="0.8"/>
+    <circle cx="62" cy="62" r="2" fill="#fff" opacity="0.8"/>
+    <circle cx="55" cy="78" r="2.5" fill="#fff" opacity="0.8"/>
+    <text x="55" y="115" font-size="12" font-weight="bold" fill="#2dd4bf" text-anchor="middle" font-family="JetBrains Mono, monospace">ECTOPLASMA</text>
+  </g>
+
+  <!-- Título Oficial do Jogo -->
+  <text x="600" y="415" font-size="52" font-weight="700" fill="#f8fafc" text-anchor="middle" font-family="Fredoka, sans-serif" letter-spacing="1">MetaGhost Fantasy</text>
+
+  <!-- Linha divisória neon -->
+  <rect x="360" y="435" width="480" height="4" rx="2" fill="url(#pink-glow)"/>
+
+  <!-- Subtítulo Temático e Mecânicas -->
+  <text x="600" y="475" font-size="22" font-weight="500" fill="#f472b6" text-anchor="middle" font-family="Fredoka, sans-serif">RPG Tático em Turnos 3D • Mansão Assombrada &amp; Combate Co-op</text>
+
+  <!-- Badge Oficial de Autoria Pessoal -->
+  <g transform="translate(600, 525)">
+    <rect x="-170" y="-18" width="340" height="36" rx="18" fill="rgba(244, 114, 182, 0.16)" stroke="#ec4899" stroke-width="1.8"/>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#f472b6" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">👤 PROJETO AUTORAL INDIE</text>
+  </g>
+
+  <!-- Rodapé Cozy Lab -->
+  <text x="600" y="595" font-size="14" fill="#9d174d" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEVELOPER LABORATORY • TURN-BASED TACTICS &amp; 3D SYSTEMS</text>
 </svg>
