@@ -1,0 +1,56 @@
+{
+  "id": "meu-projeto-software",
+  "slug": "meu-projeto-software",
+  "title": "Nome da Aplicação ou Biblioteca",
+  "projectType": "software",
+  "areas": ["software-shelf"],
+  "softwareCategory": "cli-utility",
+  "status": "completed",
+  "technologies": ["TypeScript", "Node.js", "Clean Architecture"],
+  "tags": ["software-engineering", "clean-code", "modular"],
+  "summary": {
+    "pt": "Resumo da aplicação, biblioteca ou utilitário de software.",
+    "en": "Summary of application, library, or software utility."
+  },
+  "problem": {
+    "pt": "Problema de engenharia de software resolvido com arquitetura sustentável.",
+    "en": "Software engineering problem solved with clean architecture."
+  },
+  "solution": {
+    "pt": "Design de padrões de projeto e separação clara de responsabilidades.",
+    "en": "Design patterns applied and clean separation of concerns."
+  },
+  "contributions": {
+    "pt": "Arquitetura, implementação de módulos e suite de testes automatizados.",
+    "en": "Architecture, module implementation, and automated test suite."
+  },
+  "architectureDetails": {
+    "designPatterns": ["Strategy Pattern", "Pipeline Pattern", "Inversão de Dependências"],
+    "modularityOverview": {
+      "pt": "Módulos estritamente desacoplados e testáveis isoladamente.",
+      "en": "Strictly decoupled modules testable in isolation."
+    },
+    "dependencyPolicy": {
+      "pt": "Zero dependências externas de runtime.",
+      "en": "Zero external runtime dependencies."
+    }
+  },
+  "qualityAndReliability": {
+    "testCoveragePercentage": 90,
+    "testingFramework": "Node Test Runner",
+    "performanceBenchmarks": [
+      {
+        "metricName": "Tempo de processamento",
+        "measuredValue": "45ms",
+        "comparisonBaseline": "3x mais veloz que abordagens ingênuas"
+      }
+    ]
+  },
+  "distributionDetails": {
+    "packageManager": "npm",
+    "license": "MIT",
+    "semanticVersion": "v1.0.0"
+  },
+  "repositoryUrl": "https://github.com/Germano123",
+  "buildUrl": null
+}

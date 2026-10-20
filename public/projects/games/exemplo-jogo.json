@@ -1,0 +1,69 @@
+{
+  "id": "meu-projeto-game",
+  "slug": "meu-projeto-game",
+  "title": "Nome do Jogo ou Protótipo",
+  "projectType": "game",
+  "areas": ["games-prototypes", "software-shelf"],
+  "prototypeStage": "mechanic-prototype",
+  "status": "in-progress",
+  "technologies": ["Godot", "GDScript", "Game Architecture", "UI/UX"],
+  "tags": ["tactile-interaction", "game-feel", "cozy-game"],
+  "summary": {
+    "pt": "Resumo da premissa e do loop jogável do jogo ou protótipo.",
+    "en": "Summary of premise and playable loop of the game or prototype."
+  },
+  "problem": {
+    "pt": "Desafio de jogabilidade ou atmosfera acolhedora que o protótipo valida.",
+    "en": "Gameplay challenge or cozy atmosphere validated by the prototype."
+  },
+  "solution": {
+    "pt": "Como os sistemas de input, máquinas de estados e feedback tátil foram implementados.",
+    "en": "How input systems, state machines, and tactile feedback were implemented."
+  },
+  "contributions": {
+    "pt": "Suas responsabilidades (programação de jogabilidade, game feel, design de níveis).",
+    "en": "Your responsibilities (gameplay programming, game feel, level design)."
+  },
+  "gameplayProfile": {
+    "genre": {
+      "pt": "Aventura Cozy & Exploração",
+      "en": "Cozy Adventure & Exploration"
+    },
+    "cameraPerspective": "top-down",
+    "targetPlatform": ["WebGL (HTML5)", "PC (Windows / Linux)"],
+    "controlsSummary": {
+      "pt": "Teclado (WASD / Espaço) e Suporte a Gamepad",
+      "en": "Keyboard (WASD / Space) & Gamepad Support"
+    }
+  },
+  "gameFeelDetails": {
+    "movementMechanics": [
+      { "pt": "Input buffering de 100ms para respostas imediatas", "en": "100ms input buffering for responsive feel" },
+      { "pt": "Aceleração com parada suave amortecida", "en": "Smooth dampened stop acceleration" }
+    ],
+    "tactileFeedback": [
+      { "pt": "Squash & stretch suave ao interagir com objetos", "en": "Gentle squash & stretch when interacting" },
+      { "pt": "Micro-trepidação de câmera sutil em ações-chave", "en": "Subtle micro screen shake on key actions" }
+    ],
+    "soundVisualSync": {
+      "pt": "Sons procedurais afinados sincronizados com animações táteis.",
+      "en": "Procedural tuned audio cues synced with tactile animations."
+    }
+  },
+  "systemsArchitecture": {
+    "engineArchitecture": {
+      "pt": "Máquinas de Estados Finitos desacopladas em GDScript.",
+      "en": "Decoupled Finite State Machines in GDScript."
+    },
+    "dataDrivenDesign": {
+      "pt": "Propriedades e diálogos serializados em Godot Custom Resources.",
+      "en": "Properties and dialogues serialized in Godot Custom Resources."
+    },
+    "decouplingStrategy": {
+      "pt": "Event Bus central baseado em Signals para desacoplamento de UI e áudio.",
+      "en": "Central Signals-based Event Bus decoupling UI and audio."
+    }
+  },
+  "repositoryUrl": "https://github.com/Germano123",
+  "buildUrl": null
+}

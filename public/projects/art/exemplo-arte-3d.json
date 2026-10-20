@@ -1,0 +1,46 @@
+{
+  "id": "meu-projeto-art",
+  "slug": "meu-projeto-art",
+  "title": "Nome do Personagem ou Asset 3D",
+  "projectType": "art",
+  "areas": ["art-workshop", "software-shelf"],
+  "mainCategory": "personagens",
+  "artStyle": "stylized",
+  "status": "completed",
+  "technologies": ["Blender", "Rigging", "Shader Graph", "Low-Poly"],
+  "tags": ["personagens", "low-poly", "cozy", "rigging"],
+  "summary": {
+    "pt": "Resumo do modelo, personagem ou conjunto de assets estilizados.",
+    "en": "Summary of stylized character, model, or asset pack."
+  },
+  "problem": {
+    "pt": "Objetivo estético e técnico: criar modelo leve que se deforme bem sem estourar draw calls.",
+    "en": "Aesthetic and technical goal: create lightweight model that deforms cleanly without bloating draw calls."
+  },
+  "solution": {
+    "pt": "Modelagem com anéis de borda nas juntas e atlas de textura compartilhado.",
+    "en": "Edge-loop topology at joints and shared texture atlas."
+  },
+  "contributions": {
+    "pt": "Modelagem 3D, mapeamento UV, rigging de esqueleto e autoria de shader.",
+    "en": "3D modeling, UV unwrapping, skeletal rigging, and shader authoring."
+  },
+  "technicalArtBudget": {
+    "triangleCount": 1800,
+    "vertexCount": 920,
+    "textureResolution": "512x512 Texture Atlas",
+    "uvEfficiencyPercent": 88,
+    "materialCount": 1,
+    "drawCallsEstimated": 1
+  },
+  "riggingAnimationDetails": {
+    "boneCount": 28,
+    "hasIKControls": true,
+    "clips": [
+      { "name": "Idle", "frameCount": 30, "fps": 24, "looping": true },
+      { "name": "Walk", "frameCount": 24, "fps": 24, "looping": true }
+    ]
+  },
+  "repositoryUrl": "https://github.com/Germano123",
+  "buildUrl": null
+}
