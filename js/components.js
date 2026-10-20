@@ -26,7 +26,6 @@ const Components = {
           <a href="tools-lab.html" class="nav-link ${activeNavId === 'tools' || activeNavId === 'tools-lab' ? 'active' : ''}" data-i18n="navTools">${t('navTools')}</a>
           <a href="art-workshop.html" class="nav-link ${activeNavId === 'art' || activeNavId === 'art-workshop' ? 'active' : ''}" data-i18n="navArt">${t('navArt')}</a>
           <a href="games-prototypes.html" class="nav-link ${activeNavId === 'games' || activeNavId === 'games-prototypes' ? 'active' : ''}" data-i18n="navGamesPrototypes">${t('navGamesPrototypes')}</a>
-          <a href="software-shelf.html" class="nav-link ${activeNavId === 'shelf' || activeNavId === 'software-shelf' ? 'active' : ''}" data-i18n="navShelf">${t('navShelf')}</a>
           <a href="about.html" class="nav-link ${activeNavId === 'about' ? 'active' : ''}" data-i18n="navAbout">${t('navAbout')}</a>
         </nav>
 
