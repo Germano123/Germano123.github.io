@@ -6,6 +6,16 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.13.1] - 2026-10-20
+### Modificado
+- **Reposicionamento da Tag de Status ("Work in Progress"):**
+  - Desvinculada a posição da tag de status do projeto da ancoragem absoluta no canto superior direito de `project.html`, eliminando qualquer sobreposição com o novo banner diagonal de parceria/autoria.
+  - No estudo de caso (`project.html`), a badge de status agora flui organicamente na barra de metadados (`.case-study-meta`) abaixo do título, integrada aos créditos de parceria e tags tecnológicas.
+  - Adicionado espaçamento lateral (`padding-right: 140px` no desktop, `90px` no mobile) em `.case-study-header` para respiro visual harmônico com a faixa diagonal.
+  - Adicionados ícones táteis às badges de status (`⏳ Em Andamento`, `✅ Concluído`, `🧪 Protótipo`, `📦 Arquivado`).
+
+---
+
 ## [0.13.0] - 2026-10-20
 ### Adicionado
 - **Marcação Visual de Parcerias e Natureza do Projeto:**

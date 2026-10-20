@@ -480,7 +480,18 @@
           .map(t => `<span class="tech-tag">${t}</span>`)
           .join('');
 
-        const statusLabel = t(`status${project.status.charAt(0).toUpperCase() + project.status.slice(1).replace('-', '')}`) || project.status;
+        let statusLabel = t('statusCompleted');
+        let statusIcon = '✅';
+        if (project.status === 'in-progress') {
+          statusLabel = t('statusInProgress');
+          statusIcon = '⏳';
+        } else if (project.status === 'prototype') {
+          statusLabel = t('statusPrototype');
+          statusIcon = '🧪';
+        } else if (project.status === 'archived') {
+          statusLabel = t('statusArchived');
+          statusIcon = '📦';
+        }
 
         // Determinar destino de retorno contextual
         let backUrl = 'software-shelf.html';
@@ -545,7 +556,7 @@
               </a>
               <h1 class="case-study-title">${project.title}</h1>
               <div class="case-study-meta">
-                <span class="project-status-badge status-${project.status}">${statusLabel}</span>
+                <span class="project-status-badge status-${project.status}"><span>${statusIcon}</span><span>${statusLabel}</span></span>
                 ${partnerMetaHtml}
                 <div class="project-tech-tags">${techTagsHtml}</div>
               </div>

@@ -650,9 +650,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 .project-status-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background-color: rgba(18, 18, 22, 0.85);
   backdrop-filter: blur(8px);
   font-size: 0.75rem;
@@ -660,6 +660,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   padding: 3px 10px;
   border-radius: var(--radius-pill);
   border: 1px solid var(--color-border);
+}
+
+/* No card do catálogo, a badge de status é ancorada no canto superior direito sobre a capa */
+.project-card-cover .project-status-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+/* No estudo de caso, a badge de status flui naturalmente na barra de metadados */
+.case-study .project-status-badge {
+  position: static;
+  font-size: 0.82rem;
+  padding: 4px 12px;
 }
 
 .status-completed {
@@ -1007,6 +1022,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   display: flex;
   flex-direction: column;
   gap: 14px;
+  padding-right: 140px;
+}
+
+@media (max-width: 640px) {
+  .case-study-header {
+    padding-right: 90px;
+  }
 }
 
 .case-study-title {

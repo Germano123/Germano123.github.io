@@ -97,7 +97,7 @@ const Components = {
             <span>${collabIcon}</span>
             <span>${collabLabel}</span>
           </span>
-          <span class="project-status-badge ${statusClass}">${statusLabel}</span>
+          <span class="project-status-badge ${statusClass}"><span>${statusIcon}</span><span>${statusLabel}</span></span>
         </div>
         <div class="project-card-body">
           <h3 class="project-card-title">${project.title}</h3>
