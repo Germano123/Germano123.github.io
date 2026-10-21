@@ -8,6 +8,7 @@ const I18N = {
     brandName: "Germano",
     brandSubtitle: "Cozy Dev Lab",
     navHome: "Início",
+    brandHomeAria: "— Página Inicial",
     navTools: "Tools Lab",
     navArt: "Art Workshop",
     navGameSystems: "Game Systems",
@@ -156,6 +157,23 @@ const I18N = {
     collabStudy: "Estudo",
     collabPartnerPrefix: "Em parceria com",
 
+    // 7. Páginas de Ferramenta (Tools Lab)
+    toolClassEditorExtension: "Extensão de Editor",
+    toolClassPipelineAutomation: "Automação de Pipeline",
+    toolClassProceduralGenerator: "Gerador Procedural",
+    toolClassDebugProfiling: "Debug & Profiling",
+    toolClassDccIntegration: "Integração DCC",
+    toolClassCliUtility: "Utilitário CLI",
+    toolFeaturesTitle: "Recursos Principais",
+    toolArchitectureDecisionsTitle: "Decisões Técnicas",
+    toolValidationTitle: "Validação, Testes & Tratamento de Erros",
+    toolTestCoverage: "Cobertura de Testes",
+    toolLimitationsTitle: "Limitações Conhecidas",
+    toolNextStepsTitle: "Próximos Passos",
+    toolViewDetails: "Ver Detalhes da Ferramenta →",
+    btnDocumentation: "Documentação",
+    btnDemo: "Demonstração",
+
     // Banner de Construção
     bannerConstructionTitle: "Laboratório em construção",
     bannerConstructionText: "Estamos organizando as bancadas de trabalho, finalizando os primeiros pipelines e preparando estudos de caso para publicação.",
@@ -191,6 +209,7 @@ const I18N = {
     brandName: "Germano",
     brandSubtitle: "Cozy Dev Lab",
     navHome: "Home",
+    brandHomeAria: "— Home Page",
     navTools: "Tools Lab",
     navArt: "Art Workshop",
     navGameSystems: "Game Systems",
@@ -338,6 +357,23 @@ const I18N = {
     collabPartnership: "Partnership",
     collabStudy: "Study",
     collabPartnerPrefix: "In partnership with",
+
+    // 7. Tool Pages (Tools Lab)
+    toolClassEditorExtension: "Editor Extension",
+    toolClassPipelineAutomation: "Pipeline Automation",
+    toolClassProceduralGenerator: "Procedural Generator",
+    toolClassDebugProfiling: "Debug & Profiling",
+    toolClassDccIntegration: "DCC Integration",
+    toolClassCliUtility: "CLI Utility",
+    toolFeaturesTitle: "Key Features",
+    toolArchitectureDecisionsTitle: "Technical Decisions",
+    toolValidationTitle: "Validation, Testing & Error Handling",
+    toolTestCoverage: "Test Coverage",
+    toolLimitationsTitle: "Known Limitations",
+    toolNextStepsTitle: "Next Steps",
+    toolViewDetails: "View Tool Details →",
+    btnDocumentation: "Documentation",
+    btnDemo: "Demo",
 
     // Construction Banner
     bannerConstructionTitle: "Laboratory under construction",

@@ -24,6 +24,7 @@
 
     <!-- Scripts da Aplicação -->
     <script src="js/data/projects.js"></script>
+    <script src="js/data/tools.js"></script>
     <script src="js/data/areas.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/projects-service.js"></script>
@@ -63,6 +64,7 @@
 
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
+        modal.removeAttribute('inert');
         document.body.style.overflow = 'hidden';
       }
 
@@ -71,6 +73,9 @@
         if (!modal) return;
         modal.classList.remove('active');
         modal.setAttribute('aria-hidden', 'true');
+        // Impede que elementos focáveis permaneçam na árvore de
+        // acessibilidade enquanto o modal está fechado.
+        modal.setAttribute('inert', '');
         document.body.style.overflow = '';
       }
 
@@ -161,7 +166,7 @@
 
             <div class="project-carousel" id="project-carousel" tabindex="0" role="region" aria-label="${t('projectGalleryTitle')}">
               <!-- Palco Principal do Slide -->
-              <div class="carousel-stage" id="carousel-stage" title="${t('viewImageFull')}" role="button" tabindex="0" aria-label="${t('viewImageFull')}">
+              <div class="carousel-stage" id="carousel-stage" role="button" tabindex="0">
                 <span class="carousel-top-badge" id="carousel-counter">1 ${t('imageOf')} ${project.gallery.length}</span>
                 <span class="carousel-zoom-hint" aria-hidden="true">🔍 ${t('viewImageFull')}</span>
                 
@@ -548,6 +553,12 @@
           return;
         }
 
+        // Ferramentas do Tools Lab possuem página estática própria e canônica.
+        if (project.pageUrl) {
+          window.location.replace(project.pageUrl);
+          return;
+        }
+
         // Título dinâmico da página
         document.title = `${project.title} | Germano Cozy Dev Lab`;
 
@@ -731,9 +742,12 @@
           </article>
 
           <!-- Lightbox Modal para Visualização em Tela Cheia -->
-          <div id="project-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+          <div id="project-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true" inert>
             <div class="lightbox-wrapper">
-              <button type="button" class="lightbox-close-btn" aria-label="${t('lightboxClose')}">&times;</button>
+              <button type="button" class="lightbox-close-btn">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only" data-i18n="lightboxClose">Fechar</span>
+              </button>
               <div class="lightbox-stage">
                 <button type="button" class="lightbox-nav-btn prev" aria-label="${t('lightboxPrev')}">&#8249;</button>
                 <img id="lightbox-img" class="lightbox-image" src="" alt="">

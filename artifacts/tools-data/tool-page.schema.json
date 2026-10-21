@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://germano123.github.io/schemas/tool-page.schema.json",
+  "title": "Cozy Developer Laboratory — Tool Page Canonical Record",
+  "description": "Registro canônico de uma ferramenta do Tools Lab. Consumido por scripts/generate-tool-pages.js para gerar as páginas estáticas em tools/<slug>.html e js/data/tools.js.",
+  "type": "object",
+  "required": [
+    "id",
+    "slug",
+    "title",
+    "projectType",
+    "status",
+    "visibility",
+    "summary",
+    "problem",
+    "solution",
+    "contributions",
+    "cover",
+    "pipelineFlow",
+    "workflowContext",
+    "technicalArchitecture",
+    "validation",
+    "results",
+    "links"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+
+    "title": { "$ref": "#/$defs/localized" },
+    "subtitle": { "$ref": "#/$defs/localized" },
+
+    "icon": { "type": "string", "maxLength": 8 },
+    "accent": { "enum": ["green", "orange", "blue", "purple", "slate"] },
+
+    "projectType": { "const": "tool" },
+    "status": { "enum": ["completed", "in-progress", "prototype", "archived"] },
+    "visibility": { "enum": ["public", "draft", "private"] },
+    "featured": { "type": "boolean" },
+    "collaborationType": { "enum": ["portfolio", "parceria", "comercial", "estudo"] },
+    "partner": { "type": ["string", "null"] },
+
+    "tags": { "$ref": "#/$defs/stringArray" },
+    "technologies": { "$ref": "#/$defs/stringArray" },
+
+    "toolClassification": {
+      "enum": [
+        "editor-extension",
+        "pipeline-automation",
+        "procedural-generator",
+        "debug-profiling",
+        "dcc-integration",
+        "cli-utility"
+      ]
+    },
+
+    "host": {
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": ["string", "null"] },
+        "language": { "type": ["string", "null"] }
+      }
+    },
+
+    "cover": {
+      "type": "string",
+      "description": "Caminho relativo à raiz do site (sem barra inicial). Ex.: assets/tools/cardinal/cover.svg"
+    },
+
+    "summary": { "$ref": "#/$defs/localized" },
+    "problem": { "$ref": "#/$defs/localized" },
+    "solution": { "$ref": "#/$defs/localized" },
+    "contributions": { "$ref": "#/$defs/localized" },
+
+    "workflowContext": {
+      "type": "object",
+      "required": ["targetAudience", "painPoint"],
+      "additionalProperties": false,
+      "properties": {
+        "targetAudience": { "$ref": "#/$defs/localized" },
+        "painPoint": { "$ref": "#/$defs/localized" },
+        "timeSavedMetric": { "type": ["string", "null"] },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "value"],
+            "additionalProperties": false,
+            "properties": {
+              "label": { "$ref": "#/$defs/localized" },
+              "value": { "type": "string" },
+              "hint": { "$ref": "#/$defs/localized" }
+            }
+          }
+        }
+      }
+    },
+
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "body"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "$ref": "#/$defs/localized" },
+          "body": { "$ref": "#/$defs/localized" },
+          "icon": { "type": "string", "maxLength": 8 }
+        }
+      }
+    },
+
+    "pipelineFlow": {
+      "type": "object",
+      "required": ["inputs", "processingLogic", "outputs"],
+      "additionalProperties": false,
+      "properties": {
+        "inputs": { "$ref": "#/$defs/localizedArray" },
+        "processingLogic": { "$ref": "#/$defs/localized" },
+        "outputs": { "$ref": "#/$defs/localizedArray" }
+      }
+    },
+
+    "technicalArchitecture": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "designDecisions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["title", "body"],
+            "additionalProperties": false,
+            "properties": {
+              "title": { "$ref": "#/$defs/localized" },
+              "body": { "$ref": "#/$defs/localized" }
+            }
+          }
+        },
+        "dataStructures": { "$ref": "#/$defs/stringArray" },
+        "editorIntegrations": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+
+    "validation": {
+      "type": "object",
+      "required": ["safetyFeatures"],
+      "additionalProperties": false,
+      "properties": {
+        "safetyFeatures": { "$ref": "#/$defs/localized" },
+        "testCoverage": { "type": ["string", "null"] },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["title", "body"],
+            "additionalProperties": false,
+            "properties": {
+              "title": { "$ref": "#/$defs/localized" },
+              "body": { "$ref": "#/$defs/localized" }
+            }
+          }
+        }
+      }
+    },
+
+    "gallery": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["src"],
+        "additionalProperties": false,
+        "properties": {
+          "src": { "type": "string" },
+          "caption": { "$ref": "#/$defs/localized" },
+          "alt": { "type": "string" }
+        }
+      }
+    },
+
+    "results": { "$ref": "#/$defs/localized" },
+    "limitations": { "$ref": "#/$defs/localizedArray" },
+    "nextSteps": { "$ref": "#/$defs/localizedArray" },
+
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "repositoryUrl": { "type": ["string", "null"] },
+        "buildUrl": { "type": ["string", "null"] },
+        "documentationUrl": { "type": ["string", "null"] },
+        "demoUrl": { "type": ["string", "null"] }
+      }
+    }
+  },
+
+  "$defs": {
+    "localized": {
+      "description": "Texto bilíngue. Aceita string simples (não traduzida) ou objeto {pt, en}.",
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "required": ["pt"],
+          "additionalProperties": false,
+          "properties": {
+            "pt": { "type": "string" },
+            "en": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "localizedArray": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/localized" }
+    },
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

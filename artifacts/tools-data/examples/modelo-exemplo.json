@@ -1,0 +1,162 @@
+{
+  "$schema": "../tool-page.schema.json",
+  "id": "modelo-exemplo",
+  "slug": "modelo-exemplo",
+  "title": {
+    "pt": "Ferramenta Modelo",
+    "en": "Model Tool"
+  },
+  "subtitle": {
+    "pt": "Registro de referência que demonstra o schema canônico preenchido. Use como modelo ao documentar uma nova ferramenta do Tools Lab.",
+    "en": "Reference record demonstrating the canonical schema fully populated. Use it as a model when documenting a new Tools Lab tool."
+  },
+  "icon": "🧪",
+  "accent": "purple",
+  "projectType": "tool",
+  "status": "in-progress",
+  "visibility": "public",
+  "featured": false,
+  "collaborationType": "portfolio",
+  "partner": null,
+  "tags": ["editor-tools", "validation", "pipeline", "exemplo"],
+  "technologies": ["C#", "Unity 2022.3", "Editor Scripting"],
+  "toolClassification": "editor-extension",
+  "host": { "name": "Unity", "version": "2022.3 LTS", "language": "C#" },
+  "cover": "assets/tools/modelo-exemplo/cover.svg",
+  "summary": {
+    "pt": "Exemplo de ferramenta de editor que valida um grafo de pipeline de conteúdo e aponta conexões quebradas, campos ausentes e dependências cíclicas antes que elas cheguem à build. Roda como extensão de editor e como job em CI, aplicando o mesmo conjunto de regras nos dois ambientes.",
+    "en": "Sample editor tool that validates a content pipeline graph and reports broken connections, missing fields and cyclic dependencies before they reach a build. It runs as an editor extension and as a CI job, applying the same rule set in both environments."
+  },
+  "problem": {
+    "pt": "Pipelines de conteúdo quebram silenciosamente: um nó renomeado deixa arestas órfãs que só aparecem em runtime, depois de horas de compilação. A equipe não tinha uma forma de detectar isso antes do build.",
+    "en": "Content pipelines break silently: a renamed node leaves orphaned edges that only surface at runtime, after hours of compilation. The team had no way to detect this before a build."
+  },
+  "solution": {
+    "pt": "Um validador que constrói o grafo a partir dos assets reais, executa um conjunto versionado de regras e emite um relatório com a origem de cada erro. As mesmas regras rodam no editor e no CI, garantindo paridade entre os ambientes.",
+    "en": "A validator that builds the graph from the real assets, runs a versioned rule set, and emits a report tracing the origin of each error. The same rules run in the editor and in CI, guaranteeing parity between environments."
+  },
+  "contributions": {
+    "pt": "Concepção da linguagem de regras, motor de resolução de dependências, integração com o pipeline de build e a interface de relatório dentro do editor.",
+    "en": "Design of the rule language, dependency resolution engine, build pipeline integration, and the in-editor report interface."
+  },
+  "workflowContext": {
+    "targetAudience": {
+      "pt": "Times de conteúdo e gameplay que maintain pipelines de assets compartilhados.",
+      "en": "Content and gameplay teams maintaining shared asset pipelines."
+    },
+    "painPoint": {
+      "pt": "Erros de configuração de pipeline só eram descobertos em runtime, custando horas de compilação por iteração.",
+      "en": "Pipeline configuration errors were only discovered at runtime, costing hours of compilation per iteration."
+    },
+    "timeSavedMetric": "~40 min por iteração de build",
+    "metrics": [
+      {
+        "label": { "pt": "Regras de validação", "en": "Validation rules" },
+        "value": "18",
+        "hint": { "pt": "Versionadas em arquivo único", "en": "Versioned in a single file" }
+      },
+      {
+        "label": { "pt": "Tempo médio de varredura", "en": "Average scan time" },
+        "value": "1.2 s",
+        "hint": { "pt": "Em um grafo de 1.2k nós", "en": "On a 1.2k-node graph" }
+      }
+    ]
+  },
+  "features": [
+    {
+      "icon": "🕸️",
+      "title": { "pt": "Resolução de dependências", "en": "Dependency resolution" },
+      "body": { "pt": "Constrói o grafo completo e ordena os nós por dependências resolvidas, detectando ciclos antes da execução.", "en": "Builds the full graph and orders nodes by resolved dependencies, detecting cycles before execution." }
+    },
+    {
+      "icon": "📐",
+      "title": { "pt": "Regras declarativas", "en": "Declarative rules" },
+      "body": { "pt": "Cada regra declara o padrão que procura, a severidade e a mensagem — sem código imperativo.", "en": "Each rule declares the pattern it looks for, its severity and its message — no imperative code." }
+    },
+    {
+      "icon": "🪞",
+      "title": { "pt": "Paridade Editor / CI", "en": "Editor / CI parity" },
+      "body": { "pt": "O mesmo motor roda dentro do editor e no runner de CI, sem caminhos de código distintos.", "en": "The same engine runs inside the editor and on the CI runner, with no divergent code paths." }
+    },
+    {
+      "icon": "📄",
+      "title": { "pt": "Relatório rastreável", "en": "Traceable report" },
+      "body": { "pt": "Cada erro aponta o asset de origem, a regra violada e a aresta que o provocou.", "en": "Each error points to the source asset, the violated rule and the edge that caused it." }
+    }
+  ],
+  "pipelineFlow": {
+    "inputs": [
+      { "pt": "Assets de conteúdo (prefabs, ScriptableObjects, grafos de diálogo)", "en": "Content assets (prefabs, ScriptableObjects, dialogue graphs)" },
+      { "pt": "Arquivo de regras versionado (`.rules`)", "en": "Versioned rules file (`.rules`)" },
+      { "pt": "Definições de esquema por tipo de nó", "en": "Schema definitions per node type" }
+    ],
+    "processingLogic": {
+      "pt": "O validador carrega os assets, constrói o grafo dirigido de dependências, executa o resolvedor topológico para detectar ciclos e, em seguida, aplica cada regra ao grafo resultante, coletando violações com a trilha de origem.",
+      "en": "The validator loads the assets, builds the directed dependency graph, runs the topological resolver to detect cycles, then applies each rule to the resulting graph, collecting violations with their origin trail."
+    },
+    "outputs": [
+      { "pt": "Relatório de violações por severidade", "en": "Violation report by severity" },
+      { "pt": "Lista de assets com arestas órfãs", "en": "List of assets with orphaned edges" },
+      { "pt": "Código de saída para o runner de CI", "en": "Exit code for the CI runner" }
+    ]
+  },
+  "technicalArchitecture": {
+    "designDecisions": [
+      {
+        "title": { "pt": "Parser de regras separado do motor", "en": "Rule parser separated from the engine" },
+        "body": { "pt": "A linguagem de regras é compilada para um grafo de predicados independente, o que permite testar as regras sem montar o grafo de conteúdo — reduzindo o ciclo de feedback.", "en": "The rule language compiles into a standalone predicate graph, allowing rules to be tested without building the content graph — reducing the feedback loop." }
+      },
+      {
+        "title": { "pt": "Ordenação topológica estável", "en": "Stable topological ordering" },
+        "body": { "pt": "A ordem de resolução é determinística, o que torna o relatório reproduzível entre execuções.", "en": "Resolution order is deterministic, which makes the report reproducible between runs." }
+      }
+    ],
+    "dataStructures": ["Immutable Graph", "RuleSet (versioned)", "Violation Report", "Schema Registry"],
+    "editorIntegrations": ["Unity EditorWindow", "Asset Postprocessor", "CLI Runner (CI)", "Build Pipeline Hook"]
+  },
+  "validation": {
+    "safetyFeatures": {
+      "pt": "O validador é estritamente read-only: ele nunca escreve em assets. A execução no editor roda sobre uma cópia do grafo em memória, e o modo CI não recebe credenciais de escrita.",
+      "en": "The validator is strictly read-only: it never writes to assets. The editor run operates on an in-memory copy of the graph, and CI mode receives no write credentials."
+    },
+    "testCoverage": "86%",
+    "checks": [
+      {
+        "title": { "pt": "Ciclos", "en": "Cycles" },
+        "body": { "pt": "Detecta ciclos de dependência e reporta o caminho completo que os forma.", "en": "Detects dependency cycles and reports the full path that forms them." }
+      },
+      {
+        "title": { "pt": "Campos ausentes", "en": "Missing fields" },
+        "body": { "pt": "Compara cada asset contra o esquema registrado para o seu tipo de nó.", "en": "Compares each asset against the schema registered for its node type." }
+      },
+      {
+        "title": { "pt": "Arestas órfãs", "en": "Orphaned edges" },
+        "body": { "pt": "Sinaliza conexões cujo destino não existe mais no catálogo de assets.", "en": "Flags connections whose target no longer exists in the asset catalog." }
+      }
+    ]
+  },
+  "gallery": [
+    { "src": "assets/tools/modelo-exemplo/gallery-01.svg", "caption": { "pt": "Relatório de violações agrupado por severidade.", "en": "Violation report grouped by severity." }, "alt": "Relatório de violações" },
+    { "src": "assets/tools/modelo-exemplo/gallery-02.svg", "caption": { "pt": "EditorWindow com o grafo de dependências.", "en": "EditorWindow with the dependency graph." }, "alt": "Grafo de dependências" },
+    { "src": "assets/tools/modelo-exemplo/gallery-03.svg", "caption": { "pt": "Definição de regras no arquivo versionado.", "en": "Rule definitions in the versioned file." }, "alt": "Arquivo de regras" },
+    { "src": "assets/tools/modelo-exemplo/gallery-04.svg", "caption": { "pt": "Saída do runner de CI no pipeline.", "en": "CI runner output in the pipeline." }, "alt": "Saída do CI" }
+  ],
+  "results": {
+    "pt": "Registro de exemplo: os números aqui são ilustrativos e servem apenas para demonstrar o schema. Substitua pelos dados reais da ferramenta antes de publicar.",
+    "en": "Sample record: the figures here are illustrative and only demonstrate the schema. Replace them with the tool's real data before publishing."
+  },
+  "limitations": [
+    { "pt": "Não resolve dependências entre assets gerados em tempo de build — apenas entre assets versionados.", "en": "Does not resolve dependencies between build-time generated assets — only between versioned assets." },
+    { "pt": "A linguagem de regras não expressa consultas agregadas (ex.: contagem por tipo).", "en": "The rule language cannot express aggregate queries (e.g.: count by type)." }
+  ],
+  "nextSteps": [
+    { "pt": "Editor de regras com autocomplete e validação em tempo real.", "en": "Rule editor with autocomplete and real-time validation." },
+    { "pt": "Export do relatório em SARIF para integração com code scanning.", "en": "SARIF report export for code scanning integration." }
+  ],
+  "links": {
+    "repositoryUrl": "https://github.com/Germano123",
+    "buildUrl": null,
+    "documentationUrl": null,
+    "demoUrl": null
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "./tool-page.schema.json",
+  "id": "cardinal",
+  "slug": "cardinal",
+  "title": {
+    "pt": "Cardinal",
+    "en": "Cardinal"
+  },
+  "subtitle": {
+    "pt": "A definir",
+    "en": "TBD"
+  },
+  "icon": "🧭",
+  "accent": "orange",
+  "projectType": "tool",
+  "status": "in-progress",
+  "visibility": "public",
+  "featured": true,
+  "collaborationType": "portfolio",
+  "partner": null,
+  "tags": [],
+  "technologies": [],
+  "toolClassification": "editor-extension",
+  "host": {
+    "name": "A definir",
+    "version": null,
+    "language": null
+  },
+  "cover": "assets/tools/cardinal/cover.svg",
+  "summary": {
+    "pt": "A definir",
+    "en": "TBD"
+  },
+  "problem": {
+    "pt": "A definir",
+    "en": "TBD"
+  },
+  "solution": {
+    "pt": "A definir",
+    "en": "TBD"
+  },
+  "contributions": {
+    "pt": "A definir",
+    "en": "TBD"
+  },
+  "workflowContext": {
+    "targetAudience": {
+      "pt": "A definir",
+      "en": "TBD"
+    },
+    "painPoint": {
+      "pt": "A definir",
+      "en": "TBD"
+    },
+    "timeSavedMetric": null,
+    "metrics": []
+  },
+  "features": [],
+  "pipelineFlow": {
+    "inputs": [],
+    "processingLogic": {
+      "pt": "A definir",
+      "en": "TBD"
+    },
+    "outputs": []
+  },
+  "technicalArchitecture": {
+    "designDecisions": [],
+    "dataStructures": [],
+    "editorIntegrations": []
+  },
+  "validation": {
+    "safetyFeatures": {
+      "pt": "A definir",
+      "en": "TBD"
+    },
+    "testCoverage": null,
+    "checks": []
+  },
+  "gallery": [],
+  "results": {
+    "pt": "A definir",
+    "en": "TBD"
+  },
+  "limitations": [],
+  "nextSteps": [],
+  "links": {
+    "repositoryUrl": null,
+    "buildUrl": null,
+    "documentationUrl": null,
+    "demoUrl": null
+  }
+}

@@ -5,10 +5,26 @@
 
 const ProjectsService = {
   /**
-   * Retorna todos os projetos públicos
+   * Retorna todos os registros públicos de TODAS as fontes canônicas.
+   * - PROJECTS: jogos e demais projetos (js/data/projects.js)
+   * - TOOLS:    ferramentas do Tools Lab (js/data/tools.js, gerado)
+   * @returns {Array}
    */
   getAllPublished() {
-    return (PROJECTS || []).filter(p => p.visibility === 'public');
+    const games = (typeof PROJECTS !== 'undefined' && PROJECTS) || [];
+    const tools = (typeof TOOLS !== 'undefined' && TOOLS) || [];
+    return [...games, ...tools].filter(p => p.visibility === 'public');
+  },
+
+  /**
+   * Retorna todos os registros públicos, incluindo rascunhos.
+   * Usado por fluxos internos de verificação.
+   * @returns {Array}
+   */
+  getAllRecords() {
+    const games = (typeof PROJECTS !== 'undefined' && PROJECTS) || [];
+    const tools = (typeof TOOLS !== 'undefined' && TOOLS) || [];
+    return [...games, ...tools];
   },
 
   /**
@@ -59,7 +75,7 @@ const ProjectsService = {
    */
   getBySlug(slug) {
     if (!slug) return null;
-    return (PROJECTS || []).find(p => p.slug === slug && p.visibility === 'public') || null;
+    return this.getAllPublished().find(p => p.slug === slug) || null;
   },
 
   /**

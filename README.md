@@ -48,7 +48,10 @@ O projeto segue os princípios estabelecidos no documento canônico de requisito
 ├── animation-lab.html      # Redirecionamento de compatibilidade para art-workshop.html?category=animacoes
 ├── experiments.html        # Bancada de experimentos, benchmarks e protótipos
 ├── devlog.html             # Artigos técnicos, pós-mortems e notas de produção
-└── 404.html                # Página de erro amigável para rotas inexistentes
+├── 404.html                # Página de erro amigável para rotas inexistentes
+└── tools/                  # Páginas estáticas geradas das ferramentas do Tools Lab
+    ├── <slug>.html             # Uma página por ferramenta (gerada de artifacts/tools-data/)
+    └── modelo-exemplo.html     # Página de referência com o schema preenchido
 ```
 
 ---
@@ -57,20 +60,42 @@ O projeto segue os princípios estabelecidos no documento canônico de requisito
 
 ```text
 ├── assets/                 # Imagens, capas de projetos e recursos estáticos
+│   ├── projects/           # Capas e galerias dos jogos
+│   └── tools/              # Capas e galerias das ferramentas do Tools Lab
 ├── css/
 │   ├── tokens.css          # Variáveis de design (cores, madeira, tipografia, elevações)
-│   └── style.css           # Estilos globais, componentes e responsividade
+│   ├── style.css           # Estilos globais, componentes e responsividade
+│   └── tools.css           # Estilos exclusivos das páginas de ferramenta
 ├── js/
 │   ├── data/
-│   │   ├── projects.js     # Fonte canônica de projetos (PT/EN)
+│   │   ├── projects.js     # Fonte canônica dos jogos (GERADO)
+│   │   ├── tools.js        # Fonte canônica das ferramentas (GERADO)
 │   │   └── areas.js        # Metadados das áreas do laboratório
 │   ├── i18n.js             # Motor reativo de tradução PT/EN com persistência
 │   ├── projects-service.js # Camada de consulta e filtragem de projetos
-│   └── components.js       # Renderizadores de Header, Footer, Cards e EmptyStates
+│   ├── components.js       # Renderizadores de Header, Footer, Cards e EmptyStates
+│   ├── gallery.js          # Componente compartilhado de carrossel + lightbox
+│   └── tool-page.js        # Runtime das páginas estáticas de ferramenta
+├── tools/                  # Páginas estáticas geradas (uma por ferramenta)
+├── scripts/
+│   ├── serve.js                # Servidor estático local (npm run serve)
+│   ├── merge-portfolio-projects.js  # Gera js/data/projects.js a partir de artifacts/portfolio-data/
+│   ├── generate-assets.js            # Placeholders de capa/galeria dos jogos
+│   ├── generate-custom-covers.js     # Capas ilustradas dos jogos
+│   ├── generate-tool-covers.js       # Placeholders de capa/galeria das ferramentas
+│   ├── generate-tool-pages.js        # Gera tools/<slug>.html e js/data/tools.js
+│   └── templates/
+│       └── tool-page.template.js    # Template único de página de ferramenta
 ├── artifacts/              # Especificações de engenharia e planos de arquitetura
 │   ├── 1_cozy_developer_laboratory_engineering_spec.md
 │   ├── 2_portfolio_pages.md
-│   └── 3_project_presentation_schemas.md
+│   ├── 3_project_presentation_schemas.md
+│   ├── 4_tools_lab_page_schema.md
+│   ├── portfolio-data/     # Fonte de verdade dos jogos (um JSON por projeto)
+│   └── tools-data/         # Fonte de verdade das ferramentas (um JSON por ferramenta)
+│       ├── tool-page.schema.json   # JSON Schema de validação
+│       └── examples/               # Registro de referência preenchido
+├── package.json            # Scripts do pipeline (zero dependências)
 ├── CHANGELOG.md            # Histórico detalhado de versões e entregas
 ├── LICENSE                 # Licença MIT
 └── README.md               # Esta documentação
@@ -137,6 +162,102 @@ Para cadastrar um novo trabalho ou estudo de caso sem tocar no código das pági
 ```
 
 3. O projeto aparecerá automaticamente na página inicial (se `featured: true`), no catálogo `software-shelf.html`, nas áreas correspondentes (`tools-lab.html`, etc.) e gerará a página de estudo de caso em `project.html?slug=meu-novo-projeto`.
+
+> ⚠️ **Atenção:** `js/data/projects.js` é um arquivo **gerado** por `scripts/merge-portfolio-projects.js`. Edições manuais são sobrescritas na próxima execução do pipeline. Para projetos de **ferramentas**, use o fluxo descrito na seção abaixo, que mantém um arquivo-fonte dedicado e não destrutivo.
+
+---
+
+## 🔧 Como Adicionar uma Nova Ferramenta (Tools Lab)
+
+Ferramentas do Tools Lab têm um fluxo próprio, **não destrutivo** e sem alteração de código. Cada ferramenta é descrita por um único JSON e gera sua própria página estática.
+
+1. **Crie o registro** a partir do exemplo de referência:
+
+   ```bash
+   cp artifacts/tools-data/examples/modelo-exemplo.json artifacts/tools-data/minha-ferramenta.json
+   ```
+
+2. **Preencha o JSON** com `id`, `slug`, `title`, `icon`, `accent` e o conteúdo real da ferramenta. O schema completo está em [`artifacts/tools-data/tool-page.schema.json`](artifacts/tools-data/tool-page.schema.json) e a documentação em [`artifacts/4_tools_lab_page_schema.md`](artifacts/4_tools_lab_page_schema.md).
+
+3. **Valide e gere** a página:
+
+   ```bash
+   npm run generate:tools
+   ```
+
+   O gerador valida contra o JSON Schema e **falha com a lista de erros** se algo estiver errado, sem escrever arquivos.
+
+4. **Gere as capas e miniaturas** placeholder (ou substitua por capturas reais):
+
+   ```bash
+   npm run generate:tool-assets
+   ```
+
+5. **Verifique localmente:**
+
+   ```bash
+   npm run serve
+   # abrir http://localhost:8080/tools/minha-ferramenta.html
+   ```
+
+6. **Publique.** A ferramenta aparece sozinha em `tools-lab.html` e `software-shelf.html`, e o card aponta para `tools/minha-ferramenta.html`.
+
+### Exemplo mínimo de registro
+
+```jsonc
+{
+  "id": "minha-ferramenta",
+  "slug": "minha-ferramenta",
+  "title": { "pt": "Minha Ferramenta", "en": "My Tool" },
+  "icon": "🔧",
+  "accent": "green",
+  "projectType": "tool",
+  "status": "in-progress",
+  "visibility": "public",
+  "technologies": ["C#", "Unity"],
+  "toolClassification": "editor-extension",
+  "cover": "assets/tools/minha-ferramenta/cover.svg",
+  "summary": { "pt": "...", "en": "..." },
+  "problem": { "pt": "...", "en": "..." },
+  "solution": { "pt": "...", "en": "..." },
+  "contributions": { "pt": "...", "en": "..." },
+  "results": { "pt": "...", "en": "..." },
+  "workflowContext": {
+    "targetAudience": { "pt": "...", "en": "..." },
+    "painPoint": { "pt": "...", "en": "..." },
+    "timeSavedMetric": null
+  },
+  "pipelineFlow": {
+    "inputs": [],
+    "processingLogic": { "pt": "...", "en": "..." },
+    "outputs": []
+  },
+  "links": { "repositoryUrl": null, "buildUrl": null, "documentationUrl": null, "demoUrl": null }
+}
+```
+
+---
+
+## ⚙️ Pipeline de Geração
+
+O site é 100% estático e o GitHub Pages não executa build — por isso os artefatos gerados são versionados no repositório. O `package.json` expõe o pipeline completo (**zero dependências**, apenas Node ≥ 18):
+
+```bash
+npm run serve        # Servidor estático local em http://localhost:8080
+npm run generate     # Pipeline completo, na ordem canônica
+npm run check        # Verifica se os artefatos gerados estão em dia (uso em CI)
+```
+
+| Script | O que faz |
+|---|---|
+| `generate:projects` | `artifacts/portfolio-data/*.json` → `js/data/projects.js` (jogos) |
+| `generate:assets` | Placeholders de capa/galeria dos jogos |
+| `generate:covers` | Capas ilustradas dos jogos (**deve rodar depois** de `generate:assets`) |
+| `generate:tool-assets` | Placeholders de capa/galeria das ferramentas |
+| `generate:tools` | `artifacts/tools-data/*.json` → `tools/<slug>.html` + `js/data/tools.js` |
+| `generate:tool-example` | Gera `tools/modelo-exemplo.html` a partir do registro de referência |
+
+> ⚠️ **Ordem obrigatória:** `generate:assets` **antes** de `generate:covers`. As duas etapas escrevem em `assets/projects/<slug>/cover.svg`; invertê-las sobrescreve as capas ilustradas com placeholders.
 
 ---
 

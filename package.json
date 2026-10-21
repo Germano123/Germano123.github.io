@@ -1,0 +1,28 @@
+{
+  "name": "cozy-developer-laboratory",
+  "version": "0.17.0",
+  "description": "Portfólio e laboratório digital de Germano Gomes — Cozy Developer Laboratory",
+  "private": true,
+  "license": "MIT",
+  "author": "Germano Gomes",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Germano123/Germano123.github.io.git"
+  },
+  "scripts": {
+    "serve": "node scripts/serve.js",
+    "generate": "npm run generate:projects && npm run generate:assets && npm run generate:covers && npm run generate:tool-assets && npm run generate:tools",
+    "generate:projects": "node scripts/merge-portfolio-projects.js",
+    "generate:assets": "node scripts/generate-assets.js",
+    "generate:covers": "node scripts/generate-custom-covers.js",
+    "generate:tools": "node scripts/generate-tool-pages.js",
+    "generate:tool-assets": "node scripts/generate-tool-covers.js",
+    "generate:tool-example": "node scripts/generate-tool-pages.js --from=artifacts/tools-data/examples/modelo-exemplo.json",
+    "check": "node scripts/generate-tool-pages.js --check"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

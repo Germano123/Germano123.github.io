@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exemplo de ferramenta de editor que valida um grafo de pipeline de conteúdo e aponta conexões quebradas, campos ausentes e dependências cíclicas antes que elas ">
+    <meta name="author" content="Germano Gomes">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ferramenta Modelo">
+    <meta property="og:description" content="Exemplo de ferramenta de editor que valida um grafo de pipeline de conteúdo e aponta conexões quebradas, campos ausentes e dependências cíclicas antes que elas ">
+    <meta property="og:image" content="assets/tools/modelo-exemplo/cover.svg">
+    <link rel="canonical" href="tools/modelo-exemplo.html">
+    <title>Ferramenta Modelo | Tools Lab | Germano Cozy Dev Lab</title>
+    <!-- Google Fonts for Cozy Rounded Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="../css/tools.css" rel="stylesheet" type="text/css">
+
+    <!-- Registro canônico embutido (fonte da re-renderização reativa de idioma) -->
+    <script type="application/json" id="tool-data">{"$schema":"../tool-page.schema.json","id":"modelo-exemplo","slug":"modelo-exemplo","title":{"pt":"Ferramenta Modelo","en":"Model Tool"},"subtitle":{"pt":"Registro de referência que demonstra o schema canônico preenchido. Use como modelo ao documentar uma nova ferramenta do Tools Lab.","en":"Reference record demonstrating the canonical schema fully populated. Use it as a model when documenting a new Tools Lab tool."},"icon":"🧪","accent":"purple","projectType":"tool","status":"in-progress","visibility":"public","featured":false,"collaborationType":"portfolio","partner":null,"tags":["editor-tools","validation","pipeline","exemplo"],"technologies":["C#","Unity 2022.3","Editor Scripting"],"toolClassification":"editor-extension","host":{"name":"Unity","version":"2022.3 LTS","language":"C#"},"cover":"assets/tools/modelo-exemplo/cover.svg","summary":{"pt":"Exemplo de ferramenta de editor que valida um grafo de pipeline de conteúdo e aponta conexões quebradas, campos ausentes e dependências cíclicas antes que elas cheguem à build. Roda como extensão de editor e como job em CI, aplicando o mesmo conjunto de regras nos dois ambientes.","en":"Sample editor tool that validates a content pipeline graph and reports broken connections, missing fields and cyclic dependencies before they reach a build. It runs as an editor extension and as a CI job, applying the same rule set in both environments."},"problem":{"pt":"Pipelines de conteúdo quebram silenciosamente: um nó renomeado deixa arestas órfãs que só aparecem em runtime, depois de horas de compilação. A equipe não tinha uma forma de detectar isso antes do build.","en":"Content pipelines break silently: a renamed node leaves orphaned edges that only surface at runtime, after hours of compilation. The team had no way to detect this before a build."},"solution":{"pt":"Um validador que constrói o grafo a partir dos assets reais, executa um conjunto versionado de regras e emite um relatório com a origem de cada erro. As mesmas regras rodam no editor e no CI, garantindo paridade entre os ambientes.","en":"A validator that builds the graph from the real assets, runs a versioned rule set, and emits a report tracing the origin of each error. The same rules run in the editor and in CI, guaranteeing parity between environments."},"contributions":{"pt":"Concepção da linguagem de regras, motor de resolução de dependências, integração com o pipeline de build e a interface de relatório dentro do editor.","en":"Design of the rule language, dependency resolution engine, build pipeline integration, and the in-editor report interface."},"workflowContext":{"targetAudience":{"pt":"Times de conteúdo e gameplay que maintain pipelines de assets compartilhados.","en":"Content and gameplay teams maintaining shared asset pipelines."},"painPoint":{"pt":"Erros de configuração de pipeline só eram descobertos em runtime, custando horas de compilação por iteração.","en":"Pipeline configuration errors were only discovered at runtime, costing hours of compilation per iteration."},"timeSavedMetric":"~40 min por iteração de build","metrics":[{"label":{"pt":"Regras de validação","en":"Validation rules"},"value":"18","hint":{"pt":"Versionadas em arquivo único","en":"Versioned in a single file"}},{"label":{"pt":"Tempo médio de varredura","en":"Average scan time"},"value":"1.2 s","hint":{"pt":"Em um grafo de 1.2k nós","en":"On a 1.2k-node graph"}}]},"features":[{"icon":"🕸️","title":{"pt":"Resolução de dependências","en":"Dependency resolution"},"body":{"pt":"Constrói o grafo completo e ordena os nós por dependências resolvidas, detectando ciclos antes da execução.","en":"Builds the full graph and orders nodes by resolved dependencies, detecting cycles before execution."}},{"icon":"📐","title":{"pt":"Regras declarativas","en":"Declarative rules"},"body":{"pt":"Cada regra declara o padrão que procura, a severidade e a mensagem — sem código imperativo.","en":"Each rule declares the pattern it looks for, its severity and its message — no imperative code."}},{"icon":"🪞","title":{"pt":"Paridade Editor / CI","en":"Editor / CI parity"},"body":{"pt":"O mesmo motor roda dentro do editor e no runner de CI, sem caminhos de código distintos.","en":"The same engine runs inside the editor and on the CI runner, with no divergent code paths."}},{"icon":"📄","title":{"pt":"Relatório rastreável","en":"Traceable report"},"body":{"pt":"Cada erro aponta o asset de origem, a regra violada e a aresta que o provocou.","en":"Each error points to the source asset, the violated rule and the edge that caused it."}}],"pipelineFlow":{"inputs":[{"pt":"Assets de conteúdo (prefabs, ScriptableObjects, grafos de diálogo)","en":"Content assets (prefabs, ScriptableObjects, dialogue graphs)"},{"pt":"Arquivo de regras versionado (`.rules`)","en":"Versioned rules file (`.rules`)"},{"pt":"Definições de esquema por tipo de nó","en":"Schema definitions per node type"}],"processingLogic":{"pt":"O validador carrega os assets, constrói o grafo dirigido de dependências, executa o resolvedor topológico para detectar ciclos e, em seguida, aplica cada regra ao grafo resultante, coletando violações com a trilha de origem.","en":"The validator loads the assets, builds the directed dependency graph, runs the topological resolver to detect cycles, then applies each rule to the resulting graph, collecting violations with their origin trail."},"outputs":[{"pt":"Relatório de violações por severidade","en":"Violation report by severity"},{"pt":"Lista de assets com arestas órfãs","en":"List of assets with orphaned edges"},{"pt":"Código de saída para o runner de CI","en":"Exit code for the CI runner"}]},"technicalArchitecture":{"designDecisions":[{"title":{"pt":"Parser de regras separado do motor","en":"Rule parser separated from the engine"},"body":{"pt":"A linguagem de regras é compilada para um grafo de predicados independente, o que permite testar as regras sem montar o grafo de conteúdo — reduzindo o ciclo de feedback.","en":"The rule language compiles into a standalone predicate graph, allowing rules to be tested without building the content graph — reducing the feedback loop."}},{"title":{"pt":"Ordenação topológica estável","en":"Stable topological ordering"},"body":{"pt":"A ordem de resolução é determinística, o que torna o relatório reproduzível entre execuções.","en":"Resolution order is deterministic, which makes the report reproducible between runs."}}],"dataStructures":["Immutable Graph","RuleSet (versioned)","Violation Report","Schema Registry"],"editorIntegrations":["Unity EditorWindow","Asset Postprocessor","CLI Runner (CI)","Build Pipeline Hook"]},"validation":{"safetyFeatures":{"pt":"O validador é estritamente read-only: ele nunca escreve em assets. A execução no editor roda sobre uma cópia do grafo em memória, e o modo CI não recebe credenciais de escrita.","en":"The validator is strictly read-only: it never writes to assets. The editor run operates on an in-memory copy of the graph, and CI mode receives no write credentials."},"testCoverage":"86%","checks":[{"title":{"pt":"Ciclos","en":"Cycles"},"body":{"pt":"Detecta ciclos de dependência e reporta o caminho completo que os forma.","en":"Detects dependency cycles and reports the full path that forms them."}},{"title":{"pt":"Campos ausentes","en":"Missing fields"},"body":{"pt":"Compara cada asset contra o esquema registrado para o seu tipo de nó.","en":"Compares each asset against the schema registered for its node type."}},{"title":{"pt":"Arestas órfãs","en":"Orphaned edges"},"body":{"pt":"Sinaliza conexões cujo destino não existe mais no catálogo de assets.","en":"Flags connections whose target no longer exists in the asset catalog."}}]},"gallery":[{"src":"assets/tools/modelo-exemplo/gallery-01.svg","caption":{"pt":"Relatório de violações agrupado por severidade.","en":"Violation report grouped by severity."},"alt":"Relatório de violações"},{"src":"assets/tools/modelo-exemplo/gallery-02.svg","caption":{"pt":"EditorWindow com o grafo de dependências.","en":"EditorWindow with the dependency graph."},"alt":"Grafo de dependências"},{"src":"assets/tools/modelo-exemplo/gallery-03.svg","caption":{"pt":"Definição de regras no arquivo versionado.","en":"Rule definitions in the versioned file."},"alt":"Arquivo de regras"},{"src":"assets/tools/modelo-exemplo/gallery-04.svg","caption":{"pt":"Saída do runner de CI no pipeline.","en":"CI runner output in the pipeline."},"alt":"Saída do CI"}],"results":{"pt":"Registro de exemplo: os números aqui são ilustrativos e servem apenas para demonstrar o schema. Substitua pelos dados reais da ferramenta antes de publicar.","en":"Sample record: the figures here are illustrative and only demonstrate the schema. Replace them with the tool's real data before publishing."},"limitations":[{"pt":"Não resolve dependências entre assets gerados em tempo de build — apenas entre assets versionados.","en":"Does not resolve dependencies between build-time generated assets — only between versioned assets."},{"pt":"A linguagem de regras não expressa consultas agregadas (ex.: contagem por tipo).","en":"The rule language cannot express aggregate queries (e.g.: count by type)."}],"nextSteps":[{"pt":"Editor de regras com autocomplete e validação em tempo real.","en":"Rule editor with autocomplete and real-time validation."},{"pt":"Export do relatório em SARIF para integração com code scanning.","en":"SARIF report export for code scanning integration."}],"links":{"repositoryUrl":"https://github.com/Germano123","buildUrl":null,"documentationUrl":null,"demoUrl":null},"_sourceFile":"modelo-exemplo.json"}</script>
+</head>
+<body>
+    <header id="site-header-mount"></header>
+
+    <main class="page-shell">
+        <article class="case-study tool-page tool-page--purple" data-tool-slug="modelo-exemplo">
+
+    <!-- 0. Breadcrumb -->
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html" data-i18n="navHome">Início</a>
+      <span class="tool-breadcrumb-sep" aria-hidden="true">/</span>
+      <a href="../tools-lab.html" data-i18n="navTools">Tools Lab</a>
+      <span class="tool-breadcrumb-sep" aria-hidden="true">/</span>
+      <span class="tool-breadcrumb-current" aria-current="page">Ferramenta Modelo</span>
+    </nav>
+
+    <!-- 1. Cabeçalho da Ferramenta -->
+    <header class="case-study-header tool-page-header">
+      <div class="tool-page-title-row">
+        <span class="tool-page-icon" aria-hidden="true">🧪</span>
+        <h1 class="case-study-title" data-ti="title">Ferramenta Modelo</h1>
+      </div>
+
+      <p class="tool-page-subtitle" data-ti="subtitle">Registro de referência que demonstra o schema canônico preenchido. Use como modelo ao documentar uma nova ferramenta do Tools Lab.</p>
+
+      <div class="case-study-meta">
+        <span class="project-status-badge status-in-progress">
+          <span aria-hidden="true">⏳</span>
+          <span data-i18n="statusInProgress">statusInProgress</span>
+        </span>
+        <span class="collab-meta-badge collab-meta-badge--portfolio">
+         📁 <span data-i18n="collabPortfolio">collabPortfolio</span>
+       </span>
+        <span class="tool-badge" data-i18n="toolClassEditorExtension">
+          toolClassEditorExtension
+        </span>
+        <span class="tool-host-badge">🧩 Unity · 2022.3 LTS · C#</span>
+        <span class="tech-tag">C#</span><span class="tech-tag">Unity 2022.3</span><span class="tech-tag">Editor Scripting</span>
+      </div>
+    </header>
+
+    <!-- 2. Capa / Demonstração (Visual First) -->
+    <figure class="case-study-cover tool-page-hero">
+      <img src="../assets/tools/modelo-exemplo/cover.svg" alt="Ferramenta Modelo" loading="eager">
+    </figure>
+
+    <!-- 3. Resumo, Problema e Solução -->
+    <section class="case-study-section tool-section-pitch">
+      <h2 class="case-study-section-title">💡 <span data-i18n="caseStudyProblem">O Desafio &amp; Contexto</span></h2>
+      <div class="case-study-section-content">
+        <p class="tool-lead" data-ti="summary"></p>
+
+        <div class="tool-callout tool-callout--problem">
+          <strong class="tool-callout-label" data-i18n="toolsPainPoint">Gargalo Operacional</strong>
+          <p data-ti="problem"></p>
+        </div>
+
+        <div class="tool-callout tool-callout--solution">
+          <strong class="tool-callout-label" data-i18n="caseStudySolution">Abordagem Técnica &amp; Solução</strong>
+          <p data-ti="solution"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Contexto de Workflow &amp; Impacto -->
+    <section class="case-study-section tool-section-workflow">
+      <h2 class="case-study-section-title">⏱️ <span data-i18n="toolsWorkflowTitle">Contexto de Workflow &amp; Produtividade</span></h2>
+      <div class="case-study-section-content">
+        <div class="tool-stat-grid">
+          <div class="tool-stat-card">
+       <span class="tool-stat-label" data-i18n="toolsTargetAudience">Público-Alvo</span>
+       <p class="tool-stat-value tool-stat-value--text" data-ti="workflowContext.targetAudience"></p>
+     </div>
+          <div class="tool-stat-card tool-stat-card--accent">
+           <span class="tool-stat-label" data-i18n="toolsTimeSaved">Impacto &amp; Tempo Economizado</span>
+           <p class="tool-stat-value" data-ti="workflowContext.timeSavedMetric">~40 min por iteração de build</p>
+         </div>
+          <div class="tool-stat-card">
+           <span class="tool-stat-label" data-ti="workflowContext.metrics.0.label"></span>
+           <p class="tool-stat-value">18</p>
+           <p class="tool-stat-hint" data-ti="workflowContext.metrics.0.hint"></p>
+         </div>
+          <div class="tool-stat-card">
+           <span class="tool-stat-label" data-ti="workflowContext.metrics.1.label"></span>
+           <p class="tool-stat-value">1.2 s</p>
+           <p class="tool-stat-hint" data-ti="workflowContext.metrics.1.hint"></p>
+         </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Recursos Principais -->
+    <section class="case-study-section tool-section-features">
+      <h2 class="case-study-section-title">✨ <span data-i18n="toolFeaturesTitle">Recursos Principais</span></h2>
+      <div class="case-study-section-content">
+        <div class="tool-feature-grid">
+          <article class="tool-feature-card">
+          <span class="tool-feature-icon" aria-hidden="true">🕸️</span>
+          <h3 class="tool-feature-title" data-ti="features.0.title"></h3>
+          <p class="tool-feature-body" data-ti="features.0.body"></p>
+        </article>
+          <article class="tool-feature-card">
+          <span class="tool-feature-icon" aria-hidden="true">📐</span>
+          <h3 class="tool-feature-title" data-ti="features.1.title"></h3>
+          <p class="tool-feature-body" data-ti="features.1.body"></p>
+        </article>
+          <article class="tool-feature-card">
+          <span class="tool-feature-icon" aria-hidden="true">🪞</span>
+          <h3 class="tool-feature-title" data-ti="features.2.title"></h3>
+          <p class="tool-feature-body" data-ti="features.2.body"></p>
+        </article>
+          <article class="tool-feature-card">
+          <span class="tool-feature-icon" aria-hidden="true">📄</span>
+          <h3 class="tool-feature-title" data-ti="features.3.title"></h3>
+          <p class="tool-feature-body" data-ti="features.3.body"></p>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Pipeline (I/O) -->
+    <section class="case-study-section tool-section-pipeline">
+      <h2 class="case-study-section-title">🔄 <span data-i18n="toolsPipelineTitle">Fluxo do Pipeline (I/O)</span></h2>
+      <div class="case-study-section-content">
+        <div class="tool-pipeline">
+          <div class="tool-pipeline-col tool-pipeline-col--in">
+            <strong class="tool-pipeline-label" data-i18n="toolsInputs">Entradas (Inputs)</strong>
+            <ul class="tool-pipeline-list" data-ti-list="pipelineFlow.inputs"></ul>
+          </div>
+
+          <div class="tool-pipeline-arrow" aria-hidden="true">→</div>
+
+          <div class="tool-pipeline-col tool-pipeline-col--proc">
+            <strong class="tool-pipeline-label" data-i18n="toolsProcessing">Lógica de Processamento</strong>
+            <p class="tool-pipeline-logic" data-ti="pipelineFlow.processingLogic"></p>
+          </div>
+
+          <div class="tool-pipeline-arrow" aria-hidden="true">→</div>
+
+          <div class="tool-pipeline-col tool-pipeline-col--out">
+            <strong class="tool-pipeline-label" data-i18n="toolsOutputs">Saídas (Outputs)</strong>
+            <ul class="tool-pipeline-list" data-ti-list="pipelineFlow.outputs"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Galeria / Capturas de Interface -->
+    <section class="case-study-section project-gallery-section tool-section-gallery" aria-roledescription="carousel" aria-label="Project Gallery">
+      <div class="tool-section-heading">
+        <h2 class="case-study-section-title">🖼️ <span data-i18n="projectGalleryTitle">Galeria do Projeto</span></h2>
+        <span class="tool-section-hint" data-i18n="projectGalleryDesc">Registros visuais, interfaces e capturas de desenvolvimento.</span>
+      </div>
+
+      <div class="project-carousel" id="project-carousel" tabindex="0" role="region" aria-label="Project Gallery">
+        <div class="carousel-stage" id="carousel-stage" role="button" tabindex="0">
+          <span class="carousel-top-badge" id="carousel-counter"></span>
+          <span class="carousel-zoom-hint" aria-hidden="true">🔍 <span data-i18n="viewImageFull">Clique para ampliar a imagem</span></span>
+          <button type="button" class="carousel-nav-btn carousel-nav-btn--prev" id="carousel-prev-btn" aria-label="Anterior">‹</button>
+          <img src="../assets/tools/modelo-exemplo/gallery-01.svg" alt="Relatório de violações" class="carousel-slide-img" id="carousel-main-img">
+          <button type="button" class="carousel-nav-btn carousel-nav-btn--next" id="carousel-next-btn" aria-label="Próxima">›</button>
+        </div>
+
+        <div class="carousel-caption-bar">
+          <div class="carousel-caption-text" id="carousel-caption"></div>
+        </div>
+
+        <div class="carousel-dock">
+          <div class="carousel-dots" id="carousel-dots"></div>
+          <div class="carousel-thumbs" id="carousel-thumbs"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Arquitetura Técnica -->
+    <section class="case-study-section tool-section-architecture">
+      <h2 class="case-study-section-title">🔧 <span data-i18n="toolsArchitectureTitle">Arquitetura Técnica &amp; Ergonomia</span></h2>
+      <div class="case-study-section-content">
+        
+        <div class="tool-tag-group">
+          <strong class="tool-tag-group-label" data-i18n="toolsDataStructures">Estruturas de Dados</strong>
+          <div class="tool-tag-list"><span class="tech-tag">Immutable Graph</span><span class="tech-tag">RuleSet (versioned)</span><span class="tech-tag">Violation Report</span><span class="tech-tag">Schema Registry</span></div>
+        </div>
+
+        
+        <div class="tool-tag-group">
+          <strong class="tool-tag-group-label" data-i18n="toolsIntegrations">Integrações com Engine / Editor</strong>
+          <div class="tool-tag-list"><span class="tech-tag">Unity EditorWindow</span><span class="tech-tag">Asset Postprocessor</span><span class="tech-tag">CLI Runner (CI)</span><span class="tech-tag">Build Pipeline Hook</span></div>
+        </div>
+
+        
+        <div class="tool-decisions">
+          <h3 class="tool-subsection-title" data-i18n="toolArchitectureDecisionsTitle">Decisões Técnicas</h3>
+          <div class="tool-decision-grid">
+          <article class="tool-decision-card">
+          <h3 class="tool-decision-title" data-ti="technicalArchitecture.designDecisions.0.title"></h3>
+          <p class="tool-decision-body" data-ti="technicalArchitecture.designDecisions.0.body"></p>
+        </article>
+          <article class="tool-decision-card">
+          <h3 class="tool-decision-title" data-ti="technicalArchitecture.designDecisions.1.title"></h3>
+          <p class="tool-decision-body" data-ti="technicalArchitecture.designDecisions.1.body"></p>
+        </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Validação &amp; Testes -->
+    <section class="case-study-section tool-section-validation">
+      <h2 class="case-study-section-title">🛡️ <span data-i18n="toolValidationTitle">Validação, Testes &amp; Tratamento de Erros</span></h2>
+      <div class="case-study-section-content">
+        
+        <div class="tool-stat-card tool-stat-card--accent tool-stat-card--inline">
+          <span class="tool-stat-label" data-i18n="toolTestCoverage">Cobertura de Testes</span>
+          <p class="tool-stat-value">86%</p>
+        </div>
+
+        <div class="tool-callout tool-callout--safety">
+          <strong class="tool-callout-label" data-i18n="toolsSafety">Validação &amp; Não-Destrutividade</strong>
+          <p data-ti="validation.safetyFeatures"></p>
+        </div>
+
+        
+        <div class="tool-check-grid">
+          <article class="tool-check-card">
+          <h3 class="tool-check-title" data-ti="validation.checks.0.title"></h3>
+          <p class="tool-check-body" data-ti="validation.checks.0.body"></p>
+        </article>
+          <article class="tool-check-card">
+          <h3 class="tool-check-title" data-ti="validation.checks.1.title"></h3>
+          <p class="tool-check-body" data-ti="validation.checks.1.body"></p>
+        </article>
+          <article class="tool-check-card">
+          <h3 class="tool-check-title" data-ti="validation.checks.2.title"></h3>
+          <p class="tool-check-body" data-ti="validation.checks.2.body"></p>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Resultados, Limitações e Próximos Passos -->
+    <section class="case-study-section tool-section-results">
+      <h2 class="case-study-section-title">📊 <span data-i18n="caseStudyResults">Resultados &amp; Limitações Observadas</span></h2>
+      <div class="case-study-section-content">
+        <p data-ti="results"></p>
+
+        
+        <div class="tool-lists">
+          
+          <div class="tool-list-block tool-list-block--limitations">
+            <strong class="tool-list-title" data-i18n="toolLimitationsTitle">Limitações Conhecidas</strong>
+            <ul class="tool-list" data-ti-list="limitations"></ul>
+          </div>
+          
+          <div class="tool-list-block tool-list-block--next">
+            <strong class="tool-list-title" data-i18n="toolNextStepsTitle">Próximos Passos</strong>
+            <ul class="tool-list" data-ti-list="nextSteps"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Contribuição Individual -->
+    <section class="case-study-section tool-section-contributions">
+      <h2 class="case-study-section-title">👤 <span data-i18n="caseStudyContributions">Responsabilidades &amp; Contribuição Individual</span></h2>
+      <div class="case-study-section-content">
+        <p data-ti="contributions"></p>
+      </div>
+    </section>
+
+    <!-- 12. Links & Recursos -->
+    <div class="case-study-actions">
+      <a href="https://github.com/Germano123" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+         <span aria-hidden="true">🐙</span> <span data-i18n="btnRepository">Repositório no GitHub</span>
+       </a>
+      <a href="../tools-lab.html" class="btn btn-ghost"><span data-i18n="btnBackToArea">← Voltar</span></a>
+    </div>
+        </article>
+    </main>
+
+    <footer id="site-footer-mount"></footer>
+
+    
+    <!-- Lightbox Modal -->
+    <div id="project-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true" inert>
+      <div class="lightbox-wrapper">
+        <button type="button" class="lightbox-close-btn">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only" data-i18n="lightboxClose">Fechar</span>
+        </button>
+        <div class="lightbox-stage">
+          <button type="button" class="lightbox-nav-btn prev" aria-label="Anterior">&#8249;</button>
+          <img id="lightbox-img" class="lightbox-image" src="" alt="">
+          <button type="button" class="lightbox-nav-btn next" aria-label="Próxima">&#8250;</button>
+        </div>
+        <div class="lightbox-caption-bar">
+          <div id="lightbox-caption" class="lightbox-caption-text"></div>
+          <div id="lightbox-counter" class="lightbox-counter"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts da Aplicação -->
+    <script src="../js/i18n.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/gallery.js"></script>
+    <script src="../js/tool-page.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        initI18n();
+        ToolPage.init();
+      });
+    </script>
+</body>
+</html>

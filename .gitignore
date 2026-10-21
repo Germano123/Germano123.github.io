@@ -1,0 +1,20 @@
+# Dependências
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Godot (artefato de importação fora do escopo do site)
+*.import
+.godot/

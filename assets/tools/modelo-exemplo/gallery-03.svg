@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <radialGradient id="bg-modelo-exemplo-gallery-2" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#26201b"/>
+      <stop offset="100%" stop-color="#141211"/>
+    </radialGradient>
+    <linearGradient id="accent-modelo-exemplo-gallery-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333ea"/>
+      <stop offset="100%" stop-color="#c8813b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg-modelo-exemplo-gallery-2)"/>
+  <rect x="40" y="40" width="1120" height="595" rx="24" fill="none" stroke="#3d352e" stroke-width="2" stroke-dasharray="10 10"/>
+
+  <!-- Círculo Central e Ícone -->
+  <circle cx="600" cy="240" r="105" fill="rgba(200, 129, 59, 0.08)" stroke="#9333ea" stroke-width="3"/>
+  <text x="600" y="272" font-size="90" text-anchor="middle" font-family="sans-serif">🧪</text>
+
+  <!-- Título da Ferramenta -->
+  <text x="600" y="400" font-size="44" font-weight="bold" fill="#ede3d4" text-anchor="middle" font-family="Fredoka, sans-serif">Ferramenta Modelo</text>
+  <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-modelo-exemplo-gallery-2)"/>
+
+  <!-- Legenda -->
+  <text x="600" y="470" font-size="22" font-weight="500" fill="#9333ea" text-anchor="middle" font-family="Fredoka, sans-serif">Definição de regras no arquivo versionado.</text>
+
+  <!-- Badge de originating -->
+  <g transform="translate(600, 520)">
+    <rect x="-230" y="-18" width="460" height="36" rx="18" fill="rgba(148, 163, 184, 0.12)" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">PLACEHOLDER DE GALERIA • 03</text>
+  </g>
+
+  <text x="600" y="590" font-size="14" fill="#a89f91" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEV LAB • TOOLS LAB • ATIVOS DE DESENVOLVIMENTO</text>
+</svg>

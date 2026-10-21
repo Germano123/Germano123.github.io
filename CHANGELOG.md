@@ -6,6 +6,42 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.17.0] - 2026-10-21
+### Adicionado
+- **Páginas Estáticas de Ferramenta (Tools Lab):**
+  - Nova especificação [`artifacts/4_tools_lab_page_schema.md`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/artifacts/4_tools_lab_page_schema.md) definindo o schema canônico, a estrutura da página e o pipeline de geração.
+  - Nova fonte de verdade `artifacts/tools-data/` com um JSON por ferramenta e o JSON Schema de validação `tool-page.schema.json`.
+  - Registro de referência preenchido em `artifacts/tools-data/examples/modelo-exemplo.json`, com a página de demonstração correspondente em `tools/modelo-exemplo.html`.
+  - Ferramentas iniciais mapeadas: **GameFlow Connect** e **Cardinal** (conteúdo em preenchimento — ver checklist de publicação na especificação).
+  - Gerador `scripts/generate-tool-pages.js` com validação bloqueante contra o JSON Schema, suporte a `--slug=`, `--from=` e `--check` (modo CI).
+  - Gerador `scripts/generate-tool-covers.js` para capas e miniaturas placeholder das ferramentas (preserva arte existente, salvo `--force`).
+  - Template único e replicável em `scripts/templates/tool-page.template.js`, com 13 blocos condicionais cobrindo toda a estrutura de página do Tools Lab.
+  - Estilos exclusivos em `css/tools.css`, com sistema de acento por ferramenta (`green`, `orange`, `blue`, `purple`, `slate`).
+  - Runtime `js/tool-page.js` com bindings `data-ti`, `data-ti-html`, `data-ti-list` e `data-ti-alt` para reatividade de idioma sem regeneração do HTML.
+  - Módulo compartilhado `js/gallery.js` (carrossel + lightbox), extraído da implementação de `project.html` e parametrizado com `resolveSrc` para suportar subpastas.
+  - `package.json` com o pipeline completo via npm (`generate`, `serve`, `check`), documentando a ordem obrigatória `generate:assets` → `generate:covers`.
+  - Servidor estático local `scripts/serve.js` (`npm run serve`).
+  - Arquivos `.gitignore` e `.nojekyll` (o GitHub Pages deixa de executar Jekyll).
+- **Catálogo Unificado de Projetos:**
+  - `js/projects-service.js` passa a agregar `PROJECTS` + `TOOLS` em `getAllPublished()` e `getAllPublished()` foi complementada por `getAllRecords()`.
+  - `js/data/tools.js` (gerado) alimenta `tools-lab.html` e `software-shelf.html` — o **empty state do Tools Lab deixa de aparecer** e passa a listar as ferramentas reais.
+  - `js/components.js`: cards priorizam a página estática da ferramenta (`pageUrl`) sobre o estudo de caso dinâmico.
+  - `project.html` redireciona para a página estática quando o slug corresponde a uma ferramenta.
+
+### Modificado
+- **Rotas Relativas em Subpastas:**
+  - `js/components.js` passou a expor `Components.assetRoot()`, que resolve o prefixo relativo à raiz do site a partir de `location.pathname` — header, footer, cards, empty states e cards de área passaram a funcionar dentro de `tools/`.
+  - `js/gallery.js` e `js/tool-page.js` convertem caminhos de mídia relativos à raiz em relativos à página.
+- **Correções de CSS:**
+  - `css/style.css`: `--bg-card-alt` (inexistente) substituído por `var(--bg-card-inner, #15151a)` — o dock do carrossel estava sem background.
+  - `css/style.css`: `--font-heading` (inexistente) substituído por `var(--font-cozy, ...)` na faixa diagonal do estudo de caso.
+- **Internacionalização (`js/i18n.js`):** novas chaves PT/EN — `toolClassEditorExtension`, `toolClassPipelineAutomation`, `toolClassProceduralGenerator`, `toolClassDebugProfiling`, `toolClassDccIntegration`, `toolClassCliUtility`, `toolFeaturesTitle`, `toolArchitectureDecisionsTitle`, `toolValidationTitle`, `toolTestCoverage`, `toolLimitationsTitle`, `toolNextStepsTitle`, `toolViewDetails`, `btnDocumentation`, `btnDemo`.
+
+### Documentação
+- **`README.md`:** mapa de páginas atualizado com a subpasta `tools/`, estrutura do repositório ampliada, seção "Como Adicionar uma Nova Ferramenta (Tools Lab)" e seção "Pipeline de Geração" com a ordem obrigatória dos scripts.
+
+---
+
 ## [0.16.1] - 2026-10-21
 ### Modificado
 - **Componente de Estado Vazio (`renderEmptyState`):**

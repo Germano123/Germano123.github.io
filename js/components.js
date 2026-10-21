@@ -5,6 +5,32 @@
 
 const Components = {
   /**
+   * Calcula o prefixo relativo necessário para alcançar a raiz do site
+   * a partir da página atual. Permite que um mesmo componente funcione
+   * em páginas na raiz (`/`) e em subpastas (`/tools/`).
+   * @returns {string} '' ou '../', '../../', etc.
+   */
+  assetRoot() {
+    if (typeof window === 'undefined') return '';
+    // Tenta primeiro detectar o caminho relativo pelo atributo src do próprio components.js
+    if (typeof document !== 'undefined') {
+      const script = document.querySelector('script[src*="components.js"]');
+      if (script) {
+        const src = script.getAttribute('src') || '';
+        const match = src.match(/^(.*?)js\//);
+        if (match) return match[1];
+      }
+    }
+    // Fallback verificando se está em subpasta conhecida (/tools/)
+    if (typeof window !== 'undefined' && window.location && window.location.pathname) {
+      if (window.location.pathname.replace(/\\/g, '/').includes('/tools/')) {
+        return '../';
+      }
+    }
+    return '';
+  },
+
+  /**
    * Renderiza o cabeçalho compartilhado da aplicação
    * @param {string} activeNavId - Identificador da rota ativa
    */
@@ -13,20 +39,25 @@ const Components = {
     if (!headerContainer) return;
 
     headerContainer.className = 'site-header';
+
+    // Prefixo relativo à raiz do site (permite uso em subpastas como /tools/).
+    const root = this.assetRoot();
+
     headerContainer.innerHTML = `
       <div class="header-container">
-        <a href="index.html" class="brand-link" aria-label="Página Inicial do Cozy Dev Lab">
-          <span style="font-size: 1.3rem;">🌿</span>
+        <a href="${root}index.html" class="brand-link">
+          <span aria-hidden="true" style="font-size: 1.3rem;">🌿</span>
           <span>Germano</span>
           <span class="brand-badge">Lab</span>
+          <span class="sr-only" data-i18n="brandHomeAria">${t('brandHomeAria')}</span>
         </a>
 
         <nav class="primary-nav" aria-label="Navegação Principal">
-          <a href="index.html" class="nav-link ${activeNavId === 'home' ? 'active' : ''}" data-i18n="navHome">${t('navHome')}</a>
-          <a href="tools-lab.html" class="nav-link ${activeNavId === 'tools' || activeNavId === 'tools-lab' ? 'active' : ''}" data-i18n="navTools">${t('navTools')}</a>
-          <a href="art-workshop.html" class="nav-link ${activeNavId === 'art' || activeNavId === 'art-workshop' ? 'active' : ''}" data-i18n="navArt">${t('navArt')}</a>
-          <a href="games-prototypes.html" class="nav-link ${activeNavId === 'games' || activeNavId === 'games-prototypes' ? 'active' : ''}" data-i18n="navGamesPrototypes">${t('navGamesPrototypes')}</a>
-          <a href="about.html" class="nav-link ${activeNavId === 'about' ? 'active' : ''}" data-i18n="navAbout">${t('navAbout')}</a>
+          <a href="${root}index.html" class="nav-link ${activeNavId === 'home' ? 'active' : ''}" data-i18n="navHome">${t('navHome')}</a>
+          <a href="${root}tools-lab.html" class="nav-link ${activeNavId === 'tools' || activeNavId === 'tools-lab' ? 'active' : ''}" data-i18n="navTools">${t('navTools')}</a>
+          <a href="${root}art-workshop.html" class="nav-link ${activeNavId === 'art' || activeNavId === 'art-workshop' ? 'active' : ''}" data-i18n="navArt">${t('navArt')}</a>
+          <a href="${root}games-prototypes.html" class="nav-link ${activeNavId === 'games' || activeNavId === 'games-prototypes' ? 'active' : ''}" data-i18n="navGamesPrototypes">${t('navGamesPrototypes')}</a>
+          <a href="${root}about.html" class="nav-link ${activeNavId === 'about' ? 'active' : ''}" data-i18n="navAbout">${t('navAbout')}</a>
         </nav>
 
         <div class="lang-segmented" role="group" aria-label="Seletor de Idioma">
@@ -44,6 +75,8 @@ const Components = {
     const footerContainer = document.getElementById('site-footer-mount');
     if (!footerContainer) return;
 
+    const root = this.assetRoot();
+
     footerContainer.className = 'site-footer';
     footerContainer.innerHTML = `
       <div class="footer-container">
@@ -52,8 +85,8 @@ const Components = {
           <a href="https://github.com/Germano123" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="mailto:germano-software-dev@hotmail.com" class="footer-link" data-i18n="footerEmail">${t('footerEmail')}</a>
           <a href="https://www.linkedin.com/in/germano-gomes-293648121/" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="software-shelf.html" class="footer-link" data-i18n="navShelf">${t('navShelf')}</a>
-          <a href="about.html" class="footer-link" data-i18n="navAbout">${t('navAbout')}</a>
+          <a href="${root}software-shelf.html" class="footer-link" data-i18n="navShelf">${t('navShelf')}</a>
+          <a href="${root}about.html" class="footer-link" data-i18n="navAbout">${t('navAbout')}</a>
         </div>
         <p class="footer-copyright" data-i18n="footerCopyright">${t('footerCopyright')}</p>
       </div>
@@ -86,6 +119,14 @@ const Components = {
       .map(tech => `<span class="tech-tag">${tech}</span>`)
       .join('');
 
+    // Ferramentas com página estática própria (tools/<slug>.html) são
+    // priorizadas sobre o estudo de caso dinâmico (project.html?slug=...).
+    const root = this.assetRoot();
+    const detailUrl = project.pageUrl
+      ? `${root}${project.pageUrl}`
+      : `project.html?slug=${project.slug}`;
+    const detailLabel = project.pageUrl ? t('toolViewDetails') : t('viewCaseStudy');
+
     const collabType = project.collaborationType || 'portfolio';
     let collabLabel = t('collabPortfolio');
     let collabIcon = '📁';
@@ -106,7 +147,7 @@ const Components = {
     return `
       <article class="project-card project-card--${collabType}" data-project-id="${project.id}">
         <div class="project-card-cover">
-          <img src="${project.cover_pic || project.cover || 'assets/background.jpg'}" alt="${project.title}" loading="lazy">
+          <img src="${root}${project.cover_pic || project.cover || 'assets/background.jpg'}" alt="${project.title}" loading="lazy">
           <span class="card-collab-badge card-collab-badge--${collabType}">
             <span>${collabIcon}</span>
             <span>${collabLabel}</span>
@@ -122,8 +163,8 @@ const Components = {
           ${project.projectType === 'software' && project.distributionDetails ? `<div class="card-specialized-metric" style="font-size: 0.8rem; color: var(--color-green-light); font-weight: 500; margin-top: 4px;">📦 ${project.distributionDetails.semanticVersion} • ${project.distributionDetails.license}</div>` : ''}
           <p class="project-card-summary">${summary}</p>
           <div class="project-card-footer">
-            <a href="project.html?slug=${project.slug}" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.88rem;">
-              ${t('viewCaseStudy')}
+            <a href="${detailUrl}" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.88rem;">
+              ${detailLabel}
             </a>
           </div>
         </div>
@@ -141,7 +182,7 @@ const Components = {
     const tagline = area.tagline[lang] || area.tagline.pt;
 
     return `
-      <a href="${area.slug}" class="area-card">
+      <a href="${this.assetRoot()}${area.slug}" class="area-card">
         <div class="area-card-header">
           <span class="area-icon" aria-hidden="true">${area.icon}</span>
           <h3 class="area-name">${name}</h3>
@@ -164,7 +205,7 @@ const Components = {
         <span class="empty-state-icon" aria-hidden="true">${icon}</span>
         <h3 class="empty-state-title">${title}</h3>
         <p class="empty-state-desc">${desc}</p>
-        <a href="index.html" class="btn btn-primary" style="margin-top: 8px;">
+        <a href="${this.assetRoot()}index.html" class="btn btn-primary" style="margin-top: 8px;">
           ${t('btnBackToMenu')}
         </a>
       </div>
