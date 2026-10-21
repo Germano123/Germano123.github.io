@@ -164,8 +164,8 @@ const Components = {
         <span class="empty-state-icon" aria-hidden="true">${icon}</span>
         <h3 class="empty-state-title">${title}</h3>
         <p class="empty-state-desc">${desc}</p>
-        <a href="software-shelf.html" class="btn btn-primary" style="margin-top: 8px;">
-          ${t('btnBackToShelf')}
+        <a href="index.html" class="btn btn-primary" style="margin-top: 8px;">
+          ${t('btnBackToMenu')}
         </a>
       </div>
     `;

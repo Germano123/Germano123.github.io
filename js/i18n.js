@@ -72,7 +72,8 @@ const I18N = {
     softwareShelfTagline: "Catálogo completo de softwares, ferramentas e utilitários desenvolvidos com rigor técnico e foco em usabilidade.",
 
     // Empty States para Áreas em Desenvolvimento
-    emptyAreaTitle: "Área em Fase de Pesquisa e Montagem",
+    emptyAreaTitle: "Área em Fase de Produção e Montagem",
+    btnBackToMenu: "Voltar ao Menu",
     emptyAreaDesc: "Este espaço do laboratório está ativamente em desenvolvimento. Novos estudos de caso e protótipos reais serão publicados conforme avançarem os testes.",
     btnBackToShelf: "Ver Softwares no Catálogo",
 
@@ -254,7 +255,8 @@ const I18N = {
     softwareShelfTagline: "Complete catalog of software, tools, and utilities built with technical rigor and usability focus.",
 
     // Empty States for Developing Areas
-    emptyAreaTitle: "Area Currently Under Active Research",
+    emptyAreaTitle: "Area in Production and Assembly Phase",
+    btnBackToMenu: "Back to Menu",
     emptyAreaDesc: "This section of the laboratory is actively in development. Genuine case studies and prototypes will be published as testing progresses.",
     btnBackToShelf: "Browse All Software",
 

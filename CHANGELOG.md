@@ -6,6 +6,16 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.16.1] - 2026-10-21
+### Modificado
+- **Componente de Estado Vazio (`renderEmptyState`):**
+  - Atualizado o título de "Área em Fase de Pesquisa e Montagem" para **"Área em Fase de Produção e Montagem"** (PT) / *"Area in Production and Assembly Phase"* (EN) em [`js/i18n.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/i18n.js).
+  - Removido o botão de redirecionamento para o catálogo de software e substituído por um botão único redirecionando diretamente para o menu principal (`index.html`) com o texto "Voltar ao Menu" / "Back to Menu" em [`js/components.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/components.js).
+- **Navegação de Retorno no Estudo de Caso (`project.html`):**
+  - Ajustado o botão de retorno no rodapé do estudo de caso para usar a chave de retorno contextual (`btnBackToArea`), redirecionando dinamicamente para a área de origem ou para o menu inicial.
+
+---
+
 ## [0.16.0] - 2026-10-20
 ### Modificado
 - **Atualização da Natureza e Classificação dos Projetos de Jogos:**

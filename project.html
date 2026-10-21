@@ -576,10 +576,11 @@
         }
 
         // Determinar destino de retorno contextual
-        let backUrl = 'software-shelf.html';
-        if (primaryArea === 'art-workshop') backUrl = 'art-workshop.html';
-        else if (primaryArea === 'tools-lab') backUrl = 'tools-lab.html';
-        else if (primaryArea === 'games-prototypes') backUrl = 'games-prototypes.html';
+        let backUrl = 'index.html';
+        const primaryArea = project.areas && project.areas[0];
+        if (primaryArea === 'art-workshop' || project.projectType === 'art') backUrl = 'art-workshop.html';
+        else if (primaryArea === 'tools-lab' || project.projectType === 'tool') backUrl = 'tools-lab.html';
+        else if (primaryArea === 'games-prototypes' || project.projectType === 'game') backUrl = 'games-prototypes.html';
 
         // Armazenar galeria global para lightbox
         currentGallery = project.gallery || [];
@@ -724,7 +725,7 @@
                 </a>
               ` : ''}
               <a href="${backUrl}" class="btn btn-ghost">
-                ${t('btnBackToShelf')}
+                ${t('btnBackToArea')}
               </a>
             </footer>
           </article>
