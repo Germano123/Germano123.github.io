@@ -34,11 +34,14 @@
                 <button type="button" class="filter-pill" data-filter="parceria">
                     <span>🤝</span> <span data-i18n="filterPartnerships">Parcerias</span> <span class="filter-count" id="count-parceria">(3)</span>
                 </button>
-                <button type="button" class="filter-pill" data-filter="pessoal">
-                    <span>👤</span> <span data-i18n="filterPersonal">Pessoal</span> <span class="filter-count" id="count-pessoal">(2)</span>
+                <button type="button" class="filter-pill" data-filter="portfolio">
+                    <span>📁</span> <span data-i18n="filterPortfolio">Portfólio</span> <span class="filter-count" id="count-portfolio">(2)</span>
+                </button>
+                <button type="button" class="filter-pill" data-filter="comercial">
+                    <span>💼</span> <span data-i18n="filterCommercial">Comercial</span> <span class="filter-count" id="count-comercial">(1)</span>
                 </button>
                 <button type="button" class="filter-pill" data-filter="estudo">
-                    <span>📖</span> <span data-i18n="filterStudies">Estudos</span> <span class="filter-count" id="count-estudo">(1)</span>
+                    <span>📖</span> <span data-i18n="filterStudies">Estudos</span> <span class="filter-count" id="count-estudo">(0)</span>
                 </button>
             </div>
         </section>
@@ -81,20 +84,27 @@
         // Atualizar contadores
         const allCount = projects.length;
         const parceriaCount = projects.filter(p => p.collaborationType === 'parceria').length;
-        const pessoalCount = projects.filter(p => p.collaborationType === 'pessoal').length;
+        const portfolioCount = projects.filter(p => p.collaborationType === 'portfolio' || p.collaborationType === 'pessoal').length;
+        const comercialCount = projects.filter(p => p.collaborationType === 'comercial').length;
         const estudoCount = projects.filter(p => p.collaborationType === 'estudo').length;
 
         const countAllEl = document.getElementById('count-all');
         if (countAllEl) countAllEl.textContent = `(${allCount})`;
         const countParceriaEl = document.getElementById('count-parceria');
         if (countParceriaEl) countParceriaEl.textContent = `(${parceriaCount})`;
-        const countPessoalEl = document.getElementById('count-pessoal');
-        if (countPessoalEl) countPessoalEl.textContent = `(${pessoalCount})`;
+        const countPortfolioEl = document.getElementById('count-portfolio');
+        if (countPortfolioEl) countPortfolioEl.textContent = `(${portfolioCount})`;
+        const countComercialEl = document.getElementById('count-comercial');
+        if (countComercialEl) countComercialEl.textContent = `(${comercialCount})`;
         const countEstudoEl = document.getElementById('count-estudo');
         if (countEstudoEl) countEstudoEl.textContent = `(${estudoCount})`;
 
         if (activeFilter !== 'all') {
-          projects = projects.filter(p => p.collaborationType === activeFilter);
+          if (activeFilter === 'portfolio' || activeFilter === 'pessoal') {
+            projects = projects.filter(p => p.collaborationType === 'portfolio' || p.collaborationType === 'pessoal');
+          } else {
+            projects = projects.filter(p => p.collaborationType === activeFilter);
+          }
         }
 
         if (projects.length === 0) {

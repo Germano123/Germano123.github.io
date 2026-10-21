@@ -6,6 +6,27 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.16.0] - 2026-10-20
+### Modificado
+- **Atualização da Natureza e Classificação dos Projetos de Jogos:**
+  - **MetaGhost Fantasy:** Atualizado para **Projeto Comercial** (`comercial`). Nova estilização com borda azul safira (`#0284c7`), banner diagonal correspondente, badge de capa ilustrada vetorial `💼 PROJETO COMERCIAL` e suporte a metadados no estudo de caso e cards.
+  - **Little Knight:** Formalizado como **Projeto de Portfólio** (`portfolio`). Identificado com badge de capa vetorial `📁 PROJETO DE PORTFÓLIO`, borda laranja aconchegante (`#e67e22`) e ribbon diagonal.
+  - **Cripto Flowers:** Reclassificado de estudo para **Projeto de Portfólio** (`portfolio`). Atualização do banner da capa vetorial para `📁 PROJETO DE PORTFÓLIO` e integração à identidade visual laranja de portfólio.
+- **Catálogo de Jogos e Protótipos (`games-prototypes.html`):**
+  - Filtros rápidos atualizados com contadores e categorização em tempo real:
+    - *Todos (6)*
+    - *🤝 Parcerias (3)*: Digital Delivery, Tribunal Lógico, Typing Defenders
+    - *📁 Portfólio (2)*: Little Knight, Cripto Flowers
+    - *💼 Comercial (1)*: MetaGhost Fantasy
+    - *📖 Estudos (0)*
+- **Internacionalização e Componentes:**
+  - Adicionadas chaves de tradução `filterPortfolio`, `filterCommercial`, `collabPortfolio` e `collabCommercial` (PT/EN) em [`js/i18n.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/i18n.js).
+  - Suporte completo em [`js/components.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/components.js), [`project.html`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/project.html) e [`css/style.css`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/css/style.css) para as variações `--portfolio` e `--comercial`.
+- **Sincronização de Dados Canônicos:**
+  - Atualizados os arquivos canônicos em [`artifacts/portfolio-data/`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/artifacts/portfolio-data/), o script de merge [`scripts/merge-portfolio-projects.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/scripts/merge-portfolio-projects.js) e a base canônica em [`js/data/projects.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/data/projects.js).
+
+---
+
 ## [0.15.1] - 2026-10-20
 ### Adicionado
 - **Capas Ilustradas Vetoriais Completas para Todos os 6 Jogos:**

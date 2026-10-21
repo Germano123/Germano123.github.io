@@ -500,7 +500,7 @@ const PROJECTS = [
       "pt": "Projeto em estágio ativo (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Documentação e prototipagem contínua.",
       "en": "Project in active stage (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Ongoing documentation and prototyping."
     },
-    "collaborationType": "pessoal",
+    "collaborationType": "portfolio",
     "partner": null,
     "prototypeStage": "mechanic-prototype",
     "gameplayProfile": {
@@ -648,7 +648,7 @@ const PROJECTS = [
       "pt": "Projeto em estágio ativo (Documentação reúne a proposta do jogo e os materiais disponíveis. Versão jogável, funcionalidades implementadas, motor e plataformas: a confirmar.). Documentação e prototipagem contínua.",
       "en": "Project in active stage (Documentação reúne a proposta do jogo e os materiais disponíveis. Versão jogável, funcionalidades implementadas, motor e plataformas: a confirmar.). Ongoing documentation and prototyping."
     },
-    "collaborationType": "pessoal",
+    "collaborationType": "comercial",
     "partner": null,
     "prototypeStage": "mechanic-prototype",
     "gameplayProfile": {
@@ -794,7 +794,7 @@ const PROJECTS = [
       "pt": "Projeto em estágio ativo (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Documentação e prototipagem contínua.",
       "en": "Project in active stage (Fase de documentação - produção dos primeiros documentos (pipeline ativo)). Ongoing documentation and prototyping."
     },
-    "collaborationType": "estudo",
+    "collaborationType": "portfolio",
     "partner": null,
     "prototypeStage": "mechanic-prototype",
     "gameplayProfile": {

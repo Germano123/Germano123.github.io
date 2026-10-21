@@ -86,15 +86,21 @@ const Components = {
       .map(tech => `<span class="tech-tag">${tech}</span>`)
       .join('');
 
-    const collabType = project.collaborationType || 'pessoal';
-    let collabLabel = t('collabPersonal');
-    let collabIcon = '👤';
+    const collabType = project.collaborationType || 'portfolio';
+    let collabLabel = t('collabPortfolio');
+    let collabIcon = '📁';
     if (collabType === 'parceria') {
       collabLabel = t('collabPartnership');
       collabIcon = '🤝';
+    } else if (collabType === 'comercial') {
+      collabLabel = t('collabCommercial');
+      collabIcon = '💼';
     } else if (collabType === 'estudo') {
       collabLabel = t('collabStudy');
       collabIcon = '📖';
+    } else if (collabType === 'pessoal') {
+      collabLabel = t('collabPersonal');
+      collabIcon = '📁';
     }
 
     return `

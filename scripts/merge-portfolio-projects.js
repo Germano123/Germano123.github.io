@@ -151,6 +151,7 @@ const gamesData = [
   {
     file: 'little-knight',
     featured: true,
+    collaborationType: 'portfolio',
     technologies: ["Godot / Unity", "FSM", "Pixel Art / 2D", "Game Feel"],
     gameplayProfile: {
       genre: { pt: "RPG de Plataforma Side-Scroll", en: "Side-Scroll Platformer RPG" },
@@ -196,7 +197,7 @@ const gamesData = [
   {
     file: 'metaghost-fantasy',
     featured: false,
-    collaborationType: 'pessoal',
+    collaborationType: 'comercial',
     technologies: ["Unreal / Unity / Godot", "Co-op Multiplayer", "Shaders 3D", "Action Combat"],
     gameplayProfile: {
       genre: { pt: "Exploração 3D & Ação Cooperativa", en: "3D Exploration & Co-op Action" },
@@ -242,7 +243,7 @@ const gamesData = [
   {
     file: 'cripto-flowers',
     featured: false,
-    collaborationType: 'estudo',
+    collaborationType: 'portfolio',
     technologies: ["Godot / Unity", "Simulação Genética", "Ciclo Dia/Noite", "Pixel Art 2D"],
     gameplayProfile: {
       genre: { pt: "Simulação de Fazenda Top-Down", en: "Top-Down Farm Simulation" },
@@ -338,7 +339,7 @@ gamesData.forEach(g => {
       pt: `Projeto em estágio ativo (${raw.details ? raw.details.estadoAtual : 'Em andamento'}). Documentação e prototipagem contínua.`,
       en: `Project in active stage (${raw.details ? raw.details.estadoAtual : 'In progress'}). Ongoing documentation and prototyping.`
     },
-    collaborationType: g.collaborationType || "pessoal",
+    collaborationType: g.collaborationType || raw.collaborationType || "portfolio",
     partner: g.partner || null,
     prototypeStage: "mechanic-prototype",
     gameplayProfile: g.gameplayProfile,

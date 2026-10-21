@@ -55,7 +55,9 @@ const I18N = {
     filterAssets: "Assets",
     filterAnimations: "Animações",
     filterPartnerships: "Parcerias",
-    filterPersonal: "Pessoal",
+    filterPersonal: "Portfólio",
+    filterPortfolio: "Portfólio",
+    filterCommercial: "Comercial",
     filterStudies: "Estudos",
     filterAllAreas: "Todas as Áreas",
 
@@ -146,7 +148,9 @@ const I18N = {
     imageOf: "de",
 
     // 6. Natureza do Projeto & Parcerias
-    collabPersonal: "Pessoal",
+    collabPersonal: "Portfólio",
+    collabPortfolio: "Portfólio",
+    collabCommercial: "Comercial",
     collabPartnership: "Parceria",
     collabStudy: "Estudo",
     collabPartnerPrefix: "Em parceria com",
@@ -233,7 +237,9 @@ const I18N = {
     filterAssets: "Assets",
     filterAnimations: "Animations",
     filterPartnerships: "Partnerships",
-    filterPersonal: "Personal",
+    filterPersonal: "Portfolio",
+    filterPortfolio: "Portfolio",
+    filterCommercial: "Commercial",
     filterStudies: "Studies",
     filterAllAreas: "All Areas",
 
@@ -324,7 +330,9 @@ const I18N = {
     imageOf: "of",
 
     // 6. Natureza do Projeto & Parcerias
-    collabPersonal: "Personal",
+    collabPersonal: "Portfolio",
+    collabPortfolio: "Portfolio",
+    collabCommercial: "Commercial",
     collabPartnership: "Partnership",
     collabStudy: "Study",
     collabPartnerPrefix: "In partnership with",

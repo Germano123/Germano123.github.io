@@ -113,7 +113,7 @@
   <!-- Badge Oficial de Autoria Pessoal -->
   <g transform="translate(600, 525)">
     <rect x="-170" y="-18" width="340" height="36" rx="18" fill="rgba(249, 115, 22, 0.16)" stroke="#f97316" stroke-width="1.8"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="#fb923c" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">👤 PROJETO AUTORAL INDIE</text>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#fb923c" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">📁 PROJETO DE PORTFÓLIO</text>
   </g>
 
   <!-- Rodapé Cozy Lab -->

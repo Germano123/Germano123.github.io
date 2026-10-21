@@ -349,7 +349,7 @@ const covers = {
   <!-- Badge Oficial de Autoria Pessoal -->
   <g transform="translate(600, 525)">
     <rect x="-170" y="-18" width="340" height="36" rx="18" fill="rgba(249, 115, 22, 0.16)" stroke="#f97316" stroke-width="1.8"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="#fb923c" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">👤 PROJETO AUTORAL INDIE</text>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#fb923c" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">📁 PROJETO DE PORTFÓLIO</text>
   </g>
 
   <!-- Rodapé Cozy Lab -->
@@ -544,10 +544,10 @@ const covers = {
   <!-- Subtítulo Temático e Mecânicas -->
   <text x="600" y="475" font-size="22" font-weight="500" fill="#f472b6" text-anchor="middle" font-family="Fredoka, sans-serif">RPG Tático em Turnos 3D • Mansão Assombrada &amp; Combate Co-op</text>
 
-  <!-- Badge Oficial de Autoria Pessoal -->
+  <!-- Badge Oficial de Projeto Comercial -->
   <g transform="translate(600, 525)">
-    <rect x="-170" y="-18" width="340" height="36" rx="18" fill="rgba(244, 114, 182, 0.16)" stroke="#ec4899" stroke-width="1.8"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="#f472b6" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">👤 PROJETO AUTORAL INDIE</text>
+    <rect x="-170" y="-18" width="340" height="36" rx="18" fill="rgba(56, 189, 248, 0.16)" stroke="#0284c7" stroke-width="1.8"/>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#38bdf8" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">💼 PROJETO COMERCIAL</text>
   </g>
 
   <!-- Rodapé Cozy Lab -->
@@ -656,10 +656,10 @@ const covers = {
   <!-- Subtítulo Temático e Mecânicas -->
   <text x="600" y="475" font-size="22" font-weight="500" fill="#34d399" text-anchor="middle" font-family="Fredoka, sans-serif">Simulação de Fazenda Botânica • Genética Procedural &amp; Cuidados</text>
 
-  <!-- Badge Oficial de Estudo Experimental -->
+  <!-- Badge Oficial de Portfólio -->
   <g transform="translate(600, 525)">
-    <rect x="-180" y="-18" width="360" height="36" rx="18" fill="rgba(52, 211, 153, 0.16)" stroke="#10b981" stroke-width="1.8"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="#34d399" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">📖 ESTUDO EXPERIMENTAL DE BOTÂNICA</text>
+    <rect x="-170" y="-18" width="340" height="36" rx="18" fill="rgba(249, 115, 22, 0.16)" stroke="#f97316" stroke-width="1.8"/>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#fb923c" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">📁 PROJETO DE PORTFÓLIO</text>
   </g>
 
   <!-- Rodapé Cozy Lab -->

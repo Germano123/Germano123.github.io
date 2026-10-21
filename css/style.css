@@ -868,7 +868,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
    ======================================================== */
 
 /* Bordas Coloridas do Container do Projeto */
-.case-study--pessoal {
+.case-study--pessoal,
+.case-study--portfolio {
   border-color: #e67e22;
   box-shadow: 0 0 28px rgba(230, 126, 34, 0.16), var(--shadow-lg);
 }
@@ -881,6 +882,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .case-study--estudo {
   border-color: #ffffff;
   box-shadow: 0 0 28px rgba(255, 255, 255, 0.15), var(--shadow-lg);
+}
+
+.case-study--comercial {
+  border-color: #0284c7;
+  box-shadow: 0 0 28px rgba(2, 132, 199, 0.22), var(--shadow-lg);
 }
 
 /* Wrapper do Banner Diagonal no Canto Superior Direito */
@@ -919,7 +925,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 /* Variação Laranja: Pessoal */
-.case-study-ribbon--pessoal {
+.case-study-ribbon--pessoal,
+.case-study-ribbon--portfolio {
   background: linear-gradient(135deg, #d35400 0%, #e67e22 50%, #f39c12 100%);
   color: #ffffff;
   border-top: 2px solid #f39c12;
@@ -932,6 +939,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   color: #ffffff;
   border-top: 2px solid #c084fc;
   border-bottom: 2px solid #581c87;
+}
+
+/* Variação Azul / Ciano: Comercial */
+.case-study-ribbon--comercial {
+  background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #38bdf8 100%);
+  color: #ffffff;
+  border-top: 2px solid #7dd3fc;
+  border-bottom: 2px solid #075985;
 }
 
 /* Variação Branca: Estudo */
@@ -953,7 +968,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border-radius: var(--radius-pill);
 }
 
-.collab-meta-badge--pessoal {
+.collab-meta-badge--pessoal,
+.collab-meta-badge--portfolio {
   color: #ffb74d;
   background-color: rgba(230, 126, 34, 0.16);
   border: 1px solid rgba(230, 126, 34, 0.45);
@@ -971,8 +987,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+.collab-meta-badge--comercial {
+  color: #7dd3fc;
+  background-color: rgba(2, 132, 199, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+}
+
 /* Destaque nos Cards de Projeto do Catálogo */
-.project-card--pessoal {
+.project-card--pessoal,
+.project-card--portfolio {
   border-top: 3px solid #e67e22;
 }
 .project-card--parceria {
@@ -980,6 +1003,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .project-card--estudo {
   border-top: 3px solid #ffffff;
+}
+.project-card--comercial {
+  border-top: 3px solid #0284c7;
 }
 
 .card-collab-badge {
@@ -1000,7 +1026,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   z-index: 2;
 }
 
-.card-collab-badge--pessoal {
+.card-collab-badge--pessoal,
+.card-collab-badge--portfolio {
   background: rgba(230, 126, 34, 0.92);
   color: #ffffff;
   border: 1.5px solid #f39c12;
@@ -1016,6 +1043,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   background: rgba(51, 65, 85, 0.92);
   color: #ffffff;
   border: 1.5px solid #ffffff;
+}
+
+.card-collab-badge--comercial {
+  background: rgba(2, 132, 199, 0.92);
+  color: #ffffff;
+  border: 1.5px solid #38bdf8;
 }
 
 .case-study-header {
