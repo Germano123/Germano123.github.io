@@ -6,17 +6,85 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
-## [0.17.2] - 2026-10-21
-### Modificado
-- **Cards de Apresentação de Projetos (`renderProjectCard`):**
-  - **Clamp Fechado de Resumo:** O texto de resumo dos cards agora é truncado em limite de caracteres (~130 caracteres) respeitando fronteiras de palavras com adição de reticências (`...`) ao final, reduzindo a densidade textual inicial e padronizando a altura visual dos cards.
-  - **Card Totalmente Clicável:** A área inteira do card (`.project-card`) agora atua como link interativo, redirecionando para a página de detalhes/estudo de caso ao ser clicada em qualquer ponto (preservando cliques em botões internos e acessibilidade por teclado via `Enter`/`Space`).
-  - **Cursor e Efeitos de Hover:** Adicionado `cursor: pointer` e destacados título, capa e botão secundário durante o estado de foco/hover.
-  - **Segurança Visual em CSS:** Adicionado `-webkit-line-clamp: 3` em `.project-card-summary` para blindagem visual em telas responsivas.
+## [1.0.0] - 2026-10-21
+### Lançamento Oficial — Primeira Versão Oficial do Portfólio
+- **Lançamento Oficial da Primeira Versão do Cozy Developer Laboratory (v1.0.0):**
+  - Conclusão da arquitetura completa de frontend estático com zero dependências externas para produção, otimizado para o GitHub Pages com suporte total a navegação bilíngue (PT-BR / EN).
+  - **Três Bancadas de Trabalho Integradas:**
+    1. **Games & Prototypes (`games-prototypes.html`):** 6 jogos autorais e em parceria catalogados (*Digital Delivery*, *Tribunal Lógico*, *Typing Defenders*, *Little Knight*, *MetaGhost Fantasy*, *Cripto Flowers*), com capas ilustradas vetorizadas, filtros dinâmicos por categoria (Parcerias, Portfólio, Comercial, Estudos), telemetria e estudos de caso dedicados em `project.html` com carrossel multimodal e lightbox em tela cheia.
+    2. **Tools Lab (`tools-lab.html`):** Pipeline estático dedicado em `tools/*.html` (*GameFlow Connect*, *Cardinal*, *Modelo de Exemplo*), schema canônico em `artifacts/tools-data/`, capas ilustradas exclusivas, arquitetura técnica desacoplada e bindings bilíngues reativos sem necessidade de re-renderização.
+    3. **Art Workshop (`art-workshop.html`):** Pipeline estático dedicado em `art/*.html` (*Lily Ebony Tusk*, *Tinker Ghost Rider Bell*, *Oni Game*, *Kids Pillow Fight*), taxonomia canônica por categorias (*Personagens*, *Assets*, *Animações*), suporte a múltiplos carrosséis agrupados por convenção de nome e codificador PNG nativo para geração de mídia.
+  - **Catálogo Geral e Software Shelf (`software-shelf.html`):** Visão agregada unificada de todos os projetos e ferramentas com filtragem instantânea por área, tipo e busca de texto livre.
+  - **Apresentação e Filosofia (`index.html`, `about.html`):** Apresentação do desenvolvedor, bancadas de trabalho ativas, métricas de engenharia e manifesto do Cozy Developer Laboratory.
+  - **Cards Acolhedores e Interatividade Aprimorada:** Cards interativos totalmente clicáveis com hover states, clamp de resumo inteligente (~130 caracteres) e reticências, indicador de natureza do projeto (Parceria, Portfólio, Comercial, Estudo) com banners diagonais e bordas coloridas temáticas.
+  - **Sistema de Tradução e Persistência:** Internacionalização em tempo real (PT-BR / EN) com persistência em `localStorage` e suporte acessível via atributos `data-i18n` e `data-ti`.
+  - **Pipeline Automatizado de Geração e CI:** Scripts `npm run generate` e `npm run check` com validação bloqueante contra JSON Schemas e garantia de integridade de arte.
+  - **Infraestrutura e Deploy:** Arquivos `.nojekyll` e `.gitattributes` para deploy limpo no GitHub Pages e servidor estático local de desenvolvimento (`npm run serve`).
 
 ---
 
-## [0.17.1] - 2026-10-21
+## [0.18.1] - 2026-10-21
+### Adicionado
+- **Conteúdo definitivo dos 4 trabalhos do Art Workshop** (`artifacts/art-data/`), em PT e EN:
+  - **Lily, the Ebony Tusk Chiefleader** (`personagens`) — personagem feminina, guerreira nata do clã Ebony Tusk (Presas de Ébano), que herdou a chefia pelo espírito de guerra e pela proteção do povo. O clã caça criaturas de grande porte, usando seus esqueletos como refino nas construções e seus corpos como acessórios. Construída a partir do estudo "Desafio de 14 dias", um trabalho de aprendizado de escultura com mesa digital que validou a prática de detalhamento e refinos complexos. 7 características e 5 imagens em 2 carrosséis.
+  - **Tinker Ghost Rider Bell** (`personagens`) — participação em concurso de crossover de universos. Base de fada, conceito de motoqueiro fantasma, com a moto modelada como segundo elemento da cena e a transformação da personagem conduzida inteiramente na textura (não na malha). 6 características e 4 imagens.
+  - **Oni Game** (`assets`) — asset de ambiente samurai de um projeto de jogo estilo arcade, ancorado no misticismo da cultura oriental dos demônios oni. 5 características e 4 imagens.
+  - **Kids Pillow Fight** (`animacoes`) — teste de animação com 4 bebês estilizados em estilo chibi numa guerra de travesseiros, com foco em movimentos físicos e reações de contato. 5 características e 4 imagens.
+- Cada registro ganhou `subtitle`, `summary`, `characteristics`, `process`, `limitations`, `tags` e `technologies` reais — os campos passaram de "A definir" para conteúdo publicado.
+- Legendas bilíngues das 17 imagens de galeria, escritas como briefing do que cada captura deve evidenciar.
+- `tinker` passou de 3 para 4 imagens, cobrindo a leitura base da fada, a transformação, a moto e o detalhe do sino.
+
+### Corrigido
+- Removido termo english residual no campo `pt` de `lily.json` ("optimised" → "otimizado").
+- Validado o texto dos 4 registros contra caracteres fora do alfabeto latino, palavras repetidas e mistura de idiomas entre campos `pt` e `en`.
+
+---
+
+## [0.18.0] - 2026-10-21
+### Adicionado
+- **Art Workshop — Páginas Estáticas de Modelagem 3D:**
+  - Nova especificação [`artifacts/5_art_workshop_page_schema.md`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/artifacts/5_art_workshop_page_schema.md) definindo categorias, tag visual, apresentação principal e o agrupamento de múltiplos carrosséis.
+  - Nova fonte de verdade `artifacts/art-data/` com um JSON por trabalho e o JSON Schema de validação `art-page.schema.json`.
+  - Taxonomia canônica das três categorias em [`js/data/art-categories.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/js/data/art-categories.js) — `personagens` (🎭 roxo), `assets` (🗿 verde) e `animacoes` (🎬 laranja).
+  - Gerador `scripts/generate-art-pages.js` com validação bloqueante, agrupamento de carrosséis, `--slug=`, `--from=` e `--check` (modo CI).
+  - Template único e replicável em `scripts/templates/art-page.template.js` com 8 blocos condicionais.
+  - Runtime `js/art-page.js` com alternância entre múltiplos carrosséis e **fallback automático de vídeo para a imagem de banner** quando o arquivo de vídeo não carrega.
+  - Estilos exclusivos em `css/art.css`, incluindo o sistema de tag de categoria por cor de acento.
+  - Gerador de mídia `scripts/generate-art-assets.js` produzindo **PNGs reais** (1200×675) via um codificador PNG próprio em `scripts/lib/png.js` (zlib nativo, zero dependências), com rótulo `G-I` no canto para conferência do agrupamento.
+  - Scripts npm `generate:art` e `generate:art-assets`, incluídos na ordem canônica de `npm run generate`.
+- **Trabalhos Iniciais do Art Workshop:**
+  - **Lily the Ebony Tusk Chieftain** (`personagens`) — 5 imagens em **2 carrosséis** (`lily-carrossel-1-1..3` e `lily-carrossel-2-1..2`), exercitando o agrupamento por convenção de nome.
+  - **Tinker Ghost Rider Bell** (`personagens`) — 3 imagens em 1 carrossel.
+  - **Oni Game** (`assets`) — 4 imagens em 1 carrossel.
+  - **Kids Pillow Fight** (`animacoes`) — 4 imagens em 1 carrossel.
+  - Conteúdo de texto e características em preenchimento, aguardando o detalhamento de cada projeto.
+- **Listagem do Art Workshop (`art-workshop.html`):**
+  - `Components.renderArtCard()` — card próprio com **tag de categoria explícita** sobreposta à mídia, selo de vídeo, resumo limitado a 3 linhas e até 3 características concisas.
+  - Os filtros `Todos` / `Personagens` / `Assets` / `Animações` passaram a operar sobre `js/data/art.js` — a área deixou de exibir o *empty state*.
+  - `role="tablist"` inválido substituído por `role="group"` nos filtros.
+  - Contadores por categoria não se aplicam a este volume; o deep-link `?category=` continua funcional e compartilhável.
+
+### Modificado
+- **`js/projects-service.js`:** `getAllPublished()` e `getAllRecords()` passam a agregar também `ART`; novos `getArtWorks()` e `getByArtCategory()` com semântica própria do Art Workshop.
+- **`js/components.js`:** novos `Components.renderArtCard()` e `assetRoot()` aplicado a cards, header, footer e empty states.
+- **Validador JSON Schema extraído** para `scripts/lib/validate.js`, agora compartilhado entre os geradores de ferramentas e de arte (elimina ~150 linhas duplicadas).
+- **Correção de drift falso no `--check`:** a comparação de conteúdo passou a ignorar a diferença de quebras de linha, e o `.gitattributes` (`* text=auto eol=lf`) normaliza o checkout — antes, o `core.autocrlf` do Git reescrevia os artefatos com CRLF e o CI acusava drift inexistente.
+
+### Corrigido
+- **Estudos de caso dos jogos estavam completamente inoperantes** (`project.html`):
+  - `const primaryArea` era declarado **duas vezes** no mesmo escopo de função (`renderCaseStudy`), o que gerava um `SyntaxError` e derrubava **todo** o script inline da página — sem cabeçalho, sem rodapé e sem conteúdo.
+  - Os **6 estudos de caso** (Digital Delivery, Tribunal Lógico, Typing Defenders, Little Knight, MetaGhost Fantasy e Cripto Flowers) passaram a renderizar novamente: título, metadados, 9 seções, carrossel e links.
+- **SVGs dos jogos eram XML malformado e não renderizavam:**
+  - Caracteres `&` não escapados nos textos das capas e galerias geradas (`assets/projects/*/`) tornavam o documento inválido — o servidor respondia HTTP 200, mas o navegador desenhava a imagem vazia (`naturalWidth === 0`) **sem nenhum erro no console**.
+  - `scripts/generate-assets.js` passou a escapar todo texto interpolado, e `generate-custom-covers.js` teve o `&` de um comentário corrigido.
+  - Os 45 SVGs do repositório foram regenerados e validados.
+- **Validação automática de SVG:** `scripts/lib/xml.js` expõe `assertWellFormedSvg()`, invocada por todos os geradores de SVG — um `&` não escapado agora **interrompe a geração** com a linha exata, em vez de falhar silenciosamente no navegador.
+- **Acessibilidade das listagens:**
+  - Estado `:hover` dos cards usava texto branco sobre laranja (contraste 2.8:1, abaixo de WCAG AA). Passou a usar texto escuro, chegando a 6.6:1.
+  - `role="tablist"` sem `role="tab"` nos filhos (ARIA inválido) substituído por `role="group"`, e `aria-selected` — inválido em `<button>` — substituído por `aria-pressed`.
+  - Hierarquia de headings corrigida: títulos dos cards passaram de `<h3>` para `<h2>`, eliminando o salto `h1 → h3` nas listagens.
+
+---
 ### Adicionado
 - **Dados de Apresentação das Ferramentas (Tools Lab):**
   - **GameFlow Connect** — base de integração open source para desenvolvedores independentes e pequenos estúdios, conectando os assets hospedados no Google Drive ao versionamento Git do projeto para que artista, game designer e programador trabalhem juntos de forma leve. Registro completo em [`artifacts/tools-data/gameflow-connect.json`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/artifacts/tools-data/gameflow-connect.json).

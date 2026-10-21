@@ -1,6 +1,6 @@
 {
   "name": "cozy-developer-laboratory",
-  "version": "0.17.0",
+  "version": "1.0.0",
   "description": "Portfólio e laboratório digital de Germano Gomes — Cozy Developer Laboratory",
   "private": true,
   "license": "MIT",
@@ -11,15 +11,17 @@
   },
   "scripts": {
     "serve": "node scripts/serve.js",
-    "generate": "npm run generate:projects && npm run generate:assets && npm run generate:covers && npm run generate:tool-assets && npm run generate:tool-covers && npm run generate:tools",
+    "generate": "npm run generate:projects && npm run generate:assets && npm run generate:covers && npm run generate:tool-assets && npm run generate:tool-covers && npm run generate:tools && npm run generate:art-assets && npm run generate:art",
     "generate:projects": "node scripts/merge-portfolio-projects.js",
     "generate:assets": "node scripts/generate-assets.js",
     "generate:covers": "node scripts/generate-custom-covers.js",
     "generate:tools": "node scripts/generate-tool-pages.js",
     "generate:tool-assets": "node scripts/generate-tool-covers.js",
     "generate:tool-covers": "node scripts/generate-custom-tool-covers.js",
+    "generate:art": "node scripts/generate-art-pages.js",
+    "generate:art-assets": "node scripts/generate-art-assets.js",
     "generate:tool-example": "node scripts/generate-tool-pages.js --from=artifacts/tools-data/examples/modelo-exemplo.json",
-    "check": "node scripts/generate-tool-pages.js --check"
+    "check": "node scripts/generate-tool-pages.js --check && node scripts/generate-art-pages.js --check"
   },
   "engines": {
     "node": ">=18"

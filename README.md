@@ -49,8 +49,11 @@ O projeto segue os princípios estabelecidos no documento canônico de requisito
 ├── experiments.html        # Bancada de experimentos, benchmarks e protótipos
 ├── devlog.html             # Artigos técnicos, pós-mortems e notas de produção
 ├── 404.html                # Página de erro amigável para rotas inexistentes
-└── tools/                  # Páginas estáticas geradas das ferramentas do Tools Lab
-    ├── <slug>.html             # Uma página por ferramenta (gerada de artifacts/tools-data/)
+├── tools/                  # Páginas estáticas geradas das ferramentas do Tools Lab
+│   ├── <slug>.html             # Uma página por ferramenta (gerada de artifacts/tools-data/)
+│   └── modelo-exemplo.html     # Página de referência com o schema preenchido
+└── art/                    # Páginas estáticas geradas dos trabalhos do Art Workshop
+    ├── <slug>.html             # Uma página por trabalho (gerada de artifacts/art-data/)
     └── modelo-exemplo.html     # Página de referência com o schema preenchido
 ```
 
@@ -61,40 +64,56 @@ O projeto segue os princípios estabelecidos no documento canônico de requisito
 ```text
 ├── assets/                 # Imagens, capas de projetos e recursos estáticos
 │   ├── projects/           # Capas e galerias dos jogos
-│   └── tools/              # Capas e galerias das ferramentas do Tools Lab
+│   ├── tools/              # Capas e galerias das ferramentas do Tools Lab
+│   └── art/                # Banners e galerias dos trabalhos do Art Workshop
 ├── css/
 │   ├── tokens.css          # Variáveis de design (cores, madeira, tipografia, elevações)
 │   ├── style.css           # Estilos globais, componentes e responsividade
-│   └── tools.css           # Estilos exclusivos das páginas de ferramenta
+│   ├── tools.css           # Estilos exclusivos das páginas de ferramenta
+│   └── art.css             # Estilos exclusivos das páginas de arte
 ├── js/
 │   ├── data/
 │   │   ├── projects.js     # Fonte canônica dos jogos (GERADO)
 │   │   ├── tools.js        # Fonte canônica das ferramentas (GERADO)
+│   │   ├── art.js          # Fonte canônica dos trabalhos de arte (GERADO)
+│   │   ├── art-categories.js # Taxonomia das categorias do Art Workshop
 │   │   └── areas.js        # Metadados das áreas do laboratório
 │   ├── i18n.js             # Motor reativo de tradução PT/EN com persistência
 │   ├── projects-service.js # Camada de consulta e filtragem de projetos
 │   ├── components.js       # Renderizadores de Header, Footer, Cards e EmptyStates
 │   ├── gallery.js          # Componente compartilhado de carrossel + lightbox
-│   └── tool-page.js        # Runtime das páginas estáticas de ferramenta
+│   ├── tool-page.js        # Runtime das páginas estáticas de ferramenta
+│   └── art-page.js         # Runtime das páginas estáticas de arte
 ├── tools/                  # Páginas estáticas geradas (uma por ferramenta)
+├── art/                    # Páginas estáticas geradas (uma por trabalho de arte)
 ├── scripts/
 │   ├── serve.js                # Servidor estático local (npm run serve)
+│   ├── lib/
+│   │   ├── validate.js         # Validador JSON Schema compartilhado
+│   │   └── png.js              # Codificador PNG (zlib nativo, sem dependências)
 │   ├── merge-portfolio-projects.js  # Gera js/data/projects.js a partir de artifacts/portfolio-data/
 │   ├── generate-assets.js            # Placeholders de capa/galeria dos jogos
 │   ├── generate-custom-covers.js     # Capas ilustradas dos jogos
 │   ├── generate-tool-covers.js       # Placeholders de capa/galeria das ferramentas
+│   ├── generate-custom-tool-covers.js# Capas ilustradas das ferramentas
 │   ├── generate-tool-pages.js        # Gera tools/<slug>.html e js/data/tools.js
+│   ├── generate-art-assets.js        # Placeholders PNG de banner/galeria de arte
+│   ├── generate-art-pages.js         # Gera art/<slug>.html e js/data/art.js
 │   └── templates/
-│       └── tool-page.template.js    # Template único de página de ferramenta
+│       ├── tool-page.template.js     # Template único de página de ferramenta
+│       └── art-page.template.js      # Template único de página de arte
 ├── artifacts/              # Especificações de engenharia e planos de arquitetura
 │   ├── 1_cozy_developer_laboratory_engineering_spec.md
 │   ├── 2_portfolio_pages.md
 │   ├── 3_project_presentation_schemas.md
 │   ├── 4_tools_lab_page_schema.md
+│   ├── 5_art_workshop_page_schema.md
 │   ├── portfolio-data/     # Fonte de verdade dos jogos (um JSON por projeto)
-│   └── tools-data/         # Fonte de verdade das ferramentas (um JSON por ferramenta)
-│       ├── tool-page.schema.json   # JSON Schema de validação
-│       └── examples/               # Registro de referência preenchido
+│   ├── tools-data/         # Fonte de verdade das ferramentas (um JSON por ferramenta)
+│   │   ├── tool-page.schema.json   # JSON Schema de validação
+│   │   └── examples/               # Registro de referência preenchido
+│   └── art-data/           # Fonte de verdade dos trabalhos de arte (um JSON por trabalho)
+│       └── art-page.schema.json    # JSON Schema de validação
 ├── package.json            # Scripts do pipeline (zero dependências)
 ├── CHANGELOG.md            # Histórico detalhado de versões e entregas
 ├── LICENSE                 # Licença MIT
@@ -254,10 +273,64 @@ npm run check        # Verifica se os artefatos gerados estão em dia (uso em CI
 | `generate:assets` | Placeholders de capa/galeria dos jogos |
 | `generate:covers` | Capas ilustradas dos jogos (**deve rodar depois** de `generate:assets`) |
 | `generate:tool-assets` | Placeholders de capa/galeria das ferramentas |
+| `generate:tool-covers` | Capas ilustradas das ferramentas (**depois** de `generate:tool-assets`) |
 | `generate:tools` | `artifacts/tools-data/*.json` → `tools/<slug>.html` + `js/data/tools.js` |
+| `generate:art-assets` | Placeholders PNG de banner/galeria dos trabalhos de arte |
+| `generate:art` | `artifacts/art-data/*.json` → `art/<slug>.html` + `js/data/art.js` |
 | `generate:tool-example` | Gera `tools/modelo-exemplo.html` a partir do registro de referência |
 
 > ⚠️ **Ordem obrigatória:** `generate:assets` **antes** de `generate:covers`. As duas etapas escrevem em `assets/projects/<slug>/cover.svg`; invertê-las sobrescreve as capas ilustradas com placeholders.
+
+---
+
+## 🎨 Como Adicionar um Novo Trabalho de Arte (Art Workshop)
+
+Trabalhos de modelagem 3D têm um fluxo próprio, com **tag de categoria**, **apresentação principal** (vídeo ou banner) e **múltiplos carrosséis** deduzidos da convenção de nomes.
+
+1. **Crie o registro** em `artifacts/art-data/<slug>.json`:
+   ```bash
+   cp artifacts/art-data/lily.json artifacts/art-data/meu-trabalho.json
+   ```
+2. **Edite o JSON** — o campo `mainCategory` define a categoria (`personagens`, `assets` ou `animacoes`) e a **tag visual** na listagem:
+   ```jsonc
+   {
+     "id": "meu-trabalho",
+     "slug": "meu-trabalho",
+     "title": { "pt": "Meu Trabalho", "en": "My Work" },
+     "mainCategory": "personagens",
+     "icon": "🎭",
+     "accent": "purple",
+     "status": "completed",
+     "visibility": "public",
+     "cover_pic": "assets/art/meu-trabalho/meu-trabalho-banner.png",
+     "banner": { "src": "assets/art/meu-trabalho/meu-trabalho-banner.png", "alt": "..." },
+     "summary": { "pt": "...", "en": "..." },
+     "characteristics": [
+       { "label": { "pt": "Polígonos", "en": "Triangles" }, "value": { "pt": "≈ 4.200 tri", "en": "≈ 4.2k tris" } }
+     ],
+     "media": [
+       { "src": "assets/art/meu-trabalho/meu-trabalho-carrossel-1-1.png", "caption": { "pt": "...", "en": "..." }, "alt": "..." },
+       { "src": "assets/art/meu-trabalho/meu-trabalho-carrossel-2-1.png", "caption": { "pt": "...", "en": "..." }, "alt": "..." }
+     ],
+     "links": { "repositoryUrl": null, "buildUrl": null, "documentationUrl": null, "demoUrl": null }
+   }
+   ```
+3. **Prepare a mídia** seguindo a convenção de nomes:
+   ```
+   assets/art/meu-trabalho/meu-trabalho-banner.png
+   assets/art/meu-trabalho/meu-trabalho-carrossel-1-1.png   → carrossel 1, item 1
+   assets/art/meu-trabalho/meu-trabalho-carrossel-1-2.png   → carrossel 1, item 2
+   assets/art/meu-trabalho/meu-trabalho-carrossel-2-1.png   → carrossel 2, item 1
+   ```
+   O número antes do último hífen é o **grupo** (carrossel) e o último é o **item**. Arquivos sem o padrão caem em um único carrossel.
+4. **Gere**:
+   ```bash
+   npm run generate:art-assets   # placeholders PNG (só enquanto a arte final não existir)
+   npm run generate:art          # páginas + js/data/art.js
+   ```
+5. **Verifique** com `npm run serve` em `http://localhost:8080/art/meu-trabalho.html`.
+
+A especificação completa está em [`artifacts/5_art_workshop_page_schema.md`](artifacts/5_art_workshop_page_schema.md).
 
 ---
 
