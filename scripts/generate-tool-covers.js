@@ -19,6 +19,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { xmlEscape, assertWellFormedSvg } = require('./lib/xml');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = path.join(ROOT, 'artifacts', 'tools-data');
@@ -34,17 +35,6 @@ const ACCENT_COLORS = {
   purple: '#9333ea',
   slate: '#64748b'
 };
-
-/**
- * Escapa caracteres reservados para XML.
- */
-function xmlEscape(value) {
-  return String(value || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
 
 /**
  * Resolve um valor localizado ({pt,en} ou string).
@@ -161,7 +151,9 @@ function main() {
     if (fs.existsSync(coverPath) && !FORCE) {
       preserved++;
     } else {
-      fs.writeFileSync(coverPath, createSvg(tool, 'cover', 0), 'utf8');
+      const coverSvg = createSvg(tool, 'cover', 0);
+      assertWellFormedSvg(coverSvg, coverPath);
+      fs.writeFileSync(coverPath, coverSvg, 'utf8');
       created++;
       console.log(`   ✏️  assets/tools/${tool.slug}/cover.svg`);
     }
@@ -174,7 +166,9 @@ function main() {
         preserved++;
         return;
       }
-      fs.writeFileSync(galleryPath, createSvg(tool, 'gallery', index), 'utf8');
+      const gallerySvg = createSvg(tool, 'gallery', index);
+      assertWellFormedSvg(gallerySvg, galleryPath);
+      fs.writeFileSync(galleryPath, gallerySvg, 'utf8');
       created++;
       console.log(`   ✏️  assets/tools/${tool.slug}/${name}`);
     });

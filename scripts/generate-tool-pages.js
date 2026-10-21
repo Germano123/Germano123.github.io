@@ -23,6 +23,7 @@
 const fs = require('fs');
 const path = require('path');
 const { renderToolPage } = require('./templates/tool-page.template');
+const { validate } = require('./lib/validate');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = path.join(ROOT, 'artifacts', 'tools-data');
@@ -30,116 +31,13 @@ const SCHEMA_PATH = path.join(DATA_DIR, 'tool-page.schema.json');
 const OUT_HTML_DIR = path.join(ROOT, 'tools');
 const OUT_DATA_FILE = path.join(ROOT, 'js', 'data', 'tools.js');
 
-/* ------------------------------------------------------------------ */
-/* Validador JSON Schema (subconjunto suportado)                     */
-/* ------------------------------------------------------------------ */
-
-const SUPPORTED_KEYWORDS = new Set([
-  '$schema', '$id', '$ref', '$defs', 'title', 'description', 'type', 'required',
-  'properties', 'additionalProperties', 'items', 'enum', 'const', 'pattern',
-  'oneOf', 'minLength', 'maxLength'
-]);
-
 /**
- * Resolve uma referência local (`#/$defs/foo`).
+ * Normaliza as quebras de linha para comparação de conteúdo.
+ * @param {string|null} value
+ * @returns {string}
  */
-function resolveRef(ref, root) {
-  if (!ref.startsWith('#/')) return null;
-  let node = root;
-  for (const part of ref.slice(2).split('/')) {
-    node = node && node[part];
-  }
-  return node || null;
-}
-
-/**
- * Valida `data` contra `schema`. Retorna array de erros (strings).
- */
-function validate(data, schema, root, pathStr = '$') {
-  const errors = [];
-
-  if (!schema || typeof schema !== 'object') return errors;
-
-  if (schema.$ref) {
-    const resolved = resolveRef(schema.$ref, root);
-    if (!resolved) {
-      errors.push(`${pathStr}: referência não resolvida "${schema.$ref}"`);
-      return errors;
-    }
-    return validate(data, resolved, root, pathStr);
-  }
-
-  if (schema.const !== undefined && data !== schema.const) {
-    errors.push(`${pathStr}: esperado o valor constante "${schema.const}", recebido "${JSON.stringify(data)}"`);
-  }
-
-  if (schema.enum && !schema.enum.includes(data)) {
-    errors.push(`${pathStr}: "${JSON.stringify(data)}" não está entre [${schema.enum.join(', ')}]`);
-  }
-
-  if (schema.type) {
-    const types = Array.isArray(schema.type) ? schema.type : [schema.type];
-    const actual = jsonType(data);
-    if (!types.includes(actual)) {
-      errors.push(`${pathStr}: esperado tipo "${types.join('|')}", recebido "${actual}"`);
-      return errors;
-    }
-  }
-
-  if (typeof data === 'string') {
-    if (schema.pattern && !new RegExp(schema.pattern).test(data)) {
-      errors.push(`${pathStr}: "${data}" não corresponde ao padrão ${schema.pattern}`);
-    }
-    if (schema.minLength !== undefined && data.length < schema.minLength) {
-      errors.push(`${pathStr}: comprimento mínimo ${schema.minLength} não atingido`);
-    }
-    if (schema.maxLength !== undefined && data.length > schema.maxLength) {
-      errors.push(`${pathStr}: comprimento máximo ${schema.maxLength} excedido`);
-    }
-  }
-
-  if (schema.oneOf) {
-    const matches = schema.oneOf.filter(
-      (sub) => validate(data, sub, root, pathStr).length === 0
-    );
-    if (matches.length === 0) {
-      errors.push(`${pathStr}: não corresponde a nenhuma das variantes de oneOf`);
-    }
-  }
-
-  if (data && typeof data === 'object' && !Array.isArray(data)) {
-    for (const key of schema.required || []) {
-      if (!(key in data)) {
-        errors.push(`${pathStr}: campo obrigatório "${key}" ausente`);
-      }
-    }
-
-    const props = schema.properties || {};
-    for (const [key, value] of Object.entries(data)) {
-      if (props[key]) {
-        errors.push(...validate(value, props[key], root, `${pathStr}.${key}`));
-      } else if (schema.additionalProperties === false) {
-        errors.push(`${pathStr}: campo desconhecido "${key}"`);
-      }
-    }
-  }
-
-  if (Array.isArray(data) && schema.items) {
-    data.forEach((item, idx) => {
-      errors.push(...validate(item, schema.items, root, `${pathStr}[${idx}]`));
-    });
-  }
-
-  return errors;
-}
-
-/**
- * Nome do tipo JSON de um valor.
- */
-function jsonType(value) {
-  if (value === null) return 'null';
-  if (Array.isArray(value)) return 'array';
-  return typeof value;
+function normalizeEol(value) {
+  return (value || '').replace(/\r\n/g, '\n');
 }
 
 /* ------------------------------------------------------------------ */
@@ -362,7 +260,10 @@ function main() {
     const rel = path.relative(ROOT, out.file).replace(/\\/g, '/');
     const exists = fs.existsSync(out.file);
     const current = exists ? fs.readFileSync(out.file, 'utf8') : null;
-    const changed = current !== out.content;
+    // A comparação ignora a diferença de quebras de linha: o Git pode
+    // reescrever os artefatos com CRLF no checkout (core.autocrlf), o que
+    // não representa drift real de conteúdo.
+    const changed = normalizeEol(current) !== normalizeEol(out.content);
 
     if (checkOnly) {
       if (changed) {

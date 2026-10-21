@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { xmlEscape, assertWellFormedSvg } = require('./lib/xml');
 
 const projects = [
   {
@@ -100,6 +101,12 @@ function createSvg(p, img) {
   const badgeBg = p.isCustom ? 'rgba(249, 115, 22, 0.15)' : 'rgba(148, 163, 184, 0.12)';
   const borderPattern = isCover && !p.isCustom ? 'stroke-dasharray="10 10"' : '';
 
+  // SVG é XML: todo texto interpolado precisa ser escapado.
+  const icon = xmlEscape(p.icon);
+  const title = xmlEscape(p.title);
+  const subtitle = xmlEscape(p.subtitle);
+  const label = xmlEscape(img.label);
+
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
   <defs>
     <radialGradient id="bg-${p.slug}" cx="50%" cy="40%" r="80%">
@@ -116,19 +123,19 @@ function createSvg(p, img) {
   
   <!-- Círculo Central e Ícone -->
   <circle cx="600" cy="240" r="105" fill="rgba(200, 129, 59, 0.08)" stroke="${p.color}" stroke-width="3"/>
-  <text x="600" y="272" font-size="90" text-anchor="middle" font-family="sans-serif">${p.icon}</text>
+  <text x="600" y="272" font-size="90" text-anchor="middle" font-family="sans-serif">${icon}</text>
   
   <!-- Título do Projeto -->
-  <text x="600" y="400" font-size="44" font-weight="bold" fill="#ede3d4" text-anchor="middle" font-family="Fredoka, sans-serif">${p.title}</text>
+  <text x="600" y="400" font-size="44" font-weight="bold" fill="#ede3d4" text-anchor="middle" font-family="Fredoka, sans-serif">${title}</text>
   <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-${p.slug})"/>
   
   <!-- Subtítulo / Detalhe -->
-  <text x="600" y="470" font-size="22" font-weight="500" fill="${p.color}" text-anchor="middle" font-family="Fredoka, sans-serif">${isCover ? p.subtitle : img.label}</text>
+  <text x="600" y="470" font-size="22" font-weight="500" fill="${p.color}" text-anchor="middle" font-family="Fredoka, sans-serif">${isCover ? subtitle : label}</text>
   
   <!-- Badge do Tipo de Capa ou Slide -->
   <g transform="translate(600, 520)">
     <rect x="-180" y="-18" width="360" height="36" rx="18" fill="${badgeBg}" stroke="${badgeColor}" stroke-width="1.5"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="${badgeColor}" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">${img.label}</text>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="${badgeColor}" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">${label}</text>
   </g>
   
   <text x="600" y="590" font-size="14" fill="#a89f91" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEV LAB • ATIVOS DE DESENVOLVIMENTO</text>
@@ -140,7 +147,9 @@ projects.forEach(p => {
   fs.mkdirSync(dir, { recursive: true });
   p.images.forEach(img => {
     const filePath = path.join(dir, img.name);
-    fs.writeFileSync(filePath, createSvg(p, img), 'utf8');
+    const svg = createSvg(p, img);
+    assertWellFormedSvg(svg, filePath);
+    fs.writeFileSync(filePath, svg, 'utf8');
   });
   console.log('Created assets for', p.slug);
 });

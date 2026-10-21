@@ -15,6 +15,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { assertWellFormedSvg } = require('./lib/xml');
 
 const ROOT = path.resolve(__dirname, '..');
 const ASSETS_DIR = path.join(ROOT, 'assets', 'tools');
@@ -258,6 +259,7 @@ function main() {
       continue;
     }
 
+    assertWellFormedSvg(svg, file);
     fs.writeFileSync(file, svg, 'utf8');
     created++;
     console.log(`   ✏️  assets/tools/${slug}/cover.svg`);

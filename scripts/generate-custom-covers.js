@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { assertWellFormedSvg } = require('./lib/xml');
 
 const covers = {
   'digital-delivery': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
@@ -203,7 +204,7 @@ const covers = {
     </g>
   </g>
 
-  <!-- Telemetria Flutuante WPM & Precisão -->
+  <!-- Telemetria Flutuante WPM &amp; Precisão -->
   <g transform="translate(140, 160)">
     <rect width="130" height="60" rx="10" fill="#130724" stroke="#a855f7" stroke-width="1.5"/>
     <text x="65" y="28" font-size="12" fill="#a855f7" font-weight="600" text-anchor="middle" font-family="JetBrains Mono, monospace">VELOCIDADE</text>
@@ -669,6 +670,7 @@ const covers = {
 
 Object.entries(covers).forEach(([slug, svgContent]) => {
   const coverPath = path.join('assets', 'projects', slug, 'cover.svg');
+  assertWellFormedSvg(svgContent, coverPath);
   fs.writeFileSync(coverPath, svgContent, 'utf8');
   console.log(`Generated custom illustrated cover for ${slug}`);
 });

@@ -96,6 +96,25 @@ const CLASSIFICATION_I18N = {
   'cli-utility':          'toolClassCliUtility'
 };
 
+/**
+ * Rótulos PT usados como fallback estático no HTML gerado.
+ * O runtime i18n substitui o texto no carregamento; o fallback garante
+ * que a página sem JavaScript continue legível e indexável.
+ */
+const PT_FALLBACKS = {
+  collabPortfolio: 'Portfólio',
+  collabPersonal: 'Portfólio',
+  collabPartnership: 'Parceria',
+  collabCommercial: 'Comercial',
+  collabStudy: 'Estudo',
+  toolClassEditorExtension: 'Extensão de Editor',
+  toolClassPipelineAutomation: 'Automação de Pipeline',
+  toolClassProceduralGenerator: 'Gerador Procedural',
+  toolClassDebugProfiling: 'Debug & Profiling',
+  toolClassDccIntegration: 'Integração DCC',
+  toolClassCliUtility: 'Utilitário CLI'
+};
+
 /* ------------------------------------------------------------------ */
 /* Blocos da página                                                   */
 /* ------------------------------------------------------------------ */
@@ -124,7 +143,7 @@ function renderHeader(tool, lang) {
          🤝 <span data-i18n="collabPartnerPrefix">Em parceria com</span> <strong>${esc(tool.partner)}</strong>
        </span>`
     : `<span class="collab-meta-badge collab-meta-badge--${esc(tool.collaborationType || 'portfolio')}">
-         ${collab.icon} <span data-i18n="${collab.i18nKey}">${esc(collab.i18nKey)}</span>
+         ${collab.icon} <span data-i18n="${collab.i18nKey}">${esc(PT_FALLBACKS[collab.i18nKey] || collab.i18nKey)}</span>
        </span>`;
 
   return `
@@ -153,7 +172,7 @@ function renderHeader(tool, lang) {
         </span>
         ${partnerBadge}
         <span class="tool-badge" data-i18n="${CLASSIFICATION_I18N[tool.toolClassification] || 'toolClassEditorExtension'}">
-          ${CLASSIFICATION_I18N[tool.toolClassification] || 'toolClassEditorExtension'}
+          ${esc(PT_FALLBACKS[CLASSIFICATION_I18N[tool.toolClassification]] || CLASSIFICATION_I18N[tool.toolClassification] || 'toolClassEditorExtension')}
         </span>
         ${hostBadge}
         ${techTags}

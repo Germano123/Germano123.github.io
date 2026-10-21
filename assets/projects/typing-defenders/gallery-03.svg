@@ -21,12 +21,12 @@
   <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-typing-defenders)"/>
   
   <!-- Subtítulo / Detalhe -->
-  <text x="600" y="470" font-size="22" font-weight="500" fill="#a855f7" text-anchor="middle" font-family="Fredoka, sans-serif">Batalha de Chefe & Barra de Vida em Prosa</text>
+  <text x="600" y="470" font-size="22" font-weight="500" fill="#a855f7" text-anchor="middle" font-family="Fredoka, sans-serif">Batalha de Chefe &amp; Barra de Vida em Prosa</text>
   
   <!-- Badge do Tipo de Capa ou Slide -->
   <g transform="translate(600, 520)">
     <rect x="-180" y="-18" width="360" height="36" rx="18" fill="rgba(249, 115, 22, 0.15)" stroke="#f97316" stroke-width="1.5"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="#f97316" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">Batalha de Chefe & Barra de Vida em Prosa</text>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#f97316" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">Batalha de Chefe &amp; Barra de Vida em Prosa</text>
   </g>
   
   <text x="600" y="590" font-size="14" fill="#a89f91" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEV LAB • ATIVOS DE DESENVOLVIMENTO</text>

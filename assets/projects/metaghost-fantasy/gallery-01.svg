@@ -21,12 +21,12 @@
   <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-metaghost-fantasy)"/>
   
   <!-- Subtítulo / Detalhe -->
-  <text x="600" y="470" font-size="22" font-weight="500" fill="#ec4899" text-anchor="middle" font-family="Fredoka, sans-serif">Mansão Abandonada & Atmosfera 3D</text>
+  <text x="600" y="470" font-size="22" font-weight="500" fill="#ec4899" text-anchor="middle" font-family="Fredoka, sans-serif">Mansão Abandonada &amp; Atmosfera 3D</text>
   
   <!-- Badge do Tipo de Capa ou Slide -->
   <g transform="translate(600, 520)">
     <rect x="-180" y="-18" width="360" height="36" rx="18" fill="rgba(148, 163, 184, 0.12)" stroke="#94a3b8" stroke-width="1.5"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">Mansão Abandonada & Atmosfera 3D</text>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">Mansão Abandonada &amp; Atmosfera 3D</text>
   </g>
   
   <text x="600" y="590" font-size="14" fill="#a89f91" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEV LAB • ATIVOS DE DESENVOLVIMENTO</text>
