@@ -1,0 +1,123 @@
+{
+  "$schema": "./art-page.schema.json",
+  "id": "kids-pillow-fight",
+  "slug": "kids-pillow-fight",
+  "title": {
+    "pt": "Kids Pillow Fight",
+    "en": "Kids Pillow Fight"
+  },
+  "subtitle": {
+    "pt": "Quatro bebês chibi numa guerra de travesseiros — estudo de movimentos físicos.",
+    "en": "Four chibi babies in a pillow fight — a study in physical movement."
+  },
+  "icon": "🎬",
+  "accent": "orange",
+  "mainCategory": "animacoes",
+  "tags": [
+    "animacao",
+    "chibi",
+    "movimento-fisico",
+    "contato",
+    "curto"
+  ],
+  "technologies": [
+    "Animação 3D"
+  ],
+  "status": "completed",
+  "visibility": "public",
+  "featured": true,
+  "cover_pic": "assets/art/kids-pillow-fight/kids-pillow-fight-banner.png",
+  "banner": {
+    "src": "assets/art/kids-pillow-fight/kids-pillow-fight-banner.png",
+    "alt": "Kids Pillow Fight",
+    "caption": {
+      "pt": "Os quatro bebês e a guerra de travesseiros que deu origem ao estudo.",
+      "en": "The four babies and the pillow fight that gave the study its origin."
+    }
+  },
+  "summary": {
+    "pt": "Kids Pillow Fight é um teste de animação com quatro personagens de bebês estilizados no estilo chibi, que decidiram entrar em uma guerra de travesseiros. O enunciado da cena é simples de propósito — o que interessa é o movimento: as animações exploram corpos físicos e reações de contato, já que numa briga de travesseiro o que define o resultado é o impacto, o amortecimento e a forma como cada corpo reage ao golpe e à queda. O intuito do trabalho foi o aprendizado e a aplicação de movimentos físicos, usando a desculpa da briga de travesseiro como meio para exercitar peso, inércia e resposta de contato.",
+    "en": "Kids Pillow Fight is an animation test with four stylised baby characters in the chibi style, who decided to go to war with pillows. The premise of the scene is deliberately simple — what matters is the movement: the animations explore physical bodies and contact reactions, since in a pillow fight what defines the outcome is the impact, the cushioning and the way each body reacts to the hit and to the fall. The intent of the work was the learning and application of physical movement, using the pillow fight as the excuse to exercise weight, inertia and contact response."
+  },
+  "characteristics": [
+    {
+      "icon": "👶",
+      "label": { "pt": "Elenco", "en": "Cast" },
+      "value": { "pt": "4 personagens de bebês estilizados", "en": "4 stylised baby characters" }
+    },
+    {
+      "icon": "🎀",
+      "label": { "pt": "Estilo", "en": "Style" },
+      "value": { "pt": "Chibi", "en": "Chibi" }
+    },
+    {
+      "icon": "🛏️",
+      "label": { "pt": "Premissa", "en": "Premise" },
+      "value": { "pt": "Guerra de travesseiros", "en": "A pillow fight" }
+    },
+    {
+      "icon": "⚡",
+      "label": { "pt": "Foco técnico", "en": "Technical focus" },
+      "value": { "pt": "Movimentos físicos e reações de contato", "en": "Physical movement and contact reactions" }
+    },
+    {
+      "icon": "🎯",
+      "label": { "pt": "Intuito", "en": "Intent" },
+      "value": { "pt": "Aprendizado e aplicação de movimentos físicos", "en": "Learning and applying physical movement" }
+    }
+  ],
+  "media": [
+    {
+      "src": "assets/art/kids-pillow-fight/kids-pillow-fight-carrossel-1-1.png",
+      "caption": {
+        "pt": "Os quatro personagens e o espaço da briga — enquadramento de abertura.",
+        "en": "The four characters and the fight space — opening framing."
+      },
+      "alt": "Enquadramento inicial de Kids Pillow Fight"
+    },
+    {
+      "src": "assets/art/kids-pillow-fight/kids-pillow-fight-carrossel-1-2.png",
+      "caption": {
+        "pt": "O golpe: impacto do travesseiro e a primeira reação do corpo.",
+        "en": "The hit: the pillow's impact and the body's first reaction."
+      },
+      "alt": "Impacto do travesseiro e reação do corpo"
+    },
+    {
+      "src": "assets/art/kids-pillow-fight/kids-pillow-fight-carrossel-1-3.png",
+      "caption": {
+        "pt": "Amortecimento e queda — peso e inércia em resposta ao contato.",
+        "en": "Cushioning and fall — weight and inertia in response to contact."
+      },
+      "alt": "Queda e amortecimento no chão"
+    },
+    {
+      "src": "assets/art/kids-pillow-fight/kids-pillow-fight-carrossel-1-4.png",
+      "caption": {
+        "pt": "Reação de volta ao contato entre dois personagens.",
+        "en": "Reaction back on contact between two characters."
+      },
+      "alt": "Reação de contato entre dois personagens"
+    }
+  ],
+  "process": {
+    "pt": "O estudo partiu de quatro personagens chibi já modelados e da escolha de uma ação de grande repertório físico: a guerra de travesseiros. A decisão simplificadora foi manter o cenário e o número de elementos reduzidos, para que todo o esforço de animação fosse dedicado à resposta do corpo — o que obriga a resolver peso, aceleração, amortecimento e reação de contato com clareza, sem a distração de um set complexo.",
+    "en": "The study started from four already modelled chibi characters and from choosing an action with a rich physical repertoire: the pillow fight. The simplifying decision was to keep the set and the number of elements reduced, so that all the animation effort went into the body's response — which forces weight, acceleration, cushioning and contact reaction to be solved clearly, without the distraction of a complex set."
+  },
+  "integration": {
+    "pt": "A definir",
+    "en": "TBD"
+  },
+  "limitations": [
+    {
+      "pt": "Estudo de curta duração focado em movimento: não cobre deslocamento de cenário nem coreografia de grupo.",
+      "en": "A short study focused on movement: it does not cover set movement or group choreography."
+    }
+  ],
+  "links": {
+    "repositoryUrl": null,
+    "buildUrl": null,
+    "documentationUrl": null,
+    "demoUrl": null
+  }
+}

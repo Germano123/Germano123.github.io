@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://germano123.github.io/schemas/art-page.schema.json",
+  "title": "Cozy Developer Laboratory — Art Workshop Canonical Record",
+  "description": "Registro canônico de um trabalho de modelagem 3D apresentado no Art Workshop. Consumido por scripts/generate-art-pages.js para gerar as páginas estáticas em art/<slug>.html e js/data/art.js.",
+  "type": "object",
+  "required": [
+    "id",
+    "slug",
+    "title",
+    "mainCategory",
+    "status",
+    "visibility",
+    "summary",
+    "characteristics",
+    "media",
+    "links"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+
+    "title": { "$ref": "#/$defs/localized" },
+    "subtitle": { "$ref": "#/$defs/localized" },
+
+    "icon": { "type": "string", "maxLength": 8 },
+    "accent": { "enum": ["green", "orange", "blue", "purple", "slate", "rose"] },
+
+    "mainCategory": {
+      "description": "Categoria principal do trabalho. Determina a tag visual na listagem e o filtro do Art Workshop.",
+      "enum": ["personagens", "assets", "animacoes"]
+    },
+
+    "tags": { "$ref": "#/$defs/stringArray" },
+    "technologies": { "$ref": "#/$defs/stringArray" },
+
+    "status": { "enum": ["completed", "in-progress", "prototype", "archived"] },
+    "visibility": { "enum": ["public", "draft", "private"] },
+    "featured": { "type": "boolean" },
+
+    "cover_pic": {
+      "type": "string",
+      "description": "Imagem usada no card da listagem. Caminho relativo à raiz do site."
+    },
+
+    "banner": {
+      "description": "Apresentação principal quando não há vídeo. Caminho relativo à raiz do site.",
+      "type": "object",
+      "required": ["src"],
+      "additionalProperties": false,
+      "properties": {
+        "src": { "type": "string" },
+        "alt": { "type": "string" },
+        "caption": { "$ref": "#/$defs/localized" }
+      }
+    },
+
+    "video": {
+      "description": "Apresentação principal em vídeo. Tem precedência sobre o banner quando presente.",
+      "type": "object",
+      "required": ["src"],
+      "additionalProperties": false,
+      "properties": {
+        "src": { "type": "string" },
+        "poster": { "type": "string" },
+        "caption": { "$ref": "#/$defs/localized" },
+        "loop": { "type": "boolean" },
+        "muted": { "type": "boolean" },
+        "controls": { "type": "boolean" }
+      }
+    },
+
+    "summary": { "$ref": "#/$defs/localized" },
+
+    "characteristics": {
+      "description": "Características concisas do trabalho. Devem ser curtas — etiqueta + valor.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["label", "value"],
+        "additionalProperties": false,
+        "properties": {
+          "label": { "$ref": "#/$defs/localized" },
+          "value": { "$ref": "#/$defs/localized" },
+          "icon": { "type": "string", "maxLength": 8 }
+        }
+      }
+    },
+
+    "media": {
+      "description": "Imagens dos carrosséis. O agrupamento em carrosséis é deduzido do padrão de nome '<slug>-carrossel-<grupo>-<item>.<ext>'. Imagens sem o padrão caem em um único carrossel.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["src"],
+        "additionalProperties": false,
+        "properties": {
+          "src": { "type": "string" },
+          "caption": { "$ref": "#/$defs/localized" },
+          "alt": { "type": "string" },
+          "carousel": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Força o grupo do carrossel. Quando ausente, o grupo é deduzido do nome do arquivo."
+          }
+        }
+      }
+    },
+
+    "process": { "$ref": "#/$defs/localized" },
+    "integration": { "$ref": "#/$defs/localized" },
+    "limitations": { "$ref": "#/$defs/localizedArray" },
+
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "repositoryUrl": { "type": ["string", "null"] },
+        "buildUrl": { "type": ["string", "null"] },
+        "documentationUrl": { "type": ["string", "null"] },
+        "demoUrl": { "type": ["string", "null"] }
+      }
+    }
+  },
+
+  "$defs": {
+    "localized": {
+      "description": "Texto bilíngue. Aceita string simples (não traduzida) ou objeto {pt, en}.",
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "required": ["pt"],
+          "additionalProperties": false,
+          "properties": {
+            "pt": { "type": "string" },
+            "en": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "localizedArray": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/localized" }
+    },
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

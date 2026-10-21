@@ -1,0 +1,14 @@
+# Normaliza as quebras de linha no repositório.
+# Os arquivos gerados usam LF; sem esta regra, o autocrlf do Git reescreve
+# os artefatos com CRLF no checkout e o `npm run check` acusa drift falso.
+* text=auto eol=lf
+
+# Binários
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.gif binary
+*.mp4 binary
+*.webm binary
+*.ico binary

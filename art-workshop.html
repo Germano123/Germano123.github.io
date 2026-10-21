@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/art.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header id="site-header-mount"></header>
@@ -27,7 +28,7 @@
 
         <!-- Filtros de Categorias de Arte -->
         <section class="catalog-controls" style="padding: 16px 20px;">
-            <div class="filter-pills" id="art-category-filters" role="tablist" aria-label="Categorias de Arte">
+            <div class="filter-pills" id="art-category-filters" role="group" aria-label="Categorias de Arte">
                 <button type="button" class="filter-pill active" data-category="all" data-i18n="filterAll">Todos</button>
                 <button type="button" class="filter-pill" data-category="personagens" data-i18n="filterCharacters">Personagens</button>
                 <button type="button" class="filter-pill" data-category="assets" data-i18n="filterAssets">Assets</button>
@@ -45,6 +46,8 @@
     <!-- Scripts da Aplicação -->
     <script src="js/data/projects.js"></script>
     <script src="js/data/tools.js"></script>
+    <script src="js/data/art.js"></script>
+    <script src="js/data/art-categories.js"></script>
     <script src="js/data/areas.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/projects-service.js"></script>
@@ -64,7 +67,7 @@
         document.querySelectorAll('#art-category-filters .filter-pill').forEach(btn => {
           const isSelected = btn.getAttribute('data-category') === activeCategory;
           btn.classList.toggle('active', isSelected);
-          btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+          btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
         });
       }
 
@@ -84,7 +87,7 @@
             </div>
           `;
         } else {
-          mount.innerHTML = projects.map(p => Components.renderProjectCard(p)).join('');
+          mount.innerHTML = projects.map(p => Components.renderArtCard(p)).join('');
         }
       }
 

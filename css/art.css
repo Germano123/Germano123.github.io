@@ -1,0 +1,403 @@
+/* ========================================================
+   Cozy Developer Laboratory — Estilos do Art Workshop
+   Complementa css/style.css. Carregado por art/<slug>.html
+   ======================================================== */
+
+/* ------------------------------------------------------------
+   Tag de categoria (explícita na listagem e na página)
+   ------------------------------------------------------------ */
+
+.art-category-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px 4px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 1.5px solid var(--cat-color, var(--color-orange));
+  background: color-mix(in srgb, var(--cat-color, var(--color-orange)) 16%, transparent);
+  color: var(--cat-color, var(--color-orange-light));
+}
+
+.art-category-tag--purple { --cat-color: #c084fc; }
+.art-category-tag--green  { --cat-color: #34d399; }
+.art-category-tag--orange { --cat-color: #fb923c; }
+.art-category-tag--blue   { --cat-color: #38bdf8; }
+.art-category-tag--rose   { --cat-color: #fb7185; }
+.art-category-tag--slate  { --cat-color: #cbd5e1; }
+
+.art-category-tag-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--cat-color, var(--color-orange)) 30%, transparent);
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.art-category-tag--lg {
+  padding: 7px 16px 7px 10px;
+  font-size: 0.84rem;
+  align-self: center;
+}
+
+.art-category-tag--lg .art-category-tag-icon {
+  width: 26px;
+  height: 26px;
+  font-size: 0.9rem;
+}
+
+/* ------------------------------------------------------------
+   Breadcrumb
+   ------------------------------------------------------------ */
+
+.art-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.art-breadcrumb a {
+  color: var(--color-cream-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.art-breadcrumb a:hover {
+  color: var(--color-orange-light);
+}
+
+.art-breadcrumb-sep {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+.art-breadcrumb-current {
+  color: var(--color-orange-light);
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------
+   Cabeçalho da página
+   ------------------------------------------------------------ */
+
+.art-page-header {
+  padding-right: 0;
+}
+
+.art-page-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.art-page-subtitle {
+  margin: 0;
+  font-size: 1.08rem;
+  color: var(--color-cream-muted);
+  line-height: 1.6;
+  max-width: 72ch;
+}
+
+.art-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  background: var(--bg-card-inner);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+/* ------------------------------------------------------------
+   Apresentação principal (vídeo ou banner)
+   ------------------------------------------------------------ */
+
+.art-hero {
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--bg-card-inner);
+}
+
+.art-hero-media {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  background: #0b0b0e;
+}
+
+.art-hero-caption {
+  padding: 12px 18px;
+  font-size: 0.9rem;
+  color: var(--color-cream-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ------------------------------------------------------------
+   Características
+   ------------------------------------------------------------ */
+
+.art-characteristic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.art-characteristic {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--bg-card-inner);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--cat-color, var(--color-orange));
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.art-characteristic-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.art-characteristic-label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-text-muted);
+}
+
+.art-characteristic-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-cream);
+  line-height: 1.4;
+}
+
+/* ------------------------------------------------------------
+   Abas de carrossel
+   ------------------------------------------------------------ */
+
+.art-carousel-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.art-carousel-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--bg-card-inner);
+  border: 1px solid var(--color-border);
+  color: var(--color-cream-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.art-carousel-tab:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-cream);
+}
+
+.art-carousel-tab.active {
+  background: var(--color-orange-bg);
+  border-color: var(--color-orange);
+  color: var(--color-orange-light);
+}
+
+/* ------------------------------------------------------------
+   Cabeçalho de seção
+   ------------------------------------------------------------ */
+
+.art-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.art-section-hint {
+  color: var(--color-cream-muted);
+  font-size: 0.88rem;
+}
+
+.art-lead {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-cream);
+}
+
+/* ------------------------------------------------------------
+   Card da listagem (Art Workshop)
+   ------------------------------------------------------------ */
+
+.art-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.art-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.art-card-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg-card-inner);
+}
+
+.art-card-media img,
+.art-card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.art-card:hover .art-card-media img {
+  transform: scale(1.04);
+}
+
+.art-card-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: var(--shadow-sm);
+}
+
+.art-card-video-badge {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: rgba(12, 12, 16, 0.78);
+  border: 1px solid var(--color-border);
+  color: var(--color-cream);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.art-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 18px 18px;
+  flex: 1;
+}
+
+.art-card-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-cream);
+  line-height: 1.3;
+}
+
+.art-card-summary {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: var(--color-cream-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.art-card-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.art-card-spec {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  background: var(--bg-card-inner);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.art-card-spec strong {
+  color: var(--color-cream);
+  font-weight: 600;
+}
+
+.art-card-footer {
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ------------------------------------------------------------
+   Responsivo
+   ------------------------------------------------------------ */
+
+@media (max-width: 640px) {
+  .art-page .case-study-title {
+    font-size: 2rem;
+  }
+
+  .art-page-subtitle {
+    font-size: 0.98rem;
+  }
+
+  .art-hero-media {
+    max-height: 300px;
+  }
+
+  .art-characteristic-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "$schema": "./art-page.schema.json",
+  "id": "oni-game",
+  "slug": "oni-game",
+  "title": {
+    "pt": "Oni Game",
+    "en": "Oni Game"
+  },
+  "subtitle": {
+    "pt": "Asset de ambiente samurai para um jogo de arcade com misticismo oni.",
+    "en": "Samurai environment asset for an arcade game with oni mysticism."
+  },
+  "icon": "🗿",
+  "accent": "green",
+  "mainCategory": "assets",
+  "tags": [
+    "asset",
+    "ambiente",
+    "samurai",
+    "oni",
+    "arcade"
+  ],
+  "technologies": [
+    "Modelagem 3D",
+    "Texturização"
+  ],
+  "status": "completed",
+  "visibility": "public",
+  "featured": true,
+  "cover_pic": "assets/art/oni-game/oni-game-banner.png",
+  "banner": {
+    "src": "assets/art/oni-game/oni-game-banner.png",
+    "alt": "Oni Game",
+    "caption": {
+      "pt": "Ambiente samurai do Oni Game — a base de misticismo do cenário.",
+      "en": "The samurai environment of Oni Game — the scenario's mystical base."
+    }
+  },
+  "summary": {
+    "pt": "Oni Game é um asset focado no ambiente samurai de um projeto de jogo estilo arcade. A apresentação do cenário estabelece a base de misticismo do jogo, ancorada na cultura oriental dos demônios oni — a referência que dá nome e temperamento ao projeto. O trabalho de arte se concentra no ambiente: a construção do espaço, a leitura do terreno e a gramática visual que transforma um cenário de jogo arcade em um lugar habitado por onis, com a atmosfera densa e ritual que a mitologia sugere.",
+    "en": "Oni Game is an asset focused on the samurai environment of an arcade-style game project. The scenario presentation establishes the game's mystical base, anchored in the eastern culture of oni demons — the reference that gives the project its name and its temper. The art work concentrates on the environment: building the space, reading the terrain and the visual grammar that turns an arcade game scenario into a place inhabited by oni, with the dense, ritual atmosphere the mythology suggests."
+  },
+  "characteristics": [
+    {
+      "icon": "🏯",
+      "label": { "pt": "Tipo", "en": "Type" },
+      "value": { "pt": "Asset de ambiente", "en": "Environment asset" }
+    },
+    {
+      "icon": "⚔️",
+      "label": { "pt": "Tema", "en": "Theme" },
+      "value": { "pt": "Ambiente samurai", "en": "Samurai environment" }
+    },
+    {
+      "icon": "🕹️",
+      "label": { "pt": "Contexto", "en": "Context" },
+      "value": { "pt": "Jogo estilo arcade", "en": "Arcade-style game" }
+    },
+    {
+      "icon": "👹",
+      "label": { "pt": "Elemento", "en": "Element" },
+      "value": { "pt": "Misticismo oni da cultura oriental", "en": "Oni mysticism from eastern culture" }
+    },
+    {
+      "icon": "🌫️",
+      "label": { "pt": "Foco", "en": "Focus" },
+      "value": { "pt": "Construção do espaço e gramática visual do cenário", "en": "Building the space and the scenario's visual grammar" }
+    }
+  ],
+  "media": [
+    {
+      "src": "assets/art/oni-game/oni-game-carrossel-1-1.png",
+      "caption": {
+        "pt": "Panorâmica do ambiente — leitura geral do espaço samurai.",
+        "en": "Environment overview — a general read of the samurai space."
+      },
+      "alt": "Panorâmica do ambiente samurai do Oni Game"
+    },
+    {
+      "src": "assets/art/oni-game/oni-game-carrossel-1-2.png",
+      "caption": {
+        "pt": "Construção do terreno e dos volumes que desenham o espaço jogável.",
+        "en": "Terrain and volume construction that shapes the playable space."
+      },
+      "alt": "Construção do terreno do ambiente"
+    },
+    {
+      "src": "assets/art/oni-game/oni-game-carrossel-1-3.png",
+      "caption": {
+        "pt": "Atmosfera e misticismo oni — a gramática visual que dá o temper ao cenário.",
+        "en": "Atmosphere and oni mysticism — the visual grammar that gives the scenario its temper."
+      },
+      "alt": "Atmosfera oni do ambiente samurai"
+    },
+    {
+      "src": "assets/art/oni-game/oni-game-carrossel-1-4.png",
+      "caption": {
+        "pt": "Detalhe de material e texturização aplicado ao cenário.",
+        "en": "Material and texturing detail applied to the scenario."
+      },
+      "alt": "Detalhe de material do ambiente Oni Game"
+    }
+  ],
+  "process": {
+    "pt": "O asset foi desenvolvido como a apresentação do ambiente samurai que sustentaria o Oni Game, um projeto de arcade. O trabalho começa pela construção do espaço — terreno, volumes e caminhos de leitura — para que o cenário funcione primeiro como lugar jogável, e só depois recebe a camada de misticismo oni que dá a identidade ao projeto, com a atmosfera densa e ritual herdada da cultura oriental dos demônios.",
+    "en": "The asset was developed as the presentation of the samurai environment that would support Oni Game, an arcade project. The work begins with building the space — terrain, volumes and reading paths — so that the scenario works first as a playable place, and only afterwards receives the layer of oni mysticism that gives the project its identity, with the dense, ritual atmosphere inherited from the eastern culture of demons."
+  },
+  "integration": {
+    "pt": "A definir",
+    "en": "TBD"
+  },
+  "limitations": [
+    {
+      "pt": "Apresentação do ambiente: a peça não inclui personagens oni, que pertencem ao escopo do projeto de jogo.",
+      "en": "Environment presentation: the piece does not include oni characters, which belong to the game project's scope."
+    }
+  ],
+  "links": {
+    "repositoryUrl": null,
+    "buildUrl": null,
+    "documentationUrl": null,
+    "demoUrl": null
+  }
+}
