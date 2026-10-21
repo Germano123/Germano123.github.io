@@ -651,7 +651,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 .project-card:hover .btn-secondary {
   background-color: var(--color-orange);
-  color: #ffffff;
+  /* Texto escuro: branco sobre laranja fica em 2.8:1, abaixo de WCAG AA (4.5:1). */
+  color: #111114;
   border-color: var(--color-orange-light);
 }
 

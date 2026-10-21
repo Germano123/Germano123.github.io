@@ -94,6 +94,72 @@ const Components = {
   },
 
   /**
+   * Renderiza um card de trabalho do Art Workshop.
+   * Destaca a categoria principal com tag visual explícita e apresenta
+   * o banner (ou o vídeo) como mídia principal.
+   * @param {Object} art - Registro canônico do trabalho de arte
+   * @param {string} lang - Idioma atual ('pt' ou 'en')
+   */
+  renderArtCard(art, lang = getLanguage()) {
+    const root = this.assetRoot();
+    const categories = (typeof ART_CATEGORIES !== 'undefined')
+      ? ART_CATEGORIES
+      : { personagens: { icon: '🎭', i18nKey: 'artCategoryCharacters', accent: 'purple' },
+          assets: { icon: '🗿', i18nKey: 'artCategoryAssets', accent: 'green' },
+          animacoes: { icon: '🎬', i18nKey: 'artCategoryAnimations', accent: 'orange' } };
+
+    const category = categories[art.mainCategory] || categories.assets;
+    const title = art.title || '';
+    const summary = (art.summary && (art.summary[lang] || art.summary.pt)) || '';
+
+    // Mídia principal: vídeo quando existir, banner como alternativa.
+    const hasVideo = !!(art.video && art.video.src);
+    const mediaSrc = hasVideo
+      ? `${root}${art.video.src}`
+      : `${root}${(art.banner && art.banner.src) || art.cover_pic || 'assets/background.jpg'}`;
+
+    const mediaHtml = hasVideo
+      ? `<video src="${mediaSrc}" ${art.video.poster ? `poster="${root}${art.video.poster}"` : ''} muted loop playsinline preload="metadata"></video>`
+      : `<img src="${mediaSrc}" alt="${title}" loading="lazy">`;
+
+    const videoBadge = hasVideo
+      ? `<span class="art-card-video-badge">▶ ${t('artVideoBadge')}</span>`
+      : '';
+
+    // Até 3 características concisas.
+    const specs = (art.characteristics || []).slice(0, 3).map((c) => {
+      const label = (c.label && (c.label[lang] || c.label.pt)) || '';
+      const value = (c.value && (c.value[lang] || c.value.pt)) || '';
+      return `<span class="art-card-spec"><strong>${label}</strong>${value}</span>`;
+    }).join('');
+
+    const detailUrl = art.pageUrl ? `${root}${art.pageUrl}` : `project.html?slug=${art.slug}`;
+
+    return `
+      <article class="art-card" data-art-id="${art.id}" data-art-category="${art.mainCategory}" role="link" tabindex="0" onclick="if (!event.target.closest('a, button')) { window.location.href='${detailUrl}'; }" onkeydown="if ((event.key === 'Enter' || event.key === ' ') && !event.target.closest('a, button')) { event.preventDefault(); window.location.href='${detailUrl}'; }">
+        <div class="art-card-media">
+          ${mediaHtml}
+          <span class="art-category-tag art-category-tag--${category.accent} art-card-tag">
+            <span class="art-category-tag-icon" aria-hidden="true">${category.icon}</span>
+            <span>${t(category.i18nKey)}</span>
+          </span>
+          ${videoBadge}
+        </div>
+        <div class="art-card-body">
+          <h2 class="art-card-title">${title}</h2>
+          <p class="art-card-summary">${summary}</p>
+          ${specs ? `<div class="art-card-specs">${specs}</div>` : ''}
+          <div class="art-card-footer">
+            <a href="${detailUrl}" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.88rem;">
+              ${t('artViewWork')}
+            </a>
+          </div>
+        </div>
+      </article>
+    `;
+  },
+
+  /**
    * Renderiza um card de projeto canônico
    * @param {Object} project - Dados canônicos do projeto
    * @param {string} lang - Idioma atual ('pt' ou 'en')
@@ -168,7 +234,7 @@ const Components = {
           <span class="project-status-badge ${statusClass}"><span>${statusIcon}</span><span>${statusLabel}</span></span>
         </div>
         <div class="project-card-body">
-          <h3 class="project-card-title">${project.title}</h3>
+          <h2 class="project-card-title">${project.title}</h2>
           <div class="project-tech-tags">${techTagsHtml}</div>
           ${project.projectType === 'tool' && project.workflowContext && project.workflowContext.timeSavedMetric ? `<div class="card-specialized-metric" style="font-size: 0.8rem; color: var(--color-orange-light); font-weight: 500; margin-top: 4px;">⏱️ ${project.workflowContext.timeSavedMetric}</div>` : ''}
           ${project.projectType === 'art' && project.technicalArtBudget ? `<div class="card-specialized-metric" style="font-size: 0.8rem; color: var(--color-green-light); font-weight: 500; margin-top: 4px;">📐 ${project.technicalArtBudget.triangleCount.toLocaleString()} tris • ${project.technicalArtBudget.drawCallsEstimated} draw calls</div>` : ''}

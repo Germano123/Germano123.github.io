@@ -27,7 +27,7 @@
 
         <!-- Filtros Rápidos de Natureza / Parceria -->
         <section class="catalog-controls" style="padding: 16px 20px;">
-            <div class="filter-pills" id="games-filter-pills" role="tablist" aria-label="Filtrar Jogos">
+            <div class="filter-pills" id="games-filter-pills" role="group" aria-label="Filtrar Jogos">
                 <button type="button" class="filter-pill active" data-filter="all">
                     <span data-i18n="filterAll">Todos</span> <span class="filter-count" id="count-all">(6)</span>
                 </button>
@@ -68,7 +68,7 @@
         document.querySelectorAll('#games-filter-pills .filter-pill').forEach(btn => {
           const isSelected = btn.getAttribute('data-filter') === activeFilter;
           btn.classList.toggle('active', isSelected);
-          btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+          btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
         });
       }
 

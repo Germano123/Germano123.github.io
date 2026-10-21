@@ -587,8 +587,8 @@
         }
 
         // Determinar destino de retorno contextual
+        // (primaryArea já foi declarado no início da função)
         let backUrl = 'index.html';
-        const primaryArea = project.areas && project.areas[0];
         if (primaryArea === 'art-workshop' || project.projectType === 'art') backUrl = 'art-workshop.html';
         else if (primaryArea === 'tools-lab' || project.projectType === 'tool') backUrl = 'tools-lab.html';
         else if (primaryArea === 'games-prototypes' || project.projectType === 'game') backUrl = 'games-prototypes.html';

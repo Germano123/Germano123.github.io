@@ -8,12 +8,14 @@ const ProjectsService = {
    * Retorna todos os registros públicos de TODAS as fontes canônicas.
    * - PROJECTS: jogos e demais projetos (js/data/projects.js)
    * - TOOLS:    ferramentas do Tools Lab (js/data/tools.js, gerado)
+   * - ART:      trabalhos do Art Workshop (js/data/art.js, gerado)
    * @returns {Array}
    */
   getAllPublished() {
     const games = (typeof PROJECTS !== 'undefined' && PROJECTS) || [];
     const tools = (typeof TOOLS !== 'undefined' && TOOLS) || [];
-    return [...games, ...tools].filter(p => p.visibility === 'public');
+    const art = (typeof ART !== 'undefined' && ART) || [];
+    return [...games, ...tools, ...art].filter(p => p.visibility === 'public');
   },
 
   /**
@@ -24,7 +26,27 @@ const ProjectsService = {
   getAllRecords() {
     const games = (typeof PROJECTS !== 'undefined' && PROJECTS) || [];
     const tools = (typeof TOOLS !== 'undefined' && TOOLS) || [];
-    return [...games, ...tools];
+    const art = (typeof ART !== 'undefined' && ART) || [];
+    return [...games, ...tools, ...art];
+  },
+
+  /**
+   * Retorna todos os registros do Art Workshop (área 'art-workshop'),
+   * independentemente do pipeline de origem.
+   * @returns {Array}
+   */
+  getArtWorks() {
+    const art = (typeof ART !== 'undefined' && ART) || [];
+    const fromArea = this.getAllPublished().filter(
+      (p) => p.projectType === 'art' && (p.areas || []).includes('art-workshop')
+    );
+    // Deduplica por id, preservando a ordem dos registros de arte.
+    const seen = new Set();
+    return [...art, ...fromArea].filter((p) => {
+      if (seen.has(p.id)) return false;
+      seen.add(p.id);
+      return p.visibility === 'public';
+    });
   },
 
   /**
@@ -53,12 +75,15 @@ const ProjectsService = {
   },
 
   /**
-   * Retorna projetos do Art Workshop filtrados por categoria (todos, personagens, assets, animacoes)
+   * Retorna os trabalhos do Art Workshop filtrados por categoria
+   * (all, personagens, assets, animacoes).
+   * A categoria principal (`mainCategory`) tem precedência; a tag secundária
+   * permite que um trabalho apareça também em outro filtro.
    * Conforme Seção 4.1 de artifacts/2_portfolio_pages.md
-   * @param {string} category 
+   * @param {string} category
    */
   getByArtCategory(category = 'all') {
-    const artProjects = this.getByArea('art-workshop');
+    const artProjects = this.getArtWorks();
     if (!category || category === 'all') {
       return artProjects;
     }

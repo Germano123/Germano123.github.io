@@ -33,7 +33,7 @@
                 <input type="text" id="catalog-search" class="search-input" placeholder="Pesquisar por nome, tecnologia ou palavra-chave..." data-i18n-placeholder="searchPlaceholder" aria-label="Pesquisar projetos">
             </div>
 
-            <div class="filter-pills" id="area-filter-pills" role="tablist" aria-label="Filtro por Área">
+            <div class="filter-pills" id="area-filter-pills" role="group" aria-label="Filtro por Área">
                 <button type="button" class="filter-pill active" data-area="all" data-i18n="filterAllAreas">Todas as Áreas</button>
                 <button type="button" class="filter-pill" data-area="tools-lab" data-i18n="navTools">Tools Lab</button>
                 <button type="button" class="filter-pill" data-area="art-workshop" data-i18n="navArt">Art Workshop</button>
@@ -73,7 +73,7 @@
         document.querySelectorAll('#area-filter-pills .filter-pill').forEach(btn => {
           const isSelected = btn.getAttribute('data-area') === currentArea;
           btn.classList.toggle('active', isSelected);
-          btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+          btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
         });
       }
 

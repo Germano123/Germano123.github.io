@@ -158,8 +158,7 @@ const I18N = {
     collabPartnerPrefix: "Em parceria com",
 
     // 7. Páginas de Ferramenta (Tools Lab)
-    toolClassEditorExtension: "Extensão de Editor",
-    toolClassPipelineAutomation: "Automação de Pipeline",
+    toolClassEditorExtension: "Extensão de Editor",    toolClassPipelineAutomation: "Automação de Pipeline",
     toolClassProceduralGenerator: "Gerador Procedural",
     toolClassDebugProfiling: "Debug & Profiling",
     toolClassDccIntegration: "Integração DCC",
@@ -173,6 +172,19 @@ const I18N = {
     toolViewDetails: "Ver Detalhes da Ferramenta →",
     btnDocumentation: "Documentação",
     btnDemo: "Demonstração",
+
+    // 8. Art Workshop (Páginas de Arte)
+    artCategoryCharacters: "Personagem",
+    artCategoryAssets: "Asset",
+    artCategoryAnimations: "Animação",
+    artCharacteristicsTitle: "Características",
+    artGalleryTitle: "Galeria do Trabalho",
+    artGalleryDesc: "Registros visuais do processo e do resultado final.",
+    artSummaryTitle: "Resumo",
+    artProcessTitle: "Processo & Integração",
+    artCarouselLabel: "Carrossel",
+    artViewWork: "Ver Trabalho →",
+    artVideoBadge: "Vídeo",
 
     // Banner de Construção
     bannerConstructionTitle: "Laboratório em construção",
@@ -374,6 +386,19 @@ const I18N = {
     toolViewDetails: "View Tool Details →",
     btnDocumentation: "Documentation",
     btnDemo: "Demo",
+
+    // 8. Art Workshop (Art Pages)
+    artCategoryCharacters: "Character",
+    artCategoryAssets: "Asset",
+    artCategoryAnimations: "Animation",
+    artCharacteristicsTitle: "Characteristics",
+    artGalleryTitle: "Work Gallery",
+    artGalleryDesc: "Visual records of the process and the final result.",
+    artSummaryTitle: "Summary",
+    artProcessTitle: "Process & Integration",
+    artCarouselLabel: "Carousel",
+    artViewWork: "View Work →",
+    artVideoBadge: "Video",
 
     // Construction Banner
     bannerConstructionTitle: "Laboratory under construction",
