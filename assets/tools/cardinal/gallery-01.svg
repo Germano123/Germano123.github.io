@@ -21,7 +21,7 @@
   <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-cardinal-gallery-0)"/>
 
   <!-- Legenda -->
-  <text x="600" y="470" font-size="22" font-weight="500" fill="#f97316" text-anchor="middle" font-family="Fredoka, sans-serif">Relatório de violações agrupado por severidade.</text>
+  <text x="600" y="470" font-size="22" font-weight="500" fill="#f97316" text-anchor="middle" font-family="Fredoka, sans-serif">Simulação do mundo em execução, com regras e relações sob controle do simul…</text>
 
   <!-- Badge de originating -->
   <g transform="translate(600, 520)">

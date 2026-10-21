@@ -21,7 +21,7 @@
   <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-cardinal-gallery-2)"/>
 
   <!-- Legenda -->
-  <text x="600" y="470" font-size="22" font-weight="500" fill="#f97316" text-anchor="middle" font-family="Fredoka, sans-serif">Definição de regras no arquivo versionado.</text>
+  <text x="600" y="470" font-size="22" font-weight="500" fill="#f97316" text-anchor="middle" font-family="Fredoka, sans-serif">Remontagem na engine pela SDK, combinando a simulação com os assets do mund…</text>
 
   <!-- Badge de originating -->
   <g transform="translate(600, 520)">

@@ -21,7 +21,7 @@
   <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-cardinal-gallery-1)"/>
 
   <!-- Legenda -->
-  <text x="600" y="470" font-size="22" font-weight="500" fill="#f97316" text-anchor="middle" font-family="Fredoka, sans-serif">EditorWindow com o grafo de dependências.</text>
+  <text x="600" y="470" font-size="22" font-weight="500" fill="#f97316" text-anchor="middle" font-family="Fredoka, sans-serif">Arquivo JSON exportado com o estado completo do mundo.</text>
 
   <!-- Badge de originating -->
   <g transform="translate(600, 520)">

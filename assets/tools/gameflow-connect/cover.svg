@@ -1,33 +1,94 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
   <defs>
-    <radialGradient id="bg-gameflow-connect-cover-0" cx="50%" cy="40%" r="80%">
-      <stop offset="0%" stop-color="#26201b"/>
-      <stop offset="100%" stop-color="#141211"/>
+    <radialGradient id="bg-gfc" cx="50%" cy="28%" r="85%">
+      <stop offset="0%" stop-color="#10301f"/>
+      <stop offset="60%" stop-color="#0a1f14"/>
+      <stop offset="100%" stop-color="#040f0a"/>
     </radialGradient>
-    <linearGradient id="accent-gameflow-connect-cover-0" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#10b981"/>
-      <stop offset="100%" stop-color="#c8813b"/>
+    <linearGradient id="gfc-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="gfc-flow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="50%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#f97316"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="675" fill="url(#bg-gameflow-connect-cover-0)"/>
-  <rect x="40" y="40" width="1120" height="595" rx="24" fill="none" stroke="#3d352e" stroke-width="2" stroke-dasharray="10 10"/>
 
-  <!-- Círculo Central e Ícone -->
-  <circle cx="600" cy="240" r="105" fill="rgba(200, 129, 59, 0.08)" stroke="#10b981" stroke-width="3"/>
-  <text x="600" y="272" font-size="90" text-anchor="middle" font-family="sans-serif">🔗</text>
+  <rect width="1200" height="675" fill="url(#bg-gfc)"/>
 
-  <!-- Título da Ferramenta -->
-  <text x="600" y="400" font-size="44" font-weight="bold" fill="#ede3d4" text-anchor="middle" font-family="Fredoka, sans-serif">GameFlow Connect</text>
-  <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-gameflow-connect-cover-0)"/>
-
-  <!-- Legenda -->
-  <text x="600" y="470" font-size="22" font-weight="500" fill="#10b981" text-anchor="middle" font-family="Fredoka, sans-serif">A definir</text>
-
-  <!-- Badge de originating -->
-  <g transform="translate(600, 520)">
-    <rect x="-230" y="-18" width="460" height="36" rx="18" fill="rgba(148, 163, 184, 0.12)" stroke="#94a3b8" stroke-width="1.5"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">PLACEHOLDER DE CAPA • COVER_PIC PREVIEW</text>
+  <!-- Grade técnica de fundo -->
+  <g opacity="0.14" stroke="#34d399" stroke-width="1.2">
+    <line x1="60" y1="200" x2="1140" y2="200"/>
+    <line x1="60" y1="280" x2="1140" y2="280"/>
+    <line x1="60" y1="360" x2="1140" y2="360"/>
+    <line x1="60" y1="440" x2="1140" y2="440"/>
+    <line x1="180" y1="120" x2="180" y2="540"/>
+    <line x1="340" y1="120" x2="340" y2="540"/>
+    <line x1="860" y1="120" x2="860" y2="540"/>
+    <line x1="1020" y1="120" x2="1020" y2="540"/>
   </g>
 
-  <text x="600" y="590" font-size="14" fill="#a89f91" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEV LAB • TOOLS LAB • ATIVOS DE DESENVOLVIMENTO</text>
+  <rect x="36" y="36" width="1128" height="603" rx="20" fill="none" stroke="#14532d" stroke-width="2"/>
+
+  <!-- ===== Coluna esquerda: Google Drive (triângulo) ===== -->
+  <g transform="translate(150, 175)">
+    <circle cx="60" cy="60" r="92" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.45"/>
+    <polygon points="60,12 108,108 12,108" fill="#0f9d58" opacity="0.28"/>
+    <polygon points="60,12 108,108 76,108" fill="#00ac47" opacity="0.92"/>
+    <polygon points="60,12 44,108 12,108" fill="#f4b400" opacity="0.92"/>
+    <polygon points="12,108 108,108 60,12" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="60" y="140" font-size="13" font-weight="bold" fill="#34d399" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1">GOOGLE DRIVE</text>
+  </g>
+
+  <!-- ===== Fluxo central: pacotes de asset viajando ===== -->
+  <g transform="translate(320, 240)">
+    <path d="M0,40 C120,-10 300,-10 420,40" fill="none" stroke="url(#gfc-flow)" stroke-width="3" stroke-dasharray="12 9" stroke-linecap="round"/>
+    <path d="M0,90 C120,150 300,150 420,90" fill="none" stroke="url(#gfc-flow)" stroke-width="2" stroke-dasharray="6 10" stroke-linecap="round" opacity="0.55"/>
+
+    <!-- Pacote de asset em trânsito -->
+    <g transform="translate(180, 12)">
+      <rect x="-26" y="-26" width="52" height="52" rx="10" fill="#052e16" stroke="#34d399" stroke-width="2"/>
+      <path d="M-13,-8 L0,-18 L13,-8 L13,12 L-13,12 Z" fill="#34d399" opacity="0.85"/>
+      <text x="0" y="46" font-size="10" font-weight="bold" fill="#6ee7b7" text-anchor="middle" font-family="JetBrains Mono, monospace">ASSET</text>
+    </g>
+    <g transform="translate(320, 66)">
+      <rect x="-22" y="-22" width="44" height="44" rx="9" fill="#052e16" stroke="#f97316" stroke-width="2"/>
+      <path d="M-10,-6 L0,-14 L10,-6 L10,10 L-10,10 Z" fill="#f97316" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- ===== Coluna direita: grafo Git ===== -->
+  <g transform="translate(900, 160)">
+    <!-- Ramos -->
+    <g stroke="#34d399" stroke-width="2.6" fill="none" stroke-linecap="round">
+      <path d="M30,40 L30,150"/>
+      <path d="M30,90 C30,60 90,60 90,40"/>
+      <path d="M30,130 C30,100 150,100 150,70"/>
+      <path d="M90,40 L90,12"/>
+    </g>
+    <!-- Nós -->
+    <circle cx="30" cy="40" r="13" fill="#052e16" stroke="#34d399" stroke-width="2.5"/>
+    <circle cx="30" cy="150" r="13" fill="#052e16" stroke="#34d399" stroke-width="2.5"/>
+    <circle cx="90" cy="40" r="11" fill="#052e16" stroke="#6ee7b7" stroke-width="2.5"/>
+    <circle cx="90" cy="12" r="9" fill="#34d399"/>
+    <circle cx="150" cy="70" r="11" fill="#052e16" stroke="#f97316" stroke-width="2.5"/>
+    <circle cx="30" cy="40" r="5" fill="#34d399"/>
+    <circle cx="30" cy="150" r="5" fill="#34d399"/>
+    <text x="95" y="200" font-size="13" font-weight="bold" fill="#34d399" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1">GIT REPO</text>
+  </g>
+
+  <!-- ===== Título ===== -->
+  <text x="600" y="418" font-size="54" font-weight="700" fill="#f8fafc" text-anchor="middle" font-family="Fredoka, sans-serif" letter-spacing="0.5">GameFlow Connect</text>
+  <rect x="340" y="438" width="520" height="4" rx="2" fill="url(#gfc-accent)"/>
+  <text x="600" y="478" font-size="21" font-weight="500" fill="#6ee7b7" text-anchor="middle" font-family="Fredoka, sans-serif">Open Source • Google Drive ↔ Git • Assets no Código</text>
+
+  <!-- ===== Badge ===== -->
+  <g transform="translate(600, 528)">
+    <rect x="-215" y="-19" width="430" height="38" rx="19" fill="rgba(52, 211, 153, 0.14)" stroke="#34d399" stroke-width="1.8"/>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#34d399" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">🔓 OPEN SOURCE • INTEGRAÇÃO DE ASSETS</text>
+  </g>
+
+  <text x="600" y="600" font-size="13" fill="#4b7c64" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEVELOPER LABORATORY • TOOLS LAB • PIPELINE DE INTEGRAÇÃO</text>
 </svg>

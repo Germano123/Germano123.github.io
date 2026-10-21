@@ -6,6 +6,33 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [0.17.2] - 2026-10-21
+### Modificado
+- **Cards de Apresentação de Projetos (`renderProjectCard`):**
+  - **Clamp Fechado de Resumo:** O texto de resumo dos cards agora é truncado em limite de caracteres (~130 caracteres) respeitando fronteiras de palavras com adição de reticências (`...`) ao final, reduzindo a densidade textual inicial e padronizando a altura visual dos cards.
+  - **Card Totalmente Clicável:** A área inteira do card (`.project-card`) agora atua como link interativo, redirecionando para a página de detalhes/estudo de caso ao ser clicada em qualquer ponto (preservando cliques em botões internos e acessibilidade por teclado via `Enter`/`Space`).
+  - **Cursor e Efeitos de Hover:** Adicionado `cursor: pointer` e destacados título, capa e botão secundário durante o estado de foco/hover.
+  - **Segurança Visual em CSS:** Adicionado `-webkit-line-clamp: 3` em `.project-card-summary` para blindagem visual em telas responsivas.
+
+---
+
+## [0.17.1] - 2026-10-21
+### Adicionado
+- **Dados de Apresentação das Ferramentas (Tools Lab):**
+  - **GameFlow Connect** — base de integração open source para desenvolvedores independentes e pequenos estúdios, conectando os assets hospedados no Google Drive ao versionamento Git do projeto para que artista, game designer e programador trabalhem juntos de forma leve. Registro completo em [`artifacts/tools-data/gameflow-connect.json`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/artifacts/tools-data/gameflow-connect.json).
+  - **Cardinal** — simulador de mundos para desenvolvedores e game designers, com o mundo inteiro controlado dentro da simulação e exportado em JSON para leitura por SDKs integradas às game engines, com remontagem procedural por malha complexa ou tile nodes. Registro completo em [`artifacts/tools-data/cardinal.json`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/artifacts/tools-data/cardinal.json).
+  - Capas ilustradas autorais em [`scripts/generate-custom-tool-covers.js`](file:///c:/Users/Germano/Documents/projects/sideprojects/Germano123.github.io/scripts/generate-custom-tool-covers.js): GameFlow Connect (triângulo do Google Drive, fluxo de assets e grafo Git) e Cardinal (esfera em tile nodes, bússola cardinal, documento JSON e malha procedural).
+  - Miniaturas de galeria placeholder para as 4 capturas previstas de cada ferramenta, com legendas bilíngues descrevendo o que cada captura deve evidenciar.
+  - Novo script npm `generate:tool-covers` e inclusão na ordem canônica de `npm run generate` (`generate:tool-assets` → `generate:tool-covers` → `generate:tools`).
+- **Atualização de Métricas e Links:**
+  - `links.repositoryUrl` de ambas as ferramentas permanece `null` até que os repositórios públicos sejam definidos — nenhum botão quebrado é publicado.
+  - `workflowContext.timeSavedMetric` e `validation.testCoverage` permanecem `null` até que existam medições reais, evitando métricas inventadas.
+
+### Modificado
+- **`artifacts/4_tools_lab_page_schema.md`:** checklist de publicação refinado para separar o que é derivado da narrativa da ferramenta do que exige medição ou link verificado.
+
+---
+
 ## [0.17.0] - 2026-10-21
 ### Adicionado
 - **Páginas Estáticas de Ferramenta (Tools Lab):**

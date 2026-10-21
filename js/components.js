@@ -99,7 +99,20 @@ const Components = {
    * @param {string} lang - Idioma atual ('pt' ou 'en')
    */
   renderProjectCard(project, lang = getLanguage()) {
-    const summary = project.summary[lang] || project.summary.pt;
+    const rawSummary = (project.summary && (project.summary[lang] || project.summary.pt)) || '';
+    
+    // Clamp fechado com limite de caracteres e '...' no final
+    const MAX_SUMMARY_CHARS = 130;
+    let clampedSummary = rawSummary.trim();
+    if (clampedSummary.length > MAX_SUMMARY_CHARS) {
+      let slice = clampedSummary.slice(0, MAX_SUMMARY_CHARS);
+      const lastSpace = slice.lastIndexOf(' ');
+      if (lastSpace > 60) {
+        slice = slice.slice(0, lastSpace);
+      }
+      slice = slice.replace(/\s+(da|de|do|das|dos|e|o|a|em|com|um|uma|por|para|of|and|the|in|on|at|to|for|with|a|an)$/i, '');
+      clampedSummary = slice.trim().replace(/[,.;:!?]+$/, '') + '...';
+    }
     const statusClass = `status-${project.status}`;
     
     let statusLabel = t('statusCompleted');
@@ -145,7 +158,7 @@ const Components = {
     }
 
     return `
-      <article class="project-card project-card--${collabType}" data-project-id="${project.id}">
+      <article class="project-card project-card--${collabType}" data-project-id="${project.id}" role="link" tabindex="0" onclick="if (!event.target.closest('a, button')) { window.location.href='${detailUrl}'; }" onkeydown="if ((event.key === 'Enter' || event.key === ' ') && !event.target.closest('a, button')) { event.preventDefault(); window.location.href='${detailUrl}'; }">
         <div class="project-card-cover">
           <img src="${root}${project.cover_pic || project.cover || 'assets/background.jpg'}" alt="${project.title}" loading="lazy">
           <span class="card-collab-badge card-collab-badge--${collabType}">
@@ -161,7 +174,7 @@ const Components = {
           ${project.projectType === 'art' && project.technicalArtBudget ? `<div class="card-specialized-metric" style="font-size: 0.8rem; color: var(--color-green-light); font-weight: 500; margin-top: 4px;">📐 ${project.technicalArtBudget.triangleCount.toLocaleString()} tris • ${project.technicalArtBudget.drawCallsEstimated} draw calls</div>` : ''}
           ${project.projectType === 'game' && project.gameplayProfile ? `<div class="card-specialized-metric" style="font-size: 0.8rem; color: var(--color-orange-light); font-weight: 500; margin-top: 4px;">🎮 ${project.gameplayProfile.genre[lang] || project.gameplayProfile.genre.pt}</div>` : ''}
           ${project.projectType === 'software' && project.distributionDetails ? `<div class="card-specialized-metric" style="font-size: 0.8rem; color: var(--color-green-light); font-weight: 500; margin-top: 4px;">📦 ${project.distributionDetails.semanticVersion} • ${project.distributionDetails.license}</div>` : ''}
-          <p class="project-card-summary">${summary}</p>
+          <p class="project-card-summary">${clampedSummary}</p>
           <div class="project-card-footer">
             <a href="${detailUrl}" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.88rem;">
               ${detailLabel}

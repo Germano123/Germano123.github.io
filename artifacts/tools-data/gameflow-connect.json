@@ -7,8 +7,8 @@
     "en": "GameFlow Connect"
   },
   "subtitle": {
-    "pt": "A definir",
-    "en": "TBD"
+    "pt": "Base de integração open source entre Google Drive, versionamento Git e o código do seu jogo.",
+    "en": "Open source integration base between Google Drive, Git versioning and your game code."
   },
   "icon": "🔗",
   "accent": "green",
@@ -18,72 +18,254 @@
   "featured": true,
   "collaborationType": "portfolio",
   "partner": null,
-  "tags": [],
-  "technologies": [],
-  "toolClassification": "editor-extension",
+  "tags": [
+    "open-source",
+    "integracao",
+    "pipeline",
+    "git",
+    "google-drive",
+    "assets"
+  ],
+  "technologies": [
+    "Google Drive API",
+    "Git",
+    "JSON"
+  ],
+  "toolClassification": "pipeline-automation",
   "host": {
-    "name": "A definir",
+    "name": "Standalone",
     "version": null,
     "language": null
   },
   "cover": "assets/tools/gameflow-connect/cover.svg",
   "summary": {
-    "pt": "A definir",
-    "en": "TBD"
+    "pt": "GameFlow Connect é uma base de integração open source pensada para desenvolvedores independentes e pequenos estúdios que estão montando seus primeiros fluxos e pipelines de integração. A ferramenta conecta o material de arte hospedado no Google Drive ao versionamento Git do projeto, para que os assets sejam juntados ao código-fonte do trabalho e evoluam na mesma linha do tempo. É um fluxo leve, feito para artista, game designer e programador trabalharem juntos sem trocar a ferramenta que já usam.",
+    "en": "GameFlow Connect is an open source integration base designed for indie developers and small studios setting up their first integration flows and pipelines. The tool connects art assets hosted on Google Drive to the project's Git versioning, so assets are brought into the source code and evolve on the same timeline. It is a lightweight flow, built for artists, game designers and programmers to work together without changing the tools they already use."
   },
   "problem": {
-    "pt": "A definir",
-    "en": "TBD"
+    "pt": "Em estúdios pequenos, o material de arte quase sempre vive no Google Drive enquanto o código vive no repositório Git. Sem uma ponte entre os dois, cada pessoa do time acaba trabalhando sobre uma cópia diferente do asset, e a versão que chega à build raramente é a que o artista considera final. Reconstruir essa ligação à mão em cada projeto consome tempo de quem deveria estar produzindo.",
+    "en": "In small studios, art assets almost always live on Google Drive while code lives in the Git repository. Without a bridge between the two, everyone on the team ends up working on a different copy of the asset, and the version that reaches the build is rarely the one the artist considers final. Rebuilding that link by hand on every project eats into time that should go into production."
   },
   "solution": {
-    "pt": "A definir",
-    "en": "TBD"
+    "pt": "Uma base de integração que resolve a ligação na origem: o fluxo acompanha as pastas de assets no Google Drive, reconhece o que mudou e leva esse material para dentro do repositório Git, versionado junto com o código. Como a ferramenta é open source, cada estúdio pode adaptar o fluxo às próprias convenções de pastas, nomenclatura e branches, em vez de depender de um formato fechado.",
+    "en": "An integration base that solves the link at its source: the flow tracks the asset folders on Google Drive, detects what changed and brings that material into the Git repository, versioned alongside the code. Because the tool is open source, each studio can adapt the flow to its own folder, naming and branch conventions instead of depending on a closed format."
   },
   "contributions": {
-    "pt": "A definir",
-    "en": "TBD"
+    "pt": "Concepção e desenvolvimento da base de integração open source, do fluxo que leva os assets do Google Drive para dentro do repositório Git, e da experiência de uso pensada para ser compartilhada por artista, game designer e programador sem exigir mudança de processo.",
+    "en": "Concept and development of the open source integration base, of the flow that brings Google Drive assets into the Git repository, and of the usage experience designed to be shared by artists, game designers and programmers without requiring a process change."
   },
   "workflowContext": {
     "targetAudience": {
-      "pt": "A definir",
-      "en": "TBD"
+      "pt": "Desenvolvedores independentes e pequenos estúdios que estão construindo seus primeiros fluxos de integração entre assets e código-fonte.",
+      "en": "Indie developers and small studios building their first integration flows between assets and source code."
     },
     "painPoint": {
-      "pt": "A definir",
-      "en": "TBD"
+      "pt": "Assets no Drive e código no Git evoluem separados: o material de arte entra na build sem versionamento confiável e cada participante trabalha sobre uma versão diferente.",
+      "en": "Assets on Drive and code on Git evolve separately: art material reaches the build without reliable versioning, and each participant works on a different version."
     },
     "timeSavedMetric": null,
     "metrics": []
   },
-  "features": [],
-  "pipelineFlow": {
-    "inputs": [],
-    "processingLogic": {
-      "pt": "A definir",
-      "en": "TBD"
+  "features": [
+    {
+      "icon": "🔗",
+      "title": {
+        "pt": "Ponte Google Drive → Git",
+        "en": "Google Drive → Git bridge"
+      },
+      "body": {
+        "pt": "O fluxo conecta o armazenamento de assets no Google Drive ao repositório Git do projeto, trazendo o material de arte para dentro do versionamento do código.",
+        "en": "The flow connects the Google Drive asset storage to the project's Git repository, bringing the art material into the code's versioning."
+      }
     },
-    "outputs": []
+    {
+      "icon": "🪶",
+      "title": {
+        "pt": "Leve para times pequenos",
+        "en": "Lightweight for small teams"
+      },
+      "body": {
+        "pt": "Uma base sem infraestrutura pesada, pensada para rodar no fluxo de trabalho real de quem está começando — sem exigir servidor dedicado nem mudança de processo.",
+        "en": "A base without heavy infrastructure, designed to fit the real workflow of someone just getting started — with no dedicated server and no process change required."
+      }
+    },
+    {
+      "icon": "👥",
+      "title": {
+        "pt": "Três perfis, um fluxo",
+        "en": "Three roles, one flow"
+      },
+      "body": {
+        "pt": "Artista, game designer e programador participam do mesmo fluxo de integração sem precisar adotar a mesma ferramenta, porque a integração acontece onde cada um já trabalha.",
+        "en": "Artist, game designer and programmer take part in the same integration flow without adopting the same tool, because the integration happens where each of them already works."
+      }
+    },
+    {
+      "icon": "🌱",
+      "title": {
+        "pt": "Open source e extensível",
+        "en": "Open source and extensible"
+      },
+      "body": {
+        "pt": "A base é publicada em código aberto para que cada estúdio ajuste o fluxo às suas convenções e para que a ferramenta evolua com quem usa.",
+        "en": "The base is published as open source so each studio can adjust the flow to its conventions and so the tool evolves with the people using it."
+      }
+    }
+  ],
+  "pipelineFlow": {
+    "inputs": [
+      {
+        "pt": "Assets de arte hospedados no Google Drive",
+        "en": "Art assets hosted on Google Drive"
+      },
+      {
+        "pt": "Repositório Git do projeto",
+        "en": "The project's Git repository"
+      },
+      {
+        "pt": "Configuração do fluxo: quais pastas de assets entram no versionamento",
+        "en": "Flow configuration: which asset folders enter versioning"
+      }
+    ],
+    "processingLogic": {
+      "pt": "A ferramenta lê as pastas de assets definidas no Google Drive, compara o estado atual com o que já está versionado no repositório e identifica o que mudou desde a última integração. O que é processado entra no Git como parte do histórico do projeto, de modo que assets e código-fonte passam a evoluir na mesma linha do tempo e sob o mesmo controle de versão.",
+      "en": "The tool reads the asset folders defined on Google Drive, compares the current state with what is already versioned in the repository and identifies what changed since the last integration. What is processed enters Git as part of the project's history, so assets and source code evolve on the same timeline and under the same version control."
+    },
+    "outputs": [
+      {
+        "pt": "Repositório Git com os assets integrados ao código-fonte",
+        "en": "Git repository with assets integrated into the source code"
+      },
+      {
+        "pt": "Histórico de integrações, com o que entrou e quando",
+        "en": "Integration history, with what was brought in and when"
+      },
+      {
+        "pt": "Assets acessíveis a todos os perfis do time a partir da mesma fonte",
+        "en": "Assets accessible to every role on the team from a single source"
+      }
+    ]
   },
   "technicalArchitecture": {
-    "designDecisions": [],
-    "dataStructures": [],
-    "editorIntegrations": []
+    "designDecisions": [
+      {
+        "title": {
+          "pt": "Integração sem infraestrutura central",
+          "en": "Integration without central infrastructure"
+        },
+        "body": {
+          "pt": "A base roda a partir do próprio repositório do projeto, sem exigir um servidor dedicado. Isso mantém o custo e a complexidade compatíveis com a realidade de estúdios pequenos e de desenvolvedores independentes, que é exatamente o público que a ferramenta atende.",
+          "en": "The base runs from the project's own repository, with no dedicated server required. That keeps cost and complexity aligned with the reality of small studios and indie developers, which is exactly the audience the tool serves."
+        }
+      },
+      {
+        "title": {
+          "pt": "Open source como base de extensão",
+          "en": "Open source as the extension baseline"
+        },
+        "body": {
+          "pt": "Publicar a ferramenta em código aberto não é um detalhe de distribuição: é o que permite que cada equipe adapte o fluxo às suas próprias convenções de pastas, nomenclatura e branches, em vez de adaptar o seu processo à ferramenta.",
+          "en": "Publishing the tool as open source is not a distribution detail: it is what allows each team to adapt the flow to its own folder, naming and branch conventions, instead of adapting its process to the tool."
+        }
+      }
+    ],
+    "dataStructures": [
+      "Fluxo de Integração",
+      "Mapa de Pastas de Assets",
+      "Registro de Integração"
+    ],
+    "editorIntegrations": [
+      "Google Drive",
+      "Git"
+    ]
   },
   "validation": {
     "safetyFeatures": {
-      "pt": "A definir",
-      "en": "TBD"
+      "pt": "A integração é aditiva: o fluxo acrescenta e versiona assets no repositório em vez de substituir o trabalho que já está versionado. Cada integração fica registrada no histórico do Git, o que serve tanto como trilha de auditoria quanto como ponto de retorno caso algo precise ser desfeito.",
+      "en": "The integration is additive: the flow appends and versions assets into the repository instead of replacing work that is already versioned. Every integration is recorded in Git history, which serves both as an audit trail and as a return point should anything need to be undone."
     },
     "testCoverage": null,
-    "checks": []
+    "checks": [
+      {
+        "title": {
+          "pt": "Conflito entre as duas pontas",
+          "en": "Conflict between both ends"
+        },
+        "body": {
+          "pt": "Quando o mesmo asset muda nos dois lados — no Drive e no repositório — o fluxo reporta o conflito em vez de escolher silenciosamente um dos lados.",
+          "en": "When the same asset changes on both sides — on Drive and in the repository — the flow reports the conflict instead of silently picking one side."
+        }
+      },
+      {
+        "title": {
+          "pt": "Integridade do repositório",
+          "en": "Repository integrity"
+        },
+        "body": {
+          "pt": "A verificação garante que o estado resultante do repositório continue sendo um commit válido, com os assets referenciados presentes e apontando para caminhos existentes.",
+          "en": "Verification ensures the resulting repository state remains a valid commit, with referenced assets present and pointing at existing paths."
+        }
+      }
+    ]
   },
-  "gallery": [],
+  "gallery": [
+    {
+      "src": "assets/tools/gameflow-connect/gallery-01.svg",
+      "caption": {
+        "pt": "Configuração do fluxo ligando as pastas do Google Drive ao repositório Git.",
+        "en": "Flow configuration linking Google Drive folders to the Git repository."
+      },
+      "alt": "Tela de configuração do fluxo de integração"
+    },
+    {
+      "src": "assets/tools/gameflow-connect/gallery-02.svg",
+      "caption": {
+        "pt": "Integração refletida no histórico de commits do repositório.",
+        "en": "Integration reflected in the repository's commit history."
+      },
+      "alt": "Histórico de commits com assets integrados"
+    },
+    {
+      "src": "assets/tools/gameflow-connect/gallery-03.svg",
+      "caption": {
+        "pt": "Estrutura final do projeto, com assets e código no mesmo repositório.",
+        "en": "Final project structure, with assets and code in the same repository."
+      },
+      "alt": "Estrutura do repositório com assets integrados"
+    },
+    {
+      "src": "assets/tools/gameflow-connect/gallery-04.svg",
+      "caption": {
+        "pt": "Fluxo de trabalho compartilhado entre artista, game designer e programador.",
+        "en": "Shared workflow between artist, game designer and programmer."
+      },
+      "alt": "Fluxo de trabalho colaborativo entre perfis"
+    }
+  ],
   "results": {
-    "pt": "A definir",
-    "en": "TBD"
+    "pt": "Ferramenta open source em desenvolvimento ativo. A base de integração entre Google Drive e Git está sendo consolidada para oferecer a desenvolvedores independentes e pequenos estúdios um ponto de partida leve para seus primeiros pipelines de assets, em vez de dependerem de soluções enterprise ou de scripts improvisados.",
+    "en": "Open source tool in active development. The Google Drive to Git integration base is being consolidated to give indie developers and small studios a lightweight starting point for their first asset pipelines, instead of relying on enterprise solutions or improvised scripts."
   },
-  "limitations": [],
-  "nextSteps": [],
+  "limitations": [
+    {
+      "pt": "Depende do Google Drive como origem dos assets, o que restringe o uso a times que já organizam o material de arte nessa plataforma.",
+      "en": "It depends on Google Drive as the asset origin, which limits use to teams that already organize their art material on that platform."
+    },
+    {
+      "pt": "O escopo atual é a ligação entre assets e versionamento; automações de pipeline mais profundas ficam fora do escopo inicial.",
+      "en": "The current scope is the link between assets and versioning; deeper pipeline automations are outside the initial scope."
+    }
+  ],
+  "nextSteps": [
+    {
+      "pt": "Publicar a documentação de configuração inicial e o guia de contribuição do projeto open source.",
+      "en": "Publish the initial configuration documentation and the open source contribution guide."
+    },
+    {
+      "pt": "Ampliar a cobertura de testes do motor de integração e do tratamento de conflitos.",
+      "en": "Expand test coverage for the integration engine and conflict handling."
+    }
+  ],
   "links": {
     "repositoryUrl": null,
     "buildUrl": null,

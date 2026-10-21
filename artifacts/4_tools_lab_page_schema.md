@@ -452,11 +452,24 @@ Garantias verificadas na página gerada:
 | D4 | Subpasta `tools/` vs. arquivos na raiz | Caminhos relativos extras | Manter `tools/`: URLs limpas, escala e isolamento de assets |
 | D5 | Sem CI no GitHub Actions | Drift de artefatos gerados | Adicionar workflow que rode `npm run check` em cada push |
 | D6 | Ausência de `.nojekyll` no repositório | GitHub Pages executava Jekyll | **Resolvido** em v0.17.0 — `.nojekyll` adicionado |
-| D7 | Conteúdo real das duas ferramentas ainda é "A definir" | Páginas publicáveis vazias | Preencher com dados verificados antes de publicar (ver seção 12) |
+| D7 | Conteúdo das duas ferramentas mapeado a partir da narrativa do autor | Métricas e links públicos ainda pendentes | Preencher `timeSavedMetric`, `testCoverage` e `links.repositoryUrl` com dados verificados antes de publicar (ver seção 12) |
 
 ---
 
 ## 12. Checklist de Publicação de uma Ferramenta
+
+### 12.1 Separação entre narrativa e verificação
+
+O preenchimento de um registro mistura duas naturezas de informação, e elas **não** devem ser tratadas com o mesmo rigor:
+
+| Tipo de campo | Exemplo | Regra |
+|---|---|---|
+| **Narrativa** | `summary`, `problem`, `solution`, `contributions`, `features`, `designDecisions` | Derivada da descrição do autor. Revisar a precisão técnica, mas não exige medição. |
+| **Verificação** | `timeSavedMetric`, `testCoverage`, `links.*`, `gallery` | Exige dado real ou link testável. Ausente → `null` ou array vazio. **Nunca inventar.** |
+
+A regra estrutural do schema garante que a ausência seja visível e não enganosa: um `timeSavedMetric: null` **omite o card** em vez de exibir "0 min" ou um valor inventado, e um `repositoryUrl: null` **não gera botão** em vez de quebrar.
+
+### 12.2 Checklist
 
 Antes de considerar uma página de ferramenta pronta para publicação:
 

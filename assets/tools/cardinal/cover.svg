@@ -1,33 +1,107 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
   <defs>
-    <radialGradient id="bg-cardinal-cover-0" cx="50%" cy="40%" r="80%">
-      <stop offset="0%" stop-color="#26201b"/>
-      <stop offset="100%" stop-color="#141211"/>
+    <radialGradient id="bg-card" cx="46%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#33200f"/>
+      <stop offset="60%" stop-color="#1e1409"/>
+      <stop offset="100%" stop-color="#0d0906"/>
     </radialGradient>
-    <linearGradient id="accent-cardinal-cover-0" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f97316"/>
-      <stop offset="100%" stop-color="#c8813b"/>
+    <linearGradient id="card-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="card-mesh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#a855f7"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="675" fill="url(#bg-cardinal-cover-0)"/>
-  <rect x="40" y="40" width="1120" height="595" rx="24" fill="none" stroke="#3d352e" stroke-width="2" stroke-dasharray="10 10"/>
 
-  <!-- Círculo Central e Ícone -->
-  <circle cx="600" cy="240" r="105" fill="rgba(200, 129, 59, 0.08)" stroke="#f97316" stroke-width="3"/>
-  <text x="600" y="272" font-size="90" text-anchor="middle" font-family="sans-serif">🧭</text>
+  <rect width="1200" height="675" fill="url(#bg-card)"/>
 
-  <!-- Título da Ferramenta -->
-  <text x="600" y="400" font-size="44" font-weight="bold" fill="#ede3d4" text-anchor="middle" font-family="Fredoka, sans-serif">Cardinal</text>
-  <rect x="360" y="425" width="480" height="4" rx="2" fill="url(#accent-cardinal-cover-0)"/>
-
-  <!-- Legenda -->
-  <text x="600" y="470" font-size="22" font-weight="500" fill="#f97316" text-anchor="middle" font-family="Fredoka, sans-serif">A definir</text>
-
-  <!-- Badge de originating -->
-  <g transform="translate(600, 520)">
-    <rect x="-230" y="-18" width="460" height="36" rx="18" fill="rgba(148, 163, 184, 0.12)" stroke="#94a3b8" stroke-width="1.5"/>
-    <text x="0" y="6" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.5">PLACEHOLDER DE CAPA • COVER_PIC PREVIEW</text>
+  <!-- Grade de tile nodes ao fundo -->
+  <g opacity="0.16" stroke="#fb923c" stroke-width="1.2">
+    <line x1="60" y1="170" x2="1140" y2="170"/>
+    <line x1="60" y1="250" x2="1140" y2="250"/>
+    <line x1="60" y1="330" x2="1140" y2="330"/>
+    <line x1="60" y1="410" x2="1140" y2="410"/>
+    <line x1="60" y1="490" x2="1140" y2="490"/>
   </g>
 
-  <text x="600" y="590" font-size="14" fill="#a89f91" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEV LAB • TOOLS LAB • ATIVOS DE DESENVOLVIMENTO</text>
+  <rect x="36" y="36" width="1128" height="603" rx="20" fill="none" stroke="#5a3413" stroke-width="2"/>
+
+  <!-- ===== Mundo em tile nodes (esfera) ===== -->
+  <g transform="translate(215, 130)">
+    <circle cx="110" cy="110" r="108" fill="#1a1108" stroke="#fb923c" stroke-width="2" opacity="0.9"/>
+    <!-- Tiles do mundo -->
+    <g fill="url(#card-mesh)">
+      <rect x="46" y="26" width="22" height="22" rx="3" opacity="0.95"/>
+      <rect x="74" y="26" width="22" height="22" rx="3" opacity="0.75"/>
+      <rect x="102" y="26" width="22" height="22" rx="3" opacity="0.95"/>
+      <rect x="130" y="26" width="22" height="22" rx="3" opacity="0.5"/>
+      <rect x="158" y="26" width="22" height="22" rx="3" opacity="0.7"/>
+      <rect x="60" y="54" width="22" height="22" rx="3" opacity="0.6"/>
+      <rect x="88" y="54" width="22" height="22" rx="3" opacity="0.95"/>
+      <rect x="116" y="54" width="22" height="22" rx="3" opacity="0.8"/>
+      <rect x="144" y="54" width="22" height="22" rx="3" opacity="0.95"/>
+      <rect x="172" y="54" width="22" height="22" rx="3" opacity="0.45"/>
+      <rect x="46" y="82" width="22" height="22" rx="3" opacity="0.85"/>
+      <rect x="74" y="82" width="22" height="22" rx="3" opacity="0.55"/>
+      <rect x="102" y="82" width="22" height="22" rx="3" opacity="0.95"/>
+      <rect x="130" y="82" width="22" height="22" rx="3" opacity="0.7"/>
+      <rect x="158" y="82" width="22" height="22" rx="3" opacity="0.9"/>
+      <rect x="60" y="110" width="22" height="22" rx="3" opacity="0.5"/>
+      <rect x="88" y="110" width="22" height="22" rx="3" opacity="0.9"/>
+      <rect x="116" y="110" width="22" height="22" rx="3" opacity="0.65"/>
+      <rect x="144" y="110" width="22" height="22" rx="3" opacity="0.95"/>
+      <rect x="74" y="138" width="22" height="22" rx="3" opacity="0.7"/>
+      <rect x="102" y="138" width="22" height="22" rx="3" opacity="0.85"/>
+      <rect x="130" y="138" width="22" height="22" rx="3" opacity="0.5"/>
+      <rect x="102" y="166" width="22" height="22" rx="3" opacity="0.65"/>
+    </g>
+    <!-- Bússola (cardinal) -->
+    <g transform="translate(196, 168)">
+      <circle cx="0" cy="0" r="34" fill="#1a1108" stroke="#fb923c" stroke-width="2"/>
+      <polygon points="0,-24 9,0 0,24 -9,0" fill="#fb923c" opacity="0.9"/>
+      <polygon points="0,24 9,0 0,-24 -9,0" fill="#7c2d12" opacity="0.75"/>
+      <text x="0" y="-40" font-size="13" font-weight="bold" fill="#fb923c" text-anchor="middle" font-family="JetBrains Mono, monospace">N</text>
+    </g>
+    <text x="110" y="248" font-size="13" font-weight="bold" fill="#fb923c" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1">TILE NODES</text>
+  </g>
+
+  <!-- ===== Documento JSON exportado ===== -->
+  <g transform="translate(790, 145)">
+    <rect x="14" y="14" width="260" height="220" rx="14" fill="#000" opacity="0.4"/>
+    <rect width="260" height="220" rx="14" fill="#181009" stroke="#fb923c" stroke-width="2"/>
+    <path d="M0,14 Q0,0 14,0 L246,0 Q260,0 260,14 L260,42 L0,42 Z" fill="#2a1a0d"/>
+    <circle cx="24" cy="21" r="6" fill="#ef4444"/>
+    <circle cx="44" cy="21" r="6" fill="#f59e0b"/>
+    <circle cx="64" cy="21" r="6" fill="#10b981"/>
+    <text x="130" y="26" font-size="12" font-weight="600" fill="#a8825f" text-anchor="middle" font-family="JetBrains Mono, monospace">world.export.json</text>
+
+    <text x="20" y="76" font-size="22" font-weight="bold" fill="#fb923c" font-family="JetBrains Mono, monospace">{</text>
+    <text x="42" y="98" font-size="13" fill="#d8ceba" font-family="JetBrains Mono, monospace">"seed": 4417,</text>
+    <text x="42" y="122" font-size="13" fill="#d8ceba" font-family="JetBrains Mono, monospace">"rules": [ ... ],</text>
+    <text x="42" y="146" font-size="13" fill="#d8ceba" font-family="JetBrains Mono, monospace">"entities": 1284,</text>
+    <text x="42" y="170" font-size="13" fill="#a8825f" font-family="JetBrains Mono, monospace">"mesh": "tile-nodes"</text>
+    <text x="20" y="200" font-size="22" font-weight="bold" fill="#fb923c" font-family="JetBrains Mono, monospace">}</text>
+  </g>
+
+  <!-- ===== Malha procedural flutuante ===== -->
+  <g transform="translate(600, 132)" opacity="0.95">
+    <path d="M0,60 L40,30 L80,60 L80,120 L40,150 L0,120 Z" fill="none" stroke="url(#card-mesh)" stroke-width="2.5"/>
+    <path d="M0,60 L40,90 L80,60 M40,30 L40,90 M40,90 L40,150" fill="none" stroke="url(#card-mesh)" stroke-width="1.6" opacity="0.7"/>
+    <circle cx="40" cy="90" r="6" fill="#fb923c"/>
+  </g>
+
+  <!-- ===== Título ===== -->
+  <text x="600" y="418" font-size="56" font-weight="700" fill="#f8fafc" text-anchor="middle" font-family="Fredoka, sans-serif" letter-spacing="3">Cardinal</text>
+  <rect x="380" y="438" width="440" height="4" rx="2" fill="url(#card-accent)"/>
+  <text x="600" y="478" font-size="21" font-weight="500" fill="#fb923c" text-anchor="middle" font-family="Fredoka, sans-serif">Simulador de Mundos • Exportação JSON • Malhas Procedurais</text>
+
+  <!-- ===== Badge ===== -->
+  <g transform="translate(600, 528)">
+    <rect x="-225" y="-19" width="450" height="38" rx="19" fill="rgba(251, 146, 60, 0.14)" stroke="#fb923c" stroke-width="1.8"/>
+    <text x="0" y="6" font-size="14" font-weight="bold" fill="#fb923c" text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="1.2">🧭 SIMULADOR DE MUNDOS • GERAÇÃO PROCEDURAL</text>
+  </g>
+
+  <text x="600" y="600" font-size="13" fill="#8a5c33" text-anchor="middle" font-family="JetBrains Mono, monospace">COZY DEVELOPER LABORATORY • TOOLS LAB • WORLD SIMULATION &amp; PROCEDURAL ASSETS</text>
 </svg>
