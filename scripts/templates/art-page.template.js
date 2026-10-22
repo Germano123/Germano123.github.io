@@ -441,9 +441,16 @@ function renderArtPage(art, options = {}) {
     <meta name="description" content="${esc(description)}">
     <meta name="author" content="Germano Gomes">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Germano | Cozy Dev Lab">
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
-    <meta property="og:image" content="${esc(art.cover_pic || art.banner?.src || '')}">
+    <meta property="og:url" content="https://germano123.github.io/${esc(outputPath)}">
+    <meta property="og:image" content="${esc(art.cover_pic ? 'https://germano123.github.io/' + art.cover_pic.replace(/^\/+/, '') : 'https://github.com/Germano123.png')}">
+    <meta property="og:image:secure_url" content="${esc(art.cover_pic ? 'https://germano123.github.io/' + art.cover_pic.replace(/^\/+/, '') : 'https://github.com/Germano123.png')}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:image" content="${esc(art.cover_pic ? 'https://germano123.github.io/' + art.cover_pic.replace(/^\/+/, '') : 'https://github.com/Germano123.png')}">
     <link rel="canonical" href="${esc(outputPath)}">
     <title>${esc(title)} | Art Workshop | Germano Cozy Dev Lab</title>
     <!-- Google Fonts for Cozy Rounded Typography -->

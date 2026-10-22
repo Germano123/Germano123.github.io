@@ -6,6 +6,14 @@ O formato baseia-se no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0
 
 ---
 
+## [1.0.1] - 2026-10-21
+### Adicionado
+- **Metatags de Compartilhamento Social (Open Graph e Twitter Cards):**
+  - Adicionadas metatags completas de Open Graph (`og:image`, `og:image:secure_url`, `og:image:alt`, `og:type`, `og:site_name`, `og:title`, `og:description`, `og:url`, dimensões 460x460) e Twitter Cards (`twitter:card`, `twitter:image`, `twitter:title`, `twitter:description`) apontando para a foto de perfil do GitHub (`https://github.com/Germano123.png`) em todas as páginas públicas do laboratório (`index.html`, `about.html`, `games-prototypes.html`, `tools-lab.html`, `art-workshop.html`, `software-shelf.html`, `project.html`, `devlog.html`, `experiments.html`, `404.html`).
+  - Atualizados os templates estáticos do Tools Lab (`tool-page.template.js`) e Art Workshop (`art-page.template.js`) para suportarem metatags sociais com URLs canônicas absolutas.
+
+---
+
 ## [1.0.0] - 2026-10-21
 ### Lançamento Oficial — Primeira Versão Oficial do Portfólio
 - **Lançamento Oficial da Primeira Versão do Cozy Developer Laboratory (v1.0.0):**
